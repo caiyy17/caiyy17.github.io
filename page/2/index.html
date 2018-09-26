@@ -1,0 +1,376 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+
+  
+  <title>Hexo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta property="og:type" content="website">
+<meta property="og:title" content="Hexo">
+<meta property="og:url" content="http://yoursite.com/page/2/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:locale" content="default">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Hexo">
+  
+    <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Hexo</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://yoursite.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main">
+  
+    <article id="post-1_Markdown语法" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2018/07/17/1_Markdown语法/" class="article-date">
+  <time datetime="2018-07-16T16:07:50.000Z" itemprop="datePublished">2018-07-17</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>本人现在大学生一枚，由于自己作为小白又总喜欢瞎折腾一些东西，所以一直想自己写一些个人博客来记录一下自己的折腾历史，以防以后就忘了怎么操作。</p>
+<p>既然是写博客，又不想自己人工排版，第一篇就以Markdown的语法开始吧。</p>
+<h1 id="Markdown概述"><a href="#Markdown概述" class="headerlink" title="Markdown概述"></a>Markdown概述</h1><p>Markdown的宗旨便是<strong>易写易读</strong>，一份Markdown的文档就算是直接纯文本形式发布也不会让人看起来别扭，但又可以很方便的进行简单的排版，特别是转成html格式在互联网上十分方便。本人就计划用Markdown配合html与css将自己的文章发在微信公众号上。</p>
+<p>在这里吐槽一下：</p>
+<p>微信公众号的各种排版工具和网站实在是太麻烦了，虽然它们也许可以实现很多非常花哨的功能，但是一点点调整一点点排版十分的反人类（也许也是我不会用…），又不是做一张海报，我觉得一个非常简洁的工具才是比较好的。</p>
+<p>还有Latex的编辑效率个人感觉并不高，公式编辑其实Word自带的公式编辑器（不是mathtype）非常快捷，浮动体也很不友好，Word嵌入式就好很多（虽然有时候占地方，但有强迫症啊…）大概就只有交叉引用会比Word方便了。</p>
+<p>吐槽完毕…</p>
+<h1 id="Markdown语法"><a href="#Markdown语法" class="headerlink" title="Markdown语法"></a>Markdown语法</h1><p>好了，我们正式开始。</p>
+<h2 id="换行"><a href="#换行" class="headerlink" title="换行"></a>换行</h2><p>和Latex差不多Markdown使用一个空行来换行</p>
+<p>例：</p>
+<pre><code>这是一个段落
+
+这是一个段落
+</code></pre><p>效果：</p>
+<blockquote>
+<p>这是一个段落</p>
+<p>这是一个段落</p>
+</blockquote>
+<p>当然，Markdown也可以使用在行末尾加上两个或以上空格加来换行。（其实是在末尾加了\<br>）</p>
+<pre><code>这是一个段落（末尾有两个空格）  
+这是一个段落
+</code></pre><p>效果：</p>
+<blockquote>
+<p>这是一个段落<br>这是一个段落</p>
+</blockquote>
+<p>会发现这样的的强制换行间距与空行换行不一样</p>
+<h2 id="标题"><a href="#标题" class="headerlink" title="标题"></a>标题</h2><p>Markdown支持6级标题，分别用不一样数量的#来标记注意一定要在#后面<strong>加空格</strong></p>
+<p>例：</p>
+<pre><code># 这是H1
+## 这是H2
+###### 这是H6
+</code></pre><p>效果：</p>
+<blockquote>
+<h1 id="这是H1"><a href="#这是H1" class="headerlink" title="这是H1"></a>这是H1</h1><h2 id="这是H2"><a href="#这是H2" class="headerlink" title="这是H2"></a>这是H2</h2><h6 id="这是H6"><a href="#这是H6" class="headerlink" title="这是H6"></a>这是H6</h6></blockquote>
+<h2 id="引用"><a href="#引用" class="headerlink" title="引用"></a>引用</h2><p>引用和email中的很像，在引用区块的每行前面加一个或多个>（几个就是几级）</p>
+<p>例：</p>
+<pre><code>&gt;一级
+&gt;&gt;二级
+&gt;&gt;&gt;三级
+</code></pre><p>效果：（这里没有像前面一样另加一个引用层级）</p>
+<blockquote>
+<p>一级</p>
+<blockquote>
+<p>二级</p>
+<blockquote>
+<p>三级</p>
+</blockquote>
+</blockquote>
+</blockquote>
+<h2 id="列表"><a href="#列表" class="headerlink" title="列表"></a>列表</h2><p>使用*，+，-作无序列表（注意加空格）</p>
+<p>例：</p>
+<pre><code>* 第一条
+* 第二条
+* 第三条
+</code></pre><p>效果：</p>
+<blockquote>
+<ul>
+<li>第一条</li>
+<li>第二条</li>
+<li>第三条</li>
+</ul>
+</blockquote>
+<p>使用数字加.可以产生有序列表</p>
+<p>例：</p>
+<pre><code>1. 第一条
+2. 第二条
+3. 第三条
+</code></pre><p>效果：</p>
+<blockquote>
+<ol>
+<li>第一条</li>
+<li>第二条</li>
+<li>第三条</li>
+</ol>
+</blockquote>
+<p><strong>多级列表</strong></p>
+<p>每一级和上一级缩进四个空格，同时在下一级中所有的代码都相应缩进4个空格，这个时候代码块用```比较好。</p>
+<p>例：</p>
+<pre><code>* 第一级
+    * 第二级
+    * 第二级
+* 第一级
+* 第一级
+</code></pre><p>效果：</p>
+<blockquote>
+<ul>
+<li>第一级<ul>
+<li>第二级</li>
+<li>第二级</li>
+</ul>
+</li>
+<li>第一级</li>
+<li>第一级</li>
+</ul>
+</blockquote>
+<h2 id="代码块"><a href="#代码块" class="headerlink" title="代码块"></a>代码块</h2><p>代码只要四个空格就可以成代码块了，或用```括起来，若是行内代码，用`括起来。</p>
+<p>例：</p>
+<pre><code>    这是一段代码
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">这是一段代码</span><br></pre></td></tr></table></figure>
+
+这是一段`行内代码`
+</code></pre><p>效果：(注意代码块加引用的时候要5个空格，>之后要有一个空格和四个空格分开)</p>
+<blockquote>
+<pre><code>这是一段代码
+</code></pre><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&gt;这是一段代码</span><br><span class="line">&gt;</span><br></pre></td></tr></table></figure>
+</blockquote>
+<blockquote>
+<p>这是一段<code>行内代码</code></p>
+</blockquote>
+<h2 id="分割线"><a href="#分割线" class="headerlink" title="分割线"></a>分割线</h2><p>使用三个以上*或-或_独立成行</p>
+<p>例：</p>
+<pre><code>文字
+******
+文字
+</code></pre><p>效果：</p>
+<blockquote>
+<p>文字</p>
+<hr>
+<p>文字</p>
+</blockquote>
+<h2 id="表格"><a href="#表格" class="headerlink" title="表格"></a>表格</h2><p>表格形式：</p>
+<pre><code>|表头|表头|表头|
+|---|:--:|---:|
+|内容|内容|内容|
+|内容|内容|内容|
+</code></pre><p>其中：</p>
+<ul>
+<li>第二行分割表头和内容。</li>
+<li>- 大于等于一个就行</li>
+<li>左边加”:”表示文字居左（不加默认居左），两边加”:”表示文字居中，右边加”:”表示文字居右</li>
+<li>最两边的”|”可以省略</li>
+</ul>
+<p>效果：</p>
+<table>
+<thead>
+<tr>
+<th>表头</th>
+<th style="text-align:center">表头</th>
+<th style="text-align:right">表头</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>内容</td>
+<td style="text-align:center">内容</td>
+<td style="text-align:right">内容</td>
+</tr>
+<tr>
+<td>内容</td>
+<td style="text-align:center">内容</td>
+<td style="text-align:right">内容</td>
+</tr>
+</tbody>
+</table>
+<h2 id="区段元素"><a href="#区段元素" class="headerlink" title="区段元素"></a>区段元素</h2><h3 id="链接"><a href="#链接" class="headerlink" title="链接"></a>链接</h3><p>链接形式:(标题可选)</p>
+<pre><code>[接受链接的文字](http://example.net/ &quot;标题&quot;)
+</code></pre><p>或（注意后面[id]一定要定义好，不然没用）</p>
+<pre><code>[接受链接的文字][id]
+
+[id]: http://example.net/ &quot;标题&quot;
+</code></pre><p>或</p>
+<pre><code>[接受链接的文字][]
+
+[接受链接的文字]: http://example.net/ &quot;标题&quot;
+</code></pre><p>或</p>
+<pre><code>&lt;http://example.net/&gt;
+</code></pre><p>效果：</p>
+<blockquote>
+<p><a href="http://example.net/" title="标题" target="_blank" rel="noopener">接受链接的文字</a></p>
+</blockquote>
+<p>或(最后一种)</p>
+<blockquote>
+<p><a href="http://example.net/" target="_blank" rel="noopener">http://example.net/</a></p>
+</blockquote>
+<h3 id="强调"><a href="#强调" class="headerlink" title="强调"></a>强调</h3><p>例：</p>
+<pre><code>*文字*
+
+**文字**
+</code></pre><p>效果：</p>
+<blockquote>
+<p><em>文字</em></p>
+<p><strong>文字</strong></p>
+</blockquote>
+<h3 id="图片"><a href="#图片" class="headerlink" title="图片"></a>图片</h3><p>图片形式基本同链接，就是有前置感叹号!（这里用参考形式示范）</p>
+<pre><code>![图片文字][imgid]
+
+[imgid]: http://example.net/picture &quot;标题&quot;
+</code></pre><p>注：参考形式的[id]可以放在任何地方，可以向参考文献一样统一放在文档末尾。</p>
+<h3 id="转义字符"><a href="#转义字符" class="headerlink" title="转义字符"></a>转义字符</h3><p>转义在会引起歧义的符号前加\即可</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2018/07/17/1_Markdown语法/" data-id="cjmiy7xc90008jz0bwazehifa" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+
+
+  <nav id="page-nav">
+    
+    <a class="extend prev" rel="prev" href="/">&laquo; Prev</a><a class="page-number" href="/">1</a><span class="page-number current">2</span>
+  </nav>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+
+  
+    
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/09/">September 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/08/">August 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/07/">July 2018</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2018/09/02/10_终端的使用Linux和Mac/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2018/09/02/8_VSC设置以及texlive设置/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2018/09/02/7_电脑分配和常用程序/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2018/09/02/6_socks协议与ss设置/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2018/09/02/5_服务器设置与个人博客/">(no title)</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2018 John Doe<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+
+
+  </div>
+</body>
+</html>
