@@ -17,7 +17,7 @@
 <!--<![endif]-->
 
 <head>
-  <title>Markdown转换及发布 | 杂七杂八</title>
+  <title>Archives: 2018/9 | 杂七杂八</title>
   <!-- Meta data -->
     <meta http-equiv="Content-Type" content="text/html" charset="UTF-8" >
     <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
@@ -59,7 +59,7 @@
 </head>
 
 <!--
-<body class="post-template">
+<body class="home-template">
 -->
 <body id="index" class="lightnav animsition">
 
@@ -80,7 +80,7 @@
         		<a class="sb-toggle-submenu">Categories<span class="sb-caret"></span></a>
             	<ul class="sb-submenu">
 				  	
-				    <li><a href="/categories/Computer/" class="animsition-link">Computer<small>(3)</small></a></li>
+				    <li><a href="/categories/Computer/" class="animsition-link">Computer<small>(10)</small></a></li>
 				    
 				</ul>
         	</li>
@@ -157,166 +157,125 @@
         <!-- ============================ Header & Logo bar =========================== -->
 
 
-      
-<section id="intro">
-    <div class="container">
-        <div class="row col-md-offset-2">
-            <div class="col-md-8">
-    			<span class="post-meta">
-      <time datetime="2018-06-30T16:00:00.000Z" itemprop="datePublished">
-          2018-07-01
-      </time>
-    
-    
-    | 
-    <a href='/tags/Computer/'>Computer</a>,
-    
-    <a href='/tags/Blog/'>Blog</a>
-    
-    
-</span>
-                <h1>Markdown转换及发布</h1>
+      <!-- ============================ Hero Image =========================== -->
+
+<section id="hero" class="scrollme">
+    <div class="container-fluid element-img" style="background: url(/img/bg_img.jpg) no-repeat center center fixed;background-size: cover">
+        <div class="row">
+            <div class="col-xs-12 col-sm-8 col-sm-offset-2 col-md-8 col-md-offset-2 vertical-align cover boost text-center">
+                <div class="center-me animateme" data-when="exit" data-from="0" data-to="0.6" data-opacity="0" data-translatey="100">
+                    <div>
+                        
+                        <h2>Charles Cai's Blog. Welcome</h2>
+                        <p></p>
+                        
+                        <h2></h2>
+                        <p>每一个不曾起舞的日子都是对生命的辜负。</p>
+                        
+
+                    </div>
+                </div>
             </div>
+            <!-- // .col-md-12 -->
         </div>
-        <div class="col-md-8 col-md-offset-2">
-      		<h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>为了可以用自己喜欢的排版风格排版Markdown，需要将其转换成其他有丰富排版功能的格式，最重要的无非是html和tex，本文主要讲html的转换。</p>
-<p>转至html后便可以配合已经编写好的.css文件，统一排版成自己想要的格式。便可以发布在自己的网站上了。</p>
-<p>再用工具转成.rtf格式，还可以发到微信公众号上，不需要麻烦的公众号编辑器，只需要每次写Markdown就行了。</p>
-<h1 id="Markdown对html的支持"><a href="#Markdown对html的支持" class="headerlink" title="Markdown对html的支持"></a>Markdown对html的支持</h1><p>这里说一下Markdown原生对html的支持。Markdown的语法默认有对应的html语法，对应如下：(html闭合部分省略，详细结构可以查html相应格式)</p>
-<table>
-<thead>
-<tr>
-<th style="text-align:center">Markdown</th>
-<th style="text-align:center">html</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align:center">段落（两个换行符）</td>
-<td style="text-align:center">&lt;p&gt;</td>
-</tr>
-<tr>
-<td style="text-align:center">x级标题</td>
-<td style="text-align:center">&lt;nx&gt;</td>
-</tr>
-<tr>
-<td style="text-align:center">无序列表</td>
-<td style="text-align:center">&lt;ul&gt;</td>
-</tr>
-<tr>
-<td style="text-align:center">有序列表</td>
-<td style="text-align:center">&lt;ol&gt;</td>
-</tr>
-<tr>
-<td style="text-align:center">代码块</td>
-<td style="text-align:center">&lt;code&gt;</td>
-</tr>
-<tr>
-<td style="text-align:center">引用</td>
-<td style="text-align:center">&lt;blockquote&gt;</td>
-</tr>
-<tr>
-<td style="text-align:center">分割线</td>
-<td style="text-align:center">&lt;hr/&gt;</td>
-</tr>
-<tr>
-<td style="text-align:center">表格</td>
-<td style="text-align:center">&lt;table&gt;</td>
-</tr>
-<tr>
-<td style="text-align:center">链接</td>
-<td style="text-align:center">&lt;a&gt;</td>
-</tr>
-<tr>
-<td style="text-align:center">图片</td>
-<td style="text-align:center">&lt;img&gt;</td>
-</tr>
-<tr>
-<td style="text-align:center">*强调</td>
-<td style="text-align:center">&lt;em&gt;</td>
-</tr>
-<tr>
-<td style="text-align:center">**强调</td>
-<td style="text-align:center">&lt;strong&gt;</td>
-</tr>
-</tbody>
-</table>
-<p>而在Markdown中也可以自由插入html的代码，转换器会在转换的时候保留html的代码保持不动（有可能需要设置一下）。例如&lt;br/&gt;</p>
-<h1 id="Markdown转html"><a href="#Markdown转html" class="headerlink" title="Markdown转html"></a>Markdown转html</h1><h2 id="手动方式"><a href="#手动方式" class="headerlink" title="手动方式"></a>手动方式</h2><p>在VSCode里有”Copy Markdown as HTML”插件，可以将Markdown转成html到剪贴板，但这是人工方式。</p>
-<h2 id="自动批量方式"><a href="#自动批量方式" class="headerlink" title="自动批量方式"></a>自动批量方式</h2><p>要想一下子转换多个文件并输出到.html文件就需要自己写脚本了，这里使用python脚本。</p>
-<p>(balabala)</p>
-<h1 id="对html批量替换配合-css"><a href="#对html批量替换配合-css" class="headerlink" title="对html批量替换配合.css"></a>对html批量替换配合.css</h1><h1 id="输出rtf传至公众号"><a href="#输出rtf传至公众号" class="headerlink" title="输出rtf传至公众号"></a>输出rtf传至公众号</h1><p># </p>
-
-            <div class="clearfix"></div>
-            <hr class="nogutter">
-        </div>
-        <nav class="m-pagination col-md-8 col-md-offset-2 col-sm-24" role="pagination">
-    
-    <a class="pull-left" href="/2018/08/01/9_mac设置/" style="float: left;">
-        ← Mac设置
-    </a>
-    
-    
-    <a class="pull-right" href="/2018/06/13/1_Markdown语法/">
-        MarkDown语法 →
-    </a>
-    
-</nav>
-
-        <div class="col-md-8 col-md-offset-2 col-sm-24"><script type="text/javascript">
-  /**
-   * 搜狐畅言
-   */
-
-  /*
-  document.write('<div id="SOHUCS" sid="' + window.location.pathname.slice(1) + '" ></div>');
-
-  window.onload = function () {
-    (function () {
-      var appid = 'cytXXXX';
-      var conf = 'prod_xxxxxxxxxxxxxxxxx';
-      var width = window.innerWidth || document.documentElement.clientWidth;
-      var loadJs = function (d, a, id) {
-        var c = document.getElementsByTagName("head")[0] || document.head || document.documentElement;
-        var b = document.createElement("script");
-        b.setAttribute("type", "text/javascript");
-        b.setAttribute("charset", "UTF-8");
-        b.setAttribute("src", d);
-        if (id) {
-          b.setAttribute("id", id);
-        }
-        if (typeof a === "function") {
-          if (window.attachEvent) {
-            b.onreadystatechange = function () {
-              var e = b.readyState;
-              if (e === "loaded" || e === "complete") {
-                b.onreadystatechange = null;
-                a()
-              }
-            }
-          } else {
-            b.onload = a
-          }
-        }
-        c.appendChild(b)
-      };
-
-      loadJs("https://changyan.sohu.com/upload/changyan.js", function () {
-        window.changyan.api.config({
-          appid: appid,
-          conf: conf
-        })
-      });
-    })();
-  }
-  */
-
-</script>
-</div>
+        <div class="herofade beige-dk"></div>
     </div>
 </section>
 
+<!-- Height spacing helper -->
+<div class="heightblock"></div>
+<!-- // End height spacing helper -->
 
+<!-- ============================ END Hero Image =========================== -->
+
+
+
+<section id="services">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-10 col-md-offset-1">
+                <div class="row boxes">
+                    
+                    
+                        
+                        
+                        <div class="col-xs-12 col-sm-3 col-md-3 col-lg-3 wow fadeInUp" data-wow-delay="0.3s">
+                            
+                              <h4 class="title"><a href="/2018/09/30/Computer/10_终端的使用Linux和Mac/">Linux和Mac终端</a></h4>
+                            
+                            <p><time datetime="2018-09-29T16:00:00.000Z"><a href="/2018/09/30/Computer/10_终端的使用Linux和Mac/">2018-09-30</a></time></p>
+                        </div>
+                    
+                        
+                        
+                        <div class="col-xs-12 col-sm-3 col-md-3 col-lg-3 wow fadeInUp" data-wow-delay="0.3s">
+                            
+                              <h4 class="title"><a href="/2018/09/30/Computer/4_yubikey设置和gnupg/">yubikey和gnupg设置</a></h4>
+                            
+                            <p><time datetime="2018-09-29T16:00:00.000Z"><a href="/2018/09/30/Computer/4_yubikey设置和gnupg/">2018-09-30</a></time></p>
+                        </div>
+                    
+                        
+                        
+                        <div class="col-xs-12 col-sm-3 col-md-3 col-lg-3 wow fadeInUp" data-wow-delay="0.3s">
+                            
+                              <h4 class="title"><a href="/2018/09/30/Computer/3_yubikey和个人安全/">yubikey</a></h4>
+                            
+                            <p><time datetime="2018-09-29T16:00:00.000Z"><a href="/2018/09/30/Computer/3_yubikey和个人安全/">2018-09-30</a></time></p>
+                        </div>
+                    
+                        
+                        
+                        <div class="col-xs-12 col-sm-3 col-md-3 col-lg-3 wow fadeInUp" data-wow-delay="0.3s">
+                            
+                              <h4 class="title"><a href="/2018/09/30/Computer/5_服务器设置与个人博客/">nginx服务与Hexo博客</a></h4>
+                            
+                            <p><time datetime="2018-09-29T16:00:00.000Z"><a href="/2018/09/30/Computer/5_服务器设置与个人博客/">2018-09-30</a></time></p>
+                        </div>
+                    
+                        
+                            </div><div class="row boxes">
+                            
+                        
+                        
+                        <div class="col-xs-12 col-sm-3 col-md-3 col-lg-3 wow fadeInUp" data-wow-delay="0.3s">
+                            
+                              <h4 class="title"><a href="/2018/09/30/Computer/6_socks协议与ss设置/">ss协议</a></h4>
+                            
+                            <p><time datetime="2018-09-29T16:00:00.000Z"><a href="/2018/09/30/Computer/6_socks协议与ss设置/">2018-09-30</a></time></p>
+                        </div>
+                    
+                        
+                        
+                        <div class="col-xs-12 col-sm-3 col-md-3 col-lg-3 wow fadeInUp" data-wow-delay="0.3s">
+                            
+                              <h4 class="title"><a href="/2018/09/30/Computer/8_VSC设置以及texlive设置/">VSC以及texlive</a></h4>
+                            
+                            <p><time datetime="2018-09-29T16:00:00.000Z"><a href="/2018/09/30/Computer/8_VSC设置以及texlive设置/">2018-09-30</a></time></p>
+                        </div>
+                    
+                        
+                        
+                        <div class="col-xs-12 col-sm-3 col-md-3 col-lg-3 wow fadeInUp" data-wow-delay="0.3s">
+                            
+                              <h4 class="title"><a href="/2018/09/30/Computer/7_电脑分配和常用程序/">电脑常用软件</a></h4>
+                            
+                            <p><time datetime="2018-09-29T16:00:00.000Z"><a href="/2018/09/30/Computer/7_电脑分配和常用程序/">2018-09-30</a></time></p>
+                        </div>
+                    
+                </div>
+            </div>    
+        </div>
+    </div>
+</section> 
+
+<section id="statement">
+    <div class="container text-center wow fadeInUp" data-wow-delay="0.5s">
+        <div class="row">
+            <p>每一个不曾起舞的日子都是对生命的辜负。</p>
+        </div>
+    </div>
+</section>
       
 <!-- ============================ Footer =========================== -->
 
