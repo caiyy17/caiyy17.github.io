@@ -17,7 +17,7 @@
 <!--<![endif]-->
 
 <head>
-  <title>Tag: safety | 杂七杂八</title>
+  <title>Markdown2:转换及发布 | 杂七杂八</title>
   <!-- Meta data -->
     <meta http-equiv="Content-Type" content="text/html" charset="UTF-8" >
     <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
@@ -59,7 +59,7 @@
 </head>
 
 <!--
-<body class="home-template">
+<body class="post-template">
 -->
 <body id="index" class="lightnav animsition">
 
@@ -159,95 +159,173 @@
         <!-- ============================ Header & Logo bar =========================== -->
 
 
-      <!-- ============================ Hero Image =========================== -->
-
-<section id="hero" class="scrollme">
-    <div class="container-fluid element-img" style="background: url(/img/bg_img.jpg) no-repeat center center fixed;background-size: cover">
-        <div class="row">
-            <div class="col-xs-12 col-sm-8 col-sm-offset-2 col-md-8 col-md-offset-2 vertical-align cover boost text-center">
-                <div class="center-me animateme" data-when="exit" data-from="0" data-to="0.6" data-opacity="0" data-translatey="100">
-                    <div>
-                        
-                        <h2>Charles Cai's Blog. Welcome</h2>
-                        <p></p>
-                        
-                        <h2></h2>
-                        <p>每一个不曾起舞的日子都是对生命的辜负。</p>
-                        
-                    </div>
-                </div>
-            </div>
-            <!-- // .col-md-12 -->
-        </div>
-        <div class="herofade beige-dk"></div>
-    </div>
-</section>
-
-<!-- Height spacing helper -->
-<div class="heightblock"></div>
-<!-- // End height spacing helper -->
-
-<!-- ============================ END Hero Image =========================== -->
-
-
-
-<section id="services">
+      
+<section id="intro">
     <div class="container">
-        <div class="row">
-            <div class="col-md-10 col-md-offset-1">
-                <div class="row boxes">
-                    
-                    
-                        
-                        
-                        <div class="col-xs-12 col-sm-3 col-md-3 col-lg-3 wow fadeInUp" data-wow-delay="0.3s">
-                            
-                              <h4 class="title"><a href="/2018/09/30/Computer/VPS1_购买以及设置VPS/">VPS1:购买以及设置</a></h4>
-                            
-                            <p><time datetime="2018-09-29T16:00:00.000Z"><a href="/2018/09/30/Computer/VPS1_购买以及设置VPS/">2018-09-30</a></time></p>
-                        </div>
-                    
-                        
-                        
-                        <div class="col-xs-12 col-sm-3 col-md-3 col-lg-3 wow fadeInUp" data-wow-delay="0.3s">
-                            
-                              <h4 class="title"><a href="/2018/09/30/Computer/yubikey1L_个人安全/">yubikey与个人安全</a></h4>
-                            
-                            <p><time datetime="2018-09-29T16:00:00.000Z"><a href="/2018/09/30/Computer/yubikey1L_个人安全/">2018-09-30</a></time></p>
-                        </div>
-                    
-                        
-                        
-                        <div class="col-xs-12 col-sm-3 col-md-3 col-lg-3 wow fadeInUp" data-wow-delay="0.3s">
-                            
-                              <h4 class="title"><a href="/2018/09/30/Computer/VPS2_socks协议与ss设置/">VPS2:socks协议以及ss设置</a></h4>
-                            
-                            <p><time datetime="2018-09-29T16:00:00.000Z"><a href="/2018/09/30/Computer/VPS2_socks协议与ss设置/">2018-09-30</a></time></p>
-                        </div>
-                    
-                        
-                        
-                        <div class="col-xs-12 col-sm-3 col-md-3 col-lg-3 wow fadeInUp" data-wow-delay="0.3s">
-                            
-                              <h4 class="title"><a href="/2018/09/30/Computer/yubikey2_设置和gnupg/">yubikey和gnupg设置</a></h4>
-                            
-                            <p><time datetime="2018-09-29T16:00:00.000Z"><a href="/2018/09/30/Computer/yubikey2_设置和gnupg/">2018-09-30</a></time></p>
-                        </div>
-                    
-                </div>
-            </div>    
+        <div class="row col-md-offset-2">
+            <div class="col-md-8">
+    			<span class="post-meta">
+      <time datetime="2018-07-11T16:00:00.000Z" itemprop="datePublished">
+          2018-07-12
+      </time>
+    
+    
+    | 
+    <a href='/tags/Markdown/'>Markdown</a>,
+    
+    <a href='/tags/Blog/'>Blog</a>
+    
+    
+</span>
+                <h1>Markdown2:转换及发布</h1>
+            </div>
         </div>
-    </div>
-</section> 
+        <div class="col-md-8 col-md-offset-2">
+      		<h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>为了可以用自己喜欢的排版风格排版Markdown，需要将其转换成其他有丰富排版功能的格式，最重要的无非是html和tex，本文主要讲html的转换。</p>
+<p>转至html后便可以配合已经编写好的.css文件，统一排版成自己想要的格式。便可以发布在自己的网站上了。然而自己便携插件还是有些困难，好在有hexo或者markdownhere等软件和插件的帮助。前者可以帮助我们制作博客，后者可以直接在chrome中将markdown原文在公众号网站中转换为带格式的文本。</p>
+<p>之后就不需要麻烦的公众号编辑器，只需要每次写Markdown就行了。</p>
+<h1 id="Markdown对html的支持"><a href="#Markdown对html的支持" class="headerlink" title="Markdown对html的支持"></a>Markdown对html的支持</h1><p>这里说一下Markdown原生对html的支持。Markdown的语法默认有对应的html语法，对应如下：(html闭合部分省略，详细结构可以查html相应格式)</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">Markdown</th>
+<th style="text-align:center">html</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">段落（两个换行符）</td>
+<td style="text-align:center">&lt;p&gt;</td>
+</tr>
+<tr>
+<td style="text-align:center">x级标题</td>
+<td style="text-align:center">&lt;nx&gt;</td>
+</tr>
+<tr>
+<td style="text-align:center">无序列表</td>
+<td style="text-align:center">&lt;ul&gt;</td>
+</tr>
+<tr>
+<td style="text-align:center">有序列表</td>
+<td style="text-align:center">&lt;ol&gt;</td>
+</tr>
+<tr>
+<td style="text-align:center">代码块</td>
+<td style="text-align:center">&lt;code&gt;</td>
+</tr>
+<tr>
+<td style="text-align:center">引用</td>
+<td style="text-align:center">&lt;blockquote&gt;</td>
+</tr>
+<tr>
+<td style="text-align:center">分割线</td>
+<td style="text-align:center">&lt;hr/&gt;</td>
+</tr>
+<tr>
+<td style="text-align:center">表格</td>
+<td style="text-align:center">&lt;table&gt;</td>
+</tr>
+<tr>
+<td style="text-align:center">链接</td>
+<td style="text-align:center">&lt;a&gt;</td>
+</tr>
+<tr>
+<td style="text-align:center">图片</td>
+<td style="text-align:center">&lt;img&gt;</td>
+</tr>
+<tr>
+<td style="text-align:center">*强调</td>
+<td style="text-align:center">&lt;em&gt;</td>
+</tr>
+<tr>
+<td style="text-align:center">**强调</td>
+<td style="text-align:center">&lt;strong&gt;</td>
+</tr>
+</tbody>
+</table>
+<p>而在Markdown中也可以自由插入html的代码，转换器会在转换的时候保留html的代码保持不动（有可能需要设置一下）。例如&lt;br/&gt;</p>
+<h1 id="Markdown转html"><a href="#Markdown转html" class="headerlink" title="Markdown转html"></a>Markdown转html</h1><p>在VSCode里有”Copy Markdown as HTML”插件，可以将Markdown转成html到剪贴板，但这是人工方式。</p>
+<p>而若使用类似Hexo的博客软件，可以直接使用markdown写文章，之后转换html和配合css都是自动完成的。至于hexo的使用，之后会单独说明。</p>
+<p>另一方案也可以使用python制作脚本，但既然是做公众号，我们可以使用chrome插件markdown here，可以直接在网页输入中将markdown替换为带格式的文本。</p>
+<h2 id="Markdown-here"><a href="#Markdown-here" class="headerlink" title="Markdown here"></a>Markdown here</h2><p>markdownhere中可以设置替换是用的css文件，在网上可以找到一些现成的css，当然也可以自己编一些花哨的css格式，这是另一回事了。另外如果自己定义了一些html标签，也可以一起写进css，这些标签也会在替换时一起被渲染。</p>
+<p>ps：markdownhere的作用不止于微信公众号的文本替换，编辑邮件时也可以使用它。</p>
+<h1 id="After-all"><a href="#After-all" class="headerlink" title="After all"></a>After all</h1><p>总之，我个人认为在日常写作中，markdown是非常有用的生产力工具，只要使用一些极简的文本编辑器甚至是记事本，就可以随时随地地写一些东西，并且在发表时也可以方便地为其渲染格式。</p>
 
-<section id="statement">
-    <div class="container text-center wow fadeInUp" data-wow-delay="0.5s">
 
-        <div class="row">
-            <p>每一个不曾起舞的日子都是对生命的辜负。</p>
+<br />
+<br />
+<a rel="license" href="http://creativecommons.org/licenses/by/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by/4.0/80x15.png" /></a><br />This work is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by/4.0/">Creative Commons Attribution 4.0 International License</a>.
+
+            <div class="clearfix"></div>
+            <hr class="nogutter">
         </div>
+        <nav class="m-pagination col-md-8 col-md-offset-2 col-sm-24" role="pagination">
+    
+    <a class="pull-left" href="/2018/08/15/Computer/Mac_新机设置/" style="float: left;">
+        ← Mac1:设置
+    </a>
+    
+    
+    <a class="pull-right" href="/2018/06/13/Computer/Md1_语法/">
+        Markdown1:语法 →
+    </a>
+    
+</nav>
+
+        <div class="col-md-8 col-md-offset-2 col-sm-24"><script type="text/javascript">
+  /**
+   * 搜狐畅言
+   */
+
+  /*
+  document.write('<div id="SOHUCS" sid="' + window.location.pathname.slice(1) + '" ></div>');
+
+  window.onload = function () {
+    (function () {
+      var appid = 'cytXXXX';
+      var conf = 'prod_xxxxxxxxxxxxxxxxx';
+      var width = window.innerWidth || document.documentElement.clientWidth;
+      var loadJs = function (d, a, id) {
+        var c = document.getElementsByTagName("head")[0] || document.head || document.documentElement;
+        var b = document.createElement("script");
+        b.setAttribute("type", "text/javascript");
+        b.setAttribute("charset", "UTF-8");
+        b.setAttribute("src", d);
+        if (id) {
+          b.setAttribute("id", id);
+        }
+        if (typeof a === "function") {
+          if (window.attachEvent) {
+            b.onreadystatechange = function () {
+              var e = b.readyState;
+              if (e === "loaded" || e === "complete") {
+                b.onreadystatechange = null;
+                a()
+              }
+            }
+          } else {
+            b.onload = a
+          }
+        }
+        c.appendChild(b)
+      };
+
+      loadJs("https://changyan.sohu.com/upload/changyan.js", function () {
+        window.changyan.api.config({
+          appid: appid,
+          conf: conf
+        })
+      });
+    })();
+  }
+  */
+
+</script>
+</div>
     </div>
 </section>
+
+
       
 <!-- ============================ Footer =========================== -->
 

@@ -17,7 +17,7 @@
 <!--<![endif]-->
 
 <head>
-  <title>电脑常用软件 | 杂七杂八</title>
+  <title>Mac1:设置 | 杂七杂八</title>
   <!-- Meta data -->
     <meta http-equiv="Content-Type" content="text/html" charset="UTF-8" >
     <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
@@ -165,21 +165,207 @@
         <div class="row col-md-offset-2">
             <div class="col-md-8">
     			<span class="post-meta">
-      <time datetime="2018-09-29T16:00:00.000Z" itemprop="datePublished">
-          2018-09-30
+      <time datetime="2018-08-14T16:00:00.000Z" itemprop="datePublished">
+          2018-08-15
       </time>
     
     
     | 
-    <a href='/tags/Computer/'>Computer</a>
+    <a href='/tags/Computer/'>Computer</a>,
+    
+    <a href='/tags/Apple/'>Apple</a>
     
     
 </span>
-                <h1>电脑常用软件</h1>
+                <h1>Mac1:设置</h1>
             </div>
         </div>
         <div class="col-md-8 col-md-offset-2">
-      		<p>HelloWorld</p>
+      		<h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>新的mbp2018总算到了，这也是我自己的第一台苹果电脑，自然要熟悉好一会儿，在此记录下我的折腾过程。</p>
+<h1 id="基础：系统偏好设置"><a href="#基础：系统偏好设置" class="headerlink" title="基础：系统偏好设置"></a>基础：系统偏好设置</h1><p>在设置中，我增加了这些东西</p>
+<ol>
+<li>调度中心：使窗口按应用程序成组</li>
+<li><p>调度中心：设置触发角（右下角关闭屏幕）</p>
+<p> 如果设置了caffeinate，就可以关闭屏幕而不打扰电脑运行了</p>
+</li>
+<li><p>安全与隐私：打开防火墙</p>
+</li>
+<li>通知：设定哪些程序可以通知</li>
+<li>键盘：下载听写语言</li>
+<li>触控板：功能全勾上</li>
+<li>iCloud：功能全勾上</li>
+<li>扩展：”今天”中显示的内容</li>
+<li><p>命令行设置显示全路径</p>
+<pre><code>defaults write com.apple.finder _FXShowPosixPathInTitle -bool TRUE; killall Finder
+</code></pre></li>
+<li><p>更改截屏保存地址</p>
+<pre><code>defaults write com.apple.screencapture location &quot;路径&quot;; killalll SyatemUIserve
+</code></pre></li>
+<li><p>Finder偏好设置</p>
+<p>边栏-&gt;全勾上</p>
+<p>高级-&gt;勾选”显示所有文件扩展名”和”按名称排序时保持文件夹在顶部”</p>
+<p>顶部 显示-&gt;显示标签页栏，显示状态栏</p>
+<p>在任意文件夹空白处-&gt;右键查看显示选项-&gt;改设置并用作默<br>可以作用于之后新建的文件夹</p>
+<p>目前设置：<br>排列方式：无；排序方式：名称；显示项目简介；显示图标预览</p>
+</li>
+<li><p>文本编辑偏好设置</p>
+<p>新建文稿-&gt;格式-&gt;纯文本</p>
+</li>
+</ol>
+<h1 id="基础：几个好用的快捷键"><a href="#基础：几个好用的快捷键" class="headerlink" title="基础：几个好用的快捷键"></a>基础：几个好用的快捷键</h1><ol>
+<li>command+delete 删除；command+shift+delete 清空垃圾箱</li>
+<li>command+option+V 剪切粘贴</li>
+<li>command+q 退出程序；command+w 退出当前标签页</li>
+<li>command+i 显示信息；command+o 打开文件</li>
+<li>command+control+F 全屏</li>
+<li>command+T 新建标签页；command+N 新建窗口</li>
+<li>三指：向上平铺窗口换桌面；向下平铺本应用窗口；左右换桌面</li>
+<li>可以在 键盘-&gt;快捷键 中设置control+数字选定第几个桌面</li>
+<li>command+space：spotlight搜索</li>
+<li>按住绿色全屏按钮可以实现分屏</li>
+</ol>
+<h1 id="基础：安装日常应用"><a href="#基础：安装日常应用" class="headerlink" title="基础：安装日常应用"></a>基础：安装日常应用</h1><ol>
+<li>微信，QQ，百度云</li>
+<li>IINA Player（视频），Foobar2000（音乐），Blu-rayplayer Pro（蓝光）</li>
+<li>sslvpn客户端，shadowsocks客户端</li>
+<li>MSOffice，Mathematica，Xmind</li>
+<li>Adobe各种软件（PS，LR，ID）（使用ACC装好后破解就行）</li>
+<li>苹果FCPX，LogicProX</li>
+<li><p>ppsspp（安装brew后安装sdl2，配置在用户名/.config中）</p>
+<pre><code>brew install sdl2
+</code></pre><p> 然后官方下载ppsspp，将Path放入.config相应位置</p>
+</li>
+<li><p>小工具</p>
+<p> istate（可以查看电脑实时状态）</p>
+<p> TeamViewer远程软件</p>
+<p> Seagate官方ntfsformac</p>
+<p> BetterZip解压</p>
+</li>
+</ol>
+<h1 id="进阶：安装编程相关应用并配置"><a href="#进阶：安装编程相关应用并配置" class="headerlink" title="进阶：安装编程相关应用并配置"></a>进阶：安装编程相关应用并配置</h1><ol>
+<li><p>Xcode</p>
+<p> 申请Apple开发者账号，从AppStore安装Xcode，生成macOS选项下的CommandLineTool写C++工程</p>
+</li>
+<li><p>VSCode+Git</p>
+<p>安装VSCode，安装Git，运行VSCode并安装插件（LateX,Markdown，html，JS，TS，配色）</p>
+<p>配置Git，在网页Github的develop设置里加一个个人密码用于git的操作（代替密码），并且设置本地记住密码</p>
+<pre><code>git config --global credential.helper store
+</code></pre><p>然后本地新建仓库：（在需要建立的文件夹下）</p>
+<pre><code>git init
+git add .
+git commit -m &quot;First Commit&quot;
+git remote add origin &lt;仓库地址&gt;
+git pull --rebase origin master
+git push -u origin master
+</code></pre><p>或从远程拉取仓库：</p>
+<pre><code>git clone &lt;仓库地址&gt;
+</code></pre><p>（还可以设置alias）</p>
+</li>
+<li><p>Latex</p>
+<p>官网下载MacTex，安装后运行一遍，之后配置VSCode的配置文件</p>
+</li>
+<li><p><strong><em>Iterm2及相关</em></strong></p>
+<p><strong><em>Iterm2，oh-my-zsh，homebrew，gnupg</em></strong></p>
+<ul>
+<li><p>安装Iterm2</p>
+</li>
+<li><p>官方安装brew（但是网络经常不行）</p>
+<pre><code>/usr/bin/ruby -e &quot;$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)&quot;
+</code></pre></li>
+<li><p>安装oh-my-zsh</p>
+<pre><code>sh -c &quot;$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)&quot;
+</code></pre></li>
+<li><p>安装主题</p>
+<p>  安装的主题都在~/.oh-my-zsh/themes里面，若没有想要的主题可以在网上安装（git clone然后把.zsh-theme拷贝到themes文件夹里即可）</p>
+<p>  然后在~/.zshrc修改主题名字，再</p>
+<pre><code>source ~/.zshrc
+</code></pre></li>
+<li><p>安装插件</p>
+<pre><code>cd ~/.oh-my-zsh/custom/plugins
+git clone &lt;插件地址&gt;
+</code></pre><p>  然后在~/.zshrc中的Plugins选项里加入下载的插件，再</p>
+<pre><code>source ~/.zshrc
+</code></pre></li>
+<li><p>修改配色和背景</p>
+<p>  这个自己改就行了，也可以网上下现成的然后导入进去</p>
+</li>
+<li><p>安装gnupg</p>
+<p>  使用brew安装gnupg，然后写配置文件~/.gnupg/gpg-agent.conf</p>
+<pre><code>pinentry-program /usr/local/bin/pinentry
+enable-ssh-support
+</code></pre><p>  若需要图形界面，可以brew安装pinentry-mac，然后</p>
+<pre><code>pinentry-program /usr/local/bin/pinentry-mac
+</code></pre></li>
+</ul>
+<p>P.S. 更换brew更新源</p>
+<pre><code># 替换brew.git:
+$ cd &quot;$(brew --repo)&quot;
+# 中国科大:
+$ git remote set-url origin https://mirrors.ustc.edu.cn/brew.git
+# 清华大学:
+$ git remote set-url origin https://mirrors.tuna.tsinghua.edu.cn/git/homebrew/brew.git
+
+# 替换homebrew-core.git:
+$ cd &quot;$(brew --repo)/Library/Taps/homebrew/homebrew-core&quot;
+# 中国科大:
+$ git remote set-url origin https://mirrors.ustc.edu.cn/homebrew-core.git
+# 清华大学:
+$ git remote set-url origin https://mirrors.tuna.tsinghua.edu.cn/git/homebrew/homebrew-core.git
+
+# 替换homebrew-bottles:
+# 中国科大:
+$ echo &apos;export HOMEBREW_BOTTLE_DOMAIN=https://mirrors.ustc.edu.cn/homebrew-bottles&apos; &gt;&gt; ~/.bash_profile
+$ source ~/.bash_profile
+# 清华大学:
+$ echo &apos;export HOMEBREW_BOTTLE_DOMAIN=https://mirrors.tuna.tsinghua.edu.cn/homebrew-bottles&apos; &gt;&gt; ~/.bash_profile
+$ source ~/.bash_profile
+
+# 应用生效:
+$ brew update
+</code></pre><p>（之后还可以安装brew cask，以及cake和launchpad两个可视化软件）</p>
+</li>
+</ol>
+<h1 id="进阶：其他设置"><a href="#进阶：其他设置" class="headerlink" title="进阶：其他设置"></a>进阶：其他设置</h1><ol>
+<li><p>创建一个TempUser账户供其他人用，设置家长控制，限制其权限</p>
+</li>
+<li><p>设置时间机器</p>
+<p> 需要从苹果彻底格式化一个硬盘，然后分区，使用TimeMachine开启加密备份，带其中一个分区上，其他分区可以正常使用，在Win下格式成ntfs</p>
+</li>
+<li><p>多桌面分配</p>
+<p> Dock中留了Finder，Launcher，Safari，文本编辑，终端，活动监视器，iTunes，AppStore，钥匙串</p>
+</li>
+</ol>
+<h1 id="进阶：Windows相关"><a href="#进阶：Windows相关" class="headerlink" title="进阶：Windows相关"></a>进阶：Windows相关</h1><p>安装WinToGo</p>
+<ol>
+<li><p>Win下载wtga或类似软件和官方iso</p>
+<p> 用它制作安装盘，选择uefi启动方式（这会彻底格式化整个硬盘），vhd设置大小为C盘大小</p>
+</li>
+<li><p>Mac下载BootCamp的驱动程序（在菜单中找）放入U盘</p>
+</li>
+<li>Mac下command+R启动，使用工具中关闭加密启动，允许外部安装</li>
+<li>Mac下Option启动安装，，操作中需要一个外置鼠标，最后安装驱动</li>
+</ol>
+<h1 id="服务器相关"><a href="#服务器相关" class="headerlink" title="服务器相关"></a>服务器相关</h1><ol>
+<li><p>连接服务器</p>
+<p> 使用brew安装gnupg，将公钥放到服务器</p>
+<p> P.S. 如果gpg崩了就（若使用sh执行，执行时用”source 文件名”，也即”. 文件名”）</p>
+<pre><code>killall gpg-agent
+eval $(gpg-agent --daemon --enable-ssh-support)
+</code></pre><p> 然后将私钥放入<code>~/.ssh</code>并更改权限为700，公钥放服务器，接下来</p>
+<pre><code>ssh-add -K 私钥文件
+//这样就吧key加好了
+
+ssh -p [port] 用户名@服务器地址
+</code></pre></li>
+<li><p>使用yubikey登陆</p>
+<p> 安装PIV Manager和Yubikey Manager，然后再</p>
+<pre><code>brew install yubikey-personalization
+</code></pre><p> 根据PIV的提示设置PIN，然后就设置完成了，接着连着Yubikey就可以使用PIN登陆Mac，而mac本身可以设置一个复杂的密码，放在Yubikey的Slot1</p>
+</li>
+<li><p>使用yubikey登陆服务器</p>
+<p> 理论上gnupg安装好，并且在~/.gnupg/gpg-agent.conf中存在enable-ssh-support，重启gpg-agent，之后”ssh-add -l”卡中的钥匙应该会自动出现，（有可能需要导入公钥信息），.ssh中的私钥”ssh-add -K 文件”加一下就行了</p>
+</li>
+</ol>
 
 
 <br />
@@ -191,13 +377,13 @@
         </div>
         <nav class="m-pagination col-md-8 col-md-offset-2 col-sm-24" role="pagination">
     
-    <a class="pull-left" href="/2018/09/30/Computer/yubikey1L_个人安全/" style="float: left;">
-        ← yubikey与个人安全
+    <a class="pull-left" href="/2018/09/30/Computer/VPS3_服务器设置与个人博客/" style="float: left;">
+        ← VPS3:nginx服务与Hexo博客
     </a>
     
     
-    <a class="pull-right" href="/2018/09/30/Computer/VPS1_购买以及设置VPS/">
-        VPS1:购买以及设置 →
+    <a class="pull-right" href="/2018/07/12/Computer/Md2_转换及发布/">
+        Markdown2:转换及发布 →
     </a>
     
 </nav>
