@@ -17,7 +17,7 @@
 <!--<![endif]-->
 
 <head>
-  <title>软件2:VSC | 杂七杂八</title>
+  <title>yubikey与个人安全 | 杂七杂八</title>
   <!-- Meta data -->
     <meta http-equiv="Content-Type" content="text/html" charset="UTF-8" >
     <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
@@ -171,19 +171,76 @@
     
     
     | 
-    <a href='/tags/Computer/'>Computer</a>
+    <a href='/tags/safety/'>safety</a>,
+    
+    <a href='/tags/yubikey/'>yubikey</a>
     
     
 </span>
-                <h1>软件2:VSC</h1>
+                <h1>yubikey与个人安全</h1>
             </div>
         </div>
         <div class="col-md-8 col-md-offset-2">
-      		<h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>前面讲的所有软件中，我想重点讲一下VSCode这个软件，简直神器，这是微软发布的一款轻量级的编辑器，但拥有非常多扩展功能，而且原生自带git支持，非常适合平时写写文章，脚本和轻量级的程序。特别是平时写文章，非常地好用，三大主流系统通用啊！</p>
-<h1 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h1><p>按照官网下载就行了，然后可以下载各种插件，都在插件商店里面有，下载完重新加载一下就行，而卸载插件也是一键式的。插件也会分文件夹装在VSC生成的一个隐藏文件夹中，不会乱跑，Windows和Mac都在用户文件夹下的.vscode\extensions里面当然也可以改目录。</p>
-<h1 id="设置"><a href="#设置" class="headerlink" title="设置"></a>设置</h1><p>VSC的设置也是越来越方便了，当然本质还是一个.json文件，应该一看就可以看懂，设置分三种：用户设置，工作区设置和文件夹设置。</p>
-<p>其中用户设置保存在程序中（setting.json可以通过打开设置，然后查看文件路径得知，这样就可以备份出来了）；工作区设置保存在.code-workspace文件中，可以自己指定存的地方；文件夹设置在本文件夹下的.vscode\setting.json里面。</p>
-<h1 id="git"><a href="#git" class="headerlink" title="git"></a>git</h1>
+      		<p>///</p>
+<h1 id="个人安全问题"><a href="#个人安全问题" class="headerlink" title="个人安全问题"></a>个人安全问题</h1><p>如今网络十分混乱，各种信息极其容易被窃取（比如说斯诺登事件），加密和认证就显得极其重要，而yubikey就是这样一个简易的设备（支持OTP、公钥加密签名、U2F协议）。</p>
+<h1 id="yubikey"><a href="#yubikey" class="headerlink" title="yubikey"></a>yubikey</h1><p>来自wiki：YubiKey是由Yubico生产的身份认证设备，支持一次性密码（OTP）、公钥加密和身份认证，以及由FIDO联盟（FIDO U2F）开发的通用第二因素（U2F）协议。它让用户可以透过提交一次性密码或是使用设备产生的公开/私密金钥来安全地登录自己的帐户。针对不支持一次性密码的网站，YubiKey也可以存储静态密码。Facebook使用YubiKey作为员工凭证；Google同时为雇员和用户提供支持。还有一些密码管理器也支持YubiKey。</p>
+<p>以下部分取自<br><a href="https://blog.blahgeek.com/yubikey-intro/" target="_blank" rel="noopener">YubiKey入手和介绍</a></p>
+<h2 id="作为键盘设备（HID）"><a href="#作为键盘设备（HID）" class="headerlink" title="作为键盘设备（HID）"></a>作为键盘设备（HID）</h2><p>这是它主要介绍的功能，能够模拟键盘设备向电脑输入一串生成的密码，兼容性最好。其中还包含多种模式：OTP、Static、Challenge-Response、HTOP，</p>
+<ul>
+<li>OTP: KEY_ID+AES(AES_KEY, SECRET, COUNT++)即生成的密码包含明文的KEY_ID和对称加密的SECRET和计数器。第一次使用前需要把KEY_ID，AES_KEY，SECRET提交至验证服务器（Yubico提供或者自己搭建），之后应用程序每次通过服务器验证密码的可靠性（解码后SECRET对应、COUNT增大（防止重放攻击））。</li>
+<li>Static: 静态密码。顾名思义，每次生成固定的一串密码（并没有什么用）。</li>
+<li>Challenge-Response: HMAC(SECRET, INPUT)即可以通过HID接口给定一个输入，输入HMAC的计算结果。输入需要本地代码实现。</li>
+<li>HOTP: HMAC(SECRET, COUNTER++)算法与Challenge-Response类似，然而使用累加计数器代替了输入，并且HTOP是一个标准协议，许多网站和设备都兼容该标准。</li>
+</ul>
+<p>在YubiKey中包含两个configuration slot，每一个slot可以单独配置以上模式中的其中一种，通过短触和长触来选择输入。</p>
+<p>然而以上都是对称加密，也就是说，只要服务器端（验证服务器）的密文被泄漏，所有的信息理论上都可以进行伪造。</p>
+<h2 id="U2F"><a href="#U2F" class="headerlink" title="U2F"></a>U2F</h2><p>U2F是一个开源的认证标准协议，使用非对称加密算法，在每次需要认证是设备可以对challenge信息使用私钥进行签名来完成认证。作为一个开源的标准协议，Google、Dropbox等网站都支持这种协议的两步验证，然而现阶段浏览器端仅有Chrome支持。</p>
+<p><img src="/images/Computer/u2f.png" alt="U2F"></p>
+<h2 id="OpenPGP-Smart-Card"><a href="#OpenPGP-Smart-Card" class="headerlink" title="OpenPGP Smart Card"></a>OpenPGP Smart Card</h2><p>YubiKey还可以作为标准的OpenPGP Smart Card使用，用来存储PGP私钥（设备中私钥是可写不可读的，解密／签名操作在设备上完成）。</p>
+<p>以上提到的三个功能是可以同时使用的，相互之间并不冲突。</p>
+<h1 id="个人安全模型"><a href="#个人安全模型" class="headerlink" title="个人安全模型"></a>个人安全模型</h1><p>有了yubikey就可以建立起一个稍微有效的个人安全模型，当然主要为了<s>装逼</s></p>
+<p>以下同样严重参考同一作者的<br><a href="https://blog.blahgeek.com/yubikey-review/" target="_blank" rel="noopener">Yubikey使用一年总结</a><br>和<br><a href="https://blog.blahgeek.com/personal-security-model/" target="_blank" rel="noopener">建立个人信息安全模型</a></p>
+<h2 id="个人信息安全需求"><a href="#个人信息安全需求" class="headerlink" title="个人信息安全需求"></a>个人信息安全需求</h2><p>一个人对于一项隐秘的内容，其需求包含两点：不让别人获取，以及方便自己获取。 同时，一个人一定拥有多项隐秘的内容，对于不同隐秘内容，他们的重要程度是不一样的。</p>
+<p>所以就需要一个多层级的个人信息安全模型。</p>
+<h2 id="密码个数"><a href="#密码个数" class="headerlink" title="密码个数"></a>密码个数</h2><ul>
+<li>Master密码</li>
+<li>一般密码</li>
+<li>Masterpin</li>
+<li>一般pin</li>
+<li>Yubikey（U2F，PIV，OTP…）</li>
+<li>Yubikey PGPcard（</li>
+<li></li>
+</ul>
+<h2 id="构成及解密方式"><a href="#构成及解密方式" class="headerlink" title="构成及解密方式"></a>构成及解密方式</h2><p>本人的日常设备以及加解密操作主要包括</p>
+<ul>
+<li>MBP（保存一般重要和重要隐私文件）<ul>
+<li>开机登陆输入密码——Master密码</li>
+<li>解锁Mac——指纹/yubikey的PIVpin</li>
+<li>进入keychain——Master密码/yubikey的PIVpin</li>
+<li>命令行sudo权限/Master密码/yubikey的U2F</li>
+</ul>
+</li>
+<li>iPhone（保存有一般重要和重要隐私文件）<ul>
+<li>开机输入密码——Master密码</li>
+<li>进入keychain——指纹/Master密码</li>
+</ul>
+</li>
+<li>备份硬盘（Mac的加密备份）<ul>
+<li>解密——Master密码</li>
+</ul>
+</li>
+<li>用于Wintogo的硬盘（一般重要）<ul>
+<li>登陆pin——一般pin</li>
+</ul>
+</li>
+<li>VPS（用于实验各种操作）<ul>
+<li>ssh连接普通用户或管理员用户——重要RSA密码/yubikey的PGPkey</li>
+<li>管理员用户sudo或者切换root用户的密码输入——</li>
+</ul>
+</li>
+</ul>
+<h2 id="个人安全模型-1"><a href="#个人安全模型-1" class="headerlink" title="个人安全模型"></a>个人安全模型</h2><p>基于个人的需求，我的信息安全模型如下</p>
+
 
 <br />
 <br />
@@ -199,8 +256,8 @@
     </a>
     
     
-    <a class="pull-right" href="/2018/09/30/Computer/yubikey1L_个人安全/">
-        yubikey与个人安全 →
+    <a class="pull-right" href="/2018/09/30/Computer/yubikey2_设置和gnupg/">
+        yubikey和gnupg设置 →
     </a>
     
 </nav>
