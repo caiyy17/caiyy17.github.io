@@ -177,10 +177,30 @@
             </div>
         </div>
         <div class="col-md-8 col-md-offset-2">
-      		<p>///</p>
-<h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>感觉学一些linux的基本命令还是十分必要的，不仅服务器需要，Mac也会有要求。</p>
+      		<h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>感觉学一些linux的基本命令还是十分必要的，不仅服务器需要，Mac也会有要求。</p>
 <p>而zsh则是一个代替原有bash的一个十分强大的shell，可以大大提升生产效率。</p>
-<h1 id="Linux基本命令（附带Mac对比）"><a href="#Linux基本命令（附带Mac对比）" class="headerlink" title="Linux基本命令（附带Mac对比）"></a>Linux基本命令（附带Mac对比）</h1><h1 id="zsh安装方法"><a href="#zsh安装方法" class="headerlink" title="zsh安装方法"></a>zsh安装方法</h1>
+<h1 id="Linux基本命令（附带Mac对比）"><a href="#Linux基本命令（附带Mac对比）" class="headerlink" title="Linux基本命令（附带Mac对比）"></a>Linux基本命令（附带Mac对比）</h1><p>///</p>
+<h1 id="zsh安装方法"><a href="#zsh安装方法" class="headerlink" title="zsh安装方法"></a>zsh安装方法</h1><p>参考Mac设置那篇文章</p>
+<ul>
+<li><p>安装oh-my-zsh</p>
+<pre><code>sh -c &quot;$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)&quot;
+</code></pre></li>
+<li><p>安装主题</p>
+<p>  安装的主题都在~/.oh-my-zsh/themes里面，若没有想要的主题可以在网上安装（git clone然后把.zsh-theme拷贝到themes文件夹里即可）</p>
+<p>  然后在~/.zshrc修改主题名字，再</p>
+<pre><code>source ~/.zshrc
+</code></pre></li>
+<li><p>安装插件</p>
+<pre><code>cd ~/.oh-my-zsh/custom/plugins
+git clone &lt;插件地址&gt;
+</code></pre><p>  然后在~/.zshrc中的Plugins选项里加入下载的插件，再</p>
+<pre><code>source ~/.zshrc
+</code></pre></li>
+<li><p>修改配色和背景</p>
+<p>  这个自己改就行了，也可以网上下现成的然后导入进去。</p>
+</li>
+</ul>
+
 
 <br />
 <br />
@@ -196,8 +216,8 @@
     </a>
     
     
-    <a class="pull-right" href="/2018/09/30/Computer/VPS2_socks协议与ss设置/">
-        VPS2:socks协议以及ss设置 →
+    <a class="pull-right" href="/2018/09/30/Computer/VPS1_购买以及设置VPS/">
+        VPS1:购买以及设置 →
     </a>
     
 </nav>

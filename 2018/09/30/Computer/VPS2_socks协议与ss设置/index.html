@@ -179,7 +179,24 @@
             </div>
         </div>
         <div class="col-md-8 col-md-offset-2">
-      		<p>HelloWorld</p>
+      		<h1 id="Socks协议"><a href="#Socks协议" class="headerlink" title="Socks协议"></a>Socks协议</h1><p>Socket Secure(SOCKS)是一个网络协议，可以通过代理服务器来路由客户端和服务器之间的数据包。一个SOCKS服务器可以代理TCP连接到任何一个IP地址，同时为UDP的数据包提供一种转发方式。<br>SOCKS完成的是OSI模型中第五层的工作（会话层，位于表示层和传输层之间）</p>
+<h2 id="历史"><a href="#历史" class="headerlink" title="历史"></a>历史</h2><p>这个协议最初由David Koblas创造，David Koblas是MIPS计算系统的管理员，在1992年MIPS被Silicon Graphics接管之后，Koblas在那年的Usenix安全研讨会上发表了关于SOCKS的一篇文章，让SOCKS为公众所知。</p>
+<p>SOCKS5协议最初是一个安全协议被用来更容易的管控防火墙和其他安全产品，在1996年被IETF所批准，并与Aventail公司合作开发。</p>
+<h2 id="用途"><a href="#用途" class="headerlink" title="用途"></a>用途</h2><p>SOCKS是Circuit-level gateway（注：Circuit-level gateway是一种防火墙）事实上的标准</p>
+<p>另外一种SOCKS的使用方式是作为规避工具，允许流量绕过网络过滤来获得内容，否则就被政府，学校，一些具体国家的web服务堵塞。（就是翻墙…）</p>
+<p>而shadowsocks就是这样的一款软件。</p>
+<h1 id="ss设置"><a href="#ss设置" class="headerlink" title="ss设置"></a>ss设置</h1><p>说这么多，就让我们在服务器上装ss吧</p>
+<h2 id="配置环境"><a href="#配置环境" class="headerlink" title="配置环境"></a>配置环境</h2><p>安装pip，接着安装ss。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">yum install python-setuptools &amp;&amp; easy_install pip</span><br><span class="line">pip install shadowsocks</span><br></pre></td></tr></table></figure>
+<h2 id="修改配置"><a href="#修改配置" class="headerlink" title="修改配置"></a>修改配置</h2><p>可以添加多用户。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vim /etc/shadowsocks.json</span><br></pre></td></tr></table></figure>
+<p>内容如下：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">    &quot;server&quot;:&quot;[IP]&quot;,</span><br><span class="line">    &quot;local_address&quot;:&quot;127.0.0.1&quot;, &quot;local_port&quot;:1080,</span><br><span class="line">    &quot;port_password&quot;:</span><br><span class="line">    &#123;</span><br><span class="line">        &quot;[port]&quot;:&quot;[密码]&quot;,</span><br><span class="line">        //继续写其他端口</span><br><span class="line">    &#125;,</span><br><span class="line">    &quot;timeout&quot;:300,</span><br><span class="line">    &quot;method&quot;:&quot;aes-256-cfb&quot;, </span><br><span class="line">    &quot;fast_open&quot;: false</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>然后启动就行</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ssserver -c /etc/shadowsocks.json -d start</span><br></pre></td></tr></table></figure>
+<p>防火墙开着的话，记得改一下防火墙。</p>
+<h1 id="客户端"><a href="#客户端" class="headerlink" title="客户端"></a>客户端</h1><p>找个地方下载客户端就行，配置一目了然。</p>
+<h1 id="后记"><a href="#后记" class="headerlink" title="后记"></a>后记</h1><p>这样就可以使用ss了，当然还可以使用BBR加速，有可能需要升级内核。</p>
 
 
 <br />
@@ -191,13 +208,13 @@
         </div>
         <nav class="m-pagination col-md-8 col-md-offset-2 col-sm-24" role="pagination">
     
-    <a class="pull-left" href="/2018/09/30/Computer/Linux1_基本命令+Mac终端+zsh/" style="float: left;">
-        ← Linux1:基本命令，Mac终端和zsh
+    <a class="pull-left" href="/2018/09/30/Computer/yubikey1_个人安全/" style="float: left;">
+        ← yubikey1:个人安全与yubikey
     </a>
     
     
-    <a class="pull-right" href="/2018/09/30/Computer/软件2_VSC设置以及texlive设置/">
-        软件2:VSC →
+    <a class="pull-right" href="/2018/09/30/Computer/yubikey2_设置和gnupg/">
+        yubikey2:配置和gnupg →
     </a>
     
 </nav>

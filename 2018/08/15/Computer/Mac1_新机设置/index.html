@@ -373,7 +373,8 @@ ssh -p [port] 用户名@服务器地址
 </code></pre><p> 根据PIV的提示设置PIN，然后就设置完成了，接着连着Yubikey就可以使用PIN登陆Mac，而mac本身可以设置一个复杂的密码，放在Yubikey的Slot1</p>
 </li>
 <li><p>使用yubikey登陆服务器</p>
-<p> 理论上gnupg安装好，并且在~/.gnupg/gpg-agent.conf中存在enable-ssh-support，重启gpg-agent，之后”ssh-add -l”卡中的钥匙应该会自动出现，（有可能需要导入公钥信息），.ssh中的私钥”ssh-add -K 文件”加一下就行了</p>
+<p> 理论上gnupg安装好，并且在~/.gnupg/gpg-agent.conf中存在enable-ssh-support，重启gpg-agent，之后”ssh-add -l”卡中的钥匙应该会自动出现，（有可能需要导入公钥信息）。</p>
+<p> 其他私钥.ssh中的私钥”ssh-add -K 文件”加一下就行了。</p>
 </li>
 </ol>
 
@@ -387,8 +388,8 @@ ssh -p [port] 用户名@服务器地址
         </div>
         <nav class="m-pagination col-md-8 col-md-offset-2 col-sm-24" role="pagination">
     
-    <a class="pull-left" href="/2018/09/30/Computer/软件1_电脑分配和常用程序/" style="float: left;">
-        ← 电脑常用软件
+    <a class="pull-left" href="/2018/09/30/Computer/软件2_VSC设置以及texlive设置/" style="float: left;">
+        ← 软件2:VSC
     </a>
     
     

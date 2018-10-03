@@ -17,7 +17,7 @@
 <!--<![endif]-->
 
 <head>
-  <title>yubikey与个人安全 | 杂七杂八</title>
+  <title>yubikey1:个人安全与yubikey | 杂七杂八</title>
   <!-- Meta data -->
     <meta http-equiv="Content-Type" content="text/html" charset="UTF-8" >
     <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
@@ -175,11 +175,30 @@
     
     
 </span>
-                <h1>yubikey与个人安全</h1>
+                <h1>yubikey1:个人安全与yubikey</h1>
             </div>
         </div>
         <div class="col-md-8 col-md-offset-2">
-      		<p>///</p>
+      		<!-- TOC -->
+<ul>
+<li><a href="#个人安全问题">个人安全问题</a></li>
+<li><a href="#yubikey">yubikey</a><ul>
+<li><a href="#作为键盘设备hid">作为键盘设备（HID）</a></li>
+<li><a href="#u2f">U2F</a></li>
+<li><a href="#openpgp-smart-card">OpenPGP Smart Card</a></li>
+</ul>
+</li>
+<li><a href="#个人安全模型">个人安全模型</a><ul>
+<li><a href="#个人信息安全需求">个人信息安全需求</a></li>
+<li><a href="#密码个数">密码个数</a></li>
+<li><a href="#构成及解密方式">构成及解密方式</a></li>
+<li><a href="#个人安全模型-1">个人安全模型</a></li>
+<li><a href="#安全性分析">安全性分析</a></li>
+</ul>
+</li>
+<li><a href="#后话">后话</a></li>
+</ul>
+<!-- /TOC -->
 <h1 id="个人安全问题"><a href="#个人安全问题" class="headerlink" title="个人安全问题"></a>个人安全问题</h1><p>如今网络十分混乱，各种信息极其容易被窃取（比如说斯诺登事件），加密和认证就显得极其重要，而yubikey就是这样一个简易的设备（支持OTP、公钥加密签名、U2F协议）。</p>
 <h1 id="yubikey"><a href="#yubikey" class="headerlink" title="yubikey"></a>yubikey</h1><p>来自wiki：YubiKey是由Yubico生产的身份认证设备，支持一次性密码（OTP）、公钥加密和身份认证，以及由FIDO联盟（FIDO U2F）开发的通用第二因素（U2F）协议。它让用户可以透过提交一次性密码或是使用设备产生的公开/私密金钥来安全地登录自己的帐户。针对不支持一次性密码的网站，YubiKey也可以存储静态密码。Facebook使用YubiKey作为员工凭证；Google同时为雇员和用户提供支持。还有一些密码管理器也支持YubiKey。</p>
 <p>以下部分取自<br><a href="https://blog.blahgeek.com/yubikey-intro/" target="_blank" rel="noopener">YubiKey入手和介绍</a></p>
@@ -197,30 +216,54 @@
 <h2 id="OpenPGP-Smart-Card"><a href="#OpenPGP-Smart-Card" class="headerlink" title="OpenPGP Smart Card"></a>OpenPGP Smart Card</h2><p>YubiKey还可以作为标准的OpenPGP Smart Card使用，用来存储PGP私钥（设备中私钥是可写不可读的，解密／签名操作在设备上完成）。</p>
 <p>以上提到的三个功能是可以同时使用的，相互之间并不冲突。</p>
 <h1 id="个人安全模型"><a href="#个人安全模型" class="headerlink" title="个人安全模型"></a>个人安全模型</h1><p>有了yubikey就可以建立起一个稍微有效的个人安全模型，当然主要为了<s>装逼</s></p>
-<p>以下同样严重参考同一作者的<br><a href="https://blog.blahgeek.com/yubikey-review/" target="_blank" rel="noopener">Yubikey使用一年总结</a><br>和<br><a href="https://blog.blahgeek.com/personal-security-model/" target="_blank" rel="noopener">建立个人信息安全模型</a></p>
 <h2 id="个人信息安全需求"><a href="#个人信息安全需求" class="headerlink" title="个人信息安全需求"></a>个人信息安全需求</h2><p>一个人对于一项隐秘的内容，其需求包含两点：不让别人获取，以及方便自己获取。 同时，一个人一定拥有多项隐秘的内容，对于不同隐秘内容，他们的重要程度是不一样的。</p>
 <p>所以就需要一个多层级的个人信息安全模型。</p>
 <h2 id="密码个数"><a href="#密码个数" class="headerlink" title="密码个数"></a>密码个数</h2><ul>
-<li>Master密码</li>
-<li>一般密码</li>
+<li>Master密码（yubikeyslot2）</li>
+<li>次重要强密码（yubikeyslot1）</li>
 <li>Masterpin</li>
+<li>重要RSA</li>
+<li>一般密码</li>
 <li>一般pin</li>
+<li>一般RSA（无密码）</li>
 <li>Yubikey（U2F，PIV，OTP…）</li>
-<li>Yubikey PGPcard（</li>
-<li></li>
+<li><p>Yubikey PGPcard（可用于ssh）</p>
+</li>
+<li><p>指纹</p>
+</li>
+<li>其他特殊密码<ul>
+<li>yubikey管理员pin（8位）</li>
 </ul>
+</li>
+</ul>
+<p>注：</p>
+<p>密码主要分两套，重要和一般，重要密码一般用的不多，主要是用于获取设备的操作权限，设置次重要密码的原因是不想让master密码在非本地留下信息，所以服务器上的root密码会用到这个。</p>
+<p>一般密码是指那些就算全被黑了也无所谓的网站之类，所以为了方便，设置一个简单的密码或pin统一管理，不用每次都打开keychain了。</p>
+<p>yubikey主要用于辅助登陆和二次验证。</p>
 <h2 id="构成及解密方式"><a href="#构成及解密方式" class="headerlink" title="构成及解密方式"></a>构成及解密方式</h2><p>本人的日常设备以及加解密操作主要包括</p>
 <ul>
+<li>重要RSA<ul>
+<li>paraphase——Master密码</li>
+</ul>
+</li>
+<li>yubikey<ul>
+<li>PIV——masterpin</li>
+<li>PGPcard——masterpin</li>
+<li>管理员pin——8位特殊pin</li>
+</ul>
+</li>
 <li>MBP（保存一般重要和重要隐私文件）<ul>
 <li>开机登陆输入密码——Master密码</li>
-<li>解锁Mac——指纹/yubikey的PIVpin</li>
-<li>进入keychain——Master密码/yubikey的PIVpin</li>
-<li>命令行sudo权限/Master密码/yubikey的U2F</li>
+<li>解锁Mac——指纹/Master密码/yubikey的PIV</li>
+<li>进入keychain——Master密码</li>
+<li>命令行sudo权限/Master密码/yubikey的PIV</li>
+<li>加密磁盘——Master密码</li>
+<li>特殊加密文件——Master密码/yubikeyPGP</li>
 </ul>
 </li>
 <li>iPhone（保存有一般重要和重要隐私文件）<ul>
-<li>开机输入密码——Master密码</li>
-<li>进入keychain——指纹/Master密码</li>
+<li>开机输入密码——Masterpin</li>
+<li>进入keychain——指纹/Masterpin</li>
 </ul>
 </li>
 <li>备份硬盘（Mac的加密备份）<ul>
@@ -232,12 +275,96 @@
 </ul>
 </li>
 <li>VPS（用于实验各种操作）<ul>
-<li>ssh连接普通用户或管理员用户——重要RSA密码/yubikey的PGPkey</li>
-<li>管理员用户sudo或者切换root用户的密码输入——</li>
+<li>ssh连接管理员用户——重要RSA/yubikey的PGPkey</li>
+<li>ssh一般用户——一般RSA</li>
+<li>管理员用户sudo或者切换root用户的密码输入——次重要强密码</li>
 </ul>
 </li>
 </ul>
-<h2 id="个人安全模型-1"><a href="#个人安全模型-1" class="headerlink" title="个人安全模型"></a>个人安全模型</h2><p>基于个人的需求，我的信息安全模型如下</p>
+<h2 id="个人安全模型-1"><a href="#个人安全模型-1" class="headerlink" title="个人安全模型"></a>个人安全模型</h2><p>基于个人的需求，我的信息安全模型如下：</p>
+<p><img src="/images/Computer/个人安全模型.jpg" alt="个人安全模型"></p>
+<p><strong>除了Master密码外，所有的密码和用到的公私钥都用Master密码加密储存于一个外置存储设备上，而在本地以及云盘上，可以用yubikey的加密私钥非对称加密存储一份。</strong></p>
+<h3 id="成分"><a href="#成分" class="headerlink" title="成分"></a>成分</h3><p>文件方面：</p>
+<ul>
+<li>需要Masterkey进入MBP或Masterpin进入iphone</li>
+<li>开机锁屏状态下的电子设备加上指纹可以访问普通文件</li>
+<li>在此基础上加上PGPkey才能访问重要文件</li>
+</ul>
+<p>网站方面：</p>
+<ul>
+<li>需要Masterkey进入MBP或Masterpin进入iphone</li>
+<li>开机锁屏状态下的电子设备加上指纹（Mac要Masterkey）可以访问keychain</li>
+<li>然后可以登陆普通网站</li>
+<li>在此基础上有yubikey或google验证器才能访问重要网站</li>
+</ul>
+<p>服务器方面：</p>
+<ul>
+<li>需要重要RSA+Masterkey才能登陆</li>
+<li>需要次重要密码才能切换root</li>
+</ul>
+<h2 id="安全性分析"><a href="#安全性分析" class="headerlink" title="安全性分析"></a>安全性分析</h2><p>假设一次只丢一个设备……注意Master密码只能用于本地设备，否则会不安全。</p>
+<p><strong>并且我想保证，只丢一个设备，在只有Masterkey的情况下仍然可以干任何事情，但是Masterkey的保存是安全的</strong></p>
+<ol>
+<li><p>yubikey被偷</p>
+<ul>
+<li><p>U2F泄露</p>
+<p>但是keychain密码和PGPkey安全（没有Masterpin），这时候去要</p>
+</li>
+</ul>
+<ol>
+<li>立即删掉这个yubikey的U2F权限</li>
+<li>更换PGPkey（revoke掉原来的）——注意服务器的登陆PGP</li>
+<li><p>在mac上删除原来的PIV</p>
+<p>可行性：到原来网站上全部重新用google验证器的6位pin将yubikey注销并且重新设置新yubikey，用重要RSA到服务器上重新设置ssh，用master登陆mac注销PIV</p>
+</li>
+</ol>
+</li>
+<li><p>yubikey被偷（带有Masterkey和次重要强密码）</p>
+<ul>
+<li>U2F泄露</li>
+<li>Masterkey泄露</li>
+<li><p>次重要强密码泄露</p>
+<p>但是keychain和PGPkey安全（没有Masterpin），这时候去要</p>
+</li>
+</ul>
+<ol>
+<li>立即删掉这个yubikey的U2F权限</li>
+<li>更换PGPkey（revoke掉原来的）——注意服务器的登陆PGP</li>
+<li>在mac上删除原来的PIV</li>
+</ol>
+<p>更重要的，要更换Master密码和次重要强密码，即</p>
+<ul>
+<li>重要RSA的paraphase</li>
+<li>MBP的密码</li>
+<li>服务器的root密码</li>
+<li>加密磁盘密码</li>
+<li>加密特殊文件密码</li>
+<li><p>备份硬盘密码</p>
+<p>可行性同上</p>
+</li>
+</ul>
+</li>
+<li><p>iphone被偷</p>
+<ul>
+<li><p>潜在keychain泄露</p>
+<p>需要立即把iphone远程格式化</p>
+<p>可行性：mac仍可访问</p>
+</li>
+</ul>
+</li>
+<li><p>mac被偷</p>
+<p> 没有Master密码应该没事……</p>
+<p> 可行性：网盘和硬盘有备份，文件不会损失</p>
+</li>
+<li><p>服务器被攻击</p>
+<ul>
+<li><p>最多泄露次重要密码和登陆的RSA公钥</p>
+<p>更换次重要密码</p>
+</li>
+</ul>
+</li>
+</ol>
+<h1 id="后话"><a href="#后话" class="headerlink" title="后话"></a>后话</h1><p>讲道理谁会闲的没事要来攻击你的，但是这样可以满足强迫症的需要，同时可以用来装X……</p>
 
 
 <br />
@@ -249,13 +376,13 @@
         </div>
         <nav class="m-pagination col-md-8 col-md-offset-2 col-sm-24" role="pagination">
     
-    <a class="pull-left" href="/2018/09/30/Computer/yubikey2_设置和gnupg/" style="float: left;">
-        ← yubikey和gnupg设置
+    <a class="pull-left" href="/2018/09/30/Computer/VPS1_购买以及设置VPS/" style="float: left;">
+        ← VPS1:购买以及设置
     </a>
     
     
-    <a class="pull-right" href="/2018/09/30/Computer/软件1_电脑分配和常用程序/">
-        电脑常用软件 →
+    <a class="pull-right" href="/2018/09/30/Computer/VPS2_socks协议与ss设置/">
+        VPS2:socks协议以及ss设置 →
     </a>
     
 </nav>
