@@ -191,7 +191,7 @@
 <h2 id="修改配置"><a href="#修改配置" class="headerlink" title="修改配置"></a>修改配置</h2><p>可以添加多用户。</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vim /etc/shadowsocks.json</span><br></pre></td></tr></table></figure>
 <p>内容如下：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">    &quot;server&quot;:&quot;[IP]&quot;,</span><br><span class="line">    &quot;local_address&quot;:&quot;127.0.0.1&quot;, &quot;local_port&quot;:1080,</span><br><span class="line">    &quot;port_password&quot;:</span><br><span class="line">    &#123;</span><br><span class="line">        &quot;[port]&quot;:&quot;[密码]&quot;,</span><br><span class="line">        //继续写其他端口</span><br><span class="line">    &#125;,</span><br><span class="line">    &quot;timeout&quot;:300,</span><br><span class="line">    &quot;method&quot;:&quot;aes-256-cfb&quot;, </span><br><span class="line">    &quot;fast_open&quot;: false</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">    &quot;server&quot;:&quot;::&quot;,</span><br><span class="line">    &quot;local_address&quot;:&quot;127.0.0.1&quot;, &quot;local_port&quot;:1080,</span><br><span class="line">    &quot;port_password&quot;:</span><br><span class="line">    &#123;</span><br><span class="line">        &quot;[port]&quot;:&quot;[密码]&quot;,</span><br><span class="line">        //继续写其他端口</span><br><span class="line">    &#125;,</span><br><span class="line">    &quot;timeout&quot;:300,</span><br><span class="line">    &quot;method&quot;:&quot;aes-256-cfb&quot;, </span><br><span class="line">    &quot;fast_open&quot;: ture</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>然后启动就行</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ssserver -c /etc/shadowsocks.json -d start</span><br></pre></td></tr></table></figure>
 <p>防火墙开着的话，记得改一下防火墙。</p>
@@ -208,13 +208,9 @@
         </div>
         <nav class="m-pagination col-md-8 col-md-offset-2 col-sm-24" role="pagination">
     
-    <a class="pull-left" href="/2018/09/30/Computer/VPS1_购买以及设置VPS/" style="float: left;">
-        ← VPS1:购买以及设置
-    </a>
     
-    
-    <a class="pull-right" href="/2018/09/30/Computer/软件2_VSC设置以及texlive设置/">
-        软件2:VSC →
+    <a class="pull-right" href="/2018/09/30/Computer/Linux1_基本命令+Mac终端+zsh/">
+        Linux1:基本命令，Mac终端和zsh →
     </a>
     
 </nav>
