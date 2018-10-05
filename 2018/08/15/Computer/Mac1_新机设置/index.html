@@ -363,7 +363,7 @@ $ brew update
 <p> P.S. 如果gpg崩了就（若使用sh执行，执行时用”source 文件名”，也即”. 文件名”）</p>
 <pre><code>killall gpg-agent
 eval $(gpg-agent --daemon --enable-ssh-support)
-</code></pre><p> 然后将私钥放入<code>~/.ssh</code>并更改权限为700，公钥放服务器，接下来</p>
+</code></pre><p> 然后将私钥放入<code>~/.ssh</code>并更改权限为700，公钥放服务器的<code>~/.ssh</code>，接下来</p>
 <pre><code>ssh-add -K 私钥文件
 //这样就吧key加好了
 
@@ -372,10 +372,15 @@ ssh -p [port] 用户名@服务器地址
 <li><p>使用yubikey登陆</p>
 <p> 安装PIV Manager和Yubikey Manager，然后再</p>
 <pre><code>brew install yubikey-personalization
-</code></pre><p> 根据PIV的提示设置PIN，然后就设置完成了，接着连着Yubikey就可以使用PIN登陆Mac，而mac本身可以设置一个复杂的密码，放在Yubikey的Slot1</p>
+</code></pre><p> 根据PIV的提示设置PIN，然后就设置完成了，接着连着Yubikey就可以使用PIN登陆Mac，而mac本身可以设置一个复杂的密码，放在Yubikey的Slot1或2（我的设置可以见yubikey设置的文章）</p>
 </li>
 <li><p>使用yubikey登陆服务器</p>
-<p> 理论上gnupg安装好，并且在~/.gnupg/gpg-agent.conf中存在enable-ssh-support，重启gpg-agent，之后”ssh-add -l”卡中的钥匙应该会自动出现，（有可能需要导入公钥信息）。</p>
+<p> 详情可以见yubikey设置的文章。</p>
+<p> 在~/.gnupg/gpg-agent.conf中写入</p>
+ <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">pinentry-program /usr/local/bin/pinentry</span><br><span class="line">enable-ssh-support</span><br></pre></td></tr></table></figure>
+<p> gpg-agent需要经常重启…这里可以用脚本：</p>
+ <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">#!/bin/zsh</span><br><span class="line">source ~/.zshrc</span><br><span class="line">killall gpg-agent</span><br><span class="line">eval $(gpg-agent --daemon --enable-ssh-support)</span><br><span class="line">echo &quot;restart&quot;</span><br></pre></td></tr></table></figure>
+<p> 之后”ssh-add -l”卡中的钥匙应该会自动出现，（有可能需要导入公钥信息）。</p>
 <p> 其他私钥.ssh中的私钥”ssh-add -K 文件”加一下就行了。</p>
 </li>
 </ol>
@@ -390,8 +395,8 @@ ssh -p [port] 用户名@服务器地址
         </div>
         <nav class="m-pagination col-md-8 col-md-offset-2 col-sm-24" role="pagination">
     
-    <a class="pull-left" href="/2018/09/30/Computer/yubikey1_个人安全/" style="float: left;">
-        ← yubikey1:个人安全与yubikey
+    <a class="pull-left" href="/2018/09/30/Computer/VPS3_服务器设置与个人博客/" style="float: left;">
+        ← VPS3:nginx服务与Hexo博客
     </a>
     
     
