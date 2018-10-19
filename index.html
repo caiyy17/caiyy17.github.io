@@ -366,7 +366,7 @@ LaTeX
         <div class="row">
             <div class="col-md-8 col-md-offset-2 opening-statement">
                 <div class="col-md-4">
-                    <h3><a href="/2018/09/30/Computer/软件2_VSC设置以及texlive设置/">软件2:VSC</a></h3>
+                    <h3><a href="/2018/09/30/Computer/yubikey2_设置和gnupg/">yubikey2:配置和gnupg</a></h3>
                     <span>
                         <span class="post-meta">
       <time datetime="2018-09-29T16:00:00.000Z" itemprop="datePublished">
@@ -375,7 +375,9 @@ LaTeX
     
     
     | 
-    <a href='/tags/软件/'>软件</a>
+    <a href='/tags/safety/'>safety</a>,
+    
+    <a href='/tags/Computer/'>Computer</a>
     
     
 </span>
@@ -384,51 +386,39 @@ LaTeX
                 <div class="col-md-8">
                     <p>
                       
-                        前言前面讲的所有软件中，我想重点讲一下VSCode这个软件，简直神器，这是微软发布的一款轻量级的编辑器，但拥有非常多扩展功能，而且原生自带git支持，非常适合平时写写文章，脚本和轻量级的程序。特别是平时写文章，非常地好用，三大主流系统通用啊！
-安装按照官网下载就行了，然后可以下载各种插件，都在插件商店里面有，下载完重新加载一下就行，而卸载插件也是一键式的。插件也会分文件夹装在VSC生成的一个隐藏文件夹中，不会乱跑，Windows和M
+                        
+设置yubikey
+初始化
+U2F
+PIV
+
+
+GPG
+安装gnupg
+生成要最终导入yubikey的密钥
+导出密钥
+设置yubikey的pin
+设置yubikey的PGP
+测试
+SSH
+注意
+
+
+后记
+
+设置yubikey讲完了安全模型，就可以开始设置yubikey了
+需要设置的有这些：
+
+次重要密码导入slot1
+Master密码导入slot2
+yubikey的pin（Masterpin）
+管理员8位pin（特殊pin）
+GP
                       
                     </p>
                     
                     <p class="pull-right readMore">
-                        <a href="/2018/09/30/Computer/软件2_VSC设置以及texlive设置/">Read More...</a>
-                    </p>
-                    
-                </div>
-                <div class="clearfix"></div>
-                <hr class="nogutter">
-            </div>
-        </div>
-        
-        <div class="row">
-            <div class="col-md-8 col-md-offset-2 opening-statement">
-                <div class="col-md-4">
-                    <h3><a href="/2018/09/30/Computer/VPS2_socks协议与ss设置/">VPS2:socks协议以及ss设置</a></h3>
-                    <span>
-                        <span class="post-meta">
-      <time datetime="2018-09-29T16:00:00.000Z" itemprop="datePublished">
-          2018-09-30
-      </time>
-    
-    
-    | 
-    <a href='/tags/VPS/'>VPS</a>,
-    
-    <a href='/tags/safety/'>safety</a>
-    
-    
-</span>
-                    </span>
-                </div>
-                <div class="col-md-8">
-                    <p>
-                      
-                        Socks协议Socket Secure(SOCKS)是一个网络协议，可以通过代理服务器来路由客户端和服务器之间的数据包。一个SOCKS服务器可以代理TCP连接到任何一个IP地址，同时为UDP的数据包提供一种转发方式。SOCKS完成的是OSI模型中第五层的工作（会话层，位于表示层和传输层之间）
-历史这个协议最初由David Koblas创造，David Koblas是MIPS计算系统的管理员，在1992年MIPS被Silicon Gra
-                      
-                    </p>
-                    
-                    <p class="pull-right readMore">
-                        <a href="/2018/09/30/Computer/VPS2_socks协议与ss设置/">Read More...</a>
+                        <a href="/2018/09/30/Computer/yubikey2_设置和gnupg/">Read More...</a>
                     </p>
                     
                 </div>
@@ -466,6 +456,63 @@ HEXO安装在Mac中需要安装git和nodejs，这两个都在brew中安装就可
                     
                     <p class="pull-right readMore">
                         <a href="/2018/09/30/Computer/VPS3_服务器设置与个人博客/">Read More...</a>
+                    </p>
+                    
+                </div>
+                <div class="clearfix"></div>
+                <hr class="nogutter">
+            </div>
+        </div>
+        
+        <div class="row">
+            <div class="col-md-8 col-md-offset-2 opening-statement">
+                <div class="col-md-4">
+                    <h3><a href="/2018/09/30/Computer/yubikey1_个人安全/">yubikey1:个人安全与yubikey</a></h3>
+                    <span>
+                        <span class="post-meta">
+      <time datetime="2018-09-29T16:00:00.000Z" itemprop="datePublished">
+          2018-09-30
+      </time>
+    
+    
+    | 
+    <a href='/tags/safety/'>safety</a>,
+    
+    <a href='/tags/yubikey/'>yubikey</a>
+    
+    
+</span>
+                    </span>
+                </div>
+                <div class="col-md-8">
+                    <p>
+                      
+                        
+个人安全问题
+yubikey
+作为键盘设备（HID）
+U2F
+OpenPGP Smart Card
+
+
+个人安全模型
+个人信息安全需求
+密码个数
+构成及解密方式
+个人安全模型
+安全性分析
+
+
+后话
+参考
+
+个人安全问题如今网络十分混乱，各种信息极其容易被窃取（比如说斯诺登事件），加密和认证就显得极其重要，而yubikey就是这样一个简易的设备（支持OTP、公钥加密签名、U2F协议）。
+yubikey来自wiki：YubiKey是由Y
+                      
+                    </p>
+                    
+                    <p class="pull-right readMore">
+                        <a href="/2018/09/30/Computer/yubikey1_个人安全/">Read More...</a>
                     </p>
                     
                 </div>
@@ -540,6 +587,80 @@ zsh安装方法
         <div class="row">
             <div class="col-md-8 col-md-offset-2 opening-statement">
                 <div class="col-md-4">
+                    <h3><a href="/2018/09/30/Computer/VPS2_socks协议与ss设置/">VPS2:socks协议以及ss设置</a></h3>
+                    <span>
+                        <span class="post-meta">
+      <time datetime="2018-09-29T16:00:00.000Z" itemprop="datePublished">
+          2018-09-30
+      </time>
+    
+    
+    | 
+    <a href='/tags/VPS/'>VPS</a>,
+    
+    <a href='/tags/safety/'>safety</a>
+    
+    
+</span>
+                    </span>
+                </div>
+                <div class="col-md-8">
+                    <p>
+                      
+                        Socks协议Socket Secure(SOCKS)是一个网络协议，可以通过代理服务器来路由客户端和服务器之间的数据包。一个SOCKS服务器可以代理TCP连接到任何一个IP地址，同时为UDP的数据包提供一种转发方式。SOCKS完成的是OSI模型中第五层的工作（会话层，位于表示层和传输层之间）
+历史这个协议最初由David Koblas创造，David Koblas是MIPS计算系统的管理员，在1992年MIPS被Silicon Gra
+                      
+                    </p>
+                    
+                    <p class="pull-right readMore">
+                        <a href="/2018/09/30/Computer/VPS2_socks协议与ss设置/">Read More...</a>
+                    </p>
+                    
+                </div>
+                <div class="clearfix"></div>
+                <hr class="nogutter">
+            </div>
+        </div>
+        
+        <div class="row">
+            <div class="col-md-8 col-md-offset-2 opening-statement">
+                <div class="col-md-4">
+                    <h3><a href="/2018/09/30/Computer/软件2_VSC设置以及texlive设置/">软件2:VSC</a></h3>
+                    <span>
+                        <span class="post-meta">
+      <time datetime="2018-09-29T16:00:00.000Z" itemprop="datePublished">
+          2018-09-30
+      </time>
+    
+    
+    | 
+    <a href='/tags/软件/'>软件</a>
+    
+    
+</span>
+                    </span>
+                </div>
+                <div class="col-md-8">
+                    <p>
+                      
+                        前言前面讲的所有软件中，我想重点讲一下VSCode这个软件，简直神器，这是微软发布的一款轻量级的编辑器，但拥有非常多扩展功能，而且原生自带git支持，非常适合平时写写文章，脚本和轻量级的程序。特别是平时写文章，非常地好用，三大主流系统通用啊！
+安装按照官网下载就行了，然后可以下载各种插件，都在插件商店里面有，下载完重新加载一下就行，而卸载插件也是一键式的。插件也会分文件夹装在VSC生成的一个隐藏文件夹中，不会乱跑，Windows和M
+                      
+                    </p>
+                    
+                    <p class="pull-right readMore">
+                        <a href="/2018/09/30/Computer/软件2_VSC设置以及texlive设置/">Read More...</a>
+                    </p>
+                    
+                </div>
+                <div class="clearfix"></div>
+                <hr class="nogutter">
+            </div>
+        </div>
+        
+        <div class="row">
+            <div class="col-md-8 col-md-offset-2 opening-statement">
+                <div class="col-md-4">
                     <h3><a href="/2018/09/30/Computer/VPS1_购买以及设置VPS/">VPS1:购买以及设置</a></h3>
                     <span>
                         <span class="post-meta">
@@ -572,127 +693,6 @@ Namecheap一年的免费.me域名
                     
                     <p class="pull-right readMore">
                         <a href="/2018/09/30/Computer/VPS1_购买以及设置VPS/">Read More...</a>
-                    </p>
-                    
-                </div>
-                <div class="clearfix"></div>
-                <hr class="nogutter">
-            </div>
-        </div>
-        
-        <div class="row">
-            <div class="col-md-8 col-md-offset-2 opening-statement">
-                <div class="col-md-4">
-                    <h3><a href="/2018/09/30/Computer/yubikey2_设置和gnupg/">yubikey2:配置和gnupg</a></h3>
-                    <span>
-                        <span class="post-meta">
-      <time datetime="2018-09-29T16:00:00.000Z" itemprop="datePublished">
-          2018-09-30
-      </time>
-    
-    
-    | 
-    <a href='/tags/safety/'>safety</a>,
-    
-    <a href='/tags/Computer/'>Computer</a>
-    
-    
-</span>
-                    </span>
-                </div>
-                <div class="col-md-8">
-                    <p>
-                      
-                        
-设置yubikey
-初始化
-U2F
-PIV
-
-
-GPG
-安装gnupg
-生成要最终导入yubikey的密钥
-导出密钥
-设置yubikey的pin
-设置yubikey的PGP
-测试
-SSH
-注意
-
-
-后记
-
-设置yubikey讲完了安全模型，就可以开始设置yubikey了
-需要设置的有这些：
-
-次重要密码导入slot1
-Master密码导入slot2
-yubikey的pin（Masterpin）
-管理员8位pin（特殊pin）
-GP
-                      
-                    </p>
-                    
-                    <p class="pull-right readMore">
-                        <a href="/2018/09/30/Computer/yubikey2_设置和gnupg/">Read More...</a>
-                    </p>
-                    
-                </div>
-                <div class="clearfix"></div>
-                <hr class="nogutter">
-            </div>
-        </div>
-        
-        <div class="row">
-            <div class="col-md-8 col-md-offset-2 opening-statement">
-                <div class="col-md-4">
-                    <h3><a href="/2018/09/30/Computer/yubikey1_个人安全/">yubikey1:个人安全与yubikey</a></h3>
-                    <span>
-                        <span class="post-meta">
-      <time datetime="2018-09-29T16:00:00.000Z" itemprop="datePublished">
-          2018-09-30
-      </time>
-    
-    
-    | 
-    <a href='/tags/safety/'>safety</a>,
-    
-    <a href='/tags/yubikey/'>yubikey</a>
-    
-    
-</span>
-                    </span>
-                </div>
-                <div class="col-md-8">
-                    <p>
-                      
-                        
-个人安全问题
-yubikey
-作为键盘设备（HID）
-U2F
-OpenPGP Smart Card
-
-
-个人安全模型
-个人信息安全需求
-密码个数
-构成及解密方式
-个人安全模型
-安全性分析
-
-
-后话
-参考
-
-个人安全问题如今网络十分混乱，各种信息极其容易被窃取（比如说斯诺登事件），加密和认证就显得极其重要，而yubikey就是这样一个简易的设备（支持OTP、公钥加密签名、U2F协议）。
-yubikey来自wiki：YubiKey是由Y
-                      
-                    </p>
-                    
-                    <p class="pull-right readMore">
-                        <a href="/2018/09/30/Computer/yubikey1_个人安全/">Read More...</a>
                     </p>
                     
                 </div>
