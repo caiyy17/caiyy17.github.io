@@ -193,6 +193,13 @@
 <li><a href="#区段元素">区段元素</a></li>
 </ul>
 </li>
+<li><a href="#进阶语法">进阶语法</a><ul>
+<li><a href="#数学公式">数学公式</a></li>
+<li><a href="#脚注">脚注</a></li>
+<li><a href="#交叉引用">交叉引用</a></li>
+<li><a href="#参考文献">参考文献</a></li>
+</ul>
+</li>
 <li><a href="#参考">参考</a></li>
 </ul>
 <h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>本人现在大学生一枚，由于自己作为小白又总喜欢瞎折腾一些东西，所以一直想自己写一些个人博客来记录一下自己的折腾历史，以防以后就忘了怎么操作。</p>
@@ -385,7 +392,42 @@
 [imgid]: http://example.net/picture &quot;标题&quot;
 </code></pre><p>注：参考形式的[id]可以放在任何地方，可以向参考文献一样统一放在文档末尾。</p>
 <h3 id="转义字符"><a href="#转义字符" class="headerlink" title="转义字符"></a>转义字符</h3><p>转义在会引起歧义的符号前加\即可</p>
-<h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><p><a href="https://www.appinn.com/markdown/" target="_blank" rel="noopener">Markdown 语法说明</a></p>
+<h1 id="进阶语法"><a href="#进阶语法" class="headerlink" title="进阶语法"></a>进阶语法</h1><p>这一部分又肯需要pandoc等高级工具支持。</p>
+<h2 id="数学公式"><a href="#数学公式" class="headerlink" title="数学公式"></a>数学公式</h2><p>直接用latex的就好</p>
+<h2 id="脚注"><a href="#脚注" class="headerlink" title="脚注"></a>脚注</h2><p>使用</p>
+<pre><code>Content [^1]
+
+[^1]: This is a footnote
+</code></pre><p>效果：</p>
+<p>Content [^1]</p>
+<p>[^1]: This is a footnote</p>
+<h2 id="交叉引用"><a href="#交叉引用" class="headerlink" title="交叉引用"></a>交叉引用</h2><p>交叉引用网上并没有找到十分方便的方法，这是LaTeX的语法</p>
+<pre><code>\label{img}
+
+See \ref{img}
+</code></pre><h2 id="参考文献"><a href="#参考文献" class="headerlink" title="参考文献"></a>参考文献</h2><p>首先，有一个ref.bib的文件</p>
+<pre><code>@book{book1, 
+author = {author1, author2}, 
+title = {title1}, 
+publisher = {publisher1}, 
+year = 2018 
+} 
+@inproceedings{article2, 
+author = {author3, author4}, 
+title = {title2}, 
+booktitle = {booktitle2}, 
+address = {here}, 
+year = 2019 
+}
+</code></pre><p>然后在头部写入：</p>
+<pre><code>---
+csl: FILE
+title: &quot;Sample Document&quot;
+bibliography: ref.bib
+---
+</code></pre><p>就可以正常引用了，引用格式</p>
+<pre><code>[@book1] //bib里每个字条的第一个字段
+</code></pre><h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><p><a href="https://www.appinn.com/markdown/" target="_blank" rel="noopener">Markdown 语法说明</a></p>
 
 
 <br />

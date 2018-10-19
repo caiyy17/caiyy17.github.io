@@ -181,7 +181,29 @@
             </div>
         </div>
         <div class="col-md-8 col-md-offset-2">
-      		<h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>从Md1到Md2，基本的Markdown写作以及没有问题了</p>
+      		<h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>从Md1到Md2，基本的Markdown写作以及没有问题了，然后就会想用md解决其他的事情了，比如写学术论文，Latex写起来太费劲了，公式还是word比较方便。</p>
+<p>Pandoc是一个开源的万能文档转换软件，可以在pdf，md，word，html之间转换文档格式。而装了vscode-pandoc后可以直接在vscode中使用，但是每次只能用同样的命令行参数，否则只能在终端中使用。</p>
+<h1 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h1><p>直接brew安装即可，还要安装pandoc-citeproc，vscode插件也是一键安装。</p>
+<p>然后是配置，word不需要配置，html需要配置命令行参数，在设置的string里面填入就行。</p>
+<h2 id="html参数"><a href="#html参数" class="headerlink" title="html参数"></a>html参数</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">--standalone --self-contained --css pandoc.css</span><br></pre></td></tr></table></figure>
+<p>以上转换命令中选项含义介绍如下。</p>
+<ol>
+<li>“–standalone”：为目标格式文件增加合适的“header”和“footer”。如果目标格式是“HTML”，那么通过该选项可解决“由于未设置合适的字符编码，而导致的乱码问题”。</li>
+<li>“–self-contained” ：如果目标格式是“HTML”，那么可得到如下效果：在转换得到目标HTML文件的过程中，会将依赖的“脚本，CSS，图片，视频”等文件的内容内嵌到目标HTML文件中。</li>
+<li>“–css pandoc.css” ：使得目标格式文件最后使用“pandoc.css”文件作为CSS文件，否则，使用默认的CSS文件。</li>
+</ol>
+<h2 id="PDF参数"><a href="#PDF参数" class="headerlink" title="PDF参数"></a>PDF参数</h2><p>pdf需要latex的支持，mac可以装Mactex，Win有texlive（不过要配置环境变量）</p>
+<p>然而当你尝试的时候就会有各种bug，网上也有解决方案，但都不是很漂亮，所以我就放弃了这个选项……</p>
+<h1 id="所以"><a href="#所以" class="headerlink" title="所以"></a>所以</h1><p>最终我选择了把md转为word然后可以使用word的公式编辑器编写公式……</p>
+<p>现在分析需求：</p>
+<ul>
+<li>数学公式：word自带或者在md里面写latex</li>
+<li>引用：使用pandoc参数</li>
+<li>脚注：使用pandoc参数</li>
+<li>参考文献：编辑.bib文件加上pandoc参数</li>
+<li>实时预览：markdown-preview-enhanced</li>
+</ul>
+<p>综上，参数一共是：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">--filter=pandoc-citeproc //脚注</span><br><span class="line">--bibliography=ref.bib //参考文献</span><br><span class="line">--csl=FILE //参考文献引用标准</span><br></pre></td></tr></table></figure></p>
 
 
 <br />
