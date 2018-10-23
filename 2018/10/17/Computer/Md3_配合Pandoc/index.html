@@ -204,6 +204,32 @@
 <li>实时预览：markdown-preview-enhanced</li>
 </ul>
 <p>综上，参数一共是：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">--filter=pandoc-citeproc //脚注</span><br><span class="line">--bibliography=ref.bib //参考文献</span><br><span class="line">--csl=FILE //参考文献引用标准</span><br></pre></td></tr></table></figure></p>
+<h1 id="番外：幻灯片"><a href="#番外：幻灯片" class="headerlink" title="番外：幻灯片"></a>番外：幻灯片</h1><p>下载reveal.js至目标文件夹，然后就可以使用pandoc命令来生成幻灯片了</p>
+<h2 id="幻灯片结构"><a href="#幻灯片结构" class="headerlink" title="幻灯片结构"></a>幻灯片结构</h2><ul>
+<li>slide level: 默认情况下，slide level由文章的组织结构中，以紧接着文章内容（而不是另一个标题）的最高的header等级决定。</li>
+<li>一条水平线总会开启一页新幻灯片。header等级等于slide level总会开启一页新的幻灯片。组织结构中在slide level以下的headers会在同一幻灯片页中创建headers。所以，也可以用<code>##</code>空标题来分页，好处是可以接着用{}来控制格式，坏处是文本部工整。</li>
+<li>组织结构中在slide level以上的headers会创建“title slides”，它只包含了该section的标题，从而将整个幻灯片的内容划分为不同的sections。</li>
+<li><p>插入停顿：你可以在幻灯片页中添加停顿，该功能通过在幻灯片页中插入包含3个点的段落实现，且该三个点间以空格隔开。</p>
+  <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">content before the pause</span><br><span class="line"></span><br><span class="line">. . .</span><br><span class="line"></span><br><span class="line">content after the pause</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>定义幻灯片样式：-V theme=moon -V transition=convex</p>
+</li>
+<li><p>将sections包裹进标签(在HTML5中包裹进标签)，并且将header的identifiers附属到标签中。</p>
+  <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"># header &#123;#identifier .class .class key=value key=value&#125;</span><br></pre></td></tr></table></figure>
+<p>  其中每个部分都可以省略</p>
+</li>
+</ul>
+<h2 id="常用参数"><a href="#常用参数" class="headerlink" title="常用参数"></a>常用参数</h2><ul>
+<li>-s, –standalone：转换输出文档时会自动加上合适的header和footer(例如standalone HTML, LaTeX, RTF)。该选择在转换输出pdf，epub，epub3，fb2，docx，odt格式文件时会被自动设置，因此如果转换输出上述格式文件，则不用显示指定该选项。如上所述，使用该选项后，能够将所有依赖的文件(linked scripts,stylesheets, images, and videos)都转换输出到同一个文件中。</li>
+<li>–slide-level=NUMBER：指定能够创建新幻灯片页的headers等级(对beamer, s5, slidy, slideous, dzslides而言)。在设定的level以上的header将幻灯片划分为不同的sections，在level以下的headers在同一页幻灯片中创建子标题.默认情况下根据文档内容自动确定，见幻灯片的结构化.</li>
+<li>-i, –incremental：使幻灯片中的列表选项增量式显示(one by one)。默认情况下，列表内容会一次性显示出来。</li>
+<li>-c URL, –css=URL：链接到CSS样式表。该选项能够使用多次来引入多个文件，所指定的文件能够以指定的顺序依次引入。</li>
+<li>–data-dir=DIRECTORY：指定用户数据目录，设定之后会在该目录下搜索pandoc数据文件。如果没有指定该选项，则会使用默认的用户数据目录:$HOME/.pandoc，可通过pandoc –version命令查看。</li>
+<li>–base-header-level=NUMBER：指定headers的基准level，默认是1。</li>
+<li>Math rendering in HTML：可参考官网。</li>
+</ul>
+<p>PS：更多可以看<a href="http://pandoc.org/index.html" target="_blank" rel="noopener">官网</a></p>
+<h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><p><a href="http://liumh.com/2014/07/05/pandoc-produce-slide-shows/#styling-slides" target="_blank" rel="noopener">pandoc将markdown转换输出HTML slide</a></p>
 
 
 <br />
