@@ -199,7 +199,7 @@
         <div class="row">
             <div class="col-md-8 col-md-offset-2 opening-statement">
                 <div class="col-md-4">
-                    <h3><a href="/2018/09/30/Computer/VPS2_socks协议与ss设置/">VPS2:socks协议以及ss设置</a></h3>
+                    <h3><a href="/2018/09/30/Computer/VPS3_服务器设置与个人博客/">VPS3:nginx服务与Hexo博客</a></h3>
                     <span>
                         <span class="post-meta">
       <time datetime="2018-09-29T16:00:00.000Z" itemprop="datePublished">
@@ -208,9 +208,7 @@
     
     
     | 
-    <a href='/tags/VPS/'>VPS</a>,
-    
-    <a href='/tags/safety/'>safety</a>
+    <a href='/tags/Blog/'>Blog</a>
     
     
 </span>
@@ -219,15 +217,14 @@
                 <div class="col-md-8">
                     <p>
                       
-                        Socks协议
-Socket Secure(SOCKS)是一个网络协议，可以通过代理服务器来路由客户端和服务器之间的数据包。一个SOCKS服务器可以代理TCP连接到任何一个IP地址，同时为UDP的数据包提供一种转发方式。 SOCKS完成的是OSI模型中第五层的工作（会话层，位于表示层和传输层之间）
-历史
-这个协议最初由David Koblas创造，David Koblas是MIPS计算系统的管理员，在1992年MIPS被Silicon 
+                        前言一直想做一个个人博客，但又不想在个大博客网站上写，这样很不自由，还不如微信朋友圈（其实主要是感觉VPS只用来挂ss太亏了，想玩玩…）但是自己做网站代价很大，而hexo便是现成的可以直接挂blog的软件，又有丰富的主题科插件。
+HEXO安装在Mac中需要安装git和nodejs，这两个都在brew中安装就可以了，brew安装相关具体可以看Mac设置这篇文章，安装好之后便可以安装hexo（根据官网来就行）
+1npm install -g
                       
                     </p>
                     
                     <p class="pull-right readMore">
-                        <a href="/2018/09/30/Computer/VPS2_socks协议与ss设置/">Read More...</a>
+                        <a href="/2018/09/30/Computer/VPS3_服务器设置与个人博客/">Read More...</a>
                     </p>
                     
                 </div>
@@ -269,14 +266,12 @@ Socket Secure(SOCKS)是一个网络协议，可以通过代理服务器来路由
 进阶：Windows相关
 服务器相关
 
-前言
-新的mbp2018总算到了，这也是我自己的第一台苹果电脑，自然要熟悉好一会儿，在此记录下我的折腾过程。
-基础：系统偏好设置
-在设置中，我增加了这些东西
+前言新的mbp2018总算到了，这也是我自己的第一台苹果电脑，自然要熟悉好一会儿，在此记录下我的折腾过程。
+基础：系统偏好设置在设置中，我增加了这些东西
 
 调度中心：使窗口按应用程序成组
 调度中心：设置触发角（右下角关闭屏幕）
-如果设置了caffeinate，就可以关闭屏幕而
+ 如果设置了caffeinate，就可以关闭屏幕而不
                       
                     </p>
                     
@@ -313,9 +308,8 @@ Socket Secure(SOCKS)是一个网络协议，可以通过代理服务器来路由
                 <div class="col-md-8">
                     <p>
                       
-                        前言
-为了可以用自己喜欢的排版风格排版Markdown，需要将其转换成其他有丰富排版功能的格式，最重要的无非是html和tex，本文主要讲html的转换。
-转至html后便可以配合已经编写好的.css文件，统一排版成自己想要的格式。便可以发布在自己的网站上了。然而自己便携插件还是有些困难，好在有hexo或者markdownhere等软件和插件的帮助。前者可以帮助我们制作博客，后者可以直接在chrome中将markdown原文在公众号网站
+                        前言为了可以用自己喜欢的排版风格排版Markdown，需要将其转换成其他有丰富排版功能的格式，最重要的无非是html和tex，本文主要讲html的转换。
+转至html后便可以配合已经编写好的.css文件，统一排版成自己想要的格式。便可以发布在自己的网站上了。然而自己便携插件还是有些困难，好在有hexo或者markdownhere等软件和插件的帮助。前者可以帮助我们制作博客，后者可以直接在chrome中将markdown原文在公众号网站中
                       
                     </p>
                     
@@ -354,7 +348,6 @@ Socket Secure(SOCKS)是一个网络协议，可以通过代理服务器来路由
 前言
 Markdown概述
 Markdown语法
-
 换行
 标题
 引用
@@ -364,20 +357,19 @@ Markdown语法
 表格
 区段元素
 
-进阶语法
 
+进阶语法
 数学公式
 脚注
 交叉引用
 参考文献
 
+
 参考
 
-前言
-本人现在大学生一枚，由于自己作为小白又总喜欢瞎折腾一些东西，所以一直想自己写一些个人博客来记录一下自己的折腾历史，以防以后就忘了怎么操作。
+前言本人现在大学生一枚，由于自己作为小白又总喜欢瞎折腾一些东西，所以一直想自己写一些个人博客来记录一下自己的折腾历史，以防以后就忘了怎么操作。
 既然是写博客，又不想自己人工排版，第一篇就以Markdown的语法开始吧。
-Markdown概述
-Markdown的宗旨便是
+Markdown概述Markdown的宗旨便是易写
                       
                     </p>
                     
