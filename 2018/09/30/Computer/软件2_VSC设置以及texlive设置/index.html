@@ -181,44 +181,50 @@
             </div>
         </div>
         <div class="col-md-8 col-md-offset-2">
-      		<h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>前面讲的所有软件中，我想重点讲一下VSCode这个软件，简直神器，这是微软发布的一款轻量级的编辑器，但拥有非常多扩展功能，而且原生自带git支持，非常适合平时写写文章，脚本和轻量级的程序。特别是平时写文章，非常地好用，三大主流系统通用啊！</p>
-<h1 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h1><p>按照官网下载就行了，然后可以下载各种插件，都在插件商店里面有，下载完重新加载一下就行，而卸载插件也是一键式的。插件也会分文件夹装在VSC生成的一个隐藏文件夹中，不会乱跑，Windows和Mac都在用户文件夹下的.vscode\extensions里面当然也可以改目录。</p>
-<h1 id="设置"><a href="#设置" class="headerlink" title="设置"></a>设置</h1><p>VSC的设置也是越来越方便了，当然本质还是一个.json文件，应该一看就可以看懂，设置分三种：用户设置，工作区设置和文件夹设置。</p>
-<p>其中用户设置保存在程序中（setting.json可以通过打开设置，然后查看文件路径得知，这样就可以备份出来了）；工作区设置保存在.code-workspace文件中，可以自己指定存的地方；文件夹设置在本文件夹下的.vscode\setting.json里面。</p>
-<h1 id="git"><a href="#git" class="headerlink" title="git"></a>git</h1><p>打开文件夹后，在VSC的git那一栏下初始化git仓库。然后在集成的终端内输入：</p>
+      		<h1 id="前言">前言</h1>
+<p>前面讲的所有软件中，我想重点讲一下VSCode这个软件，简直神器，这是微软发布的一款轻量级的编辑器，但拥有非常多扩展功能，而且原生自带git支持，非常适合平时写写文章，脚本和轻量级的程序。特别是平时写文章，非常地好用，三大主流系统通用啊！</p>
+<h1 id="安装">安装</h1>
+<p>按照官网下载就行了，然后可以下载各种插件，都在插件商店里面有，下载完重新加载一下就行，而卸载插件也是一键式的。插件也会分文件夹装在VSC生成的一个隐藏文件夹中，不会乱跑，Windows和Mac都在用户文件夹下的.vscode。</p>
+<h1 id="设置">设置</h1>
+<p>VSC的设置也是越来越方便了，当然本质还是一个.json文件，应该一看就可以看懂，设置分三种：用户设置，工作区设置和文件夹设置。</p>
+<p>其中用户设置保存在程序中（setting.json可以通过打开设置，然后查看文件路径得知，这样就可以备份出来了）；工作区设置保存在.code-workspace文件中，可以自己指定存的地方；文件夹设置在本文件夹下的.vscode.json里面。</p>
+<h1 id="git">git</h1>
+<p>打开文件夹后，在VSC的git那一栏下初始化git仓库。然后在集成的终端内输入：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git remote add origin https://github.com/XXX.git</span><br><span class="line">git pull origin master</span><br></pre></td></tr></table></figure>
 <p>结下来发布时有可能要输入密码，照着做就行。</p>
 <p>不想输入密码就：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git config --global credential.helper store</span><br></pre></td></tr></table></figure>
-<h1 id="插件推荐"><a href="#插件推荐" class="headerlink" title="插件推荐"></a>插件推荐</h1><ol>
-<li>主题<ul>
+<h1 id="插件推荐">插件推荐</h1>
+<ol type="1">
+<li>主题
+<ul>
 <li>Bracket Pair</li>
 <li>One Dark Pro</li>
 <li>Code runner</li>
-</ul>
-</li>
-<li>Markdown<ul>
+</ul></li>
+<li>Markdown
+<ul>
 <li>Markdown all in one</li>
 <li>Markdown-preview-enhanced</li>
 <li>vscode-pandoc</li>
-</ul>
-</li>
-<li>语言<ul>
+</ul></li>
+<li>语言
+<ul>
 <li>ESLint</li>
 <li>HTML CSS support</li>
 <li>html snippets</li>
 <li>Latex Workshop</li>
 <li>Python</li>
-</ul>
-</li>
-<li>其他<ul>
+</ul></li>
+<li>其他
+<ul>
 <li>Quick task</li>
-</ul>
-</li>
+</ul></li>
 </ol>
 <p>Markdown部分参见我关于Markdown的三篇博文。</p>
 <p>基本上都是马上可以用的，windows下latex要写一些配置才能用，但也不麻烦。如果想编译c++，则要一番配置，不如用现成的ide，Clion就很不错。</p>
-<h1 id="后记"><a href="#后记" class="headerlink" title="后记"></a>后记</h1><p>这样就可以愉快地使用VSC了，非常简洁和轻量。</p>
+<h1 id="后记">后记</h1>
+<p>这样就可以愉快地使用VSC了，非常简洁和轻量。</p>
 
 
 <br />
@@ -230,13 +236,13 @@
         </div>
         <nav class="m-pagination col-md-8 col-md-offset-2 col-sm-24" role="pagination">
     
-    <a class="pull-left" href="/2018/09/30/Computer/yubikey1_个人安全/" style="float: left;">
-        ← yubikey1:个人安全与yubikey
+    <a class="pull-left" href="/2018/09/30/Computer/软件1_电脑分配和常用程序/" style="float: left;">
+        ← 软件1:电脑常用软件
     </a>
     
     
-    <a class="pull-right" href="/2018/09/30/Computer/VPS1_购买以及设置VPS/">
-        VPS1:购买以及设置 →
+    <a class="pull-right" href="/2018/09/30/Computer/yubikey1_个人安全/">
+        yubikey1:个人安全与yubikey →
     </a>
     
 </nav>
