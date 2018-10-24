@@ -183,8 +183,10 @@
             </div>
         </div>
         <div class="col-md-8 col-md-offset-2">
-      		<h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>对于一个准备完计算机的喜欢折腾的学生来说，拥有一台自己的服务器是十分有必要的，在那上面，可以干许许多多事情。</p>
-<h1 id="Github学生包"><a href="#Github学生包" class="headerlink" title="Github学生包"></a>Github学生包</h1><p>相信大家对github都不陌生，但github上除了代码管理和社区之外，github提供的学生包也是个非常不错的东西。学生包获取方法就根据提示一步一步来就行，需要学校邮箱。</p>
+      		<h1 id="前言">前言</h1>
+<p>对于一个准备完计算机的喜欢折腾的学生来说，拥有一台自己的服务器是十分有必要的，在那上面，可以干许许多多事情。</p>
+<h1 id="github学生包">Github学生包</h1>
+<p>相信大家对github都不陌生，但github上除了代码管理和社区之外，github提供的学生包也是个非常不错的东西。学生包获取方法就根据提示一步一步来就行，需要学校邮箱。</p>
 <p>其中个人暂时用到的有：</p>
 <ul>
 <li>DigitalOcean上50刀的代金券</li>
@@ -192,35 +194,37 @@
 <li>Namecheap一年的免费.me域名</li>
 </ul>
 <p>这些基本都和VPS有关，本文主要介绍DO上的VPS，这个也比较简单。</p>
-<h1 id="DigitalOcean"><a href="#DigitalOcean" class="headerlink" title="DigitalOcean"></a>DigitalOcean</h1><p>如果没有paypal，首先要注册一个paypal（中国区的也可以），然后绑定银行卡，向其中充值5美金，接着就可以接触绑定了。接着注册DO，这是需要用paypal向其中充值5美金，就可以注册完成了。完成后，在DO网站中输入学生包优惠码，会发现账户变成了55美金，这样就可以用基础套餐11个月了。</p>
+<h1 id="digitalocean">DigitalOcean</h1>
+<p>如果没有paypal，首先要注册一个paypal（中国区的也可以），然后绑定银行卡，向其中充值5美金，接着就可以接触绑定了。接着注册DO，这是需要用paypal向其中充值5美金，就可以注册完成了。完成后，在DO网站中输入学生包优惠码，会发现账户变成了55美金，这样就可以用基础套餐11个月了。</p>
 <p>然后添加Droplets，我使用的是centos，最基础的套餐（5刀一个月），用校园网的话记得勾选ipv6，然后 <strong>添加一个sshkey</strong> （这一步很重要，不然申请完成后需要再设置这个VPS很多步）</p>
 <p>然后就完成了基本操作，可以使用电脑连接服务器了。</p>
-<h2 id="设置防火墙"><a href="#设置防火墙" class="headerlink" title="设置防火墙"></a>设置防火墙</h2><p>DO提供了十分方便的防火墙设置，可以控制进出开放的端口，然后你可以只开你需要的端口，可以免去在VPS里面设置防火墙，甚至可以吧里面的防火墙关了。</p>
-<p>这里一般会设置几套防火墙，每一套之间是叠加的，就是最终开放的端口是所有防火墙组的开发端口的并集。可以有前段防火墙开发基本端口，然后ss防火墙专门开发socks协议使用的端口……这个就看自己组合了。</p>
-<h2 id="连接服务器"><a href="#连接服务器" class="headerlink" title="连接服务器"></a>连接服务器</h2><p>Windows可以用putty，使用ssh登陆，然后在ssh设置中添加自己的私钥，就可以连了。</p>
+<h2 id="设置防火墙">设置防火墙</h2>
+<p>DO提供了十分方便的防火墙设置，可以控制进出开放的端口，然后你可以只开你需要的端口，可以免去在VPS里面设置防火墙，甚至可以吧里面的防火墙关了。</p>
+<p>这里一般会设置几套防火墙，每一套之间是叠加的，就是最终开放的端口是所有防火墙组的开发端口的并集。可以有前段防火墙开发基本端口，然后ss防火墙专门开发socks协议使用的端口......这个就看自己组合了。</p>
+<h2 id="连接服务器">连接服务器</h2>
+<p>Windows可以用putty，使用ssh登陆，然后在ssh设置中添加自己的私钥，就可以连了。</p>
 <p>Mac的话直接用系统自带的终端</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ssh -p [port] [user]@[ip]</span><br></pre></td></tr></table></figure>
 <p>就行了</p>
-<h1 id="用户设置"><a href="#用户设置" class="headerlink" title="用户设置"></a>用户设置</h1><p>默认登陆的是root用户，但是这样是不安全的，我们可以建立管理员用户，然后只允许管理员用户切换到root，再禁止root的ssh登陆，这样我们钥使用root就只能先ssh登陆管理员账户，然后再使用密码切换到root。</p>
-<ol>
+<h1 id="用户设置">用户设置</h1>
+<p>默认登陆的是root用户，但是这样是不安全的，我们可以建立管理员用户，然后只允许管理员用户切换到root，再禁止root的ssh登陆，这样我们钥使用root就只能先ssh登陆管理员账户，然后再使用密码切换到root。</p>
+<ol type="1">
 <li><p>新建一个用户</p>
- <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">useradd [user]</span><br></pre></td></tr></table></figure>
-</li>
+<p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">useradd [user]</span><br></pre></td></tr></table></figure></p></li>
 <li><p>将用户添加至管理员组</p>
- <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">usermod –g wheel [user]</span><br></pre></td></tr></table></figure>
-</li>
+<p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">usermod –g wheel [user]</span><br></pre></td></tr></table></figure></p></li>
 <li><p>修改/etc/pam.d/su配置</p>
-<p> 去掉这行的注释，就完成了禁止普通用户切换root</p>
- <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">#auth required pam_wheel.so use_uid</span><br></pre></td></tr></table></figure>
-</li>
+<p>去掉这行的注释，就完成了禁止普通用户切换root</p>
+<p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">#auth required pam_wheel.so use_uid</span><br></pre></td></tr></table></figure></p></li>
 <li><p>修改/etc/ssh/sshd_config</p>
-<p> 将PermitRootLogin选项改为</p>
- <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">PermitRootLogin no</span><br></pre></td></tr></table></figure>
-</li>
+<p>将PermitRootLogin选项改为</p>
+<p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">PermitRootLogin no</span><br></pre></td></tr></table></figure></p></li>
 </ol>
 <p>这样就禁止了root直接登陆。</p>
-<h1 id="ssh设置"><a href="#ssh设置" class="headerlink" title="ssh设置"></a>ssh设置</h1><p>这个在用户文件夹下的.ssh/authorized_keys中可以添加ssh的公钥，然后就可以使用不同的私钥链接服务器了，然是保险起见得保证 <strong>从修改文件到确认可以用修改后的钥匙登陆前</strong> 最好都保持有一个终端窗口连在服务器上，这样玩意出问题还可以再次改那个文件。</p>
-<h1 id="OK"><a href="#OK" class="headerlink" title="OK"></a>OK</h1><p>然后就可以愉快地在服务器中安装各种软件了……</p>
+<h1 id="ssh设置">ssh设置</h1>
+<p>这个在用户文件夹下的.ssh/authorized_keys中可以添加ssh的公钥，然后就可以使用不同的私钥链接服务器了，然是保险起见得保证 <strong>从修改文件到确认可以用修改后的钥匙登陆前</strong> 最好都保持有一个终端窗口连在服务器上，这样玩意出问题还可以再次改那个文件。</p>
+<h1 id="ok">OK</h1>
+<p>然后就可以愉快地在服务器中安装各种软件了......</p>
 
 
 <br />
@@ -232,13 +236,13 @@
         </div>
         <nav class="m-pagination col-md-8 col-md-offset-2 col-sm-24" role="pagination">
     
-    <a class="pull-left" href="/2018/09/30/Computer/VPS3_服务器设置与个人博客/" style="float: left;">
-        ← VPS3:nginx服务与Hexo博客
+    <a class="pull-left" href="/2018/09/30/Computer/yubikey1_个人安全/" style="float: left;">
+        ← yubikey1:个人安全与yubikey
     </a>
     
     
-    <a class="pull-right" href="/2018/09/30/Computer/软件1_电脑分配和常用程序/">
-        软件1:电脑常用软件 →
+    <a class="pull-right" href="/2018/09/30/Computer/Linux1_基本命令+Mac终端+zsh/">
+        Linux1:基本命令，Mac终端和zsh →
     </a>
     
 </nav>
