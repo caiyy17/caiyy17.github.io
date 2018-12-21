@@ -80,7 +80,7 @@
         		<a class="sb-toggle-submenu">Categories<span class="sb-caret"></span></a>
             	<ul class="sb-submenu">
 				  	
-				    <li><a href="/categories/Computer/" class="animsition-link">Computer<small>(13)</small></a></li>
+				    <li><a href="/categories/Computer/" class="animsition-link">Computer<small>(14)</small></a></li>
 				    
 				    <li><a href="/categories/Eating/" class="animsition-link">Eating<small>(1)</small></a></li>
 				    
@@ -179,9 +179,23 @@
             </div>
         </div>
         <div class="col-md-8 col-md-offset-2">
-      		<h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>又折腾买了个树莓派，正好右32g不用的tf卡，就准备来玩玩看可以做些什么。</p>
-<h1 id="安装系统"><a href="#安装系统" class="headerlink" title="安装系统"></a>安装系统</h1><p>网上教程乱七八糟，最后还是官方文档比较清楚，下载系统解压后使用etcher烧录至tf卡，然后插入树莓派就可以启动了。</p>
-<p># </p>
+      		<h1 id="前言"><a class="markdownIt-Anchor" href="#前言"></a> 前言</h1>
+<p>又折腾买了个树莓派，正好右32g不用的tf卡，就准备来玩玩看可以做些什么。</p>
+<h1 id="安装系统"><a class="markdownIt-Anchor" href="#安装系统"></a> 安装系统</h1>
+<p>网上教程乱七八糟，最后还是官方文档比较清楚，下载系统解压后使用etcher烧录至tf卡，然后插入树莓派就可以启动了。</p>
+<h1 id="连接树莓派"><a class="markdownIt-Anchor" href="#连接树莓派"></a> 连接树莓派</h1>
+<p>先在根目录下加一个空白的名为ssh的文件让树莓派支持ssh连接，然后将电脑和树莓派通过网线相连。获取树莓派ip地址：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ping raspberrypi.local</span><br></pre></td></tr></table></figure>
+<p>然后就可以ssh连接这个树莓派，用户名&quot;pi&quot;，密码&quot;raspberry&quot;。接下来使用</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo raspi-config</span><br></pre></td></tr></table></figure>
+<p>进行基础设置，更改密码，地区设置（加入zh-CN UTF8支持，但个人依然只有en-GB UTF8作为默认语言），允许ssh，扩展储存（高级设置里扩展储存选项）</p>
+<p>然后安装vim，zsh等常用的软件。</p>
+<h1 id="更换清华源"><a class="markdownIt-Anchor" href="#更换清华源"></a> 更换清华源</h1>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">sudo nano /etc/apt/sources.list </span><br><span class="line"></span><br><span class="line">//注释掉原来的，加入</span><br><span class="line">deb http://mirrors.tuna.tsinghua.edu.cn/raspbian/raspbian/ stretch main contrib non-free rpi</span><br><span class="line">deb-src http://mirrors.tuna.tsinghua.edu.cn/raspbian/raspbian/ stretch main contrib non-free rpi</span><br><span class="line"></span><br><span class="line">//保存退出，然后</span><br><span class="line"></span><br><span class="line">sudo nano /etc/apt/sources.list.d/raspi.list</span><br><span class="line"></span><br><span class="line">//注释掉原来的，加入</span><br><span class="line">deb http://mirror.tuna.tsinghua.edu.cn/raspberrypi/ stretch main ui</span><br><span class="line">deb-src http://mirror.tuna.tsinghua.edu.cn/raspberrypi/ stretch main ui</span><br></pre></td></tr></table></figure>
+<p>就可以更新了</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">sudo raspi-config</span><br><span class="line">sudo apt-get update</span><br><span class="line">sudo apt-get upgrade</span><br><span class="line">sudo apt-get dist-upgrade</span><br><span class="line">sudo rpi-update</span><br><span class="line">sudo reboot //重启</span><br></pre></td></tr></table></figure>
+<h1 id="建立路由器"><a class="markdownIt-Anchor" href="#建立路由器"></a> 建立路由器</h1>
+<p>这一步需要一些网络知识，未完待续（下学期更新）</p>
 
 
 <br />

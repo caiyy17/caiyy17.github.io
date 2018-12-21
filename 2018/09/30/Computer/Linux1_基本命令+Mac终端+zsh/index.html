@@ -80,7 +80,7 @@
         		<a class="sb-toggle-submenu">Categories<span class="sb-caret"></span></a>
             	<ul class="sb-submenu">
 				  	
-				    <li><a href="/categories/Computer/" class="animsition-link">Computer<small>(13)</small></a></li>
+				    <li><a href="/categories/Computer/" class="animsition-link">Computer<small>(14)</small></a></li>
 				    
 				    <li><a href="/categories/Eating/" class="animsition-link">Eating<small>(1)</small></a></li>
 				    
@@ -180,12 +180,14 @@
         </div>
         <div class="col-md-8 col-md-offset-2">
       		<ul>
-<li><a href="#前言">前言</a></li>
-<li><a href="#linux权限">Linux权限</a><ul>
-<li><a href="#linux权限管理">Linux权限管理</a></li>
+<li><a href="#%E5%89%8D%E8%A8%80">前言</a></li>
+<li><a href="#linux%E6%9D%83%E9%99%90">Linux权限</a>
+<ul>
+<li><a href="#linux%E6%9D%83%E9%99%90%E7%AE%A1%E7%90%86">Linux权限管理</a></li>
 </ul>
 </li>
-<li><a href="#linux基本命令">Linux基本命令</a><ul>
+<li><a href="#linux%E5%9F%BA%E6%9C%AC%E5%91%BD%E4%BB%A4">Linux基本命令</a>
+<ul>
 <li><a href="#ls">ls</a></li>
 <li><a href="#cd">cd</a></li>
 <li><a href="#pwd">pwd</a></li>
@@ -194,193 +196,266 @@
 <li><a href="#rm">rm</a></li>
 <li><a href="#rmdir">rmdir</a></li>
 <li><a href="#man">man</a></li>
-<li><a href="#cp命令">cp命令</a></li>
+<li><a href="#cp%E5%91%BD%E4%BB%A4">cp命令</a></li>
 <li><a href="#mv">mv</a></li>
 <li><a href="#cat">cat</a></li>
 <li><a href="#more">more</a></li>
-<li><a href="#less命令">less命令</a></li>
+<li><a href="#less%E5%91%BD%E4%BB%A4">less命令</a></li>
 <li><a href="#find">find</a></li>
 <li><a href="#grep">grep</a></li>
 </ul>
 </li>
-<li><a href="#zsh安装方法">zsh安装方法</a></li>
-<li><a href="#参考">参考</a></li>
+<li><a href="#zsh%E5%AE%89%E8%A3%85%E6%96%B9%E6%B3%95">zsh安装方法</a></li>
+<li><a href="#%E5%8F%82%E8%80%83">参考</a></li>
 </ul>
-<h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>感觉学一些linux的基本命令还是十分必要的，不仅服务器需要，Mac也会有要求。本文介绍的一些命令，mac里面应该都有。</p>
+<h1 id="前言"><a class="markdownIt-Anchor" href="#前言"></a> 前言</h1>
+<p>感觉学一些linux的基本命令还是十分必要的，不仅服务器需要，Mac也会有要求。本文介绍的一些命令，mac里面应该都有。</p>
 <p>而zsh则是一个代替原有bash的一个十分强大的shell，可以大大提升生产效率。</p>
-<h1 id="Linux权限"><a href="#Linux权限" class="headerlink" title="Linux权限"></a>Linux权限</h1><p>Linux下有两种用户：普通用户和超级用户。</p>
+<h1 id="linux权限"><a class="markdownIt-Anchor" href="#linux权限"></a> Linux权限</h1>
+<p>Linux下有两种用户：普通用户和超级用户。</p>
 <p>普通用户：在linux下做有限的事情。</p>
 <p>超级用户：可以在linux系统下做任何事情，不受限制。</p>
 <p>切换用户：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">su [用户]</span><br></pre></td></tr></table></figure>
-<h2 id="Linux权限管理"><a href="#Linux权限管理" class="headerlink" title="Linux权限管理"></a>Linux权限管理</h2><ol>
-<li><p>文件访问者的分类</p>
-<p> Linux把访问者分为3类。</p>
+<h2 id="linux权限管理"><a class="markdownIt-Anchor" href="#linux权限管理"></a> Linux权限管理</h2>
+<ol>
+<li>
+<p>文件访问者的分类</p>
+<p>Linux把访问者分为3类。</p>
 <ul>
-<li>文件和文件目录的所有者：u—User </li>
-<li>文件和文件目录的所有者所在的组的用户：g—Group </li>
-<li>其他用户：o—Others </li>
+<li>文件和文件目录的所有者：u—User</li>
+<li>文件和文件目录的所有者所在的组的用户：g—Group</li>
+<li>其他用户：o—Others</li>
 </ul>
 </li>
-<li><p>文件访问权限的种类</p>
-<p> 读，写，执行（对文件而言，执行文件；对目录而言，进入目录）</p>
+<li>
+<p>文件访问权限的种类</p>
+<p>读，写，执行（对文件而言，执行文件；对目录而言，进入目录）</p>
 </li>
-<li><p>文件权限值得表示方法</p>
-<p> 表示 | 权限<br> ——- | ——-<br> r–- | 只读<br> -w- | 仅可写<br> –-x | 仅可执行<br> rw- | 可读可写<br> -wx | 可写可执行<br> r-x | 可读可执行<br> rwx | 可读可写可执行<br> —– | 无权限</p>
-<p> Linux中权限数值表示在chmod会用到，用三个8进制位表示。</p>
+<li>
+<p>文件权限值得表示方法</p>
+<table>
+<thead>
+<tr>
+<th>表示</th>
+<th>权限</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>r–-</td>
+<td>只读</td>
+</tr>
+<tr>
+<td>-w-</td>
+<td>仅可写</td>
+</tr>
+<tr>
+<td>–-x</td>
+<td>仅可执行</td>
+</tr>
+<tr>
+<td>rw-</td>
+<td>可读可写</td>
+</tr>
+<tr>
+<td>-wx</td>
+<td>可写可执行</td>
+</tr>
+<tr>
+<td>r-x</td>
+<td>可读可执行</td>
+</tr>
+<tr>
+<td>rwx</td>
+<td>可读可写可执行</td>
+</tr>
+<tr>
+<td>—–</td>
+<td>无权限</td>
+</tr>
+</tbody>
+</table>
+<p>Linux中权限数值表示在chmod会用到，用三个8进制位表示。</p>
 </li>
 </ol>
-<h1 id="Linux基本命令"><a href="#Linux基本命令" class="headerlink" title="Linux基本命令"></a>Linux基本命令</h1><h2 id="ls"><a href="#ls" class="headerlink" title="ls"></a>ls</h2><p>格式：ls [选项] [目录或文件]</p>
+<h1 id="linux基本命令"><a class="markdownIt-Anchor" href="#linux基本命令"></a> Linux基本命令</h1>
+<h2 id="ls"><a class="markdownIt-Anchor" href="#ls"></a> ls</h2>
+<p>格式：ls [选项] [目录或文件]</p>
 <p>功能：对于目录，列出该目录下的所有子目录与文件；对于文件，列出文件名以及其他信息。</p>
 <p>常用选项：</p>
 <ul>
 <li>-a：列出目录下的所有文件，包括以.开头的隐含文件。</li>
-<li>-d：将目录像文件一样显示，而不是显示其他文件。 </li>
-<li>-i：输出文件的i节点的索引信息。 </li>
-<li>-k：以k字节的形式表示文件的大小。 </li>
-<li>-l：列出文件的详细信息。 </li>
-<li>-n：用数字的UID,GID代替名称。 </li>
+<li>-d：将目录像文件一样显示，而不是显示其他文件。</li>
+<li>-i：输出文件的i节点的索引信息。</li>
+<li>-k：以k字节的形式表示文件的大小。</li>
+<li>-l：列出文件的详细信息。</li>
+<li>-n：用数字的UID,GID代替名称。</li>
 <li>-F：在每个文件名后面附上一个字符以说明该文件的类型，“*”表示可执行的普通文件；“/”表示目录；“@”表示符号链接；“l”表示FIFOS；“=”表示套接字。</li>
 </ul>
-<h2 id="cd"><a href="#cd" class="headerlink" title="cd"></a>cd</h2><p>格式：cd [目录名称]</p>
+<h2 id="cd"><a class="markdownIt-Anchor" href="#cd"></a> cd</h2>
+<p>格式：cd [目录名称]</p>
 <p>（zsh直接打目录名就行）</p>
-<h2 id="pwd"><a href="#pwd" class="headerlink" title="pwd"></a>pwd</h2><p>格式：pwd</p>
+<h2 id="pwd"><a class="markdownIt-Anchor" href="#pwd"></a> pwd</h2>
+<p>格式：pwd</p>
 <p>功能：显示出当前工作目录的绝对路径。</p>
-<h2 id="touch"><a href="#touch" class="headerlink" title="touch"></a>touch</h2><p>格式：touch [选项] [文件名]</p>
+<h2 id="touch"><a class="markdownIt-Anchor" href="#touch"></a> touch</h2>
+<p>格式：touch [选项] [文件名]</p>
 <p>功能：touch命令参数可以更改文档或目录的日期时间，包括存取时间和更改时间，或者新建一个不存在的文件。</p>
 <p>常用选项：</p>
 <ul>
-<li>-a：仅改变指定文件的存取时间。 </li>
-<li>-c：（或–no-creat）不创建任何文件。 </li>
-<li>-m：仅改变指定文件的修改时间。 </li>
-<li>-d：使用指定的日期时间，而非现在的时间。 </li>
+<li>-a：仅改变指定文件的存取时间。</li>
+<li>-c：（或–no-creat）不创建任何文件。</li>
+<li>-m：仅改变指定文件的修改时间。</li>
+<li>-d：使用指定的日期时间，而非现在的时间。</li>
 </ul>
-<h2 id="mkdir"><a href="#mkdir" class="headerlink" title="mkdir"></a>mkdir</h2><p>格式：mkdir [选项] [目录名]</p>
+<h2 id="mkdir"><a class="markdownIt-Anchor" href="#mkdir"></a> mkdir</h2>
+<p>格式：mkdir [选项] [目录名]</p>
 <p>功能：mkdir命令用来创建目录。</p>
 <p>常用选项：</p>
 <ul>
-<li>-p：若路径中的某些目录尚不存在，系统将自动建立好那些尚不存在的目录，即一次可以建立多个目录。 </li>
+<li>-p：若路径中的某些目录尚不存在，系统将自动建立好那些尚不存在的目录，即一次可以建立多个目录。</li>
 <li>-m MODE：将新建目录的存取权限设置为MODE。</li>
 </ul>
-<h2 id="rm"><a href="#rm" class="headerlink" title="rm"></a>rm</h2><p>格式：rm [选项] [文件列表]</p>
+<h2 id="rm"><a class="markdownIt-Anchor" href="#rm"></a> rm</h2>
+<p>格式：rm [选项] [文件列表]</p>
 <p>功能：删除文件或目录。</p>
 <p>常用选项：</p>
 <ul>
-<li>-f：忽略不存在的文件，并且不给出提示信息。 </li>
-<li>-r：递归地删除指定目录及其下属的各级子目录和相应的文件。 </li>
+<li>-f：忽略不存在的文件，并且不给出提示信息。</li>
+<li>-r：递归地删除指定目录及其下属的各级子目录和相应的文件。</li>
 <li>-i：交互式删除文件。</li>
 </ul>
-<h2 id="rmdir"><a href="#rmdir" class="headerlink" title="rmdir"></a>rmdir</h2><p>格式：rmdir [选项] [目录名]</p>
+<h2 id="rmdir"><a class="markdownIt-Anchor" href="#rmdir"></a> rmdir</h2>
+<p>格式：rmdir [选项] [目录名]</p>
 <p>功能：删除目录。（一定要空文件夹）</p>
 <p>常用选项：</p>
 <ul>
 <li>-p：递归删除目录，当子目录删除后其父目录为空时，也一同被删除。如果有非空的目录，则该目录保留下来。</li>
 </ul>
-<h2 id="man"><a href="#man" class="headerlink" title="man"></a>man</h2><p>格式：man [选项] 命令</p>
+<h2 id="man"><a class="markdownIt-Anchor" href="#man"></a> man</h2>
+<p>格式：man [选项] 命令</p>
 <p>功能：man命令格式化并显示某一命令的联机帮助手册页。</p>
 <p>常用选项：</p>
 <ul>
-<li>-k：根据关键字搜索联机帮助。 </li>
-<li>num：只在第num章节找。 </li>
+<li>-k：根据关键字搜索联机帮助。</li>
+<li>num：只在第num章节找。</li>
 <li>-a：将所有章节的都显示出来。</li>
 </ul>
 <p>说明：手册分为8章：</p>
 <ol>
-<li>一般用户的命令； </li>
-<li>系统调用； </li>
-<li>C语言函数库； </li>
-<li>有关驱动程序和系统设备的解释； </li>
-<li>配置文件的解释； </li>
-<li>游戏程序的命令； </li>
-<li>有用的杂类命令，如宏命令包等； </li>
-<li>有关系统维护和管理的命令。 </li>
+<li>一般用户的命令；</li>
+<li>系统调用；</li>
+<li>C语言函数库；</li>
+<li>有关驱动程序和系统设备的解释；</li>
+<li>配置文件的解释；</li>
+<li>游戏程序的命令；</li>
+<li>有用的杂类命令，如宏命令包等；</li>
+<li>有关系统维护和管理的命令。</li>
 </ol>
-<h2 id="cp命令"><a href="#cp命令" class="headerlink" title="cp命令"></a>cp命令</h2><p>格式：cp [选项] [源文件或目录] [目标文件或目录]</p>
+<h2 id="cp命令"><a class="markdownIt-Anchor" href="#cp命令"></a> cp命令</h2>
+<p>格式：cp [选项] [源文件或目录] [目标文件或目录]</p>
 <p>功能：复制文件或目录。</p>
 <p>常用选项：</p>
 <ul>
-<li>-f：强行复制文件或目录，不论文件或目录是否已经存在。 </li>
-<li>-d：复制时保留文件链接。 </li>
-<li>-i：覆盖文件之前先询问用户。 </li>
-<li>-r：递归处理，将指定目录下的文件与子目录一并处理。若源文件或目录的形态，不属于目录或符号链接，则一律视为普通文件处理。 </li>
+<li>-f：强行复制文件或目录，不论文件或目录是否已经存在。</li>
+<li>-d：复制时保留文件链接。</li>
+<li>-i：覆盖文件之前先询问用户。</li>
+<li>-r：递归处理，将指定目录下的文件与子目录一并处理。若源文件或目录的形态，不属于目录或符号链接，则一律视为普通文件处理。</li>
 <li>-R：递归处理，将指定目录下的文件及子目录一并处理。</li>
 </ul>
-<h2 id="mv"><a href="#mv" class="headerlink" title="mv"></a>mv</h2><p>格式：mv [选项] [源文件或目录] [目标文件或目录]</p>
+<h2 id="mv"><a class="markdownIt-Anchor" href="#mv"></a> mv</h2>
+<p>格式：mv [选项] [源文件或目录] [目标文件或目录]</p>
 <p>功能：mv命令对文件或目录重新命名，或者将文件从一个目录移到另一个目录中。</p>
 <p>常用选项：</p>
 <ul>
-<li>-f：强制的意思，如果目标文件已经存在，不会询问而直接覆盖。 </li>
+<li>-f：强制的意思，如果目标文件已经存在，不会询问而直接覆盖。</li>
 <li>-i：若目标文件已经存在时，就会询问是否覆盖。</li>
 </ul>
-<h2 id="cat"><a href="#cat" class="headerlink" title="cat"></a>cat</h2><p>格式：cat [选项] [文件]</p>
+<h2 id="cat"><a class="markdownIt-Anchor" href="#cat"></a> cat</h2>
+<p>格式：cat [选项] [文件]</p>
 <p>功能：查看目标文件的内容。</p>
 <p>常用选项：</p>
 <ul>
-<li>-b：对非空输出行编号。 </li>
-<li>-n：对输出的所有行编号。 </li>
+<li>-b：对非空输出行编号。</li>
+<li>-n：对输出的所有行编号。</li>
 <li>-s：不输出多行空行。</li>
 </ul>
-<h2 id="more"><a href="#more" class="headerlink" title="more"></a>more</h2><p>格式：more [选项] [文件]</p>
+<h2 id="more"><a class="markdownIt-Anchor" href="#more"></a> more</h2>
+<p>格式：more [选项] [文件]</p>
 <p>功能：more命令显示文件内容，每次显示一屏。</p>
 <p>常用选项：</p>
 <ul>
-<li>-n：对输出的所有行编号。 </li>
-<li>-s：将文件中连续的空白行压缩成一个空白行显示。 </li>
+<li>-n：对输出的所有行编号。</li>
+<li>-s：将文件中连续的空白行压缩成一个空白行显示。</li>
 <li>-num：这个选项制定一个整数，表示一屏显示多少行。</li>
 <li>q：退出more。</li>
 </ul>
-<h2 id="less命令"><a href="#less命令" class="headerlink" title="less命令"></a>less命令</h2><p>格式：less [参数] [文件]</p>
+<h2 id="less命令"><a class="markdownIt-Anchor" href="#less命令"></a> less命令</h2>
+<p>格式：less [参数] [文件]</p>
 <p>功能：less命令与more命令类似，但二者存在差别，less命令允许用户向前或向后浏览文件，而more命令只能向前浏览。</p>
 <p>常用选项：</p>
 <ul>
-<li>-i：忽略搜索时的大小写。 </li>
-<li>-N：显示每行的行号。 </li>
+<li>-i：忽略搜索时的大小写。</li>
+<li>-N：显示每行的行号。</li>
 </ul>
-<h2 id="find"><a href="#find" class="headerlink" title="find"></a>find</h2><p>格式：find [pathname] -options</p>
+<h2 id="find"><a class="markdownIt-Anchor" href="#find"></a> find</h2>
+<p>格式：find [pathname] -options</p>
 <p>功能：用于在文件树种查找文件，并作出相应的处理（可能访问磁盘）。</p>
 <p>常用选项：</p>
 <ul>
 <li>-name：按照文件名查找文件。</li>
 </ul>
-<h2 id="grep"><a href="#grep" class="headerlink" title="grep"></a>grep</h2><p>格式：grep [选项] [搜寻字符串文件]</p>
+<h2 id="grep"><a class="markdownIt-Anchor" href="#grep"></a> grep</h2>
+<p>格式：grep [选项] [搜寻字符串文件]</p>
 <p>功能：在文件中搜索字符串，将找到的行打印出来。</p>
 <p>常用选项：</p>
 <ul>
-<li>-i：忽略大小写的不同，所以大小写视为相同。 </li>
-<li>-n：顺便输出行号。 </li>
+<li>-i：忽略大小写的不同，所以大小写视为相同。</li>
+<li>-n：顺便输出行号。</li>
 <li>-v：反向选择，亦即显出没有‘搜寻字符串’内容的那一行。</li>
 </ul>
-<h1 id="zsh安装方法"><a href="#zsh安装方法" class="headerlink" title="zsh安装方法"></a>zsh安装方法</h1><p>可以参考Mac1_新机设置那篇文章</p>
+<h1 id="zsh安装方法"><a class="markdownIt-Anchor" href="#zsh安装方法"></a> zsh安装方法</h1>
+<p>可以参考Mac1_新机设置那篇文章</p>
 <ul>
-<li><p>安装oh-my-zsh</p>
-<pre><code>sh -c &quot;$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)&quot;
-</code></pre></li>
-<li><p>安装主题</p>
-<p>  安装的主题都在~/.oh-my-zsh/themes里面，若没有想要的主题可以在网上安装（git clone然后把.zsh-theme拷贝到themes文件夹里即可）</p>
-<p>  然后在~/.zshrc修改主题名字，再</p>
-<pre><code>source ~/.zshrc
-</code></pre></li>
-<li><p>安装插件</p>
-<pre><code>cd ~/.oh-my-zsh/custom/plugins
-git clone &lt;插件地址&gt;
-</code></pre><p>  然后在~/.zshrc中的Plugins选项里加入下载的插件，再</p>
-<pre><code>source ~/.zshrc
-</code></pre><p>  一些推荐：</p>
+<li>
+<p>安装oh-my-zsh</p>
+<pre><code>  sh -c &quot;$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)&quot;
+</code></pre>
+</li>
+<li>
+<p>安装主题</p>
+<p>安装的主题都在~/.oh-my-zsh/themes里面，若没有想要的主题可以在网上安装（git clone然后把.zsh-theme拷贝到themes文件夹里即可）</p>
+<p>然后在~/.zshrc修改主题名字，再</p>
+<pre><code>  source ~/.zshrc
+</code></pre>
+</li>
+<li>
+<p>安装插件</p>
+<pre><code>  cd ~/.oh-my-zsh/custom/plugins
+  git clone &lt;插件地址&gt;
+</code></pre>
+<p>然后在~/.zshrc中的Plugins选项里加入下载的插件，再</p>
+<pre><code>  source ~/.zshrc
+</code></pre>
+<p>一些推荐：</p>
 <ul>
-<li>autojump</li>
+<li>autojump（可以用原装的z代替）</li>
 <li>colored-man-pages</li>
 <li>zsh-autosuggestions</li>
-<li><p>zsh-syntax-highlighting</p>
+<li>zsh-syntax-highlighting</li>
+</ul>
+  <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">git clone git://github.com/zsh-users/zsh-autosuggestions $ZSH_CUSTOM/plugins/zsh-autosuggestions</span><br><span class="line"></span><br><span class="line">git clone https://github.com/zsh-users/zsh-syntax-highlighting.git $&#123;ZSH_CUSTOM:-~/.oh-my-zsh/custom&#125;/plugins/zsh-syntax-highlighting</span><br></pre></td></tr></table></figure>
 <p><strong>PS:</strong> vim插件配置，这是github上的某一个大神的配置</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git clone https://github.com/amix/vimrc.git ~/.vim_runtime</span><br></pre></td></tr></table></figure>
+  <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git clone https://github.com/amix/vimrc.git ~/.vim_runtime</span><br></pre></td></tr></table></figure>
+</li>
+<li>
+<p>修改配色和背景</p>
+<p>这个自己改就行了，也可以网上下现成的然后导入进去。</p>
 </li>
 </ul>
-</li>
-<li><p>修改配色和背景</p>
-<p>  这个自己改就行了，也可以网上下现成的然后导入进去。</p>
-</li>
-</ul>
-<h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><p><a href="https://blog.csdn.net/tao934798774/article/details/79491951" target="_blank" rel="noopener">Linux基本命令总结</a></p>
+<h1 id="参考"><a class="markdownIt-Anchor" href="#参考"></a> 参考</h1>
+<p><a href="https://blog.csdn.net/tao934798774/article/details/79491951" target="_blank" rel="noopener">Linux基本命令总结</a></p>
 
 
 <br />
@@ -392,13 +467,13 @@ git clone &lt;插件地址&gt;
         </div>
         <nav class="m-pagination col-md-8 col-md-offset-2 col-sm-24" role="pagination">
     
-    <a class="pull-left" href="/2018/10/04/WantToEat/巧克力/" style="float: left;">
-        ← 巧克力
+    <a class="pull-left" href="/2018/09/30/Computer/软件2_VSC设置以及texlive设置/" style="float: left;">
+        ← 软件2:VSC
     </a>
     
     
-    <a class="pull-right" href="/2018/09/30/Computer/VPS1_购买以及设置VPS/">
-        VPS1:购买以及设置 →
+    <a class="pull-right" href="/2018/09/30/Computer/yubikey1_个人安全/">
+        yubikey1:个人安全与yubikey →
     </a>
     
 </nav>
