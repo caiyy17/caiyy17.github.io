@@ -17,7 +17,7 @@
 <!--<![endif]-->
 
 <head>
-  <title>Tag: 树莓派 | 杂七杂八</title>
+  <title>RSP3:HA智能 | 杂七杂八</title>
   <!-- Meta data -->
     <meta http-equiv="Content-Type" content="text/html" charset="UTF-8" >
     <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
@@ -59,7 +59,7 @@
 </head>
 
 <!--
-<body class="home-template">
+<body class="post-template">
 -->
 <body id="index" class="lightnav animsition">
 
@@ -161,90 +161,107 @@
         <!-- ============================ Header & Logo bar =========================== -->
 
 
-      <!-- ============================ Hero Image =========================== -->
-
-<section id="hero" class="scrollme">
-    <div class="container-fluid element-img" style="background: url(/img/bg_img.jpg) no-repeat center center fixed;background-size: cover">
-        <div class="row">
-            <div class="col-xs-12 col-sm-8 col-sm-offset-2 col-md-8 col-md-offset-2 vertical-align cover boost text-center">
-                <div class="center-me animateme" data-when="exit" data-from="0" data-to="0.6" data-opacity="0" data-translatey="100">
-                    <div>
-                        
-                        <h2>Welcome</h2>
-                        <p></p>
-                        
-                        <h2></h2>
-                        <p>每一个不曾起舞的日子都是对生命的辜负。</p>
-                        
-                    </div>
-                </div>
-            </div>
-            <!-- // .col-md-12 -->
-        </div>
-        <div class="herofade beige-dk"></div>
-    </div>
-</section>
-
-<!-- Height spacing helper -->
-<div class="heightblock"></div>
-<!-- // End height spacing helper -->
-
-<!-- ============================ END Hero Image =========================== -->
-
-
-
-<section id="services">
+      
+<section id="intro">
     <div class="container">
-        <div class="row">
-            <div class="col-md-10 col-md-offset-1">
-                <div class="row boxes">
-                    
-                    
-                        
-                        
-                        <div class="col-xs-12 col-sm-3 col-md-3 col-lg-3 wow fadeInUp" data-wow-delay="0.3s">
-                            
-                              <h4 class="title"><a href="/2019/02/19/Computer/RSP3_HA智能/">RSP3:HA智能</a></h4>
-                            
-                            <p><time datetime="2019-02-18T16:00:00.000Z"><a href="/2019/02/19/Computer/RSP3_HA智能/">2019-02-19</a></time></p>
-                        </div>
-                    
-                        
-                        
-                        <div class="col-xs-12 col-sm-3 col-md-3 col-lg-3 wow fadeInUp" data-wow-delay="0.3s">
-                            
-                              <h4 class="title"><a href="/2019/02/19/Computer/RSP2_homeassistant/">RSP2:homeassistant</a></h4>
-                            
-                            <p><time datetime="2019-02-18T16:00:00.000Z"><a href="/2019/02/19/Computer/RSP2_homeassistant/">2019-02-19</a></time></p>
-                        </div>
-                    
-                        
-                        
-                        <div class="col-xs-12 col-sm-3 col-md-3 col-lg-3 wow fadeInUp" data-wow-delay="0.3s">
-                            
-                              <h4 class="title"><a href="/2018/12/20/Computer/RSP1_基本设置/">RSP1:基本设置</a></h4>
-                            
-                            <p><time datetime="2018-12-19T16:00:00.000Z"><a href="/2018/12/20/Computer/RSP1_基本设置/">2018-12-20</a></time></p>
-                        </div>
-                    
-                </div>
-            </div>    
+        <div class="row col-md-offset-2">
+            <div class="col-md-8">
+    			<span class="post-meta">
+      <time datetime="2019-02-18T16:00:00.000Z" itemprop="datePublished">
+          2019-02-19
+      </time>
+    
+    
+    | 
+    <a href='/tags/树莓派/'>树莓派</a>,
+    
+    <a href='/tags/homekit/'>homekit</a>
+    
+    
+</span>
+                <h1>RSP3:HA智能</h1>
+            </div>
         </div>
-        <nav class="pagination" role="pagination">
-          
-          
-        </nav>
-    </div>
-</section> 
+        <div class="col-md-8 col-md-offset-2">
+      		<h1 id="前言"><a class="markdownIt-Anchor" href="#前言"></a> 前言</h1>
+<p>这里准备做一些智能的设置，因为主要是使用HK作为控制中心，使用HA作为智能中心，所以对于HA的各种有趣界面的设置我也就不高兴做了，有兴趣可以看看墨澜的东西，写得还是不错的而且是中文的。</p>
+<h1 id="需要调用设备的一些功能"><a class="markdownIt-Anchor" href="#需要调用设备的一些功能"></a> 需要调用设备的一些功能</h1>
+<p>比如灯要设置场景，空气净化器要设置各种模式（这些都会在HA中以service的形式置入，如果没有的话就不能控制了，就是说HA中智能做到以一定条件一定顺序调用各种wervice，如果没有这个service就只能自己写platform（基于python）独立接入这个设备活着等开发人员更新了…）</p>
+<p>（待填坑）</p>
+<h1 id="智能场景"><a class="markdownIt-Anchor" href="#智能场景"></a> 智能场景</h1>
+<h1 id="track_device"><a class="markdownIt-Anchor" href="#track_device"></a> track_device</h1>
 
-<section id="statement">
-    <div class="container text-center wow fadeInUp" data-wow-delay="0.5s">
 
-        <div class="row">
-            <p>每一个不曾起舞的日子都是对生命的辜负。</p>
+<br />
+<br />
+<a rel="license" href="http://creativecommons.org/licenses/by/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by/4.0/80x15.png" /></a><br />This work is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by/4.0/">Creative Commons Attribution 4.0 International License</a>.
+
+            <div class="clearfix"></div>
+            <hr class="nogutter">
         </div>
+        <nav class="m-pagination col-md-8 col-md-offset-2 col-sm-24" role="pagination">
+    
+    
+    <a class="pull-right" href="/2019/02/19/Computer/RSP2_homeassistant/">
+        RSP2:homeassistant →
+    </a>
+    
+</nav>
+
+        <div class="col-md-8 col-md-offset-2 col-sm-24"><script type="text/javascript">
+  /**
+   * 搜狐畅言
+   */
+
+  /*
+  document.write('<div id="SOHUCS" sid="' + window.location.pathname.slice(1) + '" ></div>');
+
+  window.onload = function () {
+    (function () {
+      var appid = 'cytXXXX';
+      var conf = 'prod_xxxxxxxxxxxxxxxxx';
+      var width = window.innerWidth || document.documentElement.clientWidth;
+      var loadJs = function (d, a, id) {
+        var c = document.getElementsByTagName("head")[0] || document.head || document.documentElement;
+        var b = document.createElement("script");
+        b.setAttribute("type", "text/javascript");
+        b.setAttribute("charset", "UTF-8");
+        b.setAttribute("src", d);
+        if (id) {
+          b.setAttribute("id", id);
+        }
+        if (typeof a === "function") {
+          if (window.attachEvent) {
+            b.onreadystatechange = function () {
+              var e = b.readyState;
+              if (e === "loaded" || e === "complete") {
+                b.onreadystatechange = null;
+                a()
+              }
+            }
+          } else {
+            b.onload = a
+          }
+        }
+        c.appendChild(b)
+      };
+
+      loadJs("https://changyan.sohu.com/upload/changyan.js", function () {
+        window.changyan.api.config({
+          appid: appid,
+          conf: conf
+        })
+      });
+    })();
+  }
+  */
+
+</script>
+</div>
     </div>
 </section>
+
+
       
 <!-- ============================ Footer =========================== -->
 
