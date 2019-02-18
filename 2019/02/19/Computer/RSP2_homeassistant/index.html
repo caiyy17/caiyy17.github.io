@@ -17,7 +17,7 @@
 <!--<![endif]-->
 
 <head>
-  <title>软件2:VSC | 杂七杂八</title>
+  <title>RSP2:homeassistant | 杂七杂八</title>
   <!-- Meta data -->
     <meta http-equiv="Content-Type" content="text/html" charset="UTF-8" >
     <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
@@ -167,68 +167,78 @@
         <div class="row col-md-offset-2">
             <div class="col-md-8">
     			<span class="post-meta">
-      <time datetime="2018-09-29T16:00:00.000Z" itemprop="datePublished">
-          2018-09-30
+      <time datetime="2019-02-18T16:00:00.000Z" itemprop="datePublished">
+          2019-02-19
       </time>
     
     
     | 
-    <a href='/tags/软件/'>软件</a>
+    <a href='/tags/树莓派/'>树莓派</a>,
+    
+    <a href='/tags/homekit/'>homekit</a>
     
     
 </span>
-                <h1>软件2:VSC</h1>
+                <h1>RSP2:homeassistant</h1>
             </div>
         </div>
         <div class="col-md-8 col-md-offset-2">
-      		<h1 id="前言"><a class="markdownIt-Anchor" href="#前言"></a> 前言</h1>
-<p>前面讲的所有软件中，我想重点讲一下VSCode这个软件，简直神器，这是微软发布的一款轻量级的编辑器，但拥有非常多扩展功能，而且原生自带git支持，非常适合平时写写文章，脚本和轻量级的程序。特别是平时写文章，非常地好用，三大主流系统通用啊！</p>
-<h1 id="安装"><a class="markdownIt-Anchor" href="#安装"></a> 安装</h1>
-<p>按照官网下载就行了，然后可以下载各种插件，都在插件商店里面有，下载完重新加载一下就行，而卸载插件也是一键式的。插件也会分文件夹装在VSC生成的一个隐藏文件夹中，不会乱跑，Windows和Mac都在用户文件夹下的.vscode\extensions里面当然也可以改目录。</p>
-<h1 id="设置"><a class="markdownIt-Anchor" href="#设置"></a> 设置</h1>
-<p>VSC的设置也是越来越方便了，当然本质还是一个.json文件，应该一看就可以看懂，设置分三种：用户设置，工作区设置和文件夹设置。</p>
-<p>其中用户设置保存在程序中（setting.json可以通过打开设置，然后查看文件路径得知，这样就可以备份出来了）；工作区设置保存在.code-workspace文件中，可以自己指定存的地方；文件夹设置在本文件夹下的.vscode\setting.json里面。</p>
-<h1 id="git"><a class="markdownIt-Anchor" href="#git"></a> git</h1>
-<p>打开文件夹后，在VSC的git那一栏下初始化git仓库。然后在集成的终端内输入：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git remote add origin https://github.com/XXX.git</span><br><span class="line">git pull origin master</span><br></pre></td></tr></table></figure>
-<p>结下来发布时有可能要输入密码，照着做就行。</p>
-<p>不想输入密码就：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git config --global credential.helper store</span><br></pre></td></tr></table></figure>
-<h1 id="插件推荐"><a class="markdownIt-Anchor" href="#插件推荐"></a> 插件推荐</h1>
+      		<ul>
+<li><a href="#%E5%89%8D%E8%A8%80">前言</a></li>
+<li><a href="#%E5%9F%BA%E6%9C%AC%E6%A1%86%E6%9E%B6">基本框架</a></li>
+<li><a href="#%E8%AE%BE%E7%BD%AEha">设置HA</a></li>
+<li><a href="#%E7%B1%B3%E5%AE%B6ha">米家——HA</a>
+<ul>
+<li><a href="#%E8%8E%B7%E5%8F%96token">获取token</a></li>
+</ul>
+</li>
+<li><a href="#hahk">HA——HK</a>
+<ul>
+<li><a href="#%E9%9C%80%E8%A6%81%E8%AE%BE%E5%A4%87%E8%BF%94%E5%9B%9E%E7%9A%84%E4%B8%80%E4%BA%9B%E4%BC%A0%E6%84%9F%E5%99%A8%E6%95%B0%E5%80%BC">需要设备返回的一些传感器数值</a></li>
+</ul>
+</li>
+<li><a href="#%E6%9A%82%E6%97%B6">暂时</a></li>
+</ul>
+<h1 id="前言"><a class="markdownIt-Anchor" href="#前言"></a> 前言</h1>
+<p>小米的智能家庭套件可谓是物美价廉，然而它有着对于我这种强迫症非常不能接受的一个特点：非本地，所有的操作所有的智能都必须通过与小米远端的服务器进行数据交换才能够进行，这也就意味者在没有网络（路由器断了外网）或者小米服务器出故障的情况下，所有的小米设备会处于瘫痪状态；</p>
+<p>当然，这不是最主要的问题，而是这样一来，你的设备的所有动向都会被小米收集，这是严重的个人信息的泄露活着至少说是不安全因素（所以很奇怪居然有人敢买小米的摄像头作为监控，这到底是安全还是更不安全）。</p>
+<p>当然，这也许就是小米的目的，在后面的设置中也可以看出这一点迹象（特别是本地设备的通讯密码在高版本的米家中就不存在本地了，开玩笑呢…)。而树莓派被大量的被用于智能家庭的中枢，恰好可以作为一个本地中枢，我就想也简单地玩一下。</p>
+<h1 id="基本框架"><a class="markdownIt-Anchor" href="#基本框架"></a> 基本框架</h1>
+<p>期望是将米家完整的接入开源智能家居平台homeassistant（安装在树莓派上），然后通过其自带的homekit支持可以完整地使用homekit控制。其中智能全都安装在homeassistant上，将每个智能都以一个开关设备的形式暴露给homekit，通过本地苹果设备实现homekit的远端控制。</p>
+<p>这样米家设备被限制在homeassistant的管理之下，homeassistant在本地路由器下完整地本地运行，远程完全交给homekit（作为唯一的出口，实现设备开关和智能条目的开关，后期可以直接禁止除了本地苹果设备ip之外的所有向外的数据通讯）</p>
+<p>完整构架：米家——HA——HK——远端，其中米家是独立的设备，HK自身不用设置（只需把不同设备在HK中分标签页的安排好就行：分为电器及开关，环境数值传感器，安防传感器，智能条目四个标签页即可），远端通过homekit自带功能也不用设置（只需将本地苹果设备联入路由器并且设为HK中枢），四个环节中只有HA要独立配置。而三个连接中，米家——HA以及HA——HK都是需要配置的。</p>
+<h1 id="设置ha"><a class="markdownIt-Anchor" href="#设置ha"></a> 设置HA</h1>
+<p>因为HA有自己的树莓派系统hassbian，自带了管理工具hassbian-config（hassbian基于raspbian的最小镜像，所以操作也差不多，因为有自带工具，就换了系统）。</p>
+<p>hassbian在<a href="https://www.home-assistant.io/docs/installation/hassbian/installation/" target="_blank" rel="noopener">官网</a>下载镜像（<a href="http://xn--dockerhass-cp3pp81g3m7bpk6bun1e.io" target="_blank" rel="noopener">还有基于docker的hass.io</a>，相关安装也可以在<a href="https://www.home-assistant.io/getting-started/" target="_blank" rel="noopener">官网</a>找到），安装时其实推荐<br>
+<a href="https://home-assistant.cc/" target="_blank" rel="noopener">中文官方文档</a><br>
+，有比较简单的安装流程（<a href="http://xn--hass-4h0gi65f.io" target="_blank" rel="noopener">包括hass.io</a>），中文文档其实来自墨澜，她的<a href="http://cxlwill.cn" target="_blank" rel="noopener">技术站</a></p>
+<p>我选择了hassbian，按照流程：</p>
 <ol>
-<li>主题
-<ul>
-<li>Bracket Pair</li>
-<li>One Dark Pro</li>
-<li>Code runner</li>
-</ul>
-</li>
-<li>Markdown
-<ul>
-<li>Markdown all in one</li>
-<li>Markdown-preview-enhanced</li>
-<li>vscode-pandoc</li>
-</ul>
-</li>
-<li>语言
-<ul>
-<li>ESLint</li>
-<li>HTML CSS support</li>
-<li>html snippets</li>
-<li>Latex Workshop</li>
-<li>Python</li>
-</ul>
-</li>
-<li>其他
-<ul>
-<li>Quick task</li>
-</ul>
-</li>
+<li>下载</li>
+<li>烧录（和官方系统一样）</li>
+<li>加入无线路由其配置文件-开机等待（墙内网不好，基本都要手动ssh安装HA，这点mossbian应该好很多）</li>
+<li>手动SSH登录（同一路由器下网址hassbian.local），用hassbian-config安装HA（失败多安装几次）</li>
+<li>安装samba</li>
+<li>hassbian.local:8123就可以看到界面了</li>
 </ol>
-<p>Markdown部分参见我关于Markdown的三篇博文。</p>
-<p>基本上都是马上可以用的，windows下latex要写一些配置才能用，但也不麻烦。如果想编译c++，则要一番配置，不如用现成的ide，Clion就很不错。</p>
-<h1 id="后记"><a class="markdownIt-Anchor" href="#后记"></a> 后记</h1>
-<p>这样就可以愉快地使用VSC了，非常简洁和轻量。</p>
+<p>PS：这边有一个问题是一直看不到界面，使用</p>
+<pre><code>sudo systemctl status homeassistant
+</code></pre>
+<p>可以看到系统一直在<code>-quiet</code>地加载frontend，耐心等待就行，等到进程下面只有hass了就行了。</p>
+<h1 id="米家ha"><a class="markdownIt-Anchor" href="#米家ha"></a> 米家——HA</h1>
+<p>同样按照中文网接入配置<code>configuration.yaml</code>接入网关，yeelight，其他设备即可，这里注意获取token的设备需要有另外的方法获取，配置用中文网的就行</p>
+<h2 id="获取token"><a class="markdownIt-Anchor" href="#获取token"></a> 获取token</h2>
+<p>按照中文官网的方法已经不行了，遇到细节问题的话，就不能靠中国的网站了，需要在国外官网或者论坛找资料，参照<a href="https://python-miio.readthedocs.io/en/latest/discovery.html#handshake-discovery" target="_blank" rel="noopener">这篇文章</a>，安装某个特殊版本5.4.49的米家，在手机文件中就可以找到所有设备的token，然后在没有重置的情况下就可以连上HA了（所以先要把所有设备就位后再获取token，不然token就变了）。</p>
+<p>PS：通过miio的方法可以获取一部分设备的token，但是小米新的机制貌似会在米家连上重置的设备的设置过程中再更换一次token（就是再重制设备一次？），反正这样一来原来获取的token就是失效的token。以及通过数据库解密的方法也只有老版本米家可以，说明小米正在使获取token变得越来越困难（就不要想小米会开放token查询了…），万一以后老版本米家显示版本过低需要更新至最新版使用…</p>
+<p>接下来所有支持的设备都可以连上了（我主要是绿米，yeelight，飞利浦和智米），但是HA的相关连接并不是都十分完美的，目前网关的灯就不是完美连接，所以出什么问题也有可能是本身HA的问题。</p>
+<h1 id="hahk"><a class="markdownIt-Anchor" href="#hahk"></a> HA——HK</h1>
+<p>这里仍然推荐<a href="https://www.home-assistant.io/components/homekit/" target="_blank" rel="noopener">国外官网</a>，在设置中加入相关的代码就很容易将所有设备显示在HK中，然而又一个问题，就是HK中显示的信息是不全的，这就需要通过HA中自己添加各种附加的设备将一些我们需要的信息暴露在HK中。</p>
+<h2 id="需要设备返回的一些传感器数值"><a class="markdownIt-Anchor" href="#需要设备返回的一些传感器数值"></a> 需要设备返回的一些传感器数值</h2>
+<p>这里可以使用<a href="https://www.home-assistant.io/components/sensor.template/" target="_blank" rel="noopener">template sensor</a>根据其中所说的就可以把任何设备传给HA的信息以独立传感器的形式暴露给HK（注意HK只接受特定类型的传感器，在前面的一个网址中有写明，所以为了暴露给HK有可能需要指定类型，这样会造成HK中的单位不对（因为HK对指定类型传感器的数值的单位是固定的，但为了给HK只能这样））</p>
+<p>PS：这个找了我好久，最后也是通过Google使用英文查找到的，这吐槽一下官方文档的搜索功能非常差，需要使用google和英文各种论坛辅助查找…当然，及其有可能是我不太会用官方文档的搜索（然后你会发现，最终有用的资料都在官方文档中，但是你得发现它）（不要指望百度和中文论坛，中文论坛中绝大多数人们的水平都还停留在网上瞎找，连官方文档都不会看）</p>
+<h1 id="暂时"><a class="markdownIt-Anchor" href="#暂时"></a> 暂时</h1>
+<p>第一篇就先到这里，下一篇会讲一些设计service调用以及智能设置。</p>
+<p>PS：最后，注意yaml文件对与大小写，空格以及缩进都是敏感的，要格外小心。</p>
 
 
 <br />
@@ -240,13 +250,9 @@
         </div>
         <nav class="m-pagination col-md-8 col-md-offset-2 col-sm-24" role="pagination">
     
-    <a class="pull-left" href="/2018/09/30/Computer/yubikey2_设置和gnupg/" style="float: left;">
-        ← yubikey2:配置和gnupg
-    </a>
     
-    
-    <a class="pull-right" href="/2018/09/30/Computer/Linux1_基本命令+Mac终端+zsh/">
-        Linux1:基本命令，Mac终端和zsh →
+    <a class="pull-right" href="/2019/02/14/WantToTravel/ToNZ/">
+        新西兰南岛自驾 →
     </a>
     
 </nav>
