@@ -186,8 +186,20 @@
 <h1 id="vmware"><a class="markdownIt-Anchor" href="#vmware"></a> VMware</h1>
 <p>有三个比较流行的虚拟机，其实那个都可以，安装就不说了。</p>
 <p>装好后下载你所需要操作系统的镜像，然后用相应方式创建好虚拟机（一开始硬盘适合大小，CPU和内存都大一些之后可以调小），然后运行，会进入系统引导，然后跟着安装就行了。</p>
-<h1 id="选择的系统"><a class="markdownIt-Anchor" href="#选择的系统"></a> 选择的系统</h1>
+<h2 id="选择的系统"><a class="markdownIt-Anchor" href="#选择的系统"></a> 选择的系统</h2>
 <p>主流无非就是macos，windows，linux，然后就是chromeos和android，按需求安装就行。</p>
+<h2 id="centos"><a class="markdownIt-Anchor" href="#centos"></a> CentOS</h2>
+<p>这个安装起来很简单，直接下载官方镜像然后从镜像安装即可（简易安装带有gnome的比较方便），mac版的安装之后需要重新安装VMware Tools，虚拟机标签下安装VMware Tools，然后将其中最大的一个文件解压执行.pl即可。</p>
+<h2 id="android"><a class="markdownIt-Anchor" href="#android"></a> Android</h2>
+<p>这个比较麻烦…下载官方的x86镜像，然后安装（然而这是不行的，因为android默认的启动方式需要3d加速，而mac版的VMware需要重新安装Tools但是这要等系统装好后才可以做，所以没用）</p>
+<p>所以不用默认启动方式，安装时选安装入硬盘，然后安装过程中自定义设置（第一个选项进入，不用GPT，new-write-quit-确定）然后其他都确定就行，最后reboot，reboot时及时按e进入启动命令编辑，去掉quiet，加上nomodeset和xforcevesa（就是换一种图形加载的方式）就行了。</p>
+<p>然而这样一来在每一次重启时都要及时进入命令行修改参数，但是不常重启也凑合用吧（windows貌似可以开启3d加速就不用这么麻烦，正常启动就行）</p>
+<p>这还没有完，你发现这样无法安装任何应用，因为下载不了任何apk（我的感觉是没有登录google账号之前，chrome时不能下载apk的只会加进队列就没有然后了）这时候就慢慢折腾，首先可以网上搜一下对应的系统怎么进入开发模式，然后开启root（不过这种安装方法应该默认也开了root了），显示本地终端。</p>
+<p>为了上网，首先还是要shadowsocks，所以下载好apk，但是怎么传进去？不能用chrome就只能用终端了…动用能用的密码登录的linux系统，将apk传进去，然后使用scp将apk传进android，安装。大功告成！</p>
+<p>接下来就可以登录google获得一个完整的android了，chrome的下载应该也正常了。可以下载一个sudo，在命令行里打su就可以获得超级管理员权限。可以运行许多基本的Linux操作。</p>
+<h2 id="chromeos"><a class="markdownIt-Anchor" href="#chromeos"></a> ChromeOS</h2>
+<p>下载cloudready官方的.ova（其他也许），然后安装入虚拟机，在登录的时候，可以选择一台同一wifi下安装有ss的计算机，允许外部连入（windows直接开，Mac吧http服务器监听0.0.0.0）然后连在wifi下，将http代理设置为那台电脑的ip与端口。</p>
+<p>然后开启linux的开关可以安装linux的terminal，开启pin允许pin登录。就可以使用chrome了。关于使用原生chromeos可以搜索网上其他教程，github上也有开源项目。（原生chromeos可以使用安卓应用）</p>
 
 
 <br />
