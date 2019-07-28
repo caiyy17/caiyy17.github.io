@@ -80,9 +80,13 @@
         		<a class="sb-toggle-submenu">Categories<span class="sb-caret"></span></a>
             	<ul class="sb-submenu">
 				  	
-				    <li><a href="/categories/Computer/" class="animsition-link">Computer<small>(16)</small></a></li>
+				    <li><a href="/categories/CG/" class="animsition-link">CG<small>(1)</small></a></li>
+				    
+				    <li><a href="/categories/Computer/" class="animsition-link">Computer<small>(17)</small></a></li>
 				    
 				    <li><a href="/categories/Eating/" class="animsition-link">Eating<small>(1)</small></a></li>
+				    
+				    <li><a href="/categories/Japan/" class="animsition-link">Japan<small>(5)</small></a></li>
 				    
 				    <li><a href="/categories/Traveling/" class="animsition-link">Traveling<small>(1)</small></a></li>
 				    
@@ -235,19 +239,22 @@
 <p>Master密码（yubikeyslot2）</p>
 </li>
 <li>
-<p>次重要强密码（yubikeyslot1）</p>
+<p>重要强密码（yubikeyslot1）</p>
 </li>
 <li>
 <p>Masterpin</p>
 </li>
 <li>
+<p>重要pin</p>
+</li>
+<li>
 <p>重要RSA</p>
 </li>
 <li>
-<p>一般密码</p>
+<p>一般网络密码</p>
 </li>
 <li>
-<p>一般pin</p>
+<p>一般网络pin</p>
 </li>
 <li>
 <p>一般RSA（无密码）</p>
@@ -262,6 +269,9 @@
 <p>公开密码（公开的压缩包以及wifi热点）：Cyy981031</p>
 </li>
 <li>
+<p>公开pin：981031</p>
+</li>
+<li>
 <p>指纹</p>
 </li>
 <li>
@@ -272,7 +282,7 @@
 </li>
 </ul>
 <p>注：</p>
-<p>密码主要分两套，重要和一般，重要密码一般用的不多，主要是用于获取设备的操作权限，设置次重要密码的原因是不想让master密码在非本地留下信息，所以服务器上的root密码会用到这个。</p>
+<p>密码主要分三套，master，重要和一般，重要密码一般用的不多，主要是用于获取设备的操作权限，服务器上的root密码也会用到这个。</p>
 <p>一般密码是指那些就算全被黑了也无所谓的网站之类，所以为了方便，设置一个简单的密码或pin统一管理，不用每次都打开keychain了。</p>
 <p>yubikey主要用于辅助登陆和二次验证。</p>
 <h2 id="构成及解密方式"><a class="markdownIt-Anchor" href="#构成及解密方式"></a> 构成及解密方式</h2>
@@ -313,14 +323,14 @@
 </li>
 <li>用于Wintogo的硬盘（一般重要）
 <ul>
-<li>登陆pin——一般pin</li>
+<li>登陆pin——重要pin</li>
 </ul>
 </li>
 <li>VPS（用于实验各种操作）
 <ul>
 <li>ssh连接管理员用户——重要RSA/yubikey的PGPkey</li>
 <li>ssh一般用户——一般RSA</li>
-<li>管理员用户sudo或者切换root用户的密码——次重要强密码</li>
+<li>管理员用户sudo或者切换root用户的密码——重要强密码</li>
 </ul>
 </li>
 </ul>
@@ -345,7 +355,7 @@
 <p>服务器方面：</p>
 <ul>
 <li>需要重要RSA+Masterkey才能登陆</li>
-<li>需要次重要密码才能切换root</li>
+<li>需要重要密码才能切换root</li>
 </ul>
 <h2 id="安全性分析"><a class="markdownIt-Anchor" href="#安全性分析"></a> 安全性分析</h2>
 <p>假设一次只丢一个设备…注意Master密码只能用于本地设备，否则会不安全。</p>
@@ -369,7 +379,7 @@
 <ul>
 <li>U2F泄露</li>
 <li>Masterkey泄露</li>
-<li>次重要强密码泄露</li>
+<li>重要强密码泄露</li>
 </ul>
 <p>但是keychain和PGPkey安全（没有Masterpin），这时候去要</p>
 <ol>
@@ -377,7 +387,7 @@
 <li>更换PGPkey（revoke掉原来的）——注意服务器的登陆PGP</li>
 <li>在mac上删除原来的PIV</li>
 </ol>
-<p>更重要的，要更换Master密码和次重要强密码，即</p>
+<p>更重要的，要更换Master密码和重要强密码，即</p>
 <ul>
 <li>重要RSA的passphrase</li>
 <li>MBP的密码</li>

@@ -80,9 +80,13 @@
         		<a class="sb-toggle-submenu">Categories<span class="sb-caret"></span></a>
             	<ul class="sb-submenu">
 				  	
-				    <li><a href="/categories/Computer/" class="animsition-link">Computer<small>(16)</small></a></li>
+				    <li><a href="/categories/CG/" class="animsition-link">CG<small>(1)</small></a></li>
+				    
+				    <li><a href="/categories/Computer/" class="animsition-link">Computer<small>(17)</small></a></li>
 				    
 				    <li><a href="/categories/Eating/" class="animsition-link">Eating<small>(1)</small></a></li>
+				    
+				    <li><a href="/categories/Japan/" class="animsition-link">Japan<small>(5)</small></a></li>
 				    
 				    <li><a href="/categories/Traveling/" class="animsition-link">Traveling<small>(1)</small></a></li>
 				    
@@ -197,12 +201,12 @@ SOCKS完成的是OSI模型中第五层的工作（会话层，位于表示层和
 <p>说这么多，就让我们在服务器上装ss吧</p>
 <h2 id="配置环境"><a class="markdownIt-Anchor" href="#配置环境"></a> 配置环境</h2>
 <p>安装pip，接着安装ss。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">yum install python-setuptools &amp;&amp; easy_install pip</span><br><span class="line">pip install shadowsocks</span><br></pre></td></tr></table></figure>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">yum install python-setuptools &amp;&amp; easy_install pip</span><br><span class="line">pip install shadowsocks</span><br></pre></td></tr></table></figure>
 <h2 id="修改配置"><a class="markdownIt-Anchor" href="#修改配置"></a> 修改配置</h2>
 <p>可以添加多用户。</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vim /etc/shadowsocks.json</span><br></pre></td></tr></table></figure>
 <p>内容如下：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">    &quot;server&quot;:&quot;::&quot;,</span><br><span class="line">    &quot;local_address&quot;:&quot;127.0.0.1&quot;, &quot;local_port&quot;:1080,</span><br><span class="line">    &quot;port_password&quot;:</span><br><span class="line">    &#123;</span><br><span class="line">        &quot;[port]&quot;:&quot;[密码]&quot;,</span><br><span class="line">        //继续写其他端口</span><br><span class="line">    &#125;,</span><br><span class="line">    &quot;timeout&quot;:300,</span><br><span class="line">    &quot;method&quot;:&quot;aes-256-cfb&quot;, </span><br><span class="line">    &quot;fast_open&quot;: ture</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">    <span class="attr">"server"</span>:<span class="string">"::"</span>,</span><br><span class="line">    <span class="attr">"local_address"</span>:<span class="string">"127.0.0.1"</span>,  </span><br><span class="line">    <span class="attr">"local_port"</span>:<span class="number">1080</span>,</span><br><span class="line">    <span class="attr">"port_password"</span>:</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="attr">"[port]"</span>:<span class="string">"[密码]"</span>,</span><br><span class="line">        //继续写其他端口</span><br><span class="line">    &#125;,</span><br><span class="line">    "timeout":300,</span><br><span class="line">    "method":"aes-256-cfb", </span><br><span class="line">    "fast_open": ture</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>然后启动就行</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ssserver -c /etc/shadowsocks.json -d start</span><br></pre></td></tr></table></figure>
 <p>防火墙开着的话，记得改一下防火墙。</p>
@@ -210,6 +214,7 @@ SOCKS完成的是OSI模型中第五层的工作（会话层，位于表示层和
 <p>找个地方下载客户端就行，配置一目了然。</p>
 <h1 id="后记"><a class="markdownIt-Anchor" href="#后记"></a> 后记</h1>
 <p>这样就可以使用ss了，当然还可以使用BBR加速，有可能需要升级内核。</p>
+<p>ps（2019-7）：现在ss已经绘被封了，可以切换vmess协议，但貌似不如ss稳定。</p>
 
 
 <br />

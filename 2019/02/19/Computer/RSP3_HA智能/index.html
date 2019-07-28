@@ -80,9 +80,13 @@
         		<a class="sb-toggle-submenu">Categories<span class="sb-caret"></span></a>
             	<ul class="sb-submenu">
 				  	
-				    <li><a href="/categories/Computer/" class="animsition-link">Computer<small>(16)</small></a></li>
+				    <li><a href="/categories/CG/" class="animsition-link">CG<small>(1)</small></a></li>
+				    
+				    <li><a href="/categories/Computer/" class="animsition-link">Computer<small>(17)</small></a></li>
 				    
 				    <li><a href="/categories/Eating/" class="animsition-link">Eating<small>(1)</small></a></li>
+				    
+				    <li><a href="/categories/Japan/" class="animsition-link">Japan<small>(5)</small></a></li>
 				    
 				    <li><a href="/categories/Traveling/" class="animsition-link">Traveling<small>(1)</small></a></li>
 				    
@@ -187,7 +191,7 @@
 <p>这里准备做一些智能的设置，因为主要是使用HK作为控制中心，使用HA作为智能中心，所以对于HA的各种有趣界面的设置我也就不高兴做了，有兴趣可以看看墨澜的东西，写得还是不错的而且是中文的。</p>
 <h1 id="设置"><a class="markdownIt-Anchor" href="#设置"></a> 设置</h1>
 <h2 id="需要调用设备的一些功能"><a class="markdownIt-Anchor" href="#需要调用设备的一些功能"></a> 需要调用设备的一些功能</h2>
-<p>比如灯要设置场景，空气净化器要设置各种模式（这些都会在HA中以service的形式置入，如果没有的话就不能控制了，就是说HA中智能做到以一定条件一定顺序调用各种wervice，如果没有这个service就只能自己写platform（基于python）独立接入这个设备或者等开发人员更新了…）</p>
+<p>比如灯要设置场景，空气净化器要设置各种模式（这些都会在HA中以service的形式置入，如果没有的话就不能控制了，就是说HA中智能做到以一定条件一定顺序调用各种service，如果没有这个service就只能自己写platform（基于python）独立接入这个设备或者等开发人员更新了…）</p>
 <p>在官网中conponents下搜索template可以发现许多可以自定义的组件，按需取用即可</p>
 <h2 id="智能场景"><a class="markdownIt-Anchor" href="#智能场景"></a> 智能场景</h2>
 <p>可以定义各种script和automation，script和automation将会以开关的形式在HK中显示。而automation可以调用script。</p>
@@ -196,6 +200,7 @@
 <p>可以按照官网中的知道，编写group文件，将HA的设备按照分类整理好，这样可以方便地找到需要的设备，在customize里面也可以将一些自动加入的设备（比如zigbee的传感器）的名字改成易读的名字。</p>
 <h1 id="ps"><a class="markdownIt-Anchor" href="#ps"></a> PS</h1>
 <p>这样就可以实现米家的大部分功能，并且智能部分是比米家要功能更多的（但是有些功能，比如网关的广播是不行的，当然广播要联网，我的目的是米家设备不联网，就算了也罢）</p>
+<p>若需要两地不同的homekit但是却有公用的设备，可以植被碗一张sd卡后另外制备一张sd，设备token可以使用第一张sd卡相同的，这时候开启homekit服务将会是另一个homekit，然后在ios中切换到另一个家添加homekit。</p>
 
 
 <br />
@@ -207,9 +212,13 @@
         </div>
         <nav class="m-pagination col-md-8 col-md-offset-2 col-sm-24" role="pagination">
     
+    <a class="pull-left" href="/2019/02/19/Computer/RSP2_homeassistant/" style="float: left;">
+        ← RSP2:homeassistant
+    </a>
     
-    <a class="pull-right" href="/2019/02/19/Computer/RSP2_homeassistant/">
-        RSP2:homeassistant →
+    
+    <a class="pull-right" href="/2019/02/19/Computer/软件3_VMware安装系统/">
+        软件3_VMware安装系统 →
     </a>
     
 </nav>
