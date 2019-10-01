@@ -214,9 +214,10 @@ SOCKS完成的是OSI模型中第五层的工作（会话层，位于表示层和
 <p>防火墙开着的话，记得改一下防火墙。</p>
 <h1 id="客户端"><a class="markdownIt-Anchor" href="#客户端"></a> 客户端</h1>
 <p>找个地方下载客户端就行，配置一目了然。</p>
-<h1 id="后记"><a class="markdownIt-Anchor" href="#后记"></a> 后记</h1>
-<p>这样就可以使用ss了，当然还可以使用BBR加速，有可能需要升级内核。</p>
-<p>ps（2019-7）：现在ss已经绘被封了，可以切换vmess协议，但貌似不如ss稳定。</p>
+<h1 id="v2ray"><a class="markdownIt-Anchor" href="#v2ray"></a> v2ray</h1>
+<p>现在ss已经会被封了，可以切换vmess协议</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">bash &lt;(curl -L -s https://install.direct/go.sh)</span><br><span class="line">sudo service v2ray start</span><br></pre></td></tr></table></figure>
+<p>v2ray会生成一个uuid和一个端口，这可以在配置中改，同样可以使用多用户配置。推荐一个网站<a href="https://toutyrater.github.io" target="_blank" rel="noopener">V2Ray 配置指南</a></p>
 
 
 <br />
@@ -228,13 +229,13 @@ SOCKS完成的是OSI模型中第五层的工作（会话层，位于表示层和
         </div>
         <nav class="m-pagination col-md-8 col-md-offset-2 col-sm-24" role="pagination">
     
-    <a class="pull-left" href="/2018/09/30/Computer/Linux1_基本命令+Mac终端+zsh/" style="float: left;">
-        ← Linux1:基本命令，Mac终端和zsh
+    <a class="pull-left" href="/2018/09/30/Computer/VPS1_购买以及设置VPS/" style="float: left;">
+        ← VPS1:购买以及设置
     </a>
     
     
-    <a class="pull-right" href="/2018/09/30/Computer/yubikey1_个人安全/">
-        yubikey1:个人安全与yubikey →
+    <a class="pull-right" href="/2018/09/30/Computer/VPS3_服务器设置与个人博客/">
+        VPS3:nginx服务与Hexo博客 →
     </a>
     
 </nav>
