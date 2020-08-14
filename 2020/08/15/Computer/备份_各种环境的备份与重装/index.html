@@ -17,7 +17,7 @@
 <!--<![endif]-->
 
 <head>
-  <title>Tag: Apple | 杂七杂八</title>
+  <title>备份:各种环境的备份与重装 | 杂七杂八</title>
   <!-- Meta data -->
     <meta http-equiv="Content-Type" content="text/html" charset="UTF-8" >
     <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
@@ -59,7 +59,7 @@
 </head>
 
 <!--
-<body class="home-template">
+<body class="post-template">
 -->
 <body id="index" class="lightnav animsition">
 
@@ -167,81 +167,129 @@
         <!-- ============================ Header & Logo bar =========================== -->
 
 
-      <!-- ============================ Hero Image =========================== -->
-
-<section id="hero" class="scrollme">
-    <div class="container-fluid element-img" style="background: url(/img/bg_img.jpg) no-repeat center center fixed;background-size: cover">
-        <div class="row">
-            <div class="col-xs-12 col-sm-8 col-sm-offset-2 col-md-8 col-md-offset-2 vertical-align cover boost text-center">
-                <div class="center-me animateme" data-when="exit" data-from="0" data-to="0.6" data-opacity="0" data-translatey="100">
-                    <div>
-                        
-                        <h2>Welcome</h2>
-                        <p></p>
-                        
-                        <h2></h2>
-                        <p>每一个不曾起舞的日子都是对生命的辜负。</p>
-                        
-                    </div>
-                </div>
-            </div>
-            <!-- // .col-md-12 -->
-        </div>
-        <div class="herofade beige-dk"></div>
-    </div>
-</section>
-
-<!-- Height spacing helper -->
-<div class="heightblock"></div>
-<!-- // End height spacing helper -->
-
-<!-- ============================ END Hero Image =========================== -->
-
-
-
-<section id="services">
+      
+<section id="intro">
     <div class="container">
-        <div class="row">
-            <div class="col-md-10 col-md-offset-1">
-                <div class="row boxes">
-                    
-                    
-                        
-                        
-                        <div class="col-xs-12 col-sm-3 col-md-3 col-lg-3 wow fadeInUp" data-wow-delay="0.3s">
-                            
-                              <h4 class="title"><a href="/2019/07/28/Computer/Mac2_外围设备/">Mac1:设置</a></h4>
-                            
-                            <p><time datetime="2019-07-27T16:00:00.000Z"><a href="/2019/07/28/Computer/Mac2_外围设备/">2019-07-28</a></time></p>
-                        </div>
-                    
-                        
-                        
-                        <div class="col-xs-12 col-sm-3 col-md-3 col-lg-3 wow fadeInUp" data-wow-delay="0.3s">
-                            
-                              <h4 class="title"><a href="/2018/08/15/Computer/Mac1_新机设置/">Mac1:设置</a></h4>
-                            
-                            <p><time datetime="2018-08-14T16:00:00.000Z"><a href="/2018/08/15/Computer/Mac1_新机设置/">2018-08-15</a></time></p>
-                        </div>
-                    
-                </div>
-            </div>    
+        <div class="row col-md-offset-2">
+            <div class="col-md-8">
+    			<span class="post-meta">
+      <time datetime="2020-08-14T16:00:00.000Z" itemprop="datePublished">
+          2020-08-15
+      </time>
+    
+    
+    | 
+    <a href='/tags/备份/'>备份</a>
+    
+    
+</span>
+                <h1>备份:各种环境的备份与重装</h1>
+            </div>
         </div>
-        <nav class="pagination" role="pagination">
-          
-          
-        </nav>
-    </div>
-</section> 
+        <div class="col-md-8 col-md-offset-2">
+      		<h1 id="前言"><a class="markdownIt-Anchor" href="#前言"></a> 前言</h1>
+<p>每一次大更新设备时，总想要有一个新的干净的环境，这就需要重装，二重装总是越快越好，所以有一些配置数据最好可以备份出来。</p>
+<h1 id="备份"><a class="markdownIt-Anchor" href="#备份"></a> 备份</h1>
+<p>先讲一下一些基本设备的数据备份…</p>
+<h2 id="apple"><a class="markdownIt-Anchor" href="#apple"></a> Apple</h2>
+<p>Mac使用timeMachine备份即可，详见Mac设置那几篇。移动设备iCloud备份</p>
+<h2 id="windows"><a class="markdownIt-Anchor" href="#windows"></a> Windows</h2>
+<p>我的Windows只是辅助以及游戏影音功能，不设备份</p>
+<h2 id="数据"><a class="markdownIt-Anchor" href="#数据"></a> 数据</h2>
+<p>数据依赖于Nas以及网盘备份，具体设想如下：</p>
+<ol>
+<li>以网盘为中心（Onedrive可以由Office365送），然后在Win和Mac下分别下载客户端</li>
+<li>Nas在1盘留一份网盘的同步备份，然后定期将重要部分保留多版本备份至2盘</li>
+<li>Nas1盘负责下载与挂种，以及影音的存储，2盘留一份重要数据的拷贝</li>
+<li>最重要的冷数据另外再存一份移动硬盘</li>
+</ol>
+<h1 id="配置导出"><a class="markdownIt-Anchor" href="#配置导出"></a> 配置导出</h1>
+<p>然后时重装时的配置导出…</p>
+<h2 id="移动设备"><a class="markdownIt-Anchor" href="#移动设备"></a> 移动设备</h2>
+<p>依赖于iCloud的设备同步，若是想要新环境，只能自己调整配置，下载软件。</p>
+<h2 id="windows-2"><a class="markdownIt-Anchor" href="#windows-2"></a> Windows</h2>
+<p>系统配置开着账户同步，会将设置同步至同一账户的不同电脑中。应用商店的软件就自己安装，整理一个md储存。其他软件使用Chocolatey安装，然后如下导出软件目录</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">choco list -l --idonly &gt; choco.txt</span><br></pre></td></tr></table></figure>
+<p>安装时</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">choco install -y [软件1] [软件2] ...</span><br></pre></td></tr></table></figure>
+<h2 id="mac"><a class="markdownIt-Anchor" href="#mac"></a> Mac</h2>
+<p>安装brew之后，安装mas，然后</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">brew bundle dump</span><br></pre></td></tr></table></figure>
+<p>可以生成brewfile，包括brew和mas中的软件，安装时brew bundle即可。其他软件依然是记录md文件</p>
+<h2 id="重装指南"><a class="markdownIt-Anchor" href="#重装指南"></a> 重装指南</h2>
+<p>在网盘中存一份重装指南，分门别类存好信息即可</p>
 
-<section id="statement">
-    <div class="container text-center wow fadeInUp" data-wow-delay="0.5s">
 
-        <div class="row">
-            <p>每一个不曾起舞的日子都是对生命的辜负。</p>
+<br />
+<br />
+<a rel="license" href="http://creativecommons.org/licenses/by/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by/4.0/80x15.png" /></a><br />This work is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by/4.0/">Creative Commons Attribution 4.0 International License</a>.
+
+            <div class="clearfix"></div>
+            <hr class="nogutter">
         </div>
+        <nav class="m-pagination col-md-8 col-md-offset-2 col-sm-24" role="pagination">
+    
+    
+    <a class="pull-right" href="/2020/01/20/WantToTravel/ToChineseWest/">
+        2019中国大西北 →
+    </a>
+    
+</nav>
+
+        <div class="col-md-8 col-md-offset-2 col-sm-24"><script type="text/javascript">
+  /**
+   * 搜狐畅言
+   */
+
+  /*
+  document.write('<div id="SOHUCS" sid="' + window.location.pathname.slice(1) + '" ></div>');
+
+  window.onload = function () {
+    (function () {
+      var appid = 'cytXXXX';
+      var conf = 'prod_xxxxxxxxxxxxxxxxx';
+      var width = window.innerWidth || document.documentElement.clientWidth;
+      var loadJs = function (d, a, id) {
+        var c = document.getElementsByTagName("head")[0] || document.head || document.documentElement;
+        var b = document.createElement("script");
+        b.setAttribute("type", "text/javascript");
+        b.setAttribute("charset", "UTF-8");
+        b.setAttribute("src", d);
+        if (id) {
+          b.setAttribute("id", id);
+        }
+        if (typeof a === "function") {
+          if (window.attachEvent) {
+            b.onreadystatechange = function () {
+              var e = b.readyState;
+              if (e === "loaded" || e === "complete") {
+                b.onreadystatechange = null;
+                a()
+              }
+            }
+          } else {
+            b.onload = a
+          }
+        }
+        c.appendChild(b)
+      };
+
+      loadJs("https://changyan.sohu.com/upload/changyan.js", function () {
+        window.changyan.api.config({
+          appid: appid,
+          conf: conf
+        })
+      });
+    })();
+  }
+  */
+
+</script>
+</div>
     </div>
 </section>
+
+
       
 <!-- ============================ Footer =========================== -->
 
