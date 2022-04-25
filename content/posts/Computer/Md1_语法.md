@@ -1,6 +1,6 @@
 ---
 title: Markdown1:语法
-date: 2018/6/13
+date: 2018-06-13
 tags:
     - Markdown
 categories:

@@ -1,6 +1,6 @@
 ---
 title: VPS1:购买以及设置
-date: 2018-9-30
+date: 2018-09-30
 tags:
     - VPS
     - safety

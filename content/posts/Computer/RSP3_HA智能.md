@@ -1,6 +1,6 @@
 ---
 title: RSP3:HA智能
-date: 2019-2-19
+date: 2019-02-19
 tags:
     - 树莓派
     - homekit

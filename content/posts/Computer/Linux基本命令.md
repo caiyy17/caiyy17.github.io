@@ -1,6 +1,6 @@
 ---
 title: Linux1:基本命令
-date: 2018-9-30
+date: 2018-09-30
 tags:
     - Linux
 categories:

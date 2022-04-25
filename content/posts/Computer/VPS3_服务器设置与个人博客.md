@@ -1,6 +1,6 @@
 ---
 title: VPS3:nginx服务与Hexo博客
-date: 2018/9/30
+date: 2018-09-30
 tags:
     - VPS
     - Blog

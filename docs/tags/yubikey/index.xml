@@ -5,11 +5,12 @@
     <link>https://caiyy17.github.io/tags/yubikey/</link>
     <description>Recent content in yubikey on caiyy17</description>
     <generator>Hugo -- gohugo.io</generator>
-    <language>en-us</language><atom:link href="https://caiyy17.github.io/tags/yubikey/index.xml" rel="self" type="application/rss+xml" />
+    <language>en-us</language>
+    <lastBuildDate>Sun, 30 Sep 2018 00:00:00 +0000</lastBuildDate><atom:link href="https://caiyy17.github.io/tags/yubikey/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>yubikey1:个人安全与yubikey</title>
       <link>https://caiyy17.github.io/posts/computer/yubikey1_%E4%B8%AA%E4%BA%BA%E5%AE%89%E5%85%A8/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <pubDate>Sun, 30 Sep 2018 00:00:00 +0000</pubDate>
       
       <guid>https://caiyy17.github.io/posts/computer/yubikey1_%E4%B8%AA%E4%BA%BA%E5%AE%89%E5%85%A8/</guid>
       <description>个人安全问题 yubikey  作为键盘设备（HID） U2F OpenPGP Smart Card   个人安全模型  个人信息安全需求 密码个数 构成及解密方式 个人安全模型  成分   安全性分析   后话 2019.1.19 更新 参考  个人安全问题 如今网络十分混乱，各种信息极其容易被窃取（比如说斯诺登事件），加密和认证就显得极其重要，而 yubikey 就是这样一个简易的设备（支持 OTP、公钥加密签名、U2F 协议）。

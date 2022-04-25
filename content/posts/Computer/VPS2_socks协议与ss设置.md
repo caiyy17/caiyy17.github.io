@@ -1,6 +1,6 @@
 ---
 title: VPS2:socks协议以及ss设置
-date: 2018-9-30
+date: 2018-09-30
 tags:
     - VPS
     - safety

@@ -1,6 +1,6 @@
 ---
 title: Ani1:白箱
-date: 2019-7-28
+date: 2019-07-28
 tags:
     - loveAni
 categories:

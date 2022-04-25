@@ -22,9 +22,22 @@ html 参数 --standalone --self-contained --css pandoc.css 以上转换命令中
     </item>
     
     <item>
+      <title>Markdown2:转换及发布</title>
+      <link>https://caiyy17.github.io/posts/computer/md2_%E8%BD%AC%E6%8D%A2%E5%8F%8A%E5%8F%91%E5%B8%83/</link>
+      <pubDate>Thu, 12 Jul 2018 00:00:00 +0000</pubDate>
+      
+      <guid>https://caiyy17.github.io/posts/computer/md2_%E8%BD%AC%E6%8D%A2%E5%8F%8A%E5%8F%91%E5%B8%83/</guid>
+      <description>前言 Markdown 对 html 的支持 Markdown 转 html  Markdown here   After all  前言 为了可以用自己喜欢的排版风格排版 Markdown，需要将其转换成其他有丰富排版功能的格式，最重要的无非是 html 和 tex，本文主要讲 html 的转换。
+转至 html 后便可以配合已经编写好的.css 文件，统一排版成自己想要的格式。便可以发布在自己的网站上了。然而自己便携插件还是有些困难，好在有 hexo 或者 markdownhere 等软件和插件的帮助。前者可以帮助我们制作博客，后者可以直接在 chrome 中将 markdown 原文在公众号网站中转换为带格式的文本。
+之后就不需要麻烦的公众号编辑器，只需要每次写 Markdown 就行了。
+Markdown 对 html 的支持 这里说一下 Markdown 原生对 html 的支持。Markdown 的语法默认有对应的 html 语法，对应如下：(html 闭合部分省略，详细结构可以查 html 相应格式)
+   Markdown html     段落（两个换行符） &amp;lt;p&amp;gt;   x 级标题 &amp;lt;nx&amp;gt;   无序列表 &amp;lt;ul&amp;gt;   有序列表 &amp;lt;ol&amp;gt;   代码块 &amp;lt;code&amp;gt;   引用 &amp;lt;blockquote&amp;gt;   分割线 &amp;lt;hr/&amp;gt;   表格 &amp;lt;table&amp;gt;   链接 &amp;lt;a&amp;gt;   图片 &amp;lt;img&amp;gt;   *强调 &amp;lt;em&amp;gt;   **强调 &amp;lt;strong&amp;gt;    而在 Markdown 中也可以自由插入 html 的代码，转换器会在转换的时候保留 html 的代码保持不动（有可能需要设置一下）。例如&amp;lt;br/&amp;gt;</description>
+    </item>
+    
+    <item>
       <title>Markdown1:语法</title>
       <link>https://caiyy17.github.io/posts/computer/md1_%E8%AF%AD%E6%B3%95/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <pubDate>Wed, 13 Jun 2018 00:00:00 +0000</pubDate>
       
       <guid>https://caiyy17.github.io/posts/computer/md1_%E8%AF%AD%E6%B3%95/</guid>
       <description>前言 Markdown 概述 Markdown 语法  换行 标题 引用 列表 代码块 分割线 表格 区段元素  链接 强调 图片 转义字符     进阶语法  数学公式 脚注 交叉引用 参考文献   参考  前言 本人现在大学生一枚，由于自己作为小白又总喜欢瞎折腾一些东西，所以一直想自己写一些个人博客来记录一下自己的折腾历史，以防以后就忘了怎么操作。
@@ -36,19 +49,6 @@ Markdown 概述 Markdown 的宗旨便是易写易读，一份 Markdown 的文档
 吐槽完毕&amp;hellip;
 Markdown 语法 好了，我们正式开始。
 换行 和 Latex 差不多 Markdown 使用一个空行来换行</description>
-    </item>
-    
-    <item>
-      <title>Markdown2:转换及发布</title>
-      <link>https://caiyy17.github.io/posts/computer/md2_%E8%BD%AC%E6%8D%A2%E5%8F%8A%E5%8F%91%E5%B8%83/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>https://caiyy17.github.io/posts/computer/md2_%E8%BD%AC%E6%8D%A2%E5%8F%8A%E5%8F%91%E5%B8%83/</guid>
-      <description>前言 Markdown 对 html 的支持 Markdown 转 html  Markdown here   After all  前言 为了可以用自己喜欢的排版风格排版 Markdown，需要将其转换成其他有丰富排版功能的格式，最重要的无非是 html 和 tex，本文主要讲 html 的转换。
-转至 html 后便可以配合已经编写好的.css 文件，统一排版成自己想要的格式。便可以发布在自己的网站上了。然而自己便携插件还是有些困难，好在有 hexo 或者 markdownhere 等软件和插件的帮助。前者可以帮助我们制作博客，后者可以直接在 chrome 中将 markdown 原文在公众号网站中转换为带格式的文本。
-之后就不需要麻烦的公众号编辑器，只需要每次写 Markdown 就行了。
-Markdown 对 html 的支持 这里说一下 Markdown 原生对 html 的支持。Markdown 的语法默认有对应的 html 语法，对应如下：(html 闭合部分省略，详细结构可以查 html 相应格式)
-   Markdown html     段落（两个换行符） &amp;lt;p&amp;gt;   x 级标题 &amp;lt;nx&amp;gt;   无序列表 &amp;lt;ul&amp;gt;   有序列表 &amp;lt;ol&amp;gt;   代码块 &amp;lt;code&amp;gt;   引用 &amp;lt;blockquote&amp;gt;   分割线 &amp;lt;hr/&amp;gt;   表格 &amp;lt;table&amp;gt;   链接 &amp;lt;a&amp;gt;   图片 &amp;lt;img&amp;gt;   *强调 &amp;lt;em&amp;gt;   **强调 &amp;lt;strong&amp;gt;    而在 Markdown 中也可以自由插入 html 的代码，转换器会在转换的时候保留 html 的代码保持不动（有可能需要设置一下）。例如&amp;lt;br/&amp;gt;</description>
     </item>
     
   </channel>

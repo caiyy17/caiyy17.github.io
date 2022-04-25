@@ -1,6 +1,6 @@
 ---
 title: 2019新西兰南岛自驾
-date: 2019-2-14
+date: 2019-02-14
 tags:
     - Traveling
 categories:

@@ -5,11 +5,12 @@
     <link>https://caiyy17.github.io/tags/linux/</link>
     <description>Recent content in Linux on caiyy17</description>
     <generator>Hugo -- gohugo.io</generator>
-    <language>en-us</language><atom:link href="https://caiyy17.github.io/tags/linux/index.xml" rel="self" type="application/rss+xml" />
+    <language>en-us</language>
+    <lastBuildDate>Sun, 30 Sep 2018 00:00:00 +0000</lastBuildDate><atom:link href="https://caiyy17.github.io/tags/linux/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Linux1:基本命令</title>
       <link>https://caiyy17.github.io/posts/computer/linux%E5%9F%BA%E6%9C%AC%E5%91%BD%E4%BB%A4/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <pubDate>Sun, 30 Sep 2018 00:00:00 +0000</pubDate>
       
       <guid>https://caiyy17.github.io/posts/computer/linux%E5%9F%BA%E6%9C%AC%E5%91%BD%E4%BB%A4/</guid>
       <description>前言 Linux 权限  Linux 权限管理   Linux 基本命令  ls cd pwd touch mkdir rm rmdir man cp 命令 mv cat more less find grep   参考  前言 感觉学一些 linux 的基本命令还是十分必要的，不仅服务器需要，Mac 也会有要求。本文介绍的一些命令，mac 里面应该都有。

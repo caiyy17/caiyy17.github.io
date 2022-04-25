@@ -1,6 +1,6 @@
 ---
 title: Mac新机设置
-date: 2018-8-15
+date: 2018-08-15
 tags:
     - Computer
     - Apple

@@ -1,6 +1,6 @@
 ---
 title: Markdown2:转换及发布
-date: 2018-7-12
+date: 2018-07-12
 tags:
     - Markdown
     - Blog

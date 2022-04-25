@@ -1,6 +1,6 @@
 ---
 title: yubikey2:配置和gnupg
-date: 2018-9-30
+date: 2018-09-30
 tags:
     - Computer
     - safety
