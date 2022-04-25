@@ -9,10 +9,10 @@
     <lastBuildDate>Wed, 15 Aug 2018 00:00:00 +0000</lastBuildDate><atom:link href="https://caiyy17.github.io/tags/apple/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Mac新机设置</title>
-      <link>https://caiyy17.github.io/posts/computer/mac%E6%96%B0%E6%9C%BA%E8%AE%BE%E7%BD%AE/</link>
+      <link>https://caiyy17.github.io/posts/computers/mac%E6%96%B0%E6%9C%BA%E8%AE%BE%E7%BD%AE/</link>
       <pubDate>Wed, 15 Aug 2018 00:00:00 +0000</pubDate>
       
-      <guid>https://caiyy17.github.io/posts/computer/mac%E6%96%B0%E6%9C%BA%E8%AE%BE%E7%BD%AE/</guid>
+      <guid>https://caiyy17.github.io/posts/computers/mac%E6%96%B0%E6%9C%BA%E8%AE%BE%E7%BD%AE/</guid>
       <description>前言 基础：系统偏好设置 基础：几个好用的快捷键 基础：安装日常应用（见软件篇） 进阶：安装编程相关应用并配置 进阶：其他设置 进阶：Windows 相关 服务器相关  前言 新的 mbp2018 总算到了，这也是我自己的第一台苹果电脑，自然要熟悉好一会儿，在此记录下我的折腾过程。
 基础：系统偏好设置 在设置中，我增加了这些东西
   调度中心：使窗口按应用程序成组

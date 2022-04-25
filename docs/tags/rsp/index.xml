@@ -9,10 +9,10 @@
     <lastBuildDate>Tue, 19 Feb 2019 00:00:00 +0000</lastBuildDate><atom:link href="https://caiyy17.github.io/tags/rsp/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>RSP2:homeassistant</title>
-      <link>https://caiyy17.github.io/posts/computer/rsp2_homeassistant/</link>
+      <link>https://caiyy17.github.io/posts/computers/rsp2_homeassistant/</link>
       <pubDate>Tue, 19 Feb 2019 00:00:00 +0000</pubDate>
       
-      <guid>https://caiyy17.github.io/posts/computer/rsp2_homeassistant/</guid>
+      <guid>https://caiyy17.github.io/posts/computers/rsp2_homeassistant/</guid>
       <description>前言 基本框架 设置 HA 米家——HA  获取 token   HA——HK  需要设备返回的一些传感器数值   PS 暂时  前言 小米的智能家庭套件可谓是物美价廉，然而它有着对于我这种强迫症非常不能接受的一个特点：非本地，所有的操作所有的智能都必须通过与小米远端的服务器进行数据交换才能够进行，这也就意味者在没有网络（路由器断了外网）或者小米服务器出故障的情况下，所有的小米设备会处于瘫痪状态；
 当然，这不是最主要的问题，而是这样一来，你的设备的所有动向都会被小米收集，这是严重的个人信息的泄露活着至少说是不安全因素（所以很奇怪居然有人敢买小米的摄像头作为监控，这到底是安全还是更不安全）。
 当然，这也许就是小米的目的，在后面的设置中也可以看出这一点迹象（特别是本地设备的通讯密码在高版本的米家中就不存在本地了，开玩笑呢&amp;hellip;)。而树莓派被大量的被用于智能家庭的中枢，恰好可以作为一个本地中枢，我就想也简单地玩一下。
@@ -25,10 +25,10 @@ hassbian 在官网下载镜像（还有基于 docker 的 hass.io，相关安装�
     
     <item>
       <title>RSP3:HA智能</title>
-      <link>https://caiyy17.github.io/posts/computer/rsp3_ha%E6%99%BA%E8%83%BD/</link>
+      <link>https://caiyy17.github.io/posts/computers/rsp3_ha%E6%99%BA%E8%83%BD/</link>
       <pubDate>Tue, 19 Feb 2019 00:00:00 +0000</pubDate>
       
-      <guid>https://caiyy17.github.io/posts/computer/rsp3_ha%E6%99%BA%E8%83%BD/</guid>
+      <guid>https://caiyy17.github.io/posts/computers/rsp3_ha%E6%99%BA%E8%83%BD/</guid>
       <description>前言 设置  需要调用设备的一些功能 智能场景 分组   PS  前言 这里准备做一些智能的设置，因为主要是使用 HK 作为控制中心，使用 HA 作为智能中心，所以对于 HA 的各种有趣界面的设置我也就不高兴做了，有兴趣可以看看墨澜的东西，写得还是不错的而且是中文的。
 设置 需要调用设备的一些功能 比如灯要设置场景，空气净化器要设置各种模式（这些都会在 HA 中以 service 的形式置入，如果没有的话就不能控制了，就是说 HA 中智能做到以一定条件一定顺序调用各种 service，如果没有这个 service 就只能自己写 platform（基于 python）独立接入这个设备或者等开发人员更新了&amp;hellip;）
 在官网中 conponents 下搜索 template 可以发现许多可以自定义的组件，按需取用即可
@@ -40,10 +40,10 @@ PS 这样就可以实现米家的大部分功能，并且智能部分是比米�
     
     <item>
       <title>RSP1:基本设置</title>
-      <link>https://caiyy17.github.io/posts/computer/rsp1_%E5%9F%BA%E6%9C%AC%E8%AE%BE%E7%BD%AE/</link>
+      <link>https://caiyy17.github.io/posts/computers/rsp1_%E5%9F%BA%E6%9C%AC%E8%AE%BE%E7%BD%AE/</link>
       <pubDate>Thu, 20 Dec 2018 00:00:00 +0000</pubDate>
       
-      <guid>https://caiyy17.github.io/posts/computer/rsp1_%E5%9F%BA%E6%9C%AC%E8%AE%BE%E7%BD%AE/</guid>
+      <guid>https://caiyy17.github.io/posts/computers/rsp1_%E5%9F%BA%E6%9C%AC%E8%AE%BE%E7%BD%AE/</guid>
       <description>前言 又折腾买了个树莓派，正好右 32g 不用的 tf 卡，就准备来玩玩看可以做些什么。
 安装系统 网上教程乱七八糟，最后还是官方文档比较清楚，下载系统解压后使用 etcher 烧录至 tf 卡，然后插入树莓派就可以启动了。
 连接树莓派 先在根目录下加一个空白的名为 ssh 的文件让树莓派支持 ssh 连接，然后将电脑和树莓派通过网线相连。获取树莓派 ip 地址：

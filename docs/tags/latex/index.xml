@@ -9,10 +9,10 @@
     <lastBuildDate>Wed, 17 Oct 2018 00:00:00 +0000</lastBuildDate><atom:link href="https://caiyy17.github.io/tags/latex/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Markdown3:配合Pandoc</title>
-      <link>https://caiyy17.github.io/posts/computer/md3_%E9%85%8D%E5%90%88pandoc/</link>
+      <link>https://caiyy17.github.io/posts/computers/md3_%E9%85%8D%E5%90%88pandoc/</link>
       <pubDate>Wed, 17 Oct 2018 00:00:00 +0000</pubDate>
       
-      <guid>https://caiyy17.github.io/posts/computer/md3_%E9%85%8D%E5%90%88pandoc/</guid>
+      <guid>https://caiyy17.github.io/posts/computers/md3_%E9%85%8D%E5%90%88pandoc/</guid>
       <description>前言 安装  html 参数 PDF 参数   所以 番外：幻灯片  幻灯片结构 常用参数 我的常用命令   参考  前言 从 Md1 到 Md2，基本的 Markdown 写作以及没有问题了，然后就会想用 md 解决其他的事情了，比如写学术论文，Latex 写起来太费劲了，公式还是 word 比较方便。
 Pandoc 是一个开源的万能文档转换软件，可以在 pdf，md，word，html 之间转换文档格式。而装了 vscode-pandoc 后可以直接在 vscode 中使用，但是每次只能用同样的命令行参数，否则只能在终端中使用。
 安装 直接 brew 安装即可，还要安装 pandoc-citeproc，vscode 插件也是一键安装。

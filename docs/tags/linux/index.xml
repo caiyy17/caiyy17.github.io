@@ -9,10 +9,10 @@
     <lastBuildDate>Sun, 30 Sep 2018 00:00:00 +0000</lastBuildDate><atom:link href="https://caiyy17.github.io/tags/linux/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Linux1:基本命令</title>
-      <link>https://caiyy17.github.io/posts/computer/linux%E5%9F%BA%E6%9C%AC%E5%91%BD%E4%BB%A4/</link>
+      <link>https://caiyy17.github.io/posts/computers/linux%E5%9F%BA%E6%9C%AC%E5%91%BD%E4%BB%A4/</link>
       <pubDate>Sun, 30 Sep 2018 00:00:00 +0000</pubDate>
       
-      <guid>https://caiyy17.github.io/posts/computer/linux%E5%9F%BA%E6%9C%AC%E5%91%BD%E4%BB%A4/</guid>
+      <guid>https://caiyy17.github.io/posts/computers/linux%E5%9F%BA%E6%9C%AC%E5%91%BD%E4%BB%A4/</guid>
       <description>前言 Linux 权限  Linux 权限管理   Linux 基本命令  ls cd pwd touch mkdir rm rmdir man cp 命令 mv cat more less find grep   参考  前言 感觉学一些 linux 的基本命令还是十分必要的，不仅服务器需要，Mac 也会有要求。本文介绍的一些命令，mac 里面应该都有。
 关于 Linux 的更多东西，看 ArchLinux 的 wiki 是一个非常好的选择，其中文档比绝大多数教程要好。
 Linux 权限 Linux 下有两种用户：普通用户和超级用户。

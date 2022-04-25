@@ -1,0 +1,445 @@
+<!DOCTYPE html>
+
+
+
+
+
+
+
+
+
+
+
+<html lang="en-us">
+  <head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+
+  
+  <title>Linux1:基本命令 - 每一个不曾起舞的日子，都是对生命的辜负。</title>
+
+  
+  
+  <meta name="description" content="前言 Linux 权限  Linux 权限管理   Linux 基本命令  ls cd pwd touch mkdir rm rmdir man cp 命令 mv cat more less find grep   参考  前言 感觉学一些 linux 的基本命令还是十分必要的，不仅服务器需要，Mac 也会有要求。本文介绍的一些命令，mac 里面应该都有。
+关于 Linux 的更多东西，看 ArchLinux 的 wiki 是一个非常好的选择，其中文档比绝大多数教程要好。
+Linux 权限 Linux 下有两种用户：普通用户和超级用户。
+普通用户：在 linux 下做有限的事情。
+超级用户：可以在 linux 系统下做任何事情，不受限制。
+切换用户：
+su [用户] Linux 权限管理   文件访问者的分类
+Linux 把访问者分为 3 类。
+ 文件和文件目录的所有者：u—User 文件和文件目录的所有者所在的组的用户：g—Group 其他用户：o—Others    文件访问权限的种类" />
+  <meta name="author" content="" />
+  
+
+  
+  
+  
+  
+  
+  
+  <link rel="preload stylesheet" as="style" href="https://caiyy17.github.io/app.min.css" />
+
+  
+  <link rel="preload stylesheet" as="style" href="https://caiyy17.github.io/an-old-hope.min.css" />
+  <script
+    defer
+    src="https://caiyy17.github.io/highlight.min.js"
+    onload="hljs.initHighlightingOnLoad();"
+  ></script>
+  
+
+  
+  <link rel="preload" as="image" href="https://caiyy17.github.io/theme.png" />
+
+  
+
+  
+  <link rel="icon" href="https://caiyy17.github.io/favicon.ico" />
+  <link rel="apple-touch-icon" href="https://caiyy17.github.io/apple-touch-icon.png" />
+
+  
+  <meta name="generator" content="Hugo 0.97.3" />
+
+  
+  
+
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  <meta property="og:title" content="Linux1:基本命令" />
+<meta property="og:description" content="前言 Linux 权限  Linux 权限管理   Linux 基本命令  ls cd pwd touch mkdir rm rmdir man cp 命令 mv cat more less find grep   参考  前言 感觉学一些 linux 的基本命令还是十分必要的，不仅服务器需要，Mac 也会有要求。本文介绍的一些命令，mac 里面应该都有。
+关于 Linux 的更多东西，看 ArchLinux 的 wiki 是一个非常好的选择，其中文档比绝大多数教程要好。
+Linux 权限 Linux 下有两种用户：普通用户和超级用户。
+普通用户：在 linux 下做有限的事情。
+超级用户：可以在 linux 系统下做任何事情，不受限制。
+切换用户：
+su [用户] Linux 权限管理   文件访问者的分类
+Linux 把访问者分为 3 类。
+ 文件和文件目录的所有者：u—User 文件和文件目录的所有者所在的组的用户：g—Group 其他用户：o—Others    文件访问权限的种类" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://caiyy17.github.io/posts/computers/linux%E5%9F%BA%E6%9C%AC%E5%91%BD%E4%BB%A4/" /><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2018-09-30T00:00:00+00:00" />
+<meta property="article:modified_time" content="2018-09-30T00:00:00+00:00" />
+
+
+  
+  <meta itemprop="name" content="Linux1:基本命令">
+<meta itemprop="description" content="前言 Linux 权限  Linux 权限管理   Linux 基本命令  ls cd pwd touch mkdir rm rmdir man cp 命令 mv cat more less find grep   参考  前言 感觉学一些 linux 的基本命令还是十分必要的，不仅服务器需要，Mac 也会有要求。本文介绍的一些命令，mac 里面应该都有。
+关于 Linux 的更多东西，看 ArchLinux 的 wiki 是一个非常好的选择，其中文档比绝大多数教程要好。
+Linux 权限 Linux 下有两种用户：普通用户和超级用户。
+普通用户：在 linux 下做有限的事情。
+超级用户：可以在 linux 系统下做任何事情，不受限制。
+切换用户：
+su [用户] Linux 权限管理   文件访问者的分类
+Linux 把访问者分为 3 类。
+ 文件和文件目录的所有者：u—User 文件和文件目录的所有者所在的组的用户：g—Group 其他用户：o—Others    文件访问权限的种类"><meta itemprop="datePublished" content="2018-09-30T00:00:00+00:00" />
+<meta itemprop="dateModified" content="2018-09-30T00:00:00+00:00" />
+<meta itemprop="wordCount" content="256">
+<meta itemprop="keywords" content="Linux," />
+  
+  <meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Linux1:基本命令"/>
+<meta name="twitter:description" content="前言 Linux 权限  Linux 权限管理   Linux 基本命令  ls cd pwd touch mkdir rm rmdir man cp 命令 mv cat more less find grep   参考  前言 感觉学一些 linux 的基本命令还是十分必要的，不仅服务器需要，Mac 也会有要求。本文介绍的一些命令，mac 里面应该都有。
+关于 Linux 的更多东西，看 ArchLinux 的 wiki 是一个非常好的选择，其中文档比绝大多数教程要好。
+Linux 权限 Linux 下有两种用户：普通用户和超级用户。
+普通用户：在 linux 下做有限的事情。
+超级用户：可以在 linux 系统下做任何事情，不受限制。
+切换用户：
+su [用户] Linux 权限管理   文件访问者的分类
+Linux 把访问者分为 3 类。
+ 文件和文件目录的所有者：u—User 文件和文件目录的所有者所在的组的用户：g—Group 其他用户：o—Others    文件访问权限的种类"/>
+
+  
+  
+</head>
+
+
+  <body class="not-ready" data-menu="false">
+    <header class="header">
+  
+  <p class="logo">
+    <a class="site-name" href="https://caiyy17.github.io">每一个不曾起舞的日子，都是对生命的辜负。</a><a class="btn-dark"></a>
+  </p>
+  
+
+  <script>
+    let bodyClx = document.body.classList;
+    let btnDark = document.querySelector('.btn-dark');
+    let sysDark = window.matchMedia('(prefers-color-scheme: dark)');
+    let darkVal = localStorage.getItem('dark');
+
+    let setDark = (isDark) => {
+      bodyClx[isDark ? 'add' : 'remove']('dark');
+      localStorage.setItem('dark', isDark ? 'yes' : 'no');
+    };
+
+    setDark(darkVal ? darkVal === 'yes' : sysDark.matches);
+    requestAnimationFrame(() => bodyClx.remove('not-ready'));
+
+    btnDark.addEventListener('click', () => setDark(!bodyClx.contains('dark')));
+    sysDark.addEventListener('change', (event) => setDark(event.matches));
+  </script>
+
+  
+  
+
+  
+</header>
+
+
+    <main class="main">
+
+<article class="post-single">
+  <header class="post-title">
+    <p>
+      
+      <time>Sep 30, 2018</time>
+      
+      
+    </p>
+    <h1>Linux1:基本命令</h1>
+  </header>
+  <section class="post-content"><ul>
+<li><a href="#%E5%89%8D%E8%A8%80">前言</a></li>
+<li><a href="#linux-%E6%9D%83%E9%99%90">Linux 权限</a>
+<ul>
+<li><a href="#linux-%E6%9D%83%E9%99%90%E7%AE%A1%E7%90%86">Linux 权限管理</a></li>
+</ul>
+</li>
+<li><a href="#linux-%E5%9F%BA%E6%9C%AC%E5%91%BD%E4%BB%A4">Linux 基本命令</a>
+<ul>
+<li><a href="#ls">ls</a></li>
+<li><a href="#cd">cd</a></li>
+<li><a href="#pwd">pwd</a></li>
+<li><a href="#touch">touch</a></li>
+<li><a href="#mkdir">mkdir</a></li>
+<li><a href="#rm">rm</a></li>
+<li><a href="#rmdir">rmdir</a></li>
+<li><a href="#man">man</a></li>
+<li><a href="#cp-%E5%91%BD%E4%BB%A4">cp 命令</a></li>
+<li><a href="#mv">mv</a></li>
+<li><a href="#cat">cat</a></li>
+<li><a href="#more">more</a></li>
+<li><a href="#less">less</a></li>
+<li><a href="#find">find</a></li>
+<li><a href="#grep">grep</a></li>
+</ul>
+</li>
+<li><a href="#%E5%8F%82%E8%80%83">参考</a></li>
+</ul>
+<h1 id="前言">前言</h1>
+<p>感觉学一些 linux 的基本命令还是十分必要的，不仅服务器需要，Mac 也会有要求。本文介绍的一些命令，mac 里面应该都有。</p>
+<p>关于 Linux 的更多东西，看 ArchLinux 的 wiki 是一个非常好的选择，其中文档比绝大多数教程要好。</p>
+<h1 id="linux-权限">Linux 权限</h1>
+<p>Linux 下有两种用户：普通用户和超级用户。</p>
+<p>普通用户：在 linux 下做有限的事情。</p>
+<p>超级用户：可以在 linux 系统下做任何事情，不受限制。</p>
+<p>切换用户：</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>su <span style="color:#f92672">[</span>用户<span style="color:#f92672">]</span>
+</span></span></code></pre></div><h2 id="linux-权限管理">Linux 权限管理</h2>
+<ol>
+<li>
+<p>文件访问者的分类</p>
+<p>Linux 把访问者分为 3 类。</p>
+<ul>
+<li>文件和文件目录的所有者：u—User</li>
+<li>文件和文件目录的所有者所在的组的用户：g—Group</li>
+<li>其他用户：o—Others</li>
+</ul>
+</li>
+<li>
+<p>文件访问权限的种类</p>
+<p>读，写，执行（对文件而言，执行文件；对目录而言，进入目录）</p>
+</li>
+<li>
+<p>文件权限值得表示方法</p>
+<table>
+<thead>
+<tr>
+<th>表示</th>
+<th>权限</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>r–-</td>
+<td>只读</td>
+</tr>
+<tr>
+<td>-w-</td>
+<td>仅可写</td>
+</tr>
+<tr>
+<td>–-x</td>
+<td>仅可执行</td>
+</tr>
+<tr>
+<td>rw-</td>
+<td>可读可写</td>
+</tr>
+<tr>
+<td>-wx</td>
+<td>可写可执行</td>
+</tr>
+<tr>
+<td>r-x</td>
+<td>可读可执行</td>
+</tr>
+<tr>
+<td>rwx</td>
+<td>可读可写可执行</td>
+</tr>
+<tr>
+<td>—&ndash;</td>
+<td>无权限</td>
+</tr>
+</tbody>
+</table>
+<p>Linux 中权限数值表示在 chmod 会用到，用三个 8 进制位表示。</p>
+</li>
+</ol>
+<h1 id="linux-基本命令">Linux 基本命令</h1>
+<h2 id="ls">ls</h2>
+<p>格式：ls [选项] [目录或文件]</p>
+<p>功能：对于目录，列出该目录下的所有子目录与文件；对于文件，列出文件名以及其他信息。</p>
+<p>常用选项：</p>
+<ul>
+<li>-a：列出目录下的所有文件，包括以.开头的隐含文件。</li>
+<li>-d：将目录像文件一样显示，而不是显示其他文件。</li>
+<li>-i：输出文件的 i 节点的索引信息。</li>
+<li>-k：以 k 字节的形式表示文件的大小。</li>
+<li>-l：列出文件的详细信息。</li>
+<li>-n：用数字的 UID,GID 代替名称。</li>
+<li>-F：在每个文件名后面附上一个字符以说明该文件的类型，“*”表示可执行的普通文件；“/”表示目录；“@”表示符号链接；“l”表示 FIFOS；“=”表示套接字。</li>
+</ul>
+<h2 id="cd">cd</h2>
+<p>格式：cd [目录名称]</p>
+<p>（zsh 直接打目录名就行）</p>
+<h2 id="pwd">pwd</h2>
+<p>格式：pwd</p>
+<p>功能：显示出当前工作目录的绝对路径。</p>
+<h2 id="touch">touch</h2>
+<p>格式：touch [选项] [文件名]</p>
+<p>功能：touch 命令参数可以更改文档或目录的日期时间，包括存取时间和更改时间，或者新建一个不存在的文件。</p>
+<p>常用选项：</p>
+<ul>
+<li>-a：仅改变指定文件的存取时间。</li>
+<li>-c：（或–no-creat）不创建任何文件。</li>
+<li>-m：仅改变指定文件的修改时间。</li>
+<li>-d：使用指定的日期时间，而非现在的时间。</li>
+</ul>
+<h2 id="mkdir">mkdir</h2>
+<p>格式：mkdir [选项] [目录名]</p>
+<p>功能：mkdir 命令用来创建目录。</p>
+<p>常用选项：</p>
+<ul>
+<li>-p：若路径中的某些目录尚不存在，系统将自动建立好那些尚不存在的目录，即一次可以建立多个目录。</li>
+<li>-m MODE：将新建目录的存取权限设置为 MODE。</li>
+</ul>
+<h2 id="rm">rm</h2>
+<p>格式：rm [选项] [文件列表]</p>
+<p>功能：删除文件或目录。</p>
+<p>常用选项：</p>
+<ul>
+<li>-f：忽略不存在的文件，并且不给出提示信息。</li>
+<li>-r：递归地删除指定目录及其下属的各级子目录和相应的文件。</li>
+<li>-i：交互式删除文件。</li>
+</ul>
+<h2 id="rmdir">rmdir</h2>
+<p>格式：rmdir [选项] [目录名]</p>
+<p>功能：删除目录。（一定要空文件夹）</p>
+<p>常用选项：</p>
+<ul>
+<li>-p：递归删除目录，当子目录删除后其父目录为空时，也一同被删除。如果有非空的目录，则该目录保留下来。</li>
+</ul>
+<h2 id="man">man</h2>
+<p>格式：man [选项] 命令</p>
+<p>功能：man 命令格式化并显示某一命令的联机帮助手册页。</p>
+<p>常用选项：</p>
+<ul>
+<li>-k：根据关键字搜索联机帮助。</li>
+<li>num：只在第 num 章节找。</li>
+<li>-a：将所有章节的都显示出来。</li>
+</ul>
+<p>说明：手册分为 8 章：</p>
+<ol>
+<li>一般用户的命令；</li>
+<li>系统调用；</li>
+<li>C 语言函数库；</li>
+<li>有关驱动程序和系统设备的解释；</li>
+<li>配置文件的解释；</li>
+<li>游戏程序的命令；</li>
+<li>有用的杂类命令，如宏命令包等；</li>
+<li>有关系统维护和管理的命令。</li>
+</ol>
+<h2 id="cp-命令">cp 命令</h2>
+<p>格式：cp [选项] [源文件或目录] [目标文件或目录]</p>
+<p>功能：复制文件或目录。</p>
+<p>常用选项：</p>
+<ul>
+<li>-f：强行复制文件或目录，不论文件或目录是否已经存在。</li>
+<li>-d：复制时保留文件链接。</li>
+<li>-i：覆盖文件之前先询问用户。</li>
+<li>-r：递归处理，将指定目录下的文件与子目录一并处理。若源文件或目录的形态，不属于目录或符号链接，则一律视为普通文件处理。</li>
+<li>-R：递归处理，将指定目录下的文件及子目录一并处理。</li>
+</ul>
+<h2 id="mv">mv</h2>
+<p>格式：mv [选项] [源文件或目录] [目标文件或目录]</p>
+<p>功能：mv 命令对文件或目录重新命名，或者将文件从一个目录移到另一个目录中。</p>
+<p>常用选项：</p>
+<ul>
+<li>-f：强制的意思，如果目标文件已经存在，不会询问而直接覆盖。</li>
+<li>-i：若目标文件已经存在时，就会询问是否覆盖。</li>
+</ul>
+<h2 id="cat">cat</h2>
+<p>格式：cat [选项] [文件]</p>
+<p>功能：查看目标文件的内容。</p>
+<p>常用选项：</p>
+<ul>
+<li>-b：对非空输出行编号。</li>
+<li>-n：对输出的所有行编号。</li>
+<li>-s：不输出多行空行。</li>
+</ul>
+<h2 id="more">more</h2>
+<p>格式：more [选项] [文件]</p>
+<p>功能：more 命令显示文件内容，每次显示一屏。</p>
+<p>常用选项：</p>
+<ul>
+<li>-n：对输出的所有行编号。</li>
+<li>-s：将文件中连续的空白行压缩成一个空白行显示。</li>
+<li>-num：这个选项制定一个整数，表示一屏显示多少行。</li>
+<li>q：退出 more。</li>
+</ul>
+<h2 id="less">less</h2>
+<p>格式：less [参数] [文件]</p>
+<p>功能：less 命令与 more 命令类似，但二者存在差别，less 命令允许用户向前或向后浏览文件，而 more 命令只能向前浏览。</p>
+<p>常用选项：</p>
+<ul>
+<li>-i：忽略搜索时的大小写。</li>
+<li>-N：显示每行的行号。</li>
+</ul>
+<h2 id="find">find</h2>
+<p>格式：find [pathname] -options</p>
+<p>功能：用于在文件树种查找文件，并作出相应的处理（可能访问磁盘）。</p>
+<p>常用选项：</p>
+<ul>
+<li>-name：按照文件名查找文件。</li>
+</ul>
+<h2 id="grep">grep</h2>
+<p>格式：grep [选项] [搜寻字符串文件]</p>
+<p>功能：在文件中搜索字符串，将找到的行打印出来。</p>
+<p>常用选项：</p>
+<ul>
+<li>-i：忽略大小写的不同，所以大小写视为相同。</li>
+<li>-n：顺便输出行号。</li>
+<li>-v：反向选择，亦即显出没有‘搜寻字符串’内容的那一行。</li>
+</ul>
+<h1 id="参考">参考</h1>
+<p><a href="https://blog.csdn.net/tao934798774/article/details/79491951">Linux 基本命令总结</a></p>
+</section>
+
+  
+  
+  <footer class="post-tags">
+     
+    <a href="https://caiyy17.github.io/tags/linux">Linux</a>
+    
+  </footer>
+  
+
+  
+  
+  
+  <nav class="post-nav">
+    
+    <a class="prev" href="https://caiyy17.github.io/posts/eating/%E5%B7%A7%E5%85%8B%E5%8A%9B/"><span>←</span><span>巧克力</span></a>
+     
+    <a class="next" href="https://caiyy17.github.io/posts/computers/vps1_%E8%B4%AD%E4%B9%B0%E4%BB%A5%E5%8F%8A%E8%AE%BE%E7%BD%AEvps/"><span>VPS1:购买以及设置</span><span>→</span></a>
+    
+  </nav>
+  
+
+  
+  
+</article>
+
+</main>
+
+    <footer class="footer">
+  <p>&copy; 2022 <a href="https://caiyy17.github.io">每一个不曾起舞的日子，都是对生命的辜负。</a></p>
+  <p>Powered by <a href="https://gohugo.io/" rel="noopener" target="_blank">Hugo️️</a>️</p>
+  <p>
+    <a href="https://github.com/nanxiaobei/hugo-paper" rel="noopener" target="_blank">Paper 5.1</a>
+  </p>
+</footer>
+
+  </body>
+</html>

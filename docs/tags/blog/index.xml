@@ -9,10 +9,10 @@
     <lastBuildDate>Sun, 30 Sep 2018 00:00:00 +0000</lastBuildDate><atom:link href="https://caiyy17.github.io/tags/blog/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>VPS3:nginx服务与Hexo博客</title>
-      <link>https://caiyy17.github.io/posts/computer/vps3_%E6%9C%8D%E5%8A%A1%E5%99%A8%E8%AE%BE%E7%BD%AE%E4%B8%8E%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2/</link>
+      <link>https://caiyy17.github.io/posts/computers/vps3_%E6%9C%8D%E5%8A%A1%E5%99%A8%E8%AE%BE%E7%BD%AE%E4%B8%8E%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2/</link>
       <pubDate>Sun, 30 Sep 2018 00:00:00 +0000</pubDate>
       
-      <guid>https://caiyy17.github.io/posts/computer/vps3_%E6%9C%8D%E5%8A%A1%E5%99%A8%E8%AE%BE%E7%BD%AE%E4%B8%8E%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2/</guid>
+      <guid>https://caiyy17.github.io/posts/computers/vps3_%E6%9C%8D%E5%8A%A1%E5%99%A8%E8%AE%BE%E7%BD%AE%E4%B8%8E%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2/</guid>
       <description>前言 HEXO 安装 nginx 与服务器关联 修改 nginx 配置 本地操作 总结 PS githubio  前言 一直想做一个个人博客，但又不想在个大博客网站上写，这样很不自由，还不如微信朋友圈（其实主要是感觉 VPS 只用来挂 ss 太亏了，想玩玩&amp;hellip;）但是自己做网站代价很大，而 hexo 便是现成的可以直接挂 blog 的软件，又有丰富的主题科插件。
 HEXO 安装 在 Mac 中需要安装 git 和 nodejs，这两个都在 brew 中安装就可以了，brew 安装相关具体可以看 Mac 设置 这篇文章，安装好之后便可以安装 hexo（根据官网来就行）
 npm install -g hexo-cli 然后在需要建站的文件夹内：（[folder]为需要建立的文件夹名字）
@@ -23,10 +23,10 @@ $ hexo init [folder] $ cd [folder] $ npm install 然后更据提示修改_config
     
     <item>
       <title>Markdown2:转换及发布</title>
-      <link>https://caiyy17.github.io/posts/computer/md2_%E8%BD%AC%E6%8D%A2%E5%8F%8A%E5%8F%91%E5%B8%83/</link>
+      <link>https://caiyy17.github.io/posts/computers/md2_%E8%BD%AC%E6%8D%A2%E5%8F%8A%E5%8F%91%E5%B8%83/</link>
       <pubDate>Thu, 12 Jul 2018 00:00:00 +0000</pubDate>
       
-      <guid>https://caiyy17.github.io/posts/computer/md2_%E8%BD%AC%E6%8D%A2%E5%8F%8A%E5%8F%91%E5%B8%83/</guid>
+      <guid>https://caiyy17.github.io/posts/computers/md2_%E8%BD%AC%E6%8D%A2%E5%8F%8A%E5%8F%91%E5%B8%83/</guid>
       <description>前言 Markdown 对 html 的支持 Markdown 转 html  Markdown here   After all  前言 为了可以用自己喜欢的排版风格排版 Markdown，需要将其转换成其他有丰富排版功能的格式，最重要的无非是 html 和 tex，本文主要讲 html 的转换。
 转至 html 后便可以配合已经编写好的.css 文件，统一排版成自己想要的格式。便可以发布在自己的网站上了。然而自己便携插件还是有些困难，好在有 hexo 或者 markdownhere 等软件和插件的帮助。前者可以帮助我们制作博客，后者可以直接在 chrome 中将 markdown 原文在公众号网站中转换为带格式的文本。
 之后就不需要麻烦的公众号编辑器，只需要每次写 Markdown 就行了。
