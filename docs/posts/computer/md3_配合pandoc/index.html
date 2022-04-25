@@ -1,77 +1,67 @@
 <!DOCTYPE html>
+<html lang="en" dir="auto">
 
-
-
-
-
-
-
-
-
-
-
-<html lang="en-us">
-  <head>
-  <meta charset="utf-8" />
-  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
-
-  
-  <title>Markdown3:配合Pandoc - 每一个不曾起舞的日子，都是对生命的辜负。</title>
-
-  
-  
-  <meta name="description" content="前言 安装  html 参数 PDF 参数   所以 番外：幻灯片  幻灯片结构 常用参数 我的常用命令   参考  前言 从 Md1 到 Md2，基本的 Markdown 写作以及没有问题了，然后就会想用 md 解决其他的事情了，比如写学术论文，Latex 写起来太费劲了，公式还是 word 比较方便。
+<head><meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="robots" content="index, follow">
+<title>Markdown3:配合Pandoc | caiyy17</title>
+<meta name="keywords" content="Markdown, Latex">
+<meta name="description" content="前言 安装  html 参数 PDF 参数   所以 番外：幻灯片  幻灯片结构 常用参数 我的常用命令   参考  前言 从 Md1 到 Md2，基本的 Markdown 写作以及没有问题了，然后就会想用 md 解决其他的事情了，比如写学术论文，Latex 写起来太费劲了，公式还是 word 比较方便。
 Pandoc 是一个开源的万能文档转换软件，可以在 pdf，md，word，html 之间转换文档格式。而装了 vscode-pandoc 后可以直接在 vscode 中使用，但是每次只能用同样的命令行参数，否则只能在终端中使用。
 安装 直接 brew 安装即可，还要安装 pandoc-citeproc，vscode 插件也是一键安装。
 然后是配置，word 不需要配置，html 需要配置命令行参数，在设置的 string 里面填入就行。
 html 参数 --standalone --self-contained --css pandoc.css 以上转换命令中选项含义介绍如下。
- “–standalone”：为目标格式文件增加合适的“header”和“footer”。如果目标格式是“HTML”，那么通过该选项可解决“由于未设置合适的字符编码，而导致的乱码问题”。 “–self-contained” ：如果目标格式是“HTML”，那么可得到如下效果：在转换得到目标 HTML 文件的过程中，会将依赖的“脚本，CSS，图片，视频”等文件的内容内嵌到目标 HTML 文件中。 “–css pandoc.css” ：使得目标格式文件最后使用“pandoc.css”文件作为 CSS 文件，否则，使用默认的 CSS 文件。  PDF 参数 pdf 需要 latex 的支持，mac 可以装 Mactex，Win 有 texlive（不过要配置环境变量）" />
-  <meta name="author" content="" />
-  
+ “–standalone”：为目标格式文件增加合适的“header”和“footer”。如果目标格式是“HTML”，那么通过该选项可解决“由于未设置合适的字符编码，而导致的乱码问题”。 “–self-contained” ：如果目标格式是“HTML”，那么可得到如下效果：在转换得到目标 HTML 文件的过程中，会将依赖的“脚本，CSS，图片，视频”等文件的内容内嵌到目标 HTML 文件中。 “–css pandoc.css” ：使得目标格式文件最后使用“pandoc.css”文件作为 CSS 文件，否则，使用默认的 CSS 文件。  PDF 参数 pdf 需要 latex 的支持，mac 可以装 Mactex，Win 有 texlive（不过要配置环境变量）">
+<meta name="author" content="">
+<link rel="canonical" href="https://caiyy17.github.io/posts/computer/md3_%E9%85%8D%E5%90%88pandoc/">
+<link crossorigin="anonymous" href="/assets/css/stylesheet.min.b4e19c453811e60acfec1f00c15ac2be1c53f6ab90187e684358ce7faaf48bab.css" integrity="sha256-tOGcRTgR5grP7B8AwVrCvhxT9quQGH5oQ1jOf6r0i6s=" rel="preload stylesheet" as="style">
+<script defer crossorigin="anonymous" src="/assets/js/highlight.min.2840b7fccd34145847db71a290569594bdbdb00047097f75d6495d162f5d7dff.js" integrity="sha256-KEC3/M00FFhH23GikFaVlL29sABHCX911kldFi9dff8="
+    onload="hljs.initHighlightingOnLoad();"></script>
+<link rel="icon" href="https://caiyy17.github.io/favicon.ico">
+<link rel="icon" type="image/png" sizes="16x16" href="https://caiyy17.github.io/favicon-16x16.png">
+<link rel="icon" type="image/png" sizes="32x32" href="https://caiyy17.github.io/favicon-32x32.png">
+<link rel="apple-touch-icon" href="https://caiyy17.github.io/apple-touch-icon.png">
+<link rel="mask-icon" href="https://caiyy17.github.io/safari-pinned-tab.svg">
+<meta name="theme-color" content="#2e2e33">
+<meta name="msapplication-TileColor" content="#2e2e33">
+<noscript>
+    <style>
+        #theme-toggle,
+        .top-link {
+            display: none;
+        }
 
-  
-  
-  
-  
-  
-  
-  <link rel="preload stylesheet" as="style" href="https://caiyy17.github.io/app.min.css" />
+    </style>
+    <style>
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --theme: rgb(29, 30, 32);
+                --entry: rgb(46, 46, 51);
+                --primary: rgb(218, 218, 219);
+                --secondary: rgb(155, 156, 157);
+                --tertiary: rgb(65, 66, 68);
+                --content: rgb(196, 196, 197);
+                --hljs-bg: rgb(46, 46, 51);
+                --code-bg: rgb(55, 56, 62);
+                --border: rgb(51, 51, 51);
+            }
 
-  
-  <link rel="preload stylesheet" as="style" href="https://caiyy17.github.io/an-old-hope.min.css" />
-  <script
-    defer
-    src="https://caiyy17.github.io/highlight.min.js"
-    onload="hljs.initHighlightingOnLoad();"
-  ></script>
-  
+            .list {
+                background: var(--theme);
+            }
 
-  
-  <link rel="preload" as="image" href="https://caiyy17.github.io/theme.png" />
+            .list:not(.dark)::-webkit-scrollbar-track {
+                background: 0 0;
+            }
 
-  
+            .list:not(.dark)::-webkit-scrollbar-thumb {
+                border-color: var(--theme);
+            }
+        }
 
-  
-  <link rel="icon" href="https://caiyy17.github.io/favicon.ico" />
-  <link rel="apple-touch-icon" href="https://caiyy17.github.io/apple-touch-icon.png" />
-
-  
-  <meta name="generator" content="Hugo 0.97.3" />
-
-  
-  
-
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  <meta property="og:title" content="Markdown3:配合Pandoc" />
+    </style>
+</noscript><meta property="og:title" content="Markdown3:配合Pandoc" />
 <meta property="og:description" content="前言 安装  html 参数 PDF 参数   所以 番外：幻灯片  幻灯片结构 常用参数 我的常用命令   参考  前言 从 Md1 到 Md2，基本的 Markdown 写作以及没有问题了，然后就会想用 md 解决其他的事情了，比如写学术论文，Latex 写起来太费劲了，公式还是 word 比较方便。
 Pandoc 是一个开源的万能文档转换软件，可以在 pdf，md，word，html 之间转换文档格式。而装了 vscode-pandoc 后可以直接在 vscode 中使用，但是每次只能用同样的命令行参数，否则只能在终端中使用。
 安装 直接 brew 安装即可，还要安装 pandoc-citeproc，vscode 插件也是一键安装。
@@ -80,23 +70,10 @@ html 参数 --standalone --self-contained --css pandoc.css 以上转换命令中
  “–standalone”：为目标格式文件增加合适的“header”和“footer”。如果目标格式是“HTML”，那么通过该选项可解决“由于未设置合适的字符编码，而导致的乱码问题”。 “–self-contained” ：如果目标格式是“HTML”，那么可得到如下效果：在转换得到目标 HTML 文件的过程中，会将依赖的“脚本，CSS，图片，视频”等文件的内容内嵌到目标 HTML 文件中。 “–css pandoc.css” ：使得目标格式文件最后使用“pandoc.css”文件作为 CSS 文件，否则，使用默认的 CSS 文件。  PDF 参数 pdf 需要 latex 的支持，mac 可以装 Mactex，Win 有 texlive（不过要配置环境变量）" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://caiyy17.github.io/posts/computer/md3_%E9%85%8D%E5%90%88pandoc/" /><meta property="article:section" content="posts" />
-<meta property="article:published_time" content="2018-10-17T00:00:00+00:00" />
-<meta property="article:modified_time" content="2018-10-17T00:00:00+00:00" />
+<meta property="article:published_time" content="2018-10-17T00:00:00&#43;00:00" />
+<meta property="article:modified_time" content="2018-10-17T00:00:00&#43;00:00" />
 
-
-  
-  <meta itemprop="name" content="Markdown3:配合Pandoc">
-<meta itemprop="description" content="前言 安装  html 参数 PDF 参数   所以 番外：幻灯片  幻灯片结构 常用参数 我的常用命令   参考  前言 从 Md1 到 Md2，基本的 Markdown 写作以及没有问题了，然后就会想用 md 解决其他的事情了，比如写学术论文，Latex 写起来太费劲了，公式还是 word 比较方便。
-Pandoc 是一个开源的万能文档转换软件，可以在 pdf，md，word，html 之间转换文档格式。而装了 vscode-pandoc 后可以直接在 vscode 中使用，但是每次只能用同样的命令行参数，否则只能在终端中使用。
-安装 直接 brew 安装即可，还要安装 pandoc-citeproc，vscode 插件也是一键安装。
-然后是配置，word 不需要配置，html 需要配置命令行参数，在设置的 string 里面填入就行。
-html 参数 --standalone --self-contained --css pandoc.css 以上转换命令中选项含义介绍如下。
- “–standalone”：为目标格式文件增加合适的“header”和“footer”。如果目标格式是“HTML”，那么通过该选项可解决“由于未设置合适的字符编码，而导致的乱码问题”。 “–self-contained” ：如果目标格式是“HTML”，那么可得到如下效果：在转换得到目标 HTML 文件的过程中，会将依赖的“脚本，CSS，图片，视频”等文件的内容内嵌到目标 HTML 文件中。 “–css pandoc.css” ：使得目标格式文件最后使用“pandoc.css”文件作为 CSS 文件，否则，使用默认的 CSS 文件。  PDF 参数 pdf 需要 latex 的支持，mac 可以装 Mactex，Win 有 texlive（不过要配置环境变量）"><meta itemprop="datePublished" content="2018-10-17T00:00:00+00:00" />
-<meta itemprop="dateModified" content="2018-10-17T00:00:00+00:00" />
-<meta itemprop="wordCount" content="264">
-<meta itemprop="keywords" content="Markdown,Latex," />
-  
-  <meta name="twitter:card" content="summary"/>
+<meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Markdown3:配合Pandoc"/>
 <meta name="twitter:description" content="前言 安装  html 参数 PDF 参数   所以 番外：幻灯片  幻灯片结构 常用参数 我的常用命令   参考  前言 从 Md1 到 Md2，基本的 Markdown 写作以及没有问题了，然后就会想用 md 解决其他的事情了，比如写学术论文，Latex 写起来太费劲了，公式还是 word 比较方便。
 Pandoc 是一个开源的万能文档转换软件，可以在 pdf，md，word，html 之间转换文档格式。而装了 vscode-pandoc 后可以直接在 vscode 中使用，但是每次只能用同样的命令行参数，否则只能在终端中使用。
@@ -105,57 +82,170 @@ Pandoc 是一个开源的万能文档转换软件，可以在 pdf，md，word，
 html 参数 --standalone --self-contained --css pandoc.css 以上转换命令中选项含义介绍如下。
  “–standalone”：为目标格式文件增加合适的“header”和“footer”。如果目标格式是“HTML”，那么通过该选项可解决“由于未设置合适的字符编码，而导致的乱码问题”。 “–self-contained” ：如果目标格式是“HTML”，那么可得到如下效果：在转换得到目标 HTML 文件的过程中，会将依赖的“脚本，CSS，图片，视频”等文件的内容内嵌到目标 HTML 文件中。 “–css pandoc.css” ：使得目标格式文件最后使用“pandoc.css”文件作为 CSS 文件，否则，使用默认的 CSS 文件。  PDF 参数 pdf 需要 latex 的支持，mac 可以装 Mactex，Win 有 texlive（不过要配置环境变量）"/>
 
-  
-  
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [, 
+    {
+      "@type": "ListItem",
+      "position":  2 ,
+      "name": "Posts",
+      "item": "https://caiyy17.github.io/posts/"
+    }, 
+    {
+      "@type": "ListItem",
+      "position":  3 ,
+      "name": "Markdown3:配合Pandoc",
+      "item": "https://caiyy17.github.io/posts/computer/md3_%E9%85%8D%E5%90%88pandoc/"
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "Markdown3:配合Pandoc",
+  "name": "Markdown3:配合Pandoc",
+  "description": "前言 安装  html 参数 PDF 参数   所以 番外：幻灯片  幻灯片结构 常用参数 我的常用命令   参考  前言 从 Md1 到 Md2，基本的 Markdown 写作以及没有问题了，然后就会想用 md 解决其他的事情了，比如写学术论文，Latex 写起来太费劲了，公式还是 word 比较方便。\nPandoc 是一个开源的万能文档转换软件，可以在 pdf，md，word，html 之间转换文档格式。而装了 vscode-pandoc 后可以直接在 vscode 中使用，但是每次只能用同样的命令行参数，否则只能在终端中使用。\n安装 直接 brew 安装即可，还要安装 pandoc-citeproc，vscode 插件也是一键安装。\n然后是配置，word 不需要配置，html 需要配置命令行参数，在设置的 string 里面填入就行。\nhtml 参数 --standalone --self-contained --css pandoc.css 以上转换命令中选项含义介绍如下。\n “–standalone”：为目标格式文件增加合适的“header”和“footer”。如果目标格式是“HTML”，那么通过该选项可解决“由于未设置合适的字符编码，而导致的乱码问题”。 “–self-contained” ：如果目标格式是“HTML”，那么可得到如下效果：在转换得到目标 HTML 文件的过程中，会将依赖的“脚本，CSS，图片，视频”等文件的内容内嵌到目标 HTML 文件中。 “–css pandoc.css” ：使得目标格式文件最后使用“pandoc.css”文件作为 CSS 文件，否则，使用默认的 CSS 文件。  PDF 参数 pdf 需要 latex 的支持，mac 可以装 Mactex，Win 有 texlive（不过要配置环境变量）",
+  "keywords": [
+    "Markdown", "Latex"
+  ],
+  "articleBody": " 前言 安装  html 参数 PDF 参数   所以 番外：幻灯片  幻灯片结构 常用参数 我的常用命令   参考  前言 从 Md1 到 Md2，基本的 Markdown 写作以及没有问题了，然后就会想用 md 解决其他的事情了，比如写学术论文，Latex 写起来太费劲了，公式还是 word 比较方便。\nPandoc 是一个开源的万能文档转换软件，可以在 pdf，md，word，html 之间转换文档格式。而装了 vscode-pandoc 后可以直接在 vscode 中使用，但是每次只能用同样的命令行参数，否则只能在终端中使用。\n安装 直接 brew 安装即可，还要安装 pandoc-citeproc，vscode 插件也是一键安装。\n然后是配置，word 不需要配置，html 需要配置命令行参数，在设置的 string 里面填入就行。\nhtml 参数 --standalone --self-contained --css pandoc.css 以上转换命令中选项含义介绍如下。\n “–standalone”：为目标格式文件增加合适的“header”和“footer”。如果目标格式是“HTML”，那么通过该选项可解决“由于未设置合适的字符编码，而导致的乱码问题”。 “–self-contained” ：如果目标格式是“HTML”，那么可得到如下效果：在转换得到目标 HTML 文件的过程中，会将依赖的“脚本，CSS，图片，视频”等文件的内容内嵌到目标 HTML 文件中。 “–css pandoc.css” ：使得目标格式文件最后使用“pandoc.css”文件作为 CSS 文件，否则，使用默认的 CSS 文件。  PDF 参数 pdf 需要 latex 的支持，mac 可以装 Mactex，Win 有 texlive（不过要配置环境变量）\n然而当你尝试的时候就会有各种 bug，网上也有解决方案，但都不是很漂亮，所以我就放弃了这个选项……\n所以 最终我选择了把 md 转为 word 然后可以使用 word 的公式编辑器编写公式……\n现在分析需求：\n 数学公式：word 自带或者在 md 里面写 latex 引用：使用 pandoc 参数 脚注：使用 pandoc 参数 参考文献：编辑.bib 文件加上 pandoc 参数 实时预览：markdown-preview-enhanced  综上，参数一共是：\n--filter=pandoc-citeproc //脚注 --bibliography=ref.bib //参考文献 --csl=FILE //参考文献引用标准 PS：若要在 hexo 中用 pandoc-markdown，要在 hexo 的根目录下\nnpm install hexo-renderer-pandoc --save 番外：幻灯片 下载 reveal.js 至目标文件夹，然后就可以使用 pandoc 命令来生成幻灯片了\n幻灯片结构   slide level: 默认情况下，slide level 由文章的组织结构中，以紧接着文章内容（而不是另一个标题）的最高的 header 等级决定。\n  一条水平线总会开启一页新幻灯片。header 等级等于 slide level 总会开启一页新的幻灯片。组织结构中在 slide level 以下的 headers 会在同一幻灯片页中创建 headers。所以，也可以用##空标题来分页，好处是可以接着用{}来控制格式，坏处是文本部工整。\n  组织结构中在 slide level 以上的 headers 会创建“title slides”，它只包含了该 section 的标题，从而将整个幻灯片的内容划分为不同的 sections。\n  插入停顿：你可以在幻灯片页中添加停顿，该功能通过在幻灯片页中插入包含 3 个点的段落实现，且该三个点间以空格隔开。\ncontent before the pause . . . content after the pause   定义幻灯片样式：-V theme=moon -V transition=convex\n  将 sections 包裹进标签(在 HTML5 中包裹进标签)，并且将 header 的 identifiers 附属到标签中。\n# header {#identifier .class .class key=value key=value} 其中每个部分都可以省略\n  常用参数  -s, –standalone：转换输出文档时会自动加上合适的 header 和 footer(例如 standalone HTML, LaTeX, RTF)。该选择在转换输出 pdf，epub，epub3，fb2，docx，odt 格式文件时会被自动设置，因此如果转换输出上述格式文件，则不用显示指定该选项。如上所述，使用该选项后，能够将所有依赖的文件(linked scripts,stylesheets, images, and videos)都转换输出到同一个文件中。 –slide-level=NUMBER：指定能够创建新幻灯片页的 headers 等级(对 beamer, s5, slidy, slideous, dzslides 而言)。在设定的 level 以上的 header 将幻灯片划分为不同的 sections，在 level 以下的 headers 在同一页幻灯片中创建子标题.默认情况下根据文档内容自动确定，见幻灯片的结构化. -i, –incremental：使幻灯片中的列表选项增量式显示(one by one)。默认情况下，列表内容会一次性显示出来。 -c URL, –css=URL：链接到 CSS 样式表。该选项能够使用多次来引入多个文件，所指定的文件能够以指定的顺序依次引入。 –data-dir=DIRECTORY：指定用户数据目录，设定之后会在该目录下搜索 pandoc 数据文件。如果没有指定该选项，则会使用默认的用户数据目录:$HOME/.pandoc，可通过 pandoc –version 命令查看。 –base-header-level=NUMBER：指定 headers 的基准 level，默认是 1。 Math rendering in HTML：可参考官网。  PS：更多可以看官网\n我的常用命令 pandoc -s --self-contained -i -t revealjs test.md -o test.html 参考 pandoc 将 markdown 转换输出 HTML slide\n",
+  "wordCount" : "264",
+  "inLanguage": "en",
+  "datePublished": "2018-10-17T00:00:00Z",
+  "dateModified": "2018-10-17T00:00:00Z",
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://caiyy17.github.io/posts/computer/md3_%E9%85%8D%E5%90%88pandoc/"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "caiyy17",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://caiyy17.github.io/favicon.ico"
+    }
+  }
+}
+</script>
 </head>
 
+<body class="" id="top">
+<script>
+    if (localStorage.getItem("pref-theme") === "dark") {
+        document.body.classList.add('dark');
+    } else if (localStorage.getItem("pref-theme") === "light") {
+        document.body.classList.remove('dark')
+    } else if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+        document.body.classList.add('dark');
+    }
 
-  <body class="not-ready" data-menu="false">
-    <header class="header">
-  
-  <p class="logo">
-    <a class="site-name" href="https://caiyy17.github.io">每一个不曾起舞的日子，都是对生命的辜负。</a><a class="btn-dark"></a>
-  </p>
-  
+</script>
 
-  <script>
-    let bodyClx = document.body.classList;
-    let btnDark = document.querySelector('.btn-dark');
-    let sysDark = window.matchMedia('(prefers-color-scheme: dark)');
-    let darkVal = localStorage.getItem('dark');
-
-    let setDark = (isDark) => {
-      bodyClx[isDark ? 'add' : 'remove']('dark');
-      localStorage.setItem('dark', isDark ? 'yes' : 'no');
-    };
-
-    setDark(darkVal ? darkVal === 'yes' : sysDark.matches);
-    requestAnimationFrame(() => bodyClx.remove('not-ready'));
-
-    btnDark.addEventListener('click', () => setDark(!bodyClx.contains('dark')));
-    sysDark.addEventListener('change', (event) => setDark(event.matches));
-  </script>
-
-  
-  
-
-  
+<header class="header">
+    <nav class="nav">
+        <div class="logo">
+            <a href="https://caiyy17.github.io" accesskey="h" title="caiyy17 (Alt + H)">caiyy17</a>
+            <span class="logo-switches">
+                <button id="theme-toggle" accesskey="t" title="(Alt + T)">
+                    <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                    </svg>
+                    <svg id="sun" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="5"></circle>
+                        <line x1="12" y1="1" x2="12" y2="3"></line>
+                        <line x1="12" y1="21" x2="12" y2="23"></line>
+                        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                        <line x1="1" y1="12" x2="3" y2="12"></line>
+                        <line x1="21" y1="12" x2="23" y2="12"></line>
+                        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                    </svg>
+                </button>
+            </span>
+        </div>
+        <ul id="menu">
+            <li>
+                <a href="https://caiyy17.github.io/categories/" title="categories">
+                    <span>categories</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://caiyy17.github.io/tags/" title="tags">
+                    <span>tags</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://caiyy17.github.io/search/" title="search (Alt &#43; /)" accesskey=/>
+                    <span>search</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://caiyy17.github.io/archives/" title="archives">
+                    <span>archives</span>
+                </a>
+            </li>
+        </ul>
+    </nav>
 </header>
-
-
-    <main class="main">
+<main class="main">
 
 <article class="post-single">
-  <header class="post-title">
-    <p>
-      
-      <time>Oct 17, 2018</time>
-      
-      
-    </p>
-    <h1>Markdown3:配合Pandoc</h1>
-  </header>
-  <section class="post-content"><ul>
+  <header class="post-header">
+    <div class="breadcrumbs"><a href="https://caiyy17.github.io">Home</a>&nbsp;»&nbsp;<a href="https://caiyy17.github.io/posts/">Posts</a></div>
+    <h1 class="post-title">
+      Markdown3:配合Pandoc
+    </h1>
+    <div class="post-meta"><span title='2018-10-17 00:00:00 +0000 UTC'>October 17, 2018</span>
+
+</div>
+  </header> <div class="toc">
+    <details >
+        <summary accesskey="c" title="(Alt + C)">
+            <span class="details">Table of Contents</span>
+        </summary>
+
+        <div class="inner"><ul>
+                <li>
+                    <a href="#%e5%89%8d%e8%a8%80" aria-label="前言">前言</a></li>
+                <li>
+                    <a href="#%e5%ae%89%e8%a3%85" aria-label="安装">安装</a><ul>
+                        
+                <li>
+                    <a href="#html-%e5%8f%82%e6%95%b0" aria-label="html 参数">html 参数</a></li>
+                <li>
+                    <a href="#pdf-%e5%8f%82%e6%95%b0" aria-label="PDF 参数">PDF 参数</a></li></ul>
+                </li>
+                <li>
+                    <a href="#%e6%89%80%e4%bb%a5" aria-label="所以">所以</a></li>
+                <li>
+                    <a href="#%e7%95%aa%e5%a4%96%e5%b9%bb%e7%81%af%e7%89%87" aria-label="番外：幻灯片">番外：幻灯片</a><ul>
+                        
+                <li>
+                    <a href="#%e5%b9%bb%e7%81%af%e7%89%87%e7%bb%93%e6%9e%84" aria-label="幻灯片结构">幻灯片结构</a></li>
+                <li>
+                    <a href="#%e5%b8%b8%e7%94%a8%e5%8f%82%e6%95%b0" aria-label="常用参数">常用参数</a></li>
+                <li>
+                    <a href="#%e6%88%91%e7%9a%84%e5%b8%b8%e7%94%a8%e5%91%bd%e4%bb%a4" aria-label="我的常用命令">我的常用命令</a></li></ul>
+                </li>
+                <li>
+                    <a href="#%e5%8f%82%e8%80%83" aria-label="参考">参考</a>
+                </li>
+            </ul>
+        </div>
+    </details>
+</div>
+
+  <div class="post-content"><ul>
 <li><a href="#%E5%89%8D%E8%A8%80">前言</a></li>
 <li><a href="#%E5%AE%89%E8%A3%85">安装</a>
 <ul>
@@ -173,13 +263,13 @@ html 参数 --standalone --self-contained --css pandoc.css 以上转换命令中
 </li>
 <li><a href="#%E5%8F%82%E8%80%83">参考</a></li>
 </ul>
-<h1 id="前言">前言</h1>
+<h1 id="前言">前言<a hidden class="anchor" aria-hidden="true" href="#前言">#</a></h1>
 <p>从 Md1 到 Md2，基本的 Markdown 写作以及没有问题了，然后就会想用 md 解决其他的事情了，比如写学术论文，Latex 写起来太费劲了，公式还是 word 比较方便。</p>
 <p>Pandoc 是一个开源的万能文档转换软件，可以在 pdf，md，word，html 之间转换文档格式。而装了 vscode-pandoc 后可以直接在 vscode 中使用，但是每次只能用同样的命令行参数，否则只能在终端中使用。</p>
-<h1 id="安装">安装</h1>
+<h1 id="安装">安装<a hidden class="anchor" aria-hidden="true" href="#安装">#</a></h1>
 <p>直接 brew 安装即可，还要安装 pandoc-citeproc，vscode 插件也是一键安装。</p>
 <p>然后是配置，word 不需要配置，html 需要配置命令行参数，在设置的 string 里面填入就行。</p>
-<h2 id="html-参数">html 参数</h2>
+<h2 id="html-参数">html 参数<a hidden class="anchor" aria-hidden="true" href="#html-参数">#</a></h2>
 <pre tabindex="0"><code>--standalone --self-contained --css pandoc.css
 </code></pre><p>以上转换命令中选项含义介绍如下。</p>
 <ol>
@@ -187,10 +277,10 @@ html 参数 --standalone --self-contained --css pandoc.css 以上转换命令中
 <li>“–self-contained” ：如果目标格式是“HTML”，那么可得到如下效果：在转换得到目标 HTML 文件的过程中，会将依赖的“脚本，CSS，图片，视频”等文件的内容内嵌到目标 HTML 文件中。</li>
 <li>“–css pandoc.css” ：使得目标格式文件最后使用“pandoc.css”文件作为 CSS 文件，否则，使用默认的 CSS 文件。</li>
 </ol>
-<h2 id="pdf-参数">PDF 参数</h2>
+<h2 id="pdf-参数">PDF 参数<a hidden class="anchor" aria-hidden="true" href="#pdf-参数">#</a></h2>
 <p>pdf 需要 latex 的支持，mac 可以装 Mactex，Win 有 texlive（不过要配置环境变量）</p>
 <p>然而当你尝试的时候就会有各种 bug，网上也有解决方案，但都不是很漂亮，所以我就放弃了这个选项&hellip;&hellip;</p>
-<h1 id="所以">所以</h1>
+<h1 id="所以">所以<a hidden class="anchor" aria-hidden="true" href="#所以">#</a></h1>
 <p>最终我选择了把 md 转为 word 然后可以使用 word 的公式编辑器编写公式&hellip;&hellip;</p>
 <p>现在分析需求：</p>
 <ul>
@@ -206,9 +296,9 @@ html 参数 --standalone --self-contained --css pandoc.css 以上转换命令中
 --csl=FILE //参考文献引用标准
 </code></pre><p>PS：若要在 hexo 中用 pandoc-markdown，要在 hexo 的根目录下</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>npm install hexo-renderer-pandoc --save
-</span></span></code></pre></div><h1 id="番外幻灯片">番外：幻灯片</h1>
+</span></span></code></pre></div><h1 id="番外幻灯片">番外：幻灯片<a hidden class="anchor" aria-hidden="true" href="#番外幻灯片">#</a></h1>
 <p>下载 reveal.js 至目标文件夹，然后就可以使用 pandoc 命令来生成幻灯片了</p>
-<h2 id="幻灯片结构">幻灯片结构</h2>
+<h2 id="幻灯片结构">幻灯片结构<a hidden class="anchor" aria-hidden="true" href="#幻灯片结构">#</a></h2>
 <ul>
 <li>
 <p>slide level: 默认情况下，slide level 由文章的组织结构中，以紧接着文章内容（而不是另一个标题）的最高的 header 等级决定。</p>
@@ -236,7 +326,7 @@ content after the pause
 </code></pre><p>其中每个部分都可以省略</p>
 </li>
 </ul>
-<h2 id="常用参数">常用参数</h2>
+<h2 id="常用参数">常用参数<a hidden class="anchor" aria-hidden="true" href="#常用参数">#</a></h2>
 <ul>
 <li>-s, –standalone：转换输出文档时会自动加上合适的 header 和 footer(例如 standalone HTML, LaTeX, RTF)。该选择在转换输出 pdf，epub，epub3，fb2，docx，odt 格式文件时会被自动设置，因此如果转换输出上述格式文件，则不用显示指定该选项。如上所述，使用该选项后，能够将所有依赖的文件(linked scripts,stylesheets, images, and videos)都转换输出到同一个文件中。</li>
 <li>–slide-level=NUMBER：指定能够创建新幻灯片页的 headers 等级(对 beamer, s5, slidy, slideous, dzslides 而言)。在设定的 level 以上的 header 将幻灯片划分为不同的 sections，在 level 以下的 headers 在同一页幻灯片中创建子标题.默认情况下根据文档内容自动确定，见幻灯片的结构化.</li>
@@ -247,48 +337,104 @@ content after the pause
 <li>Math rendering in HTML：可参考官网。</li>
 </ul>
 <p>PS：更多可以看<a href="http://pandoc.org/index.html">官网</a></p>
-<h2 id="我的常用命令">我的常用命令</h2>
+<h2 id="我的常用命令">我的常用命令<a hidden class="anchor" aria-hidden="true" href="#我的常用命令">#</a></h2>
 <pre tabindex="0"><code>pandoc -s --self-contained -i -t revealjs test.md -o test.html
-</code></pre><h1 id="参考">参考</h1>
+</code></pre><h1 id="参考">参考<a hidden class="anchor" aria-hidden="true" href="#参考">#</a></h1>
 <p><a href="http://liumh.com/2014/07/05/pandoc-produce-slide-shows/#styling-slides">pandoc 将 markdown 转换输出 HTML slide</a></p>
-</section>
 
-  
-  
-  <footer class="post-tags">
-     
-    <a href="https://caiyy17.github.io/tags/markdown">Markdown</a>
-     
-    <a href="https://caiyy17.github.io/tags/latex">Latex</a>
-    
+
+  </div>
+
+  <footer class="post-footer">
+    <ul class="post-tags">
+      <li><a href="https://caiyy17.github.io/tags/markdown/">Markdown</a></li>
+      <li><a href="https://caiyy17.github.io/tags/latex/">Latex</a></li>
+    </ul>
+<nav class="paginav">
+  <a class="prev" href="https://caiyy17.github.io/posts/computer/rsp1_%E5%9F%BA%E6%9C%AC%E8%AE%BE%E7%BD%AE/">
+    <span class="title">« Prev Page</span>
+    <br>
+    <span>RSP1:基本设置</span>
+  </a>
+  <a class="next" href="https://caiyy17.github.io/posts/eating/%E5%B7%A7%E5%85%8B%E5%8A%9B/">
+    <span class="title">Next Page »</span>
+    <br>
+    <span>巧克力</span>
+  </a>
+</nav>
+
   </footer>
-  
-
-  
-  
-  
-  <nav class="post-nav">
-    
-    <a class="prev" href="https://caiyy17.github.io/posts/computer/rsp1_%E5%9F%BA%E6%9C%AC%E8%AE%BE%E7%BD%AE/"><span>←</span><span>RSP1:基本设置</span></a>
-     
-    <a class="next" href="https://caiyy17.github.io/posts/eating/%E5%B7%A7%E5%85%8B%E5%8A%9B/"><span>巧克力</span><span>→</span></a>
-    
-  </nav>
-  
-
-  
-  
 </article>
-
-</main>
-
-    <footer class="footer">
-  <p>&copy; 2022 <a href="https://caiyy17.github.io">每一个不曾起舞的日子，都是对生命的辜负。</a></p>
-  <p>Powered by <a href="https://gohugo.io/" rel="noopener" target="_blank">Hugo️️</a>️</p>
-  <p>
-    <a href="https://github.com/nanxiaobei/hugo-paper" rel="noopener" target="_blank">Paper 5.1</a>
-  </p>
+    </main>
+    
+<footer class="footer">
+    <span>&copy; 2022 <a href="https://caiyy17.github.io">caiyy17</a></span>
+    <span>
+        Powered by
+        <a href="https://gohugo.io/" rel="noopener noreferrer" target="_blank">Hugo</a> &
+        <a href="https://git.io/hugopapermod" rel="noopener" target="_blank">PaperMod</a>
+    </span>
 </footer>
+<a href="#top" aria-label="go to top" title="Go to Top (Alt + G)" class="top-link" id="top-link" accesskey="g">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 6" fill="currentColor">
+        <path d="M12 6H0l6-6z" />
+    </svg>
+</a>
 
-  </body>
+<script>
+    let menu = document.getElementById('menu')
+    if (menu) {
+        menu.scrollLeft = localStorage.getItem("menu-scroll-position");
+        menu.onscroll = function () {
+            localStorage.setItem("menu-scroll-position", menu.scrollLeft);
+        }
+    }
+
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener("click", function (e) {
+            e.preventDefault();
+            var id = this.getAttribute("href").substr(1);
+            if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView({
+                    behavior: "smooth"
+                });
+            } else {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView();
+            }
+            if (id === "top") {
+                history.replaceState(null, null, " ");
+            } else {
+                history.pushState(null, null, `#${id}`);
+            }
+        });
+    });
+
+</script>
+<script>
+    var mybutton = document.getElementById("top-link");
+    window.onscroll = function () {
+        if (document.body.scrollTop > 800 || document.documentElement.scrollTop > 800) {
+            mybutton.style.visibility = "visible";
+            mybutton.style.opacity = "1";
+        } else {
+            mybutton.style.visibility = "hidden";
+            mybutton.style.opacity = "0";
+        }
+    };
+
+</script>
+<script>
+    document.getElementById("theme-toggle").addEventListener("click", () => {
+        if (document.body.className.includes("dark")) {
+            document.body.classList.remove('dark');
+            localStorage.setItem("pref-theme", 'light');
+        } else {
+            document.body.classList.add('dark');
+            localStorage.setItem("pref-theme", 'dark');
+        }
+    })
+
+</script>
+</body>
+
 </html>

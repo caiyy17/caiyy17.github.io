@@ -1,79 +1,69 @@
 <!DOCTYPE html>
+<html lang="en" dir="auto">
 
-
-
-
-
-
-
-
-
-
-
-<html lang="en-us">
-  <head>
-  <meta charset="utf-8" />
-  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
-
-  
-  <title>VPS2:socks协议以及ss设置 - 每一个不曾起舞的日子，都是对生命的辜负。</title>
-
-  
-  
-  <meta name="description" content="Socks 协议 Socket Secure(SOCKS)是一个网络协议，可以通过代理服务器来路由客户端和服务器之间的数据包。一个 SOCKS 服务器可以代理 TCP 连接到任何一个 IP 地址，同时为 UDP 的数据包提供一种转发方式。 SOCKS 完成的是 OSI 模型中第五层的工作（会话层，位于表示层和传输层之间）
+<head><meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="robots" content="index, follow">
+<title>VPS2:socks协议以及ss设置 | caiyy17</title>
+<meta name="keywords" content="VPS, safety">
+<meta name="description" content="Socks 协议 Socket Secure(SOCKS)是一个网络协议，可以通过代理服务器来路由客户端和服务器之间的数据包。一个 SOCKS 服务器可以代理 TCP 连接到任何一个 IP 地址，同时为 UDP 的数据包提供一种转发方式。 SOCKS 完成的是 OSI 模型中第五层的工作（会话层，位于表示层和传输层之间）
 历史 这个协议最初由 David Koblas 创造，David Koblas 是 MIPS 计算系统的管理员，在 1992 年 MIPS 被 Silicon Graphics 接管之后，Koblas 在那年的 Usenix 安全研讨会上发表了关于 SOCKS 的一篇文章，让 SOCKS 为公众所知。
 SOCKS5 协议最初是一个安全协议被用来更容易的管控防火墙和其他安全产品，在 1996 年被 IETF 所批准，并与 Aventail 公司合作开发。
 用途 SOCKS 是 Circuit-level gateway（注：Circuit-level gateway 是一种防火墙）事实上的标准
 另外一种 SOCKS 的使用方式是作为规避工具，允许流量绕过网络过滤来获得内容，否则就被政府，学校，一些具体国家的 web 服务堵塞。（就是翻墙&hellip;）
 而 shadowsocks 就是这样的一款软件。
 ss 设置 说这么多，就让我们在服务器上装 ss 吧
-配置环境 安装 pip，接着安装 ss。" />
-  <meta name="author" content="" />
-  
+配置环境 安装 pip，接着安装 ss。">
+<meta name="author" content="">
+<link rel="canonical" href="https://caiyy17.github.io/posts/computer/vps2_socks%E5%8D%8F%E8%AE%AE%E4%B8%8Ess%E8%AE%BE%E7%BD%AE/">
+<link crossorigin="anonymous" href="/assets/css/stylesheet.min.b4e19c453811e60acfec1f00c15ac2be1c53f6ab90187e684358ce7faaf48bab.css" integrity="sha256-tOGcRTgR5grP7B8AwVrCvhxT9quQGH5oQ1jOf6r0i6s=" rel="preload stylesheet" as="style">
+<script defer crossorigin="anonymous" src="/assets/js/highlight.min.2840b7fccd34145847db71a290569594bdbdb00047097f75d6495d162f5d7dff.js" integrity="sha256-KEC3/M00FFhH23GikFaVlL29sABHCX911kldFi9dff8="
+    onload="hljs.initHighlightingOnLoad();"></script>
+<link rel="icon" href="https://caiyy17.github.io/favicon.ico">
+<link rel="icon" type="image/png" sizes="16x16" href="https://caiyy17.github.io/favicon-16x16.png">
+<link rel="icon" type="image/png" sizes="32x32" href="https://caiyy17.github.io/favicon-32x32.png">
+<link rel="apple-touch-icon" href="https://caiyy17.github.io/apple-touch-icon.png">
+<link rel="mask-icon" href="https://caiyy17.github.io/safari-pinned-tab.svg">
+<meta name="theme-color" content="#2e2e33">
+<meta name="msapplication-TileColor" content="#2e2e33">
+<noscript>
+    <style>
+        #theme-toggle,
+        .top-link {
+            display: none;
+        }
 
-  
-  
-  
-  
-  
-  
-  <link rel="preload stylesheet" as="style" href="https://caiyy17.github.io/app.min.css" />
+    </style>
+    <style>
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --theme: rgb(29, 30, 32);
+                --entry: rgb(46, 46, 51);
+                --primary: rgb(218, 218, 219);
+                --secondary: rgb(155, 156, 157);
+                --tertiary: rgb(65, 66, 68);
+                --content: rgb(196, 196, 197);
+                --hljs-bg: rgb(46, 46, 51);
+                --code-bg: rgb(55, 56, 62);
+                --border: rgb(51, 51, 51);
+            }
 
-  
-  <link rel="preload stylesheet" as="style" href="https://caiyy17.github.io/an-old-hope.min.css" />
-  <script
-    defer
-    src="https://caiyy17.github.io/highlight.min.js"
-    onload="hljs.initHighlightingOnLoad();"
-  ></script>
-  
+            .list {
+                background: var(--theme);
+            }
 
-  
-  <link rel="preload" as="image" href="https://caiyy17.github.io/theme.png" />
+            .list:not(.dark)::-webkit-scrollbar-track {
+                background: 0 0;
+            }
 
-  
+            .list:not(.dark)::-webkit-scrollbar-thumb {
+                border-color: var(--theme);
+            }
+        }
 
-  
-  <link rel="icon" href="https://caiyy17.github.io/favicon.ico" />
-  <link rel="apple-touch-icon" href="https://caiyy17.github.io/apple-touch-icon.png" />
-
-  
-  <meta name="generator" content="Hugo 0.97.3" />
-
-  
-  
-
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  <meta property="og:title" content="VPS2:socks协议以及ss设置" />
+    </style>
+</noscript><meta property="og:title" content="VPS2:socks协议以及ss设置" />
 <meta property="og:description" content="Socks 协议 Socket Secure(SOCKS)是一个网络协议，可以通过代理服务器来路由客户端和服务器之间的数据包。一个 SOCKS 服务器可以代理 TCP 连接到任何一个 IP 地址，同时为 UDP 的数据包提供一种转发方式。 SOCKS 完成的是 OSI 模型中第五层的工作（会话层，位于表示层和传输层之间）
 历史 这个协议最初由 David Koblas 创造，David Koblas 是 MIPS 计算系统的管理员，在 1992 年 MIPS 被 Silicon Graphics 接管之后，Koblas 在那年的 Usenix 安全研讨会上发表了关于 SOCKS 的一篇文章，让 SOCKS 为公众所知。
 SOCKS5 协议最初是一个安全协议被用来更容易的管控防火墙和其他安全产品，在 1996 年被 IETF 所批准，并与 Aventail 公司合作开发。
@@ -84,25 +74,10 @@ ss 设置 说这么多，就让我们在服务器上装 ss 吧
 配置环境 安装 pip，接着安装 ss。" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://caiyy17.github.io/posts/computer/vps2_socks%E5%8D%8F%E8%AE%AE%E4%B8%8Ess%E8%AE%BE%E7%BD%AE/" /><meta property="article:section" content="posts" />
-<meta property="article:published_time" content="2018-09-30T00:00:00+00:00" />
-<meta property="article:modified_time" content="2018-09-30T00:00:00+00:00" />
+<meta property="article:published_time" content="2018-09-30T00:00:00&#43;00:00" />
+<meta property="article:modified_time" content="2018-09-30T00:00:00&#43;00:00" />
 
-
-  
-  <meta itemprop="name" content="VPS2:socks协议以及ss设置">
-<meta itemprop="description" content="Socks 协议 Socket Secure(SOCKS)是一个网络协议，可以通过代理服务器来路由客户端和服务器之间的数据包。一个 SOCKS 服务器可以代理 TCP 连接到任何一个 IP 地址，同时为 UDP 的数据包提供一种转发方式。 SOCKS 完成的是 OSI 模型中第五层的工作（会话层，位于表示层和传输层之间）
-历史 这个协议最初由 David Koblas 创造，David Koblas 是 MIPS 计算系统的管理员，在 1992 年 MIPS 被 Silicon Graphics 接管之后，Koblas 在那年的 Usenix 安全研讨会上发表了关于 SOCKS 的一篇文章，让 SOCKS 为公众所知。
-SOCKS5 协议最初是一个安全协议被用来更容易的管控防火墙和其他安全产品，在 1996 年被 IETF 所批准，并与 Aventail 公司合作开发。
-用途 SOCKS 是 Circuit-level gateway（注：Circuit-level gateway 是一种防火墙）事实上的标准
-另外一种 SOCKS 的使用方式是作为规避工具，允许流量绕过网络过滤来获得内容，否则就被政府，学校，一些具体国家的 web 服务堵塞。（就是翻墙&hellip;）
-而 shadowsocks 就是这样的一款软件。
-ss 设置 说这么多，就让我们在服务器上装 ss 吧
-配置环境 安装 pip，接着安装 ss。"><meta itemprop="datePublished" content="2018-09-30T00:00:00+00:00" />
-<meta itemprop="dateModified" content="2018-09-30T00:00:00+00:00" />
-<meta itemprop="wordCount" content="128">
-<meta itemprop="keywords" content="VPS,safety," />
-  
-  <meta name="twitter:card" content="summary"/>
+<meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="VPS2:socks协议以及ss设置"/>
 <meta name="twitter:description" content="Socks 协议 Socket Secure(SOCKS)是一个网络协议，可以通过代理服务器来路由客户端和服务器之间的数据包。一个 SOCKS 服务器可以代理 TCP 连接到任何一个 IP 地址，同时为 UDP 的数据包提供一种转发方式。 SOCKS 完成的是 OSI 模型中第五层的工作（会话层，位于表示层和传输层之间）
 历史 这个协议最初由 David Koblas 创造，David Koblas 是 MIPS 计算系统的管理员，在 1992 年 MIPS 被 Silicon Graphics 接管之后，Koblas 在那年的 Usenix 安全研讨会上发表了关于 SOCKS 的一篇文章，让 SOCKS 为公众所知。
@@ -113,73 +88,182 @@ SOCKS5 协议最初是一个安全协议被用来更容易的管控防火墙和�
 ss 设置 说这么多，就让我们在服务器上装 ss 吧
 配置环境 安装 pip，接着安装 ss。"/>
 
-  
-  
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [, 
+    {
+      "@type": "ListItem",
+      "position":  2 ,
+      "name": "Posts",
+      "item": "https://caiyy17.github.io/posts/"
+    }, 
+    {
+      "@type": "ListItem",
+      "position":  3 ,
+      "name": "VPS2:socks协议以及ss设置",
+      "item": "https://caiyy17.github.io/posts/computer/vps2_socks%E5%8D%8F%E8%AE%AE%E4%B8%8Ess%E8%AE%BE%E7%BD%AE/"
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "VPS2:socks协议以及ss设置",
+  "name": "VPS2:socks协议以及ss设置",
+  "description": "Socks 协议 Socket Secure(SOCKS)是一个网络协议，可以通过代理服务器来路由客户端和服务器之间的数据包。一个 SOCKS 服务器可以代理 TCP 连接到任何一个 IP 地址，同时为 UDP 的数据包提供一种转发方式。 SOCKS 完成的是 OSI 模型中第五层的工作（会话层，位于表示层和传输层之间）\n历史 这个协议最初由 David Koblas 创造，David Koblas 是 MIPS 计算系统的管理员，在 1992 年 MIPS 被 Silicon Graphics 接管之后，Koblas 在那年的 Usenix 安全研讨会上发表了关于 SOCKS 的一篇文章，让 SOCKS 为公众所知。\nSOCKS5 协议最初是一个安全协议被用来更容易的管控防火墙和其他安全产品，在 1996 年被 IETF 所批准，并与 Aventail 公司合作开发。\n用途 SOCKS 是 Circuit-level gateway（注：Circuit-level gateway 是一种防火墙）事实上的标准\n另外一种 SOCKS 的使用方式是作为规避工具，允许流量绕过网络过滤来获得内容，否则就被政府，学校，一些具体国家的 web 服务堵塞。（就是翻墙\u0026hellip;）\n而 shadowsocks 就是这样的一款软件。\nss 设置 说这么多，就让我们在服务器上装 ss 吧\n配置环境 安装 pip，接着安装 ss。",
+  "keywords": [
+    "VPS", "safety"
+  ],
+  "articleBody": "Socks 协议 Socket Secure(SOCKS)是一个网络协议，可以通过代理服务器来路由客户端和服务器之间的数据包。一个 SOCKS 服务器可以代理 TCP 连接到任何一个 IP 地址，同时为 UDP 的数据包提供一种转发方式。 SOCKS 完成的是 OSI 模型中第五层的工作（会话层，位于表示层和传输层之间）\n历史 这个协议最初由 David Koblas 创造，David Koblas 是 MIPS 计算系统的管理员，在 1992 年 MIPS 被 Silicon Graphics 接管之后，Koblas 在那年的 Usenix 安全研讨会上发表了关于 SOCKS 的一篇文章，让 SOCKS 为公众所知。\nSOCKS5 协议最初是一个安全协议被用来更容易的管控防火墙和其他安全产品，在 1996 年被 IETF 所批准，并与 Aventail 公司合作开发。\n用途 SOCKS 是 Circuit-level gateway（注：Circuit-level gateway 是一种防火墙）事实上的标准\n另外一种 SOCKS 的使用方式是作为规避工具，允许流量绕过网络过滤来获得内容，否则就被政府，学校，一些具体国家的 web 服务堵塞。（就是翻墙…）\n而 shadowsocks 就是这样的一款软件。\nss 设置 说这么多，就让我们在服务器上装 ss 吧\n配置环境 安装 pip，接着安装 ss。\nyum install python-setuptools \u0026\u0026 easy_install pip pip install shadowsocks 修改配置 可以添加多用户。\nvim /etc/shadowsocks.json 内容如下：\n{  \"server\":\"::\",  \"local_address\":\"127.0.0.1\",  \"local_port\":1080,  \"port_password\":  {  \"[port]\":\"[密码]\",  //继续写其他端口  },  \"timeout\":300,  \"method\":\"aes-256-cfb\",  \"fast_open\": ture } 然后启动就行\nssserver -c /etc/shadowsocks.json -d start 防火墙开着的话，记得改一下防火墙。\n客户端 找个地方下载客户端就行，配置一目了然。\nv2ray 现在 ss 已经会被封了，可以切换 vmess 协议\nbash v2ray 会生成一个 uuid 和一个端口，这可以在配置中改，同样可以使用多用户配置。推荐一个网站V2Ray 配置指南\n",
+  "wordCount" : "128",
+  "inLanguage": "en",
+  "datePublished": "2018-09-30T00:00:00Z",
+  "dateModified": "2018-09-30T00:00:00Z",
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://caiyy17.github.io/posts/computer/vps2_socks%E5%8D%8F%E8%AE%AE%E4%B8%8Ess%E8%AE%BE%E7%BD%AE/"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "caiyy17",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://caiyy17.github.io/favicon.ico"
+    }
+  }
+}
+</script>
 </head>
 
+<body class="" id="top">
+<script>
+    if (localStorage.getItem("pref-theme") === "dark") {
+        document.body.classList.add('dark');
+    } else if (localStorage.getItem("pref-theme") === "light") {
+        document.body.classList.remove('dark')
+    } else if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+        document.body.classList.add('dark');
+    }
 
-  <body class="not-ready" data-menu="false">
-    <header class="header">
-  
-  <p class="logo">
-    <a class="site-name" href="https://caiyy17.github.io">每一个不曾起舞的日子，都是对生命的辜负。</a><a class="btn-dark"></a>
-  </p>
-  
+</script>
 
-  <script>
-    let bodyClx = document.body.classList;
-    let btnDark = document.querySelector('.btn-dark');
-    let sysDark = window.matchMedia('(prefers-color-scheme: dark)');
-    let darkVal = localStorage.getItem('dark');
-
-    let setDark = (isDark) => {
-      bodyClx[isDark ? 'add' : 'remove']('dark');
-      localStorage.setItem('dark', isDark ? 'yes' : 'no');
-    };
-
-    setDark(darkVal ? darkVal === 'yes' : sysDark.matches);
-    requestAnimationFrame(() => bodyClx.remove('not-ready'));
-
-    btnDark.addEventListener('click', () => setDark(!bodyClx.contains('dark')));
-    sysDark.addEventListener('change', (event) => setDark(event.matches));
-  </script>
-
-  
-  
-
-  
+<header class="header">
+    <nav class="nav">
+        <div class="logo">
+            <a href="https://caiyy17.github.io" accesskey="h" title="caiyy17 (Alt + H)">caiyy17</a>
+            <span class="logo-switches">
+                <button id="theme-toggle" accesskey="t" title="(Alt + T)">
+                    <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                    </svg>
+                    <svg id="sun" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="5"></circle>
+                        <line x1="12" y1="1" x2="12" y2="3"></line>
+                        <line x1="12" y1="21" x2="12" y2="23"></line>
+                        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                        <line x1="1" y1="12" x2="3" y2="12"></line>
+                        <line x1="21" y1="12" x2="23" y2="12"></line>
+                        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                    </svg>
+                </button>
+            </span>
+        </div>
+        <ul id="menu">
+            <li>
+                <a href="https://caiyy17.github.io/categories/" title="categories">
+                    <span>categories</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://caiyy17.github.io/tags/" title="tags">
+                    <span>tags</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://caiyy17.github.io/search/" title="search (Alt &#43; /)" accesskey=/>
+                    <span>search</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://caiyy17.github.io/archives/" title="archives">
+                    <span>archives</span>
+                </a>
+            </li>
+        </ul>
+    </nav>
 </header>
-
-
-    <main class="main">
+<main class="main">
 
 <article class="post-single">
-  <header class="post-title">
-    <p>
-      
-      <time>Sep 30, 2018</time>
-      
-      
-    </p>
-    <h1>VPS2:socks协议以及ss设置</h1>
-  </header>
-  <section class="post-content"><h1 id="socks-协议">Socks 协议</h1>
+  <header class="post-header">
+    <div class="breadcrumbs"><a href="https://caiyy17.github.io">Home</a>&nbsp;»&nbsp;<a href="https://caiyy17.github.io/posts/">Posts</a></div>
+    <h1 class="post-title">
+      VPS2:socks协议以及ss设置
+    </h1>
+    <div class="post-meta"><span title='2018-09-30 00:00:00 +0000 UTC'>September 30, 2018</span>
+
+</div>
+  </header> <div class="toc">
+    <details >
+        <summary accesskey="c" title="(Alt + C)">
+            <span class="details">Table of Contents</span>
+        </summary>
+
+        <div class="inner"><ul>
+                <li>
+                    <a href="#socks-%e5%8d%8f%e8%ae%ae" aria-label="Socks 协议">Socks 协议</a><ul>
+                        
+                <li>
+                    <a href="#%e5%8e%86%e5%8f%b2" aria-label="历史">历史</a></li>
+                <li>
+                    <a href="#%e7%94%a8%e9%80%94" aria-label="用途">用途</a></li></ul>
+                </li>
+                <li>
+                    <a href="#ss-%e8%ae%be%e7%bd%ae" aria-label="ss 设置">ss 设置</a><ul>
+                        
+                <li>
+                    <a href="#%e9%85%8d%e7%bd%ae%e7%8e%af%e5%a2%83" aria-label="配置环境">配置环境</a></li>
+                <li>
+                    <a href="#%e4%bf%ae%e6%94%b9%e9%85%8d%e7%bd%ae" aria-label="修改配置">修改配置</a></li></ul>
+                </li>
+                <li>
+                    <a href="#%e5%ae%a2%e6%88%b7%e7%ab%af" aria-label="客户端">客户端</a></li>
+                <li>
+                    <a href="#v2ray" aria-label="v2ray">v2ray</a>
+                </li>
+            </ul>
+        </div>
+    </details>
+</div>
+
+  <div class="post-content"><h1 id="socks-协议">Socks 协议<a hidden class="anchor" aria-hidden="true" href="#socks-协议">#</a></h1>
 <p>Socket Secure(SOCKS)是一个网络协议，可以通过代理服务器来路由客户端和服务器之间的数据包。一个 SOCKS 服务器可以代理 TCP 连接到任何一个 IP 地址，同时为 UDP 的数据包提供一种转发方式。
 SOCKS 完成的是 OSI 模型中第五层的工作（会话层，位于表示层和传输层之间）</p>
-<h2 id="历史">历史</h2>
+<h2 id="历史">历史<a hidden class="anchor" aria-hidden="true" href="#历史">#</a></h2>
 <p>这个协议最初由 David Koblas 创造，David Koblas 是 MIPS 计算系统的管理员，在 1992 年 MIPS 被 Silicon Graphics 接管之后，Koblas 在那年的 Usenix 安全研讨会上发表了关于 SOCKS 的一篇文章，让 SOCKS 为公众所知。</p>
 <p>SOCKS5 协议最初是一个安全协议被用来更容易的管控防火墙和其他安全产品，在 1996 年被 IETF 所批准，并与 Aventail 公司合作开发。</p>
-<h2 id="用途">用途</h2>
+<h2 id="用途">用途<a hidden class="anchor" aria-hidden="true" href="#用途">#</a></h2>
 <p>SOCKS 是 Circuit-level gateway（注：Circuit-level gateway 是一种防火墙）事实上的标准</p>
 <p>另外一种 SOCKS 的使用方式是作为规避工具，允许流量绕过网络过滤来获得内容，否则就被政府，学校，一些具体国家的 web 服务堵塞。（就是翻墙&hellip;）</p>
 <p>而 shadowsocks 就是这样的一款软件。</p>
-<h1 id="ss-设置">ss 设置</h1>
+<h1 id="ss-设置">ss 设置<a hidden class="anchor" aria-hidden="true" href="#ss-设置">#</a></h1>
 <p>说这么多，就让我们在服务器上装 ss 吧</p>
-<h2 id="配置环境">配置环境</h2>
+<h2 id="配置环境">配置环境<a hidden class="anchor" aria-hidden="true" href="#配置环境">#</a></h2>
 <p>安装 pip，接着安装 ss。</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>yum install python-setuptools <span style="color:#f92672">&amp;&amp;</span> easy_install pip
 </span></span><span style="display:flex;"><span>pip install shadowsocks
-</span></span></code></pre></div><h2 id="修改配置">修改配置</h2>
+</span></span></code></pre></div><h2 id="修改配置">修改配置<a hidden class="anchor" aria-hidden="true" href="#修改配置">#</a></h2>
 <p>可以添加多用户。</p>
 <pre tabindex="0"><code>vim /etc/shadowsocks.json
 </code></pre><p>内容如下：</p>
@@ -199,51 +283,107 @@ SOCKS 完成的是 OSI 模型中第五层的工作（会话层，位于表示层
 </span></span></code></pre></div><p>然后启动就行</p>
 <pre tabindex="0"><code>ssserver -c /etc/shadowsocks.json -d start
 </code></pre><p>防火墙开着的话，记得改一下防火墙。</p>
-<h1 id="客户端">客户端</h1>
+<h1 id="客户端">客户端<a hidden class="anchor" aria-hidden="true" href="#客户端">#</a></h1>
 <p>找个地方下载客户端就行，配置一目了然。</p>
-<h1 id="v2ray">v2ray</h1>
+<h1 id="v2ray">v2ray<a hidden class="anchor" aria-hidden="true" href="#v2ray">#</a></h1>
 <p>现在 ss 已经会被封了，可以切换 vmess 协议</p>
 <pre tabindex="0"><code>bash &lt;(curl -L -s https://install.direct/go.sh)
 sudo service v2ray start
 </code></pre><p>v2ray 会生成一个 uuid 和一个端口，这可以在配置中改，同样可以使用多用户配置。推荐一个网站<a href="https://toutyrater.github.io">V2Ray 配置指南</a></p>
-</section>
 
-  
-  
-  <footer class="post-tags">
-     
-    <a href="https://caiyy17.github.io/tags/vps">VPS</a>
-     
-    <a href="https://caiyy17.github.io/tags/safety">safety</a>
-    
+
+  </div>
+
+  <footer class="post-footer">
+    <ul class="post-tags">
+      <li><a href="https://caiyy17.github.io/tags/vps/">VPS</a></li>
+      <li><a href="https://caiyy17.github.io/tags/safety/">safety</a></li>
+    </ul>
+<nav class="paginav">
+  <a class="prev" href="https://caiyy17.github.io/posts/computer/vps1_%E8%B4%AD%E4%B9%B0%E4%BB%A5%E5%8F%8A%E8%AE%BE%E7%BD%AEvps/">
+    <span class="title">« Prev Page</span>
+    <br>
+    <span>VPS1:购买以及设置</span>
+  </a>
+  <a class="next" href="https://caiyy17.github.io/posts/computer/vps3_%E6%9C%8D%E5%8A%A1%E5%99%A8%E8%AE%BE%E7%BD%AE%E4%B8%8E%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2/">
+    <span class="title">Next Page »</span>
+    <br>
+    <span>VPS3:nginx服务与Hexo博客</span>
+  </a>
+</nav>
+
   </footer>
-  
-
-  
-  
-  
-  <nav class="post-nav">
-    
-    <a class="prev" href="https://caiyy17.github.io/posts/computer/vps1_%E8%B4%AD%E4%B9%B0%E4%BB%A5%E5%8F%8A%E8%AE%BE%E7%BD%AEvps/"><span>←</span><span>VPS1:购买以及设置</span></a>
-     
-    <a class="next" href="https://caiyy17.github.io/posts/computer/vps3_%E6%9C%8D%E5%8A%A1%E5%99%A8%E8%AE%BE%E7%BD%AE%E4%B8%8E%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2/"><span>VPS3:nginx服务与Hexo博客</span><span>→</span></a>
-    
-  </nav>
-  
-
-  
-  
 </article>
-
-</main>
-
-    <footer class="footer">
-  <p>&copy; 2022 <a href="https://caiyy17.github.io">每一个不曾起舞的日子，都是对生命的辜负。</a></p>
-  <p>Powered by <a href="https://gohugo.io/" rel="noopener" target="_blank">Hugo️️</a>️</p>
-  <p>
-    <a href="https://github.com/nanxiaobei/hugo-paper" rel="noopener" target="_blank">Paper 5.1</a>
-  </p>
+    </main>
+    
+<footer class="footer">
+    <span>&copy; 2022 <a href="https://caiyy17.github.io">caiyy17</a></span>
+    <span>
+        Powered by
+        <a href="https://gohugo.io/" rel="noopener noreferrer" target="_blank">Hugo</a> &
+        <a href="https://git.io/hugopapermod" rel="noopener" target="_blank">PaperMod</a>
+    </span>
 </footer>
+<a href="#top" aria-label="go to top" title="Go to Top (Alt + G)" class="top-link" id="top-link" accesskey="g">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 6" fill="currentColor">
+        <path d="M12 6H0l6-6z" />
+    </svg>
+</a>
 
-  </body>
+<script>
+    let menu = document.getElementById('menu')
+    if (menu) {
+        menu.scrollLeft = localStorage.getItem("menu-scroll-position");
+        menu.onscroll = function () {
+            localStorage.setItem("menu-scroll-position", menu.scrollLeft);
+        }
+    }
+
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener("click", function (e) {
+            e.preventDefault();
+            var id = this.getAttribute("href").substr(1);
+            if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView({
+                    behavior: "smooth"
+                });
+            } else {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView();
+            }
+            if (id === "top") {
+                history.replaceState(null, null, " ");
+            } else {
+                history.pushState(null, null, `#${id}`);
+            }
+        });
+    });
+
+</script>
+<script>
+    var mybutton = document.getElementById("top-link");
+    window.onscroll = function () {
+        if (document.body.scrollTop > 800 || document.documentElement.scrollTop > 800) {
+            mybutton.style.visibility = "visible";
+            mybutton.style.opacity = "1";
+        } else {
+            mybutton.style.visibility = "hidden";
+            mybutton.style.opacity = "0";
+        }
+    };
+
+</script>
+<script>
+    document.getElementById("theme-toggle").addEventListener("click", () => {
+        if (document.body.className.includes("dark")) {
+            document.body.classList.remove('dark');
+            localStorage.setItem("pref-theme", 'light');
+        } else {
+            document.body.classList.add('dark');
+            localStorage.setItem("pref-theme", 'dark');
+        }
+    })
+
+</script>
+</body>
+
 </html>

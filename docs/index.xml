@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
-    <title>每一个不曾起舞的日子，都是对生命的辜负。</title>
+    <title>caiyy17</title>
     <link>https://caiyy17.github.io/</link>
-    <description>Recent content on 每一个不曾起舞的日子，都是对生命的辜负。</description>
+    <description>Recent content on caiyy17</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Mon, 25 Apr 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://caiyy17.github.io/index.xml" rel="self" type="application/rss+xml" />
@@ -642,6 +642,8 @@ Markdown 概述 Markdown 的宗旨便是易写易读，一份 Markdown 的文档
 Markdown 语法 好了，我们正式开始。
 换行 和 Latex 差不多 Markdown 使用一个空行来换行</description>
     </item>
+    
+    
     
   </channel>
 </rss>

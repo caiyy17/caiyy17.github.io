@@ -1,78 +1,68 @@
 <!DOCTYPE html>
+<html lang="en" dir="auto">
 
-
-
-
-
-
-
-
-
-
-
-<html lang="en-us">
-  <head>
-  <meta charset="utf-8" />
-  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
-
-  
-  <title>RSP3:HA智能 - 每一个不曾起舞的日子，都是对生命的辜负。</title>
-
-  
-  
-  <meta name="description" content="前言 设置  需要调用设备的一些功能 智能场景 分组   PS  前言 这里准备做一些智能的设置，因为主要是使用 HK 作为控制中心，使用 HA 作为智能中心，所以对于 HA 的各种有趣界面的设置我也就不高兴做了，有兴趣可以看看墨澜的东西，写得还是不错的而且是中文的。
+<head><meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="robots" content="index, follow">
+<title>RSP3:HA智能 | caiyy17</title>
+<meta name="keywords" content="RSP, homekit">
+<meta name="description" content="前言 设置  需要调用设备的一些功能 智能场景 分组   PS  前言 这里准备做一些智能的设置，因为主要是使用 HK 作为控制中心，使用 HA 作为智能中心，所以对于 HA 的各种有趣界面的设置我也就不高兴做了，有兴趣可以看看墨澜的东西，写得还是不错的而且是中文的。
 设置 需要调用设备的一些功能 比如灯要设置场景，空气净化器要设置各种模式（这些都会在 HA 中以 service 的形式置入，如果没有的话就不能控制了，就是说 HA 中智能做到以一定条件一定顺序调用各种 service，如果没有这个 service 就只能自己写 platform（基于 python）独立接入这个设备或者等开发人员更新了&hellip;）
 在官网中 conponents 下搜索 template 可以发现许多可以自定义的组件，按需取用即可
 智能场景 可以定义各种 script 和 automation，script 和 automation 将会以开关的形式在 HK 中显示。而 automation 可以调用 script。
 script 本质是按照一定顺序调用一些服务，当然加入 condition 也可以检测当时的状态决定调用哪一些服务。而 automation 主要由 trigger 触发，之后会调用一些服务。
 分组 可以按照官网中的知道，编写 group 文件，将 HA 的设备按照分类整理好，这样可以方便地找到需要的设备，在 customize 里面也可以将一些自动加入的设备（比如 zigbee 的传感器）的名字改成易读的名字。
-PS 这样就可以实现米家的大部分功能，并且智能部分是比米家要功能更多的（但是有些功能，比如网关的广播是不行的，当然广播要联网，我的目的是米家设备不联网，就算了也罢）" />
-  <meta name="author" content="" />
-  
+PS 这样就可以实现米家的大部分功能，并且智能部分是比米家要功能更多的（但是有些功能，比如网关的广播是不行的，当然广播要联网，我的目的是米家设备不联网，就算了也罢）">
+<meta name="author" content="">
+<link rel="canonical" href="https://caiyy17.github.io/posts/computer/rsp3_ha%E6%99%BA%E8%83%BD/">
+<link crossorigin="anonymous" href="/assets/css/stylesheet.min.b4e19c453811e60acfec1f00c15ac2be1c53f6ab90187e684358ce7faaf48bab.css" integrity="sha256-tOGcRTgR5grP7B8AwVrCvhxT9quQGH5oQ1jOf6r0i6s=" rel="preload stylesheet" as="style">
+<script defer crossorigin="anonymous" src="/assets/js/highlight.min.2840b7fccd34145847db71a290569594bdbdb00047097f75d6495d162f5d7dff.js" integrity="sha256-KEC3/M00FFhH23GikFaVlL29sABHCX911kldFi9dff8="
+    onload="hljs.initHighlightingOnLoad();"></script>
+<link rel="icon" href="https://caiyy17.github.io/favicon.ico">
+<link rel="icon" type="image/png" sizes="16x16" href="https://caiyy17.github.io/favicon-16x16.png">
+<link rel="icon" type="image/png" sizes="32x32" href="https://caiyy17.github.io/favicon-32x32.png">
+<link rel="apple-touch-icon" href="https://caiyy17.github.io/apple-touch-icon.png">
+<link rel="mask-icon" href="https://caiyy17.github.io/safari-pinned-tab.svg">
+<meta name="theme-color" content="#2e2e33">
+<meta name="msapplication-TileColor" content="#2e2e33">
+<noscript>
+    <style>
+        #theme-toggle,
+        .top-link {
+            display: none;
+        }
 
-  
-  
-  
-  
-  
-  
-  <link rel="preload stylesheet" as="style" href="https://caiyy17.github.io/app.min.css" />
+    </style>
+    <style>
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --theme: rgb(29, 30, 32);
+                --entry: rgb(46, 46, 51);
+                --primary: rgb(218, 218, 219);
+                --secondary: rgb(155, 156, 157);
+                --tertiary: rgb(65, 66, 68);
+                --content: rgb(196, 196, 197);
+                --hljs-bg: rgb(46, 46, 51);
+                --code-bg: rgb(55, 56, 62);
+                --border: rgb(51, 51, 51);
+            }
 
-  
-  <link rel="preload stylesheet" as="style" href="https://caiyy17.github.io/an-old-hope.min.css" />
-  <script
-    defer
-    src="https://caiyy17.github.io/highlight.min.js"
-    onload="hljs.initHighlightingOnLoad();"
-  ></script>
-  
+            .list {
+                background: var(--theme);
+            }
 
-  
-  <link rel="preload" as="image" href="https://caiyy17.github.io/theme.png" />
+            .list:not(.dark)::-webkit-scrollbar-track {
+                background: 0 0;
+            }
 
-  
+            .list:not(.dark)::-webkit-scrollbar-thumb {
+                border-color: var(--theme);
+            }
+        }
 
-  
-  <link rel="icon" href="https://caiyy17.github.io/favicon.ico" />
-  <link rel="apple-touch-icon" href="https://caiyy17.github.io/apple-touch-icon.png" />
-
-  
-  <meta name="generator" content="Hugo 0.97.3" />
-
-  
-  
-
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  <meta property="og:title" content="RSP3:HA智能" />
+    </style>
+</noscript><meta property="og:title" content="RSP3:HA智能" />
 <meta property="og:description" content="前言 设置  需要调用设备的一些功能 智能场景 分组   PS  前言 这里准备做一些智能的设置，因为主要是使用 HK 作为控制中心，使用 HA 作为智能中心，所以对于 HA 的各种有趣界面的设置我也就不高兴做了，有兴趣可以看看墨澜的东西，写得还是不错的而且是中文的。
 设置 需要调用设备的一些功能 比如灯要设置场景，空气净化器要设置各种模式（这些都会在 HA 中以 service 的形式置入，如果没有的话就不能控制了，就是说 HA 中智能做到以一定条件一定顺序调用各种 service，如果没有这个 service 就只能自己写 platform（基于 python）独立接入这个设备或者等开发人员更新了&hellip;）
 在官网中 conponents 下搜索 template 可以发现许多可以自定义的组件，按需取用即可
@@ -82,24 +72,10 @@ script 本质是按照一定顺序调用一些服务，当然加入 condition �
 PS 这样就可以实现米家的大部分功能，并且智能部分是比米家要功能更多的（但是有些功能，比如网关的广播是不行的，当然广播要联网，我的目的是米家设备不联网，就算了也罢）" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://caiyy17.github.io/posts/computer/rsp3_ha%E6%99%BA%E8%83%BD/" /><meta property="article:section" content="posts" />
-<meta property="article:published_time" content="2019-02-19T00:00:00+00:00" />
-<meta property="article:modified_time" content="2019-02-19T00:00:00+00:00" />
+<meta property="article:published_time" content="2019-02-19T00:00:00&#43;00:00" />
+<meta property="article:modified_time" content="2019-02-19T00:00:00&#43;00:00" />
 
-
-  
-  <meta itemprop="name" content="RSP3:HA智能">
-<meta itemprop="description" content="前言 设置  需要调用设备的一些功能 智能场景 分组   PS  前言 这里准备做一些智能的设置，因为主要是使用 HK 作为控制中心，使用 HA 作为智能中心，所以对于 HA 的各种有趣界面的设置我也就不高兴做了，有兴趣可以看看墨澜的东西，写得还是不错的而且是中文的。
-设置 需要调用设备的一些功能 比如灯要设置场景，空气净化器要设置各种模式（这些都会在 HA 中以 service 的形式置入，如果没有的话就不能控制了，就是说 HA 中智能做到以一定条件一定顺序调用各种 service，如果没有这个 service 就只能自己写 platform（基于 python）独立接入这个设备或者等开发人员更新了&hellip;）
-在官网中 conponents 下搜索 template 可以发现许多可以自定义的组件，按需取用即可
-智能场景 可以定义各种 script 和 automation，script 和 automation 将会以开关的形式在 HK 中显示。而 automation 可以调用 script。
-script 本质是按照一定顺序调用一些服务，当然加入 condition 也可以检测当时的状态决定调用哪一些服务。而 automation 主要由 trigger 触发，之后会调用一些服务。
-分组 可以按照官网中的知道，编写 group 文件，将 HA 的设备按照分类整理好，这样可以方便地找到需要的设备，在 customize 里面也可以将一些自动加入的设备（比如 zigbee 的传感器）的名字改成易读的名字。
-PS 这样就可以实现米家的大部分功能，并且智能部分是比米家要功能更多的（但是有些功能，比如网关的广播是不行的，当然广播要联网，我的目的是米家设备不联网，就算了也罢）"><meta itemprop="datePublished" content="2019-02-19T00:00:00+00:00" />
-<meta itemprop="dateModified" content="2019-02-19T00:00:00+00:00" />
-<meta itemprop="wordCount" content="82">
-<meta itemprop="keywords" content="RSP,homekit," />
-  
-  <meta name="twitter:card" content="summary"/>
+<meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="RSP3:HA智能"/>
 <meta name="twitter:description" content="前言 设置  需要调用设备的一些功能 智能场景 分组   PS  前言 这里准备做一些智能的设置，因为主要是使用 HK 作为控制中心，使用 HA 作为智能中心，所以对于 HA 的各种有趣界面的设置我也就不高兴做了，有兴趣可以看看墨澜的东西，写得还是不错的而且是中文的。
 设置 需要调用设备的一些功能 比如灯要设置场景，空气净化器要设置各种模式（这些都会在 HA 中以 service 的形式置入，如果没有的话就不能控制了，就是说 HA 中智能做到以一定条件一定顺序调用各种 service，如果没有这个 service 就只能自己写 platform（基于 python）独立接入这个设备或者等开发人员更新了&hellip;）
@@ -109,57 +85,160 @@ script 本质是按照一定顺序调用一些服务，当然加入 condition �
 分组 可以按照官网中的知道，编写 group 文件，将 HA 的设备按照分类整理好，这样可以方便地找到需要的设备，在 customize 里面也可以将一些自动加入的设备（比如 zigbee 的传感器）的名字改成易读的名字。
 PS 这样就可以实现米家的大部分功能，并且智能部分是比米家要功能更多的（但是有些功能，比如网关的广播是不行的，当然广播要联网，我的目的是米家设备不联网，就算了也罢）"/>
 
-  
-  
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [, 
+    {
+      "@type": "ListItem",
+      "position":  2 ,
+      "name": "Posts",
+      "item": "https://caiyy17.github.io/posts/"
+    }, 
+    {
+      "@type": "ListItem",
+      "position":  3 ,
+      "name": "RSP3:HA智能",
+      "item": "https://caiyy17.github.io/posts/computer/rsp3_ha%E6%99%BA%E8%83%BD/"
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "RSP3:HA智能",
+  "name": "RSP3:HA智能",
+  "description": "前言 设置  需要调用设备的一些功能 智能场景 分组   PS  前言 这里准备做一些智能的设置，因为主要是使用 HK 作为控制中心，使用 HA 作为智能中心，所以对于 HA 的各种有趣界面的设置我也就不高兴做了，有兴趣可以看看墨澜的东西，写得还是不错的而且是中文的。\n设置 需要调用设备的一些功能 比如灯要设置场景，空气净化器要设置各种模式（这些都会在 HA 中以 service 的形式置入，如果没有的话就不能控制了，就是说 HA 中智能做到以一定条件一定顺序调用各种 service，如果没有这个 service 就只能自己写 platform（基于 python）独立接入这个设备或者等开发人员更新了\u0026hellip;）\n在官网中 conponents 下搜索 template 可以发现许多可以自定义的组件，按需取用即可\n智能场景 可以定义各种 script 和 automation，script 和 automation 将会以开关的形式在 HK 中显示。而 automation 可以调用 script。\nscript 本质是按照一定顺序调用一些服务，当然加入 condition 也可以检测当时的状态决定调用哪一些服务。而 automation 主要由 trigger 触发，之后会调用一些服务。\n分组 可以按照官网中的知道，编写 group 文件，将 HA 的设备按照分类整理好，这样可以方便地找到需要的设备，在 customize 里面也可以将一些自动加入的设备（比如 zigbee 的传感器）的名字改成易读的名字。\nPS 这样就可以实现米家的大部分功能，并且智能部分是比米家要功能更多的（但是有些功能，比如网关的广播是不行的，当然广播要联网，我的目的是米家设备不联网，就算了也罢）",
+  "keywords": [
+    "RSP", "homekit"
+  ],
+  "articleBody": " 前言 设置  需要调用设备的一些功能 智能场景 分组   PS  前言 这里准备做一些智能的设置，因为主要是使用 HK 作为控制中心，使用 HA 作为智能中心，所以对于 HA 的各种有趣界面的设置我也就不高兴做了，有兴趣可以看看墨澜的东西，写得还是不错的而且是中文的。\n设置 需要调用设备的一些功能 比如灯要设置场景，空气净化器要设置各种模式（这些都会在 HA 中以 service 的形式置入，如果没有的话就不能控制了，就是说 HA 中智能做到以一定条件一定顺序调用各种 service，如果没有这个 service 就只能自己写 platform（基于 python）独立接入这个设备或者等开发人员更新了…）\n在官网中 conponents 下搜索 template 可以发现许多可以自定义的组件，按需取用即可\n智能场景 可以定义各种 script 和 automation，script 和 automation 将会以开关的形式在 HK 中显示。而 automation 可以调用 script。\nscript 本质是按照一定顺序调用一些服务，当然加入 condition 也可以检测当时的状态决定调用哪一些服务。而 automation 主要由 trigger 触发，之后会调用一些服务。\n分组 可以按照官网中的知道，编写 group 文件，将 HA 的设备按照分类整理好，这样可以方便地找到需要的设备，在 customize 里面也可以将一些自动加入的设备（比如 zigbee 的传感器）的名字改成易读的名字。\nPS 这样就可以实现米家的大部分功能，并且智能部分是比米家要功能更多的（但是有些功能，比如网关的广播是不行的，当然广播要联网，我的目的是米家设备不联网，就算了也罢）\n若需要两地不同的 homekit 但是却有公用的设备，可以植被碗一张 sd 卡后另外制备一张 sd，设备 token 可以使用第一张 sd 卡相同的，这时候开启 homekit 服务将会是另一个 homekit，然后在 ios 中切换到另一个家添加 homekit。\n",
+  "wordCount" : "82",
+  "inLanguage": "en",
+  "datePublished": "2019-02-19T00:00:00Z",
+  "dateModified": "2019-02-19T00:00:00Z",
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://caiyy17.github.io/posts/computer/rsp3_ha%E6%99%BA%E8%83%BD/"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "caiyy17",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://caiyy17.github.io/favicon.ico"
+    }
+  }
+}
+</script>
 </head>
 
+<body class="" id="top">
+<script>
+    if (localStorage.getItem("pref-theme") === "dark") {
+        document.body.classList.add('dark');
+    } else if (localStorage.getItem("pref-theme") === "light") {
+        document.body.classList.remove('dark')
+    } else if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+        document.body.classList.add('dark');
+    }
 
-  <body class="not-ready" data-menu="false">
-    <header class="header">
-  
-  <p class="logo">
-    <a class="site-name" href="https://caiyy17.github.io">每一个不曾起舞的日子，都是对生命的辜负。</a><a class="btn-dark"></a>
-  </p>
-  
+</script>
 
-  <script>
-    let bodyClx = document.body.classList;
-    let btnDark = document.querySelector('.btn-dark');
-    let sysDark = window.matchMedia('(prefers-color-scheme: dark)');
-    let darkVal = localStorage.getItem('dark');
-
-    let setDark = (isDark) => {
-      bodyClx[isDark ? 'add' : 'remove']('dark');
-      localStorage.setItem('dark', isDark ? 'yes' : 'no');
-    };
-
-    setDark(darkVal ? darkVal === 'yes' : sysDark.matches);
-    requestAnimationFrame(() => bodyClx.remove('not-ready'));
-
-    btnDark.addEventListener('click', () => setDark(!bodyClx.contains('dark')));
-    sysDark.addEventListener('change', (event) => setDark(event.matches));
-  </script>
-
-  
-  
-
-  
+<header class="header">
+    <nav class="nav">
+        <div class="logo">
+            <a href="https://caiyy17.github.io" accesskey="h" title="caiyy17 (Alt + H)">caiyy17</a>
+            <span class="logo-switches">
+                <button id="theme-toggle" accesskey="t" title="(Alt + T)">
+                    <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                    </svg>
+                    <svg id="sun" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="5"></circle>
+                        <line x1="12" y1="1" x2="12" y2="3"></line>
+                        <line x1="12" y1="21" x2="12" y2="23"></line>
+                        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                        <line x1="1" y1="12" x2="3" y2="12"></line>
+                        <line x1="21" y1="12" x2="23" y2="12"></line>
+                        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                    </svg>
+                </button>
+            </span>
+        </div>
+        <ul id="menu">
+            <li>
+                <a href="https://caiyy17.github.io/categories/" title="categories">
+                    <span>categories</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://caiyy17.github.io/tags/" title="tags">
+                    <span>tags</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://caiyy17.github.io/search/" title="search (Alt &#43; /)" accesskey=/>
+                    <span>search</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://caiyy17.github.io/archives/" title="archives">
+                    <span>archives</span>
+                </a>
+            </li>
+        </ul>
+    </nav>
 </header>
-
-
-    <main class="main">
+<main class="main">
 
 <article class="post-single">
-  <header class="post-title">
-    <p>
-      
-      <time>Feb 19, 2019</time>
-      
-      
-    </p>
-    <h1>RSP3:HA智能</h1>
-  </header>
-  <section class="post-content"><ul>
+  <header class="post-header">
+    <div class="breadcrumbs"><a href="https://caiyy17.github.io">Home</a>&nbsp;»&nbsp;<a href="https://caiyy17.github.io/posts/">Posts</a></div>
+    <h1 class="post-title">
+      RSP3:HA智能
+    </h1>
+    <div class="post-meta"><span title='2019-02-19 00:00:00 +0000 UTC'>February 19, 2019</span>
+
+</div>
+  </header> <div class="toc">
+    <details >
+        <summary accesskey="c" title="(Alt + C)">
+            <span class="details">Table of Contents</span>
+        </summary>
+
+        <div class="inner"><ul>
+                <li>
+                    <a href="#%e5%89%8d%e8%a8%80" aria-label="前言">前言</a></li>
+                <li>
+                    <a href="#%e8%ae%be%e7%bd%ae" aria-label="设置">设置</a><ul>
+                        
+                <li>
+                    <a href="#%e9%9c%80%e8%a6%81%e8%b0%83%e7%94%a8%e8%ae%be%e5%a4%87%e7%9a%84%e4%b8%80%e4%ba%9b%e5%8a%9f%e8%83%bd" aria-label="需要调用设备的一些功能">需要调用设备的一些功能</a></li>
+                <li>
+                    <a href="#%e6%99%ba%e8%83%bd%e5%9c%ba%e6%99%af" aria-label="智能场景">智能场景</a></li>
+                <li>
+                    <a href="#%e5%88%86%e7%bb%84" aria-label="分组">分组</a></li></ul>
+                </li>
+                <li>
+                    <a href="#ps" aria-label="PS">PS</a>
+                </li>
+            </ul>
+        </div>
+    </details>
+</div>
+
+  <div class="post-content"><ul>
 <li><a href="#%E5%89%8D%E8%A8%80">前言</a></li>
 <li><a href="#%E8%AE%BE%E7%BD%AE">设置</a>
 <ul>
@@ -170,58 +249,114 @@ PS 这样就可以实现米家的大部分功能，并且智能部分是比米�
 </li>
 <li><a href="#ps">PS</a></li>
 </ul>
-<h1 id="前言">前言</h1>
+<h1 id="前言">前言<a hidden class="anchor" aria-hidden="true" href="#前言">#</a></h1>
 <p>这里准备做一些智能的设置，因为主要是使用 HK 作为控制中心，使用 HA 作为智能中心，所以对于 HA 的各种有趣界面的设置我也就不高兴做了，有兴趣可以看看墨澜的东西，写得还是不错的而且是中文的。</p>
-<h1 id="设置">设置</h1>
-<h2 id="需要调用设备的一些功能">需要调用设备的一些功能</h2>
+<h1 id="设置">设置<a hidden class="anchor" aria-hidden="true" href="#设置">#</a></h1>
+<h2 id="需要调用设备的一些功能">需要调用设备的一些功能<a hidden class="anchor" aria-hidden="true" href="#需要调用设备的一些功能">#</a></h2>
 <p>比如灯要设置场景，空气净化器要设置各种模式（这些都会在 HA 中以 service 的形式置入，如果没有的话就不能控制了，就是说 HA 中智能做到以一定条件一定顺序调用各种 service，如果没有这个 service 就只能自己写 platform（基于 python）独立接入这个设备或者等开发人员更新了&hellip;）</p>
 <p>在官网中 conponents 下搜索 template 可以发现许多可以自定义的组件，按需取用即可</p>
-<h2 id="智能场景">智能场景</h2>
+<h2 id="智能场景">智能场景<a hidden class="anchor" aria-hidden="true" href="#智能场景">#</a></h2>
 <p>可以定义各种 script 和 automation，script 和 automation 将会以开关的形式在 HK 中显示。而 automation 可以调用 script。</p>
 <p>script 本质是按照一定顺序调用一些服务，当然加入 condition 也可以检测当时的状态决定调用哪一些服务。而 automation 主要由 trigger 触发，之后会调用一些服务。</p>
-<h2 id="分组">分组</h2>
+<h2 id="分组">分组<a hidden class="anchor" aria-hidden="true" href="#分组">#</a></h2>
 <p>可以按照官网中的知道，编写 group 文件，将 HA 的设备按照分类整理好，这样可以方便地找到需要的设备，在 customize 里面也可以将一些自动加入的设备（比如 zigbee 的传感器）的名字改成易读的名字。</p>
-<h1 id="ps">PS</h1>
+<h1 id="ps">PS<a hidden class="anchor" aria-hidden="true" href="#ps">#</a></h1>
 <p>这样就可以实现米家的大部分功能，并且智能部分是比米家要功能更多的（但是有些功能，比如网关的广播是不行的，当然广播要联网，我的目的是米家设备不联网，就算了也罢）</p>
 <p>若需要两地不同的 homekit 但是却有公用的设备，可以植被碗一张 sd 卡后另外制备一张 sd，设备 token 可以使用第一张 sd 卡相同的，这时候开启 homekit 服务将会是另一个 homekit，然后在 ios 中切换到另一个家添加 homekit。</p>
-</section>
 
-  
-  
-  <footer class="post-tags">
-     
-    <a href="https://caiyy17.github.io/tags/rsp">RSP</a>
-     
-    <a href="https://caiyy17.github.io/tags/homekit">homekit</a>
-    
+
+  </div>
+
+  <footer class="post-footer">
+    <ul class="post-tags">
+      <li><a href="https://caiyy17.github.io/tags/rsp/">RSP</a></li>
+      <li><a href="https://caiyy17.github.io/tags/homekit/">homekit</a></li>
+    </ul>
+<nav class="paginav">
+  <a class="prev" href="https://caiyy17.github.io/posts/computer/rsp2_homeassistant/">
+    <span class="title">« Prev Page</span>
+    <br>
+    <span>RSP2:homeassistant</span>
+  </a>
+  <a class="next" href="https://caiyy17.github.io/posts/traveling/tonz/">
+    <span class="title">Next Page »</span>
+    <br>
+    <span>2019新西兰南岛自驾</span>
+  </a>
+</nav>
+
   </footer>
-  
-
-  
-  
-  
-  <nav class="post-nav">
-    
-    <a class="prev" href="https://caiyy17.github.io/posts/computer/rsp2_homeassistant/"><span>←</span><span>RSP2:homeassistant</span></a>
-     
-    <a class="next" href="https://caiyy17.github.io/posts/traveling/tonz/"><span>2019新西兰南岛自驾</span><span>→</span></a>
-    
-  </nav>
-  
-
-  
-  
 </article>
-
-</main>
-
-    <footer class="footer">
-  <p>&copy; 2022 <a href="https://caiyy17.github.io">每一个不曾起舞的日子，都是对生命的辜负。</a></p>
-  <p>Powered by <a href="https://gohugo.io/" rel="noopener" target="_blank">Hugo️️</a>️</p>
-  <p>
-    <a href="https://github.com/nanxiaobei/hugo-paper" rel="noopener" target="_blank">Paper 5.1</a>
-  </p>
+    </main>
+    
+<footer class="footer">
+    <span>&copy; 2022 <a href="https://caiyy17.github.io">caiyy17</a></span>
+    <span>
+        Powered by
+        <a href="https://gohugo.io/" rel="noopener noreferrer" target="_blank">Hugo</a> &
+        <a href="https://git.io/hugopapermod" rel="noopener" target="_blank">PaperMod</a>
+    </span>
 </footer>
+<a href="#top" aria-label="go to top" title="Go to Top (Alt + G)" class="top-link" id="top-link" accesskey="g">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 6" fill="currentColor">
+        <path d="M12 6H0l6-6z" />
+    </svg>
+</a>
 
-  </body>
+<script>
+    let menu = document.getElementById('menu')
+    if (menu) {
+        menu.scrollLeft = localStorage.getItem("menu-scroll-position");
+        menu.onscroll = function () {
+            localStorage.setItem("menu-scroll-position", menu.scrollLeft);
+        }
+    }
+
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener("click", function (e) {
+            e.preventDefault();
+            var id = this.getAttribute("href").substr(1);
+            if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView({
+                    behavior: "smooth"
+                });
+            } else {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView();
+            }
+            if (id === "top") {
+                history.replaceState(null, null, " ");
+            } else {
+                history.pushState(null, null, `#${id}`);
+            }
+        });
+    });
+
+</script>
+<script>
+    var mybutton = document.getElementById("top-link");
+    window.onscroll = function () {
+        if (document.body.scrollTop > 800 || document.documentElement.scrollTop > 800) {
+            mybutton.style.visibility = "visible";
+            mybutton.style.opacity = "1";
+        } else {
+            mybutton.style.visibility = "hidden";
+            mybutton.style.opacity = "0";
+        }
+    };
+
+</script>
+<script>
+    document.getElementById("theme-toggle").addEventListener("click", () => {
+        if (document.body.className.includes("dark")) {
+            document.body.classList.remove('dark');
+            localStorage.setItem("pref-theme", 'light');
+        } else {
+            document.body.classList.add('dark');
+            localStorage.setItem("pref-theme", 'dark');
+        }
+    })
+
+</script>
+</body>
+
 </html>

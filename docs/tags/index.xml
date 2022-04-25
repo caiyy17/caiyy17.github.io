@@ -1,11 +1,182 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
-    <title>Tags on 每一个不曾起舞的日子，都是对生命的辜负。</title>
+    <title>Tags on caiyy17</title>
     <link>https://caiyy17.github.io/tags/</link>
-    <description>Recent content in Tags on 每一个不曾起舞的日子，都是对生命的辜负。</description>
+    <description>Recent content in Tags on caiyy17</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Sat, 15 Aug 2020 00:00:00 +0000</lastBuildDate><atom:link href="https://caiyy17.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Backup</title>
+      <link>https://caiyy17.github.io/tags/backup/</link>
+      <pubDate>Sat, 15 Aug 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://caiyy17.github.io/tags/backup/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Traveling</title>
+      <link>https://caiyy17.github.io/tags/traveling/</link>
+      <pubDate>Mon, 20 Jan 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://caiyy17.github.io/tags/traveling/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Stationary</title>
+      <link>https://caiyy17.github.io/tags/stationary/</link>
+      <pubDate>Thu, 01 Aug 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://caiyy17.github.io/tags/stationary/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Japan</title>
+      <link>https://caiyy17.github.io/tags/japan/</link>
+      <pubDate>Sun, 28 Jul 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://caiyy17.github.io/tags/japan/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Japanese</title>
+      <link>https://caiyy17.github.io/tags/japanese/</link>
+      <pubDate>Sun, 28 Jul 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://caiyy17.github.io/tags/japanese/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>loveAni</title>
+      <link>https://caiyy17.github.io/tags/loveani/</link>
+      <pubDate>Sun, 28 Jul 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://caiyy17.github.io/tags/loveani/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>homekit</title>
+      <link>https://caiyy17.github.io/tags/homekit/</link>
+      <pubDate>Tue, 19 Feb 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://caiyy17.github.io/tags/homekit/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>RSP</title>
+      <link>https://caiyy17.github.io/tags/rsp/</link>
+      <pubDate>Tue, 19 Feb 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://caiyy17.github.io/tags/rsp/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Latex</title>
+      <link>https://caiyy17.github.io/tags/latex/</link>
+      <pubDate>Wed, 17 Oct 2018 00:00:00 +0000</pubDate>
+      
+      <guid>https://caiyy17.github.io/tags/latex/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Markdown</title>
+      <link>https://caiyy17.github.io/tags/markdown/</link>
+      <pubDate>Wed, 17 Oct 2018 00:00:00 +0000</pubDate>
+      
+      <guid>https://caiyy17.github.io/tags/markdown/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Chocolate</title>
+      <link>https://caiyy17.github.io/tags/chocolate/</link>
+      <pubDate>Thu, 04 Oct 2018 00:00:00 +0000</pubDate>
+      
+      <guid>https://caiyy17.github.io/tags/chocolate/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Blog</title>
+      <link>https://caiyy17.github.io/tags/blog/</link>
+      <pubDate>Sun, 30 Sep 2018 00:00:00 +0000</pubDate>
+      
+      <guid>https://caiyy17.github.io/tags/blog/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Computer</title>
+      <link>https://caiyy17.github.io/tags/computer/</link>
+      <pubDate>Sun, 30 Sep 2018 00:00:00 +0000</pubDate>
+      
+      <guid>https://caiyy17.github.io/tags/computer/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Linux</title>
+      <link>https://caiyy17.github.io/tags/linux/</link>
+      <pubDate>Sun, 30 Sep 2018 00:00:00 +0000</pubDate>
+      
+      <guid>https://caiyy17.github.io/tags/linux/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>safety</title>
+      <link>https://caiyy17.github.io/tags/safety/</link>
+      <pubDate>Sun, 30 Sep 2018 00:00:00 +0000</pubDate>
+      
+      <guid>https://caiyy17.github.io/tags/safety/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Software</title>
+      <link>https://caiyy17.github.io/tags/software/</link>
+      <pubDate>Sun, 30 Sep 2018 00:00:00 +0000</pubDate>
+      
+      <guid>https://caiyy17.github.io/tags/software/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>VPS</title>
+      <link>https://caiyy17.github.io/tags/vps/</link>
+      <pubDate>Sun, 30 Sep 2018 00:00:00 +0000</pubDate>
+      
+      <guid>https://caiyy17.github.io/tags/vps/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>yubikey</title>
+      <link>https://caiyy17.github.io/tags/yubikey/</link>
+      <pubDate>Sun, 30 Sep 2018 00:00:00 +0000</pubDate>
+      
+      <guid>https://caiyy17.github.io/tags/yubikey/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Apple</title>
+      <link>https://caiyy17.github.io/tags/apple/</link>
+      <pubDate>Wed, 15 Aug 2018 00:00:00 +0000</pubDate>
+      
+      <guid>https://caiyy17.github.io/tags/apple/</guid>
+      <description></description>
+    </item>
+    
   </channel>
 </rss>

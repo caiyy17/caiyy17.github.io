@@ -2,13 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
+    <loc>https://caiyy17.github.io/</loc>
+    <lastmod>2022-04-25T00:00:00+00:00</lastmod>
+  </url><url>
     <loc>https://caiyy17.github.io/posts/my-first-post/</loc>
     <lastmod>2022-04-25T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://caiyy17.github.io/posts/</loc>
-    <lastmod>2022-04-25T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://caiyy17.github.io/</loc>
     <lastmod>2022-04-25T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://caiyy17.github.io/tags/backup/</loc>
@@ -190,5 +190,9 @@
   </url><url>
     <loc>https://caiyy17.github.io/posts/computer/md1_%E8%AF%AD%E6%B3%95/</loc>
     <lastmod>2018-06-13T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://caiyy17.github.io/archives/</loc>
+  </url><url>
+    <loc>https://caiyy17.github.io/search/</loc>
   </url>
 </urlset>

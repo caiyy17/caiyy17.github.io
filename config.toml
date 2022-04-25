@@ -1,6 +1,37 @@
 baseURL = 'https://caiyy17.github.io'
 languageCode = 'en-us'
-title = '每一个不曾起舞的日子，都是对生命的辜负。'
-theme = "paper"
+title = 'caiyy17'
+theme = "PaperMod"
 
 publishDir = "docs"
+
+[Params.homeInfoParams]
+    Title = 'caiyy17'
+    Content = '每一个不曾起舞的日子，都是对生命的辜负。'
+[Params]
+    ShowPostNavLinks = true
+    ShowBreadCrumbs = true
+    showtoc = true
+[outputs]
+    home = [ "HTML", "RSS", "JSON" ]
+
+[[menu.main]]
+    identifier = "categories"
+    name = "categories"
+    url = "/categories/"
+    weight = 10
+[[menu.main]]
+    identifier = "tags"
+    name = "tags"
+    url = "/tags/"
+    weight = 20
+[[menu.main]]
+    identifier = "search"
+    name = "search"
+    url = "/search/"
+    weight = 30
+[[menu.main]]
+    identifier = "archives"
+    name = "archives"
+    url = "/archives/"
+    weight = 40

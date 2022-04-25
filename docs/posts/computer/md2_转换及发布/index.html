@@ -1,76 +1,66 @@
 <!DOCTYPE html>
+<html lang="en" dir="auto">
 
-
-
-
-
-
-
-
-
-
-
-<html lang="en-us">
-  <head>
-  <meta charset="utf-8" />
-  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
-
-  
-  <title>Markdown2:转换及发布 - 每一个不曾起舞的日子，都是对生命的辜负。</title>
-
-  
-  
-  <meta name="description" content="前言 Markdown 对 html 的支持 Markdown 转 html  Markdown here   After all  前言 为了可以用自己喜欢的排版风格排版 Markdown，需要将其转换成其他有丰富排版功能的格式，最重要的无非是 html 和 tex，本文主要讲 html 的转换。
+<head><meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="robots" content="index, follow">
+<title>Markdown2:转换及发布 | caiyy17</title>
+<meta name="keywords" content="Markdown, Blog">
+<meta name="description" content="前言 Markdown 对 html 的支持 Markdown 转 html  Markdown here   After all  前言 为了可以用自己喜欢的排版风格排版 Markdown，需要将其转换成其他有丰富排版功能的格式，最重要的无非是 html 和 tex，本文主要讲 html 的转换。
 转至 html 后便可以配合已经编写好的.css 文件，统一排版成自己想要的格式。便可以发布在自己的网站上了。然而自己便携插件还是有些困难，好在有 hexo 或者 markdownhere 等软件和插件的帮助。前者可以帮助我们制作博客，后者可以直接在 chrome 中将 markdown 原文在公众号网站中转换为带格式的文本。
 之后就不需要麻烦的公众号编辑器，只需要每次写 Markdown 就行了。
 Markdown 对 html 的支持 这里说一下 Markdown 原生对 html 的支持。Markdown 的语法默认有对应的 html 语法，对应如下：(html 闭合部分省略，详细结构可以查 html 相应格式)
-   Markdown html     段落（两个换行符） &lt;p&gt;   x 级标题 &lt;nx&gt;   无序列表 &lt;ul&gt;   有序列表 &lt;ol&gt;   代码块 &lt;code&gt;   引用 &lt;blockquote&gt;   分割线 &lt;hr/&gt;   表格 &lt;table&gt;   链接 &lt;a&gt;   图片 &lt;img&gt;   *强调 &lt;em&gt;   **强调 &lt;strong&gt;    而在 Markdown 中也可以自由插入 html 的代码，转换器会在转换的时候保留 html 的代码保持不动（有可能需要设置一下）。例如&lt;br/&gt;" />
-  <meta name="author" content="" />
-  
+   Markdown html     段落（两个换行符） &lt;p&gt;   x 级标题 &lt;nx&gt;   无序列表 &lt;ul&gt;   有序列表 &lt;ol&gt;   代码块 &lt;code&gt;   引用 &lt;blockquote&gt;   分割线 &lt;hr/&gt;   表格 &lt;table&gt;   链接 &lt;a&gt;   图片 &lt;img&gt;   *强调 &lt;em&gt;   **强调 &lt;strong&gt;    而在 Markdown 中也可以自由插入 html 的代码，转换器会在转换的时候保留 html 的代码保持不动（有可能需要设置一下）。例如&lt;br/&gt;">
+<meta name="author" content="">
+<link rel="canonical" href="https://caiyy17.github.io/posts/computer/md2_%E8%BD%AC%E6%8D%A2%E5%8F%8A%E5%8F%91%E5%B8%83/">
+<link crossorigin="anonymous" href="/assets/css/stylesheet.min.b4e19c453811e60acfec1f00c15ac2be1c53f6ab90187e684358ce7faaf48bab.css" integrity="sha256-tOGcRTgR5grP7B8AwVrCvhxT9quQGH5oQ1jOf6r0i6s=" rel="preload stylesheet" as="style">
+<script defer crossorigin="anonymous" src="/assets/js/highlight.min.2840b7fccd34145847db71a290569594bdbdb00047097f75d6495d162f5d7dff.js" integrity="sha256-KEC3/M00FFhH23GikFaVlL29sABHCX911kldFi9dff8="
+    onload="hljs.initHighlightingOnLoad();"></script>
+<link rel="icon" href="https://caiyy17.github.io/favicon.ico">
+<link rel="icon" type="image/png" sizes="16x16" href="https://caiyy17.github.io/favicon-16x16.png">
+<link rel="icon" type="image/png" sizes="32x32" href="https://caiyy17.github.io/favicon-32x32.png">
+<link rel="apple-touch-icon" href="https://caiyy17.github.io/apple-touch-icon.png">
+<link rel="mask-icon" href="https://caiyy17.github.io/safari-pinned-tab.svg">
+<meta name="theme-color" content="#2e2e33">
+<meta name="msapplication-TileColor" content="#2e2e33">
+<noscript>
+    <style>
+        #theme-toggle,
+        .top-link {
+            display: none;
+        }
 
-  
-  
-  
-  
-  
-  
-  <link rel="preload stylesheet" as="style" href="https://caiyy17.github.io/app.min.css" />
+    </style>
+    <style>
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --theme: rgb(29, 30, 32);
+                --entry: rgb(46, 46, 51);
+                --primary: rgb(218, 218, 219);
+                --secondary: rgb(155, 156, 157);
+                --tertiary: rgb(65, 66, 68);
+                --content: rgb(196, 196, 197);
+                --hljs-bg: rgb(46, 46, 51);
+                --code-bg: rgb(55, 56, 62);
+                --border: rgb(51, 51, 51);
+            }
 
-  
-  <link rel="preload stylesheet" as="style" href="https://caiyy17.github.io/an-old-hope.min.css" />
-  <script
-    defer
-    src="https://caiyy17.github.io/highlight.min.js"
-    onload="hljs.initHighlightingOnLoad();"
-  ></script>
-  
+            .list {
+                background: var(--theme);
+            }
 
-  
-  <link rel="preload" as="image" href="https://caiyy17.github.io/theme.png" />
+            .list:not(.dark)::-webkit-scrollbar-track {
+                background: 0 0;
+            }
 
-  
+            .list:not(.dark)::-webkit-scrollbar-thumb {
+                border-color: var(--theme);
+            }
+        }
 
-  
-  <link rel="icon" href="https://caiyy17.github.io/favicon.ico" />
-  <link rel="apple-touch-icon" href="https://caiyy17.github.io/apple-touch-icon.png" />
-
-  
-  <meta name="generator" content="Hugo 0.97.3" />
-
-  
-  
-
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  <meta property="og:title" content="Markdown2:转换及发布" />
+    </style>
+</noscript><meta property="og:title" content="Markdown2:转换及发布" />
 <meta property="og:description" content="前言 Markdown 对 html 的支持 Markdown 转 html  Markdown here   After all  前言 为了可以用自己喜欢的排版风格排版 Markdown，需要将其转换成其他有丰富排版功能的格式，最重要的无非是 html 和 tex，本文主要讲 html 的转换。
 转至 html 后便可以配合已经编写好的.css 文件，统一排版成自己想要的格式。便可以发布在自己的网站上了。然而自己便携插件还是有些困难，好在有 hexo 或者 markdownhere 等软件和插件的帮助。前者可以帮助我们制作博客，后者可以直接在 chrome 中将 markdown 原文在公众号网站中转换为带格式的文本。
 之后就不需要麻烦的公众号编辑器，只需要每次写 Markdown 就行了。
@@ -78,22 +68,10 @@ Markdown 对 html 的支持 这里说一下 Markdown 原生对 html 的支持。
    Markdown html     段落（两个换行符） &lt;p&gt;   x 级标题 &lt;nx&gt;   无序列表 &lt;ul&gt;   有序列表 &lt;ol&gt;   代码块 &lt;code&gt;   引用 &lt;blockquote&gt;   分割线 &lt;hr/&gt;   表格 &lt;table&gt;   链接 &lt;a&gt;   图片 &lt;img&gt;   *强调 &lt;em&gt;   **强调 &lt;strong&gt;    而在 Markdown 中也可以自由插入 html 的代码，转换器会在转换的时候保留 html 的代码保持不动（有可能需要设置一下）。例如&lt;br/&gt;" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://caiyy17.github.io/posts/computer/md2_%E8%BD%AC%E6%8D%A2%E5%8F%8A%E5%8F%91%E5%B8%83/" /><meta property="article:section" content="posts" />
-<meta property="article:published_time" content="2018-07-12T00:00:00+00:00" />
-<meta property="article:modified_time" content="2018-07-12T00:00:00+00:00" />
+<meta property="article:published_time" content="2018-07-12T00:00:00&#43;00:00" />
+<meta property="article:modified_time" content="2018-07-12T00:00:00&#43;00:00" />
 
-
-  
-  <meta itemprop="name" content="Markdown2:转换及发布">
-<meta itemprop="description" content="前言 Markdown 对 html 的支持 Markdown 转 html  Markdown here   After all  前言 为了可以用自己喜欢的排版风格排版 Markdown，需要将其转换成其他有丰富排版功能的格式，最重要的无非是 html 和 tex，本文主要讲 html 的转换。
-转至 html 后便可以配合已经编写好的.css 文件，统一排版成自己想要的格式。便可以发布在自己的网站上了。然而自己便携插件还是有些困难，好在有 hexo 或者 markdownhere 等软件和插件的帮助。前者可以帮助我们制作博客，后者可以直接在 chrome 中将 markdown 原文在公众号网站中转换为带格式的文本。
-之后就不需要麻烦的公众号编辑器，只需要每次写 Markdown 就行了。
-Markdown 对 html 的支持 这里说一下 Markdown 原生对 html 的支持。Markdown 的语法默认有对应的 html 语法，对应如下：(html 闭合部分省略，详细结构可以查 html 相应格式)
-   Markdown html     段落（两个换行符） &lt;p&gt;   x 级标题 &lt;nx&gt;   无序列表 &lt;ul&gt;   有序列表 &lt;ol&gt;   代码块 &lt;code&gt;   引用 &lt;blockquote&gt;   分割线 &lt;hr/&gt;   表格 &lt;table&gt;   链接 &lt;a&gt;   图片 &lt;img&gt;   *强调 &lt;em&gt;   **强调 &lt;strong&gt;    而在 Markdown 中也可以自由插入 html 的代码，转换器会在转换的时候保留 html 的代码保持不动（有可能需要设置一下）。例如&lt;br/&gt;"><meta itemprop="datePublished" content="2018-07-12T00:00:00+00:00" />
-<meta itemprop="dateModified" content="2018-07-12T00:00:00+00:00" />
-<meta itemprop="wordCount" content="135">
-<meta itemprop="keywords" content="Markdown,Blog," />
-  
-  <meta name="twitter:card" content="summary"/>
+<meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Markdown2:转换及发布"/>
 <meta name="twitter:description" content="前言 Markdown 对 html 的支持 Markdown 转 html  Markdown here   After all  前言 为了可以用自己喜欢的排版风格排版 Markdown，需要将其转换成其他有丰富排版功能的格式，最重要的无非是 html 和 tex，本文主要讲 html 的转换。
 转至 html 后便可以配合已经编写好的.css 文件，统一排版成自己想要的格式。便可以发布在自己的网站上了。然而自己便携插件还是有些困难，好在有 hexo 或者 markdownhere 等软件和插件的帮助。前者可以帮助我们制作博客，后者可以直接在 chrome 中将 markdown 原文在公众号网站中转换为带格式的文本。
@@ -101,57 +79,158 @@ Markdown 对 html 的支持 这里说一下 Markdown 原生对 html 的支持。
 Markdown 对 html 的支持 这里说一下 Markdown 原生对 html 的支持。Markdown 的语法默认有对应的 html 语法，对应如下：(html 闭合部分省略，详细结构可以查 html 相应格式)
    Markdown html     段落（两个换行符） &lt;p&gt;   x 级标题 &lt;nx&gt;   无序列表 &lt;ul&gt;   有序列表 &lt;ol&gt;   代码块 &lt;code&gt;   引用 &lt;blockquote&gt;   分割线 &lt;hr/&gt;   表格 &lt;table&gt;   链接 &lt;a&gt;   图片 &lt;img&gt;   *强调 &lt;em&gt;   **强调 &lt;strong&gt;    而在 Markdown 中也可以自由插入 html 的代码，转换器会在转换的时候保留 html 的代码保持不动（有可能需要设置一下）。例如&lt;br/&gt;"/>
 
-  
-  
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [, 
+    {
+      "@type": "ListItem",
+      "position":  2 ,
+      "name": "Posts",
+      "item": "https://caiyy17.github.io/posts/"
+    }, 
+    {
+      "@type": "ListItem",
+      "position":  3 ,
+      "name": "Markdown2:转换及发布",
+      "item": "https://caiyy17.github.io/posts/computer/md2_%E8%BD%AC%E6%8D%A2%E5%8F%8A%E5%8F%91%E5%B8%83/"
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "Markdown2:转换及发布",
+  "name": "Markdown2:转换及发布",
+  "description": "前言 Markdown 对 html 的支持 Markdown 转 html  Markdown here   After all  前言 为了可以用自己喜欢的排版风格排版 Markdown，需要将其转换成其他有丰富排版功能的格式，最重要的无非是 html 和 tex，本文主要讲 html 的转换。\n转至 html 后便可以配合已经编写好的.css 文件，统一排版成自己想要的格式。便可以发布在自己的网站上了。然而自己便携插件还是有些困难，好在有 hexo 或者 markdownhere 等软件和插件的帮助。前者可以帮助我们制作博客，后者可以直接在 chrome 中将 markdown 原文在公众号网站中转换为带格式的文本。\n之后就不需要麻烦的公众号编辑器，只需要每次写 Markdown 就行了。\nMarkdown 对 html 的支持 这里说一下 Markdown 原生对 html 的支持。Markdown 的语法默认有对应的 html 语法，对应如下：(html 闭合部分省略，详细结构可以查 html 相应格式)\n   Markdown html     段落（两个换行符） \u0026lt;p\u0026gt;   x 级标题 \u0026lt;nx\u0026gt;   无序列表 \u0026lt;ul\u0026gt;   有序列表 \u0026lt;ol\u0026gt;   代码块 \u0026lt;code\u0026gt;   引用 \u0026lt;blockquote\u0026gt;   分割线 \u0026lt;hr/\u0026gt;   表格 \u0026lt;table\u0026gt;   链接 \u0026lt;a\u0026gt;   图片 \u0026lt;img\u0026gt;   *强调 \u0026lt;em\u0026gt;   **强调 \u0026lt;strong\u0026gt;    而在 Markdown 中也可以自由插入 html 的代码，转换器会在转换的时候保留 html 的代码保持不动（有可能需要设置一下）。例如\u0026lt;br/\u0026gt;",
+  "keywords": [
+    "Markdown", "Blog"
+  ],
+  "articleBody": " 前言 Markdown 对 html 的支持 Markdown 转 html  Markdown here   After all  前言 为了可以用自己喜欢的排版风格排版 Markdown，需要将其转换成其他有丰富排版功能的格式，最重要的无非是 html 和 tex，本文主要讲 html 的转换。\n转至 html 后便可以配合已经编写好的.css 文件，统一排版成自己想要的格式。便可以发布在自己的网站上了。然而自己便携插件还是有些困难，好在有 hexo 或者 markdownhere 等软件和插件的帮助。前者可以帮助我们制作博客，后者可以直接在 chrome 中将 markdown 原文在公众号网站中转换为带格式的文本。\n之后就不需要麻烦的公众号编辑器，只需要每次写 Markdown 就行了。\nMarkdown 对 html 的支持 这里说一下 Markdown 原生对 html 的支持。Markdown 的语法默认有对应的 html 语法，对应如下：(html 闭合部分省略，详细结构可以查 html 相应格式)\n   Markdown html     段落（两个换行符）    x 级标题    无序列表    有序列表    代码块    引用    分割线    表格    链接    图片    *强调    **强调     而在 Markdown 中也可以自由插入 html 的代码，转换器会在转换的时候保留 html 的代码保持不动（有可能需要设置一下）。例如\nMarkdown 转 html 在 VSCode 里有\"Copy Markdown as HTML\"插件，可以将 Markdown 转成 html 到剪贴板，但这是人工方式。\n而若使用类似 Hexo 的博客软件，可以直接使用 markdown 写文章，之后转换 html 和配合 css 都是自动完成的。至于 hexo 的使用，之后会单独说明。\n另一方案也可以使用 python 制作脚本，但既然是做公众号，我们可以使用 chrome 插件 markdown here，可以直接在网页输入中将 markdown 替换为带格式的文本。\nMarkdown here markdownhere 中可以设置替换是用的 css 文件，在网上可以找到一些现成的 css，当然也可以自己编一些花哨的 css 格式，这是另一回事了。另外如果自己定义了一些 html 标签，也可以一起写进 css，这些标签也会在替换时一起被渲染。\nps：markdownhere 的作用不止于微信公众号的文本替换，编辑邮件时也可以使用它。\nAfter all 总之，我个人认为在日常写作中，markdown 是非常有用的生产力工具，只要使用一些极简的文本编辑器甚至是记事本，就可以随时随地地写一些东西，并且在发表时也可以方便地为其渲染格式。\n",
+  "wordCount" : "135",
+  "inLanguage": "en",
+  "datePublished": "2018-07-12T00:00:00Z",
+  "dateModified": "2018-07-12T00:00:00Z",
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://caiyy17.github.io/posts/computer/md2_%E8%BD%AC%E6%8D%A2%E5%8F%8A%E5%8F%91%E5%B8%83/"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "caiyy17",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://caiyy17.github.io/favicon.ico"
+    }
+  }
+}
+</script>
 </head>
 
+<body class="" id="top">
+<script>
+    if (localStorage.getItem("pref-theme") === "dark") {
+        document.body.classList.add('dark');
+    } else if (localStorage.getItem("pref-theme") === "light") {
+        document.body.classList.remove('dark')
+    } else if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+        document.body.classList.add('dark');
+    }
 
-  <body class="not-ready" data-menu="false">
-    <header class="header">
-  
-  <p class="logo">
-    <a class="site-name" href="https://caiyy17.github.io">每一个不曾起舞的日子，都是对生命的辜负。</a><a class="btn-dark"></a>
-  </p>
-  
+</script>
 
-  <script>
-    let bodyClx = document.body.classList;
-    let btnDark = document.querySelector('.btn-dark');
-    let sysDark = window.matchMedia('(prefers-color-scheme: dark)');
-    let darkVal = localStorage.getItem('dark');
-
-    let setDark = (isDark) => {
-      bodyClx[isDark ? 'add' : 'remove']('dark');
-      localStorage.setItem('dark', isDark ? 'yes' : 'no');
-    };
-
-    setDark(darkVal ? darkVal === 'yes' : sysDark.matches);
-    requestAnimationFrame(() => bodyClx.remove('not-ready'));
-
-    btnDark.addEventListener('click', () => setDark(!bodyClx.contains('dark')));
-    sysDark.addEventListener('change', (event) => setDark(event.matches));
-  </script>
-
-  
-  
-
-  
+<header class="header">
+    <nav class="nav">
+        <div class="logo">
+            <a href="https://caiyy17.github.io" accesskey="h" title="caiyy17 (Alt + H)">caiyy17</a>
+            <span class="logo-switches">
+                <button id="theme-toggle" accesskey="t" title="(Alt + T)">
+                    <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                    </svg>
+                    <svg id="sun" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="5"></circle>
+                        <line x1="12" y1="1" x2="12" y2="3"></line>
+                        <line x1="12" y1="21" x2="12" y2="23"></line>
+                        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                        <line x1="1" y1="12" x2="3" y2="12"></line>
+                        <line x1="21" y1="12" x2="23" y2="12"></line>
+                        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                    </svg>
+                </button>
+            </span>
+        </div>
+        <ul id="menu">
+            <li>
+                <a href="https://caiyy17.github.io/categories/" title="categories">
+                    <span>categories</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://caiyy17.github.io/tags/" title="tags">
+                    <span>tags</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://caiyy17.github.io/search/" title="search (Alt &#43; /)" accesskey=/>
+                    <span>search</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://caiyy17.github.io/archives/" title="archives">
+                    <span>archives</span>
+                </a>
+            </li>
+        </ul>
+    </nav>
 </header>
-
-
-    <main class="main">
+<main class="main">
 
 <article class="post-single">
-  <header class="post-title">
-    <p>
-      
-      <time>Jul 12, 2018</time>
-      
-      
-    </p>
-    <h1>Markdown2:转换及发布</h1>
-  </header>
-  <section class="post-content"><ul>
+  <header class="post-header">
+    <div class="breadcrumbs"><a href="https://caiyy17.github.io">Home</a>&nbsp;»&nbsp;<a href="https://caiyy17.github.io/posts/">Posts</a></div>
+    <h1 class="post-title">
+      Markdown2:转换及发布
+    </h1>
+    <div class="post-meta"><span title='2018-07-12 00:00:00 +0000 UTC'>July 12, 2018</span>
+
+</div>
+  </header> <div class="toc">
+    <details >
+        <summary accesskey="c" title="(Alt + C)">
+            <span class="details">Table of Contents</span>
+        </summary>
+
+        <div class="inner"><ul>
+                <li>
+                    <a href="#%e5%89%8d%e8%a8%80" aria-label="前言">前言</a></li>
+                <li>
+                    <a href="#markdown-%e5%af%b9-html-%e7%9a%84%e6%94%af%e6%8c%81" aria-label="Markdown 对 html 的支持">Markdown 对 html 的支持</a></li>
+                <li>
+                    <a href="#markdown-%e8%bd%ac-html" aria-label="Markdown 转 html">Markdown 转 html</a><ul>
+                        
+                <li>
+                    <a href="#markdown-here" aria-label="Markdown here">Markdown here</a></li></ul>
+                </li>
+                <li>
+                    <a href="#after-all" aria-label="After all">After all</a>
+                </li>
+            </ul>
+        </div>
+    </details>
+</div>
+
+  <div class="post-content"><ul>
 <li><a href="#%E5%89%8D%E8%A8%80">前言</a></li>
 <li><a href="#markdown-%E5%AF%B9-html-%E7%9A%84%E6%94%AF%E6%8C%81">Markdown 对 html 的支持</a></li>
 <li><a href="#markdown-%E8%BD%AC-html">Markdown 转 html</a>
@@ -161,11 +240,11 @@ Markdown 对 html 的支持 这里说一下 Markdown 原生对 html 的支持。
 </li>
 <li><a href="#after-all">After all</a></li>
 </ul>
-<h1 id="前言">前言</h1>
+<h1 id="前言">前言<a hidden class="anchor" aria-hidden="true" href="#前言">#</a></h1>
 <p>为了可以用自己喜欢的排版风格排版 Markdown，需要将其转换成其他有丰富排版功能的格式，最重要的无非是 html 和 tex，本文主要讲 html 的转换。</p>
 <p>转至 html 后便可以配合已经编写好的.css 文件，统一排版成自己想要的格式。便可以发布在自己的网站上了。然而自己便携插件还是有些困难，好在有 hexo 或者 markdownhere 等软件和插件的帮助。前者可以帮助我们制作博客，后者可以直接在 chrome 中将 markdown 原文在公众号网站中转换为带格式的文本。</p>
 <p>之后就不需要麻烦的公众号编辑器，只需要每次写 Markdown 就行了。</p>
-<h1 id="markdown-对-html-的支持">Markdown 对 html 的支持</h1>
+<h1 id="markdown-对-html-的支持">Markdown 对 html 的支持<a hidden class="anchor" aria-hidden="true" href="#markdown-对-html-的支持">#</a></h1>
 <p>这里说一下 Markdown 原生对 html 的支持。Markdown 的语法默认有对应的 html 语法，对应如下：(html 闭合部分省略，详细结构可以查 html 相应格式)</p>
 <table>
 <thead>
@@ -226,53 +305,109 @@ Markdown 对 html 的支持 这里说一下 Markdown 原生对 html 的支持。
 </tbody>
 </table>
 <p>而在 Markdown 中也可以自由插入 html 的代码，转换器会在转换的时候保留 html 的代码保持不动（有可能需要设置一下）。例如&lt;br/&gt;</p>
-<h1 id="markdown-转-html">Markdown 转 html</h1>
+<h1 id="markdown-转-html">Markdown 转 html<a hidden class="anchor" aria-hidden="true" href="#markdown-转-html">#</a></h1>
 <p>在 VSCode 里有&quot;Copy Markdown as HTML&quot;插件，可以将 Markdown 转成 html 到剪贴板，但这是人工方式。</p>
 <p>而若使用类似 Hexo 的博客软件，可以直接使用 markdown 写文章，之后转换 html 和配合 css 都是自动完成的。至于 hexo 的使用，之后会单独说明。</p>
 <p>另一方案也可以使用 python 制作脚本，但既然是做公众号，我们可以使用 chrome 插件 markdown here，可以直接在网页输入中将 markdown 替换为带格式的文本。</p>
-<h2 id="markdown-here">Markdown here</h2>
+<h2 id="markdown-here">Markdown here<a hidden class="anchor" aria-hidden="true" href="#markdown-here">#</a></h2>
 <p>markdownhere 中可以设置替换是用的 css 文件，在网上可以找到一些现成的 css，当然也可以自己编一些花哨的 css 格式，这是另一回事了。另外如果自己定义了一些 html 标签，也可以一起写进 css，这些标签也会在替换时一起被渲染。</p>
 <p>ps：markdownhere 的作用不止于微信公众号的文本替换，编辑邮件时也可以使用它。</p>
-<h1 id="after-all">After all</h1>
+<h1 id="after-all">After all<a hidden class="anchor" aria-hidden="true" href="#after-all">#</a></h1>
 <p>总之，我个人认为在日常写作中，markdown 是非常有用的生产力工具，只要使用一些极简的文本编辑器甚至是记事本，就可以随时随地地写一些东西，并且在发表时也可以方便地为其渲染格式。</p>
-</section>
 
-  
-  
-  <footer class="post-tags">
-     
-    <a href="https://caiyy17.github.io/tags/markdown">Markdown</a>
-     
-    <a href="https://caiyy17.github.io/tags/blog">Blog</a>
-    
+
+  </div>
+
+  <footer class="post-footer">
+    <ul class="post-tags">
+      <li><a href="https://caiyy17.github.io/tags/markdown/">Markdown</a></li>
+      <li><a href="https://caiyy17.github.io/tags/blog/">Blog</a></li>
+    </ul>
+<nav class="paginav">
+  <a class="prev" href="https://caiyy17.github.io/posts/computer/mac%E6%96%B0%E6%9C%BA%E8%AE%BE%E7%BD%AE/">
+    <span class="title">« Prev Page</span>
+    <br>
+    <span>Mac新机设置</span>
+  </a>
+  <a class="next" href="https://caiyy17.github.io/posts/computer/md1_%E8%AF%AD%E6%B3%95/">
+    <span class="title">Next Page »</span>
+    <br>
+    <span>Markdown1:语法</span>
+  </a>
+</nav>
+
   </footer>
-  
-
-  
-  
-  
-  <nav class="post-nav">
-    
-    <a class="prev" href="https://caiyy17.github.io/posts/computer/mac%E6%96%B0%E6%9C%BA%E8%AE%BE%E7%BD%AE/"><span>←</span><span>Mac新机设置</span></a>
-     
-    <a class="next" href="https://caiyy17.github.io/posts/computer/md1_%E8%AF%AD%E6%B3%95/"><span>Markdown1:语法</span><span>→</span></a>
-    
-  </nav>
-  
-
-  
-  
 </article>
-
-</main>
-
-    <footer class="footer">
-  <p>&copy; 2022 <a href="https://caiyy17.github.io">每一个不曾起舞的日子，都是对生命的辜负。</a></p>
-  <p>Powered by <a href="https://gohugo.io/" rel="noopener" target="_blank">Hugo️️</a>️</p>
-  <p>
-    <a href="https://github.com/nanxiaobei/hugo-paper" rel="noopener" target="_blank">Paper 5.1</a>
-  </p>
+    </main>
+    
+<footer class="footer">
+    <span>&copy; 2022 <a href="https://caiyy17.github.io">caiyy17</a></span>
+    <span>
+        Powered by
+        <a href="https://gohugo.io/" rel="noopener noreferrer" target="_blank">Hugo</a> &
+        <a href="https://git.io/hugopapermod" rel="noopener" target="_blank">PaperMod</a>
+    </span>
 </footer>
+<a href="#top" aria-label="go to top" title="Go to Top (Alt + G)" class="top-link" id="top-link" accesskey="g">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 6" fill="currentColor">
+        <path d="M12 6H0l6-6z" />
+    </svg>
+</a>
 
-  </body>
+<script>
+    let menu = document.getElementById('menu')
+    if (menu) {
+        menu.scrollLeft = localStorage.getItem("menu-scroll-position");
+        menu.onscroll = function () {
+            localStorage.setItem("menu-scroll-position", menu.scrollLeft);
+        }
+    }
+
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener("click", function (e) {
+            e.preventDefault();
+            var id = this.getAttribute("href").substr(1);
+            if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView({
+                    behavior: "smooth"
+                });
+            } else {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView();
+            }
+            if (id === "top") {
+                history.replaceState(null, null, " ");
+            } else {
+                history.pushState(null, null, `#${id}`);
+            }
+        });
+    });
+
+</script>
+<script>
+    var mybutton = document.getElementById("top-link");
+    window.onscroll = function () {
+        if (document.body.scrollTop > 800 || document.documentElement.scrollTop > 800) {
+            mybutton.style.visibility = "visible";
+            mybutton.style.opacity = "1";
+        } else {
+            mybutton.style.visibility = "hidden";
+            mybutton.style.opacity = "0";
+        }
+    };
+
+</script>
+<script>
+    document.getElementById("theme-toggle").addEventListener("click", () => {
+        if (document.body.className.includes("dark")) {
+            document.body.classList.remove('dark');
+            localStorage.setItem("pref-theme", 'light');
+        } else {
+            document.body.classList.add('dark');
+            localStorage.setItem("pref-theme", 'dark');
+        }
+    })
+
+</script>
+</body>
+
 </html>

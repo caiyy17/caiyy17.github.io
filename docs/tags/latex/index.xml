@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
-    <title>Latex on 每一个不曾起舞的日子，都是对生命的辜负。</title>
+    <title>Latex on caiyy17</title>
     <link>https://caiyy17.github.io/tags/latex/</link>
-    <description>Recent content in Latex on 每一个不曾起舞的日子，都是对生命的辜负。</description>
+    <description>Recent content in Latex on caiyy17</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Wed, 17 Oct 2018 00:00:00 +0000</lastBuildDate><atom:link href="https://caiyy17.github.io/tags/latex/index.xml" rel="self" type="application/rss+xml" />
