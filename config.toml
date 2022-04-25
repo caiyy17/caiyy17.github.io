@@ -1,5 +1,7 @@
 baseURL = 'https://caiyy17.github.io'
 languageCode = 'en-us'
-title = 'caiyy17'
+title = '每一个不曾起舞的日子，都是对生命的辜负。'
 theme = "paper"
+
 publishDir = "docs"
+enableEmoji = true
