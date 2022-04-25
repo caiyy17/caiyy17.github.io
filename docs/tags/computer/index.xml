@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Computer on caiyy17</title>
+    <link>https://caiyy17.github.io/tags/computer/</link>
+    <description>Recent content in Computer on caiyy17</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language><atom:link href="https://caiyy17.github.io/tags/computer/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Mac新机设置</title>
+      <link>https://caiyy17.github.io/posts/computer/mac%E6%96%B0%E6%9C%BA%E8%AE%BE%E7%BD%AE/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://caiyy17.github.io/posts/computer/mac%E6%96%B0%E6%9C%BA%E8%AE%BE%E7%BD%AE/</guid>
+      <description>前言 基础：系统偏好设置 基础：几个好用的快捷键 基础：安装日常应用（见软件篇） 进阶：安装编程相关应用并配置 进阶：其他设置 进阶：Windows 相关 服务器相关  前言 新的 mbp2018 总算到了，这也是我自己的第一台苹果电脑，自然要熟悉好一会儿，在此记录下我的折腾过程。
+基础：系统偏好设置 在设置中，我增加了这些东西
+  调度中心：使窗口按应用程序成组
+  调度中心：设置触发角（左下角桌面，右下角关闭屏幕）
+  节能：屏幕不关闭
+  安全与隐私：打开防火墙
+  通知：设定哪些程序可以通知
+  键盘：文本取消自动纠正与智能引号
+  触控板：功能全勾上
+  iCloud：功能全勾上
+  扩展：&amp;ldquo;今天&amp;quot;中显示的内容
+  命令行设置显示全路径
+defaults write com.apple.finder _FXShowPosixPathInTitle -bool TRUE; killall Finder   更改截屏保存地址
+defaults write com.apple.screencapture location &amp;#34;路径&amp;#34;; killalll SyatemUIserve   Finder 偏好设置
+边栏-&amp;gt;全勾上</description>
+    </item>
+    
+    <item>
+      <title>yubikey2:配置和gnupg</title>
+      <link>https://caiyy17.github.io/posts/computer/yubikey2_%E8%AE%BE%E7%BD%AE%E5%92%8Cgnupg/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://caiyy17.github.io/posts/computer/yubikey2_%E8%AE%BE%E7%BD%AE%E5%92%8Cgnupg/</guid>
+      <description>设置 yubikey  初始化 U2F PIV   GPG  安装 gnupg 生成要最终导入 yubikey 的密钥 导出密钥 设置 yubikey 的 pin 设置 yubikey 的 PGP 测试 SSH 注意   后记  设置 yubikey 讲完了安全模型，就可以开始设置 yubikey 了
+需要设置的有这些：
+ 次重要密码导入 slot1 Master 密码导入 slot2 yubikey 的 pin（Masterpin） 管理员 8 位 pin（特殊 pin） GPGkey（因为需要备份，我们从外部导入） PIV（Masterpin） U2F  从简单的开始
+初始化 下载 yubikey manager，然后打开所有功能。在 OTP 里设置 slot1 和 slot2
+U2F 在支持的网站里双重验证下添加 key，然后按一下 yubikey 就行了</description>
+    </item>
+    
+  </channel>
+</rss>

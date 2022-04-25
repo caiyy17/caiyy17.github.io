@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+
+
+
+
+
+
+
+
+
+
+
+<html lang="en-us">
+  <head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+
+  
+  <title>CG1:开始 - caiyy17</title>
+
+  
+  
+  <meta name="description" content="前言 计算机图形学主要是渲染器相关的研究，因为本身体系比较复杂，于是单开一个栏目来写
+主要参考书籍  Physically Based Rendering (E3) Real-Time Rendering (E4)  主要构成  Shape Aggregate Camera Sampler Filter Material Texture Medium Light Integrator  " />
+  <meta name="author" content="" />
+  
+
+  
+  
+  
+  
+  
+  
+  <link rel="preload stylesheet" as="style" href="https://caiyy17.github.io/app.min.css" />
+
+  
+  <link rel="preload stylesheet" as="style" href="https://caiyy17.github.io/an-old-hope.min.css" />
+  <script
+    defer
+    src="https://caiyy17.github.io/highlight.min.js"
+    onload="hljs.initHighlightingOnLoad();"
+  ></script>
+  
+
+  
+  <link rel="preload" as="image" href="https://caiyy17.github.io/theme.png" />
+
+  
+
+  
+  <link rel="icon" href="https://caiyy17.github.io/favicon.ico" />
+  <link rel="apple-touch-icon" href="https://caiyy17.github.io/apple-touch-icon.png" />
+
+  
+  <meta name="generator" content="Hugo 0.97.3" />
+
+  
+  
+
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  <meta property="og:title" content="CG1:开始" />
+<meta property="og:description" content="前言 计算机图形学主要是渲染器相关的研究，因为本身体系比较复杂，于是单开一个栏目来写
+主要参考书籍  Physically Based Rendering (E3) Real-Time Rendering (E4)  主要构成  Shape Aggregate Camera Sampler Filter Material Texture Medium Light Integrator  " />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://caiyy17.github.io/posts/cg/cg1_start/" /><meta property="article:section" content="posts" />
+
+
+
+
+  
+  <meta itemprop="name" content="CG1:开始">
+<meta itemprop="description" content="前言 计算机图形学主要是渲染器相关的研究，因为本身体系比较复杂，于是单开一个栏目来写
+主要参考书籍  Physically Based Rendering (E3) Real-Time Rendering (E4)  主要构成  Shape Aggregate Camera Sampler Filter Material Texture Medium Light Integrator  ">
+
+<meta itemprop="wordCount" content="21">
+<meta itemprop="keywords" content="CG," />
+  
+  <meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="CG1:开始"/>
+<meta name="twitter:description" content="前言 计算机图形学主要是渲染器相关的研究，因为本身体系比较复杂，于是单开一个栏目来写
+主要参考书籍  Physically Based Rendering (E3) Real-Time Rendering (E4)  主要构成  Shape Aggregate Camera Sampler Filter Material Texture Medium Light Integrator  "/>
+
+  
+  
+</head>
+
+
+  <body class="not-ready" data-menu="false">
+    <header class="header">
+  
+  <p class="logo">
+    <a class="site-name" href="https://caiyy17.github.io">caiyy17</a><a class="btn-dark"></a>
+  </p>
+  
+
+  <script>
+    let bodyClx = document.body.classList;
+    let btnDark = document.querySelector('.btn-dark');
+    let sysDark = window.matchMedia('(prefers-color-scheme: dark)');
+    let darkVal = localStorage.getItem('dark');
+
+    let setDark = (isDark) => {
+      bodyClx[isDark ? 'add' : 'remove']('dark');
+      localStorage.setItem('dark', isDark ? 'yes' : 'no');
+    };
+
+    setDark(darkVal ? darkVal === 'yes' : sysDark.matches);
+    requestAnimationFrame(() => bodyClx.remove('not-ready'));
+
+    btnDark.addEventListener('click', () => setDark(!bodyClx.contains('dark')));
+    sysDark.addEventListener('change', (event) => setDark(event.matches));
+  </script>
+
+  
+  
+
+  
+</header>
+
+
+    <main class="main">
+
+<article class="post-single">
+  <header class="post-title">
+    <p>
+      
+      
+    </p>
+    <h1>CG1:开始</h1>
+  </header>
+  <section class="post-content"><h1 id="前言">前言</h1>
+<p>计算机图形学主要是渲染器相关的研究，因为本身体系比较复杂，于是单开一个栏目来写</p>
+<h1 id="主要参考书籍">主要参考书籍</h1>
+<ol>
+<li>Physically Based Rendering (E3)</li>
+<li>Real-Time Rendering (E4)</li>
+</ol>
+<h1 id="主要构成">主要构成</h1>
+<ol>
+<li>Shape</li>
+<li>Aggregate</li>
+<li>Camera</li>
+<li>Sampler</li>
+<li>Filter</li>
+<li>Material</li>
+<li>Texture</li>
+<li>Medium</li>
+<li>Light</li>
+<li>Integrator</li>
+</ol>
+</section>
+
+  
+  
+  <footer class="post-tags">
+     
+    <a href="https://caiyy17.github.io/tags/cg">CG</a>
+    
+  </footer>
+  
+
+  
+  
+  
+  <nav class="post-nav">
+    
+    <a class="prev" href="https://caiyy17.github.io/posts/japan/ani2_feeling/"><span>←</span><span>Ani2:动画给人的感觉</span></a>
+     
+    <a class="next" href="https://caiyy17.github.io/posts/computer/linux%E5%9F%BA%E6%9C%AC%E5%91%BD%E4%BB%A4/"><span>Linux1:基本命令</span><span>→</span></a>
+    
+  </nav>
+  
+
+  
+  
+</article>
+
+</main>
+
+    <footer class="footer">
+  <p>&copy; 2022 <a href="https://caiyy17.github.io">caiyy17</a></p>
+  <p>Powered by <a href="https://gohugo.io/" rel="noopener" target="_blank">Hugo️️</a>️</p>
+  <p>
+    <a href="https://github.com/nanxiaobei/hugo-paper" rel="noopener" target="_blank">Paper 5.1</a>
+  </p>
+</footer>
+
+  </body>
+</html>

@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Markdown on caiyy17</title>
+    <link>https://caiyy17.github.io/tags/markdown/</link>
+    <description>Recent content in Markdown on caiyy17</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Wed, 17 Oct 2018 00:00:00 +0000</lastBuildDate><atom:link href="https://caiyy17.github.io/tags/markdown/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Markdown3:配合Pandoc</title>
+      <link>https://caiyy17.github.io/posts/computer/md3_%E9%85%8D%E5%90%88pandoc/</link>
+      <pubDate>Wed, 17 Oct 2018 00:00:00 +0000</pubDate>
+      
+      <guid>https://caiyy17.github.io/posts/computer/md3_%E9%85%8D%E5%90%88pandoc/</guid>
+      <description>前言 安装  html 参数 PDF 参数   所以 番外：幻灯片  幻灯片结构 常用参数 我的常用命令   参考  前言 从 Md1 到 Md2，基本的 Markdown 写作以及没有问题了，然后就会想用 md 解决其他的事情了，比如写学术论文，Latex 写起来太费劲了，公式还是 word 比较方便。
+Pandoc 是一个开源的万能文档转换软件，可以在 pdf，md，word，html 之间转换文档格式。而装了 vscode-pandoc 后可以直接在 vscode 中使用，但是每次只能用同样的命令行参数，否则只能在终端中使用。
+安装 直接 brew 安装即可，还要安装 pandoc-citeproc，vscode 插件也是一键安装。
+然后是配置，word 不需要配置，html 需要配置命令行参数，在设置的 string 里面填入就行。
+html 参数 --standalone --self-contained --css pandoc.css 以上转换命令中选项含义介绍如下。
+ “–standalone”：为目标格式文件增加合适的“header”和“footer”。如果目标格式是“HTML”，那么通过该选项可解决“由于未设置合适的字符编码，而导致的乱码问题”。 “–self-contained” ：如果目标格式是“HTML”，那么可得到如下效果：在转换得到目标 HTML 文件的过程中，会将依赖的“脚本，CSS，图片，视频”等文件的内容内嵌到目标 HTML 文件中。 “–css pandoc.css” ：使得目标格式文件最后使用“pandoc.css”文件作为 CSS 文件，否则，使用默认的 CSS 文件。  PDF 参数 pdf 需要 latex 的支持，mac 可以装 Mactex，Win 有 texlive（不过要配置环境变量）</description>
+    </item>
+    
+    <item>
+      <title>Markdown1:语法</title>
+      <link>https://caiyy17.github.io/posts/computer/md1_%E8%AF%AD%E6%B3%95/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://caiyy17.github.io/posts/computer/md1_%E8%AF%AD%E6%B3%95/</guid>
+      <description>前言 Markdown 概述 Markdown 语法  换行 标题 引用 列表 代码块 分割线 表格 区段元素  链接 强调 图片 转义字符     进阶语法  数学公式 脚注 交叉引用 参考文献   参考  前言 本人现在大学生一枚，由于自己作为小白又总喜欢瞎折腾一些东西，所以一直想自己写一些个人博客来记录一下自己的折腾历史，以防以后就忘了怎么操作。
+既然是写博客，又不想自己人工排版，第一篇就以 Markdown 的语法开始吧。
+Markdown 概述 Markdown 的宗旨便是易写易读，一份 Markdown 的文档就算是直接纯文本形式发布也不会让人看起来别扭，但又可以很方便的进行简单的排版，特别是转成 html 格式在互联网上十分方便。本人就计划用 Markdown 配合 html 与 css 将自己的文章发在微信公众号上。
+在这里吐槽一下：
+微信公众号的各种排版工具和网站实在是太麻烦了，虽然它们也许可以实现很多非常花哨的功能，但是一点点调整一点点排版十分的反人类（也许也是我不会用&amp;hellip;），又不是做一张海报，我觉得一个非常简洁的工具才是比较好的。
+还有 Latex 的编辑效率个人感觉并不高，公式编辑其实 Word 自带的公式编辑器（不是 mathtype）非常快捷，浮动体也很不友好，Word 嵌入式就好很多（虽然有时候占地方，但有强迫症啊&amp;hellip;）大概就只有交叉引用会比 Word 方便了。
+吐槽完毕&amp;hellip;
+Markdown 语法 好了，我们正式开始。
+换行 和 Latex 差不多 Markdown 使用一个空行来换行</description>
+    </item>
+    
+    <item>
+      <title>Markdown2:转换及发布</title>
+      <link>https://caiyy17.github.io/posts/computer/md2_%E8%BD%AC%E6%8D%A2%E5%8F%8A%E5%8F%91%E5%B8%83/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://caiyy17.github.io/posts/computer/md2_%E8%BD%AC%E6%8D%A2%E5%8F%8A%E5%8F%91%E5%B8%83/</guid>
+      <description>前言 Markdown 对 html 的支持 Markdown 转 html  Markdown here   After all  前言 为了可以用自己喜欢的排版风格排版 Markdown，需要将其转换成其他有丰富排版功能的格式，最重要的无非是 html 和 tex，本文主要讲 html 的转换。
+转至 html 后便可以配合已经编写好的.css 文件，统一排版成自己想要的格式。便可以发布在自己的网站上了。然而自己便携插件还是有些困难，好在有 hexo 或者 markdownhere 等软件和插件的帮助。前者可以帮助我们制作博客，后者可以直接在 chrome 中将 markdown 原文在公众号网站中转换为带格式的文本。
+之后就不需要麻烦的公众号编辑器，只需要每次写 Markdown 就行了。
+Markdown 对 html 的支持 这里说一下 Markdown 原生对 html 的支持。Markdown 的语法默认有对应的 html 语法，对应如下：(html 闭合部分省略，详细结构可以查 html 相应格式)
+   Markdown html     段落（两个换行符） &amp;lt;p&amp;gt;   x 级标题 &amp;lt;nx&amp;gt;   无序列表 &amp;lt;ul&amp;gt;   有序列表 &amp;lt;ol&amp;gt;   代码块 &amp;lt;code&amp;gt;   引用 &amp;lt;blockquote&amp;gt;   分割线 &amp;lt;hr/&amp;gt;   表格 &amp;lt;table&amp;gt;   链接 &amp;lt;a&amp;gt;   图片 &amp;lt;img&amp;gt;   *强调 &amp;lt;em&amp;gt;   **强调 &amp;lt;strong&amp;gt;    而在 Markdown 中也可以自由插入 html 的代码，转换器会在转换的时候保留 html 的代码保持不动（有可能需要设置一下）。例如&amp;lt;br/&amp;gt;</description>
+    </item>
+    
+  </channel>
+</rss>

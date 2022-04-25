@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+
+
+
+
+
+
+
+
+
+
+
+<html lang="en-us">
+  <head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+
+  
+  <title>备份:各种环境的备份与重装 - caiyy17</title>
+
+  
+  
+  <meta name="description" content="前言 每一次大更新设备时，总想要有一个新的干净的环境，这就需要重装，二重装总是越快越好，所以有一些配置数据最好可以备份出来。
+备份 先讲一下一些基本设备的数据备份&hellip;&hellip;
+Apple Mac 使用 timeMachine 备份即可，详见 Mac 设置那几篇。移动设备 iCloud 备份
+Windows 我的 Windows 只是辅助以及游戏影音功能，不设备份
+配置导出 然后时重装时的配置导出&hellip;&hellip;
+移动设备 依赖于 iCloud 的设备同步，若是想要新环境，只能自己调整配置，下载软件。
+Mac 安装 brew 之后，安装 mas，然后
+brew bundle dump 可以生成 brewfile，包括 brew 和 mas 中的软件，安装时 brew bundle 即可。其他软件依然是记录 md 文件
+其他 zsh 和 bash 的配置在.zshrc 和.bashrc 中，备份即可，而 VScode 如下备份（要早 VSCode 中安装 code 命令行命令）
+code --list-extensions &gt; ext-list.txt 然后正则替换(.*)\r?\n变成--install-extension $1，最后加上 code 变成code --install-extension [扩展1] --install-extension [扩展2] ... 就可以安装了
+重装指南 在网盘中存一份重装指南，分门别类存好信息即可" />
+  <meta name="author" content="" />
+  
+
+  
+  
+  
+  
+  
+  
+  <link rel="preload stylesheet" as="style" href="https://caiyy17.github.io/app.min.css" />
+
+  
+  <link rel="preload stylesheet" as="style" href="https://caiyy17.github.io/an-old-hope.min.css" />
+  <script
+    defer
+    src="https://caiyy17.github.io/highlight.min.js"
+    onload="hljs.initHighlightingOnLoad();"
+  ></script>
+  
+
+  
+  <link rel="preload" as="image" href="https://caiyy17.github.io/theme.png" />
+
+  
+
+  
+  <link rel="icon" href="https://caiyy17.github.io/favicon.ico" />
+  <link rel="apple-touch-icon" href="https://caiyy17.github.io/apple-touch-icon.png" />
+
+  
+  <meta name="generator" content="Hugo 0.97.3" />
+
+  
+  
+
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  <meta property="og:title" content="备份:各种环境的备份与重装" />
+<meta property="og:description" content="前言 每一次大更新设备时，总想要有一个新的干净的环境，这就需要重装，二重装总是越快越好，所以有一些配置数据最好可以备份出来。
+备份 先讲一下一些基本设备的数据备份&hellip;&hellip;
+Apple Mac 使用 timeMachine 备份即可，详见 Mac 设置那几篇。移动设备 iCloud 备份
+Windows 我的 Windows 只是辅助以及游戏影音功能，不设备份
+配置导出 然后时重装时的配置导出&hellip;&hellip;
+移动设备 依赖于 iCloud 的设备同步，若是想要新环境，只能自己调整配置，下载软件。
+Mac 安装 brew 之后，安装 mas，然后
+brew bundle dump 可以生成 brewfile，包括 brew 和 mas 中的软件，安装时 brew bundle 即可。其他软件依然是记录 md 文件
+其他 zsh 和 bash 的配置在.zshrc 和.bashrc 中，备份即可，而 VScode 如下备份（要早 VSCode 中安装 code 命令行命令）
+code --list-extensions &gt; ext-list.txt 然后正则替换(.*)\r?\n变成--install-extension $1，最后加上 code 变成code --install-extension [扩展1] --install-extension [扩展2] ... 就可以安装了
+重装指南 在网盘中存一份重装指南，分门别类存好信息即可" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://caiyy17.github.io/posts/computer/%E5%A4%87%E4%BB%BD_%E5%90%84%E7%A7%8D%E7%8E%AF%E5%A2%83%E7%9A%84%E5%A4%87%E4%BB%BD%E4%B8%8E%E9%87%8D%E8%A3%85/" /><meta property="article:section" content="posts" />
+
+
+
+
+  
+  <meta itemprop="name" content="备份:各种环境的备份与重装">
+<meta itemprop="description" content="前言 每一次大更新设备时，总想要有一个新的干净的环境，这就需要重装，二重装总是越快越好，所以有一些配置数据最好可以备份出来。
+备份 先讲一下一些基本设备的数据备份&hellip;&hellip;
+Apple Mac 使用 timeMachine 备份即可，详见 Mac 设置那几篇。移动设备 iCloud 备份
+Windows 我的 Windows 只是辅助以及游戏影音功能，不设备份
+配置导出 然后时重装时的配置导出&hellip;&hellip;
+移动设备 依赖于 iCloud 的设备同步，若是想要新环境，只能自己调整配置，下载软件。
+Mac 安装 brew 之后，安装 mas，然后
+brew bundle dump 可以生成 brewfile，包括 brew 和 mas 中的软件，安装时 brew bundle 即可。其他软件依然是记录 md 文件
+其他 zsh 和 bash 的配置在.zshrc 和.bashrc 中，备份即可，而 VScode 如下备份（要早 VSCode 中安装 code 命令行命令）
+code --list-extensions &gt; ext-list.txt 然后正则替换(.*)\r?\n变成--install-extension $1，最后加上 code 变成code --install-extension [扩展1] --install-extension [扩展2] ... 就可以安装了
+重装指南 在网盘中存一份重装指南，分门别类存好信息即可">
+
+<meta itemprop="wordCount" content="71">
+<meta itemprop="keywords" content="备份," />
+  
+  <meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="备份:各种环境的备份与重装"/>
+<meta name="twitter:description" content="前言 每一次大更新设备时，总想要有一个新的干净的环境，这就需要重装，二重装总是越快越好，所以有一些配置数据最好可以备份出来。
+备份 先讲一下一些基本设备的数据备份&hellip;&hellip;
+Apple Mac 使用 timeMachine 备份即可，详见 Mac 设置那几篇。移动设备 iCloud 备份
+Windows 我的 Windows 只是辅助以及游戏影音功能，不设备份
+配置导出 然后时重装时的配置导出&hellip;&hellip;
+移动设备 依赖于 iCloud 的设备同步，若是想要新环境，只能自己调整配置，下载软件。
+Mac 安装 brew 之后，安装 mas，然后
+brew bundle dump 可以生成 brewfile，包括 brew 和 mas 中的软件，安装时 brew bundle 即可。其他软件依然是记录 md 文件
+其他 zsh 和 bash 的配置在.zshrc 和.bashrc 中，备份即可，而 VScode 如下备份（要早 VSCode 中安装 code 命令行命令）
+code --list-extensions &gt; ext-list.txt 然后正则替换(.*)\r?\n变成--install-extension $1，最后加上 code 变成code --install-extension [扩展1] --install-extension [扩展2] ... 就可以安装了
+重装指南 在网盘中存一份重装指南，分门别类存好信息即可"/>
+
+  
+  
+</head>
+
+
+  <body class="not-ready" data-menu="false">
+    <header class="header">
+  
+  <p class="logo">
+    <a class="site-name" href="https://caiyy17.github.io">caiyy17</a><a class="btn-dark"></a>
+  </p>
+  
+
+  <script>
+    let bodyClx = document.body.classList;
+    let btnDark = document.querySelector('.btn-dark');
+    let sysDark = window.matchMedia('(prefers-color-scheme: dark)');
+    let darkVal = localStorage.getItem('dark');
+
+    let setDark = (isDark) => {
+      bodyClx[isDark ? 'add' : 'remove']('dark');
+      localStorage.setItem('dark', isDark ? 'yes' : 'no');
+    };
+
+    setDark(darkVal ? darkVal === 'yes' : sysDark.matches);
+    requestAnimationFrame(() => bodyClx.remove('not-ready'));
+
+    btnDark.addEventListener('click', () => setDark(!bodyClx.contains('dark')));
+    sysDark.addEventListener('change', (event) => setDark(event.matches));
+  </script>
+
+  
+  
+
+  
+</header>
+
+
+    <main class="main">
+
+<article class="post-single">
+  <header class="post-title">
+    <p>
+      
+      
+    </p>
+    <h1>备份:各种环境的备份与重装</h1>
+  </header>
+  <section class="post-content"><h1 id="前言">前言</h1>
+<p>每一次大更新设备时，总想要有一个新的干净的环境，这就需要重装，二重装总是越快越好，所以有一些配置数据最好可以备份出来。</p>
+<h1 id="备份">备份</h1>
+<p>先讲一下一些基本设备的数据备份&hellip;&hellip;</p>
+<h2 id="apple">Apple</h2>
+<p>Mac 使用 timeMachine 备份即可，详见 Mac 设置那几篇。移动设备 iCloud 备份</p>
+<h2 id="windows">Windows</h2>
+<p>我的 Windows 只是辅助以及游戏影音功能，不设备份</p>
+<h1 id="配置导出">配置导出</h1>
+<p>然后时重装时的配置导出&hellip;&hellip;</p>
+<h2 id="移动设备">移动设备</h2>
+<p>依赖于 iCloud 的设备同步，若是想要新环境，只能自己调整配置，下载软件。</p>
+<h2 id="mac">Mac</h2>
+<p>安装 brew 之后，安装 mas，然后</p>
+<pre tabindex="0"><code>brew bundle dump
+</code></pre><p>可以生成 brewfile，包括 brew 和 mas 中的软件，安装时 brew bundle 即可。其他软件依然是记录 md 文件</p>
+<h2 id="其他">其他</h2>
+<p>zsh 和 bash 的配置在.zshrc 和.bashrc 中，备份即可，而 VScode 如下备份（要早 VSCode 中安装 code 命令行命令）</p>
+<pre tabindex="0"><code>code --list-extensions &gt; ext-list.txt
+</code></pre><p>然后正则替换<code>(.*)\r?\n</code>变成<code>--install-extension $1</code>，最后加上 code 变成<code>code --install-extension [扩展1] --install-extension [扩展2] ... </code>就可以安装了</p>
+<h2 id="重装指南">重装指南</h2>
+<p>在网盘中存一份重装指南，分门别类存好信息即可</p>
+</section>
+
+  
+  
+  <footer class="post-tags">
+     
+    <a href="https://caiyy17.github.io/tags/%E5%A4%87%E4%BB%BD">备份</a>
+    
+  </footer>
+  
+
+  
+  
+  
+  <nav class="post-nav">
+    
+    <a class="prev" href="https://caiyy17.github.io/posts/computer/yubikey2_%E8%AE%BE%E7%BD%AE%E5%92%8Cgnupg/"><span>←</span><span>yubikey2:配置和gnupg</span></a>
+     
+    <a class="next" href="https://caiyy17.github.io/posts/eating/%E5%B7%A7%E5%85%8B%E5%8A%9B/"><span>巧克力</span><span>→</span></a>
+    
+  </nav>
+  
+
+  
+  
+</article>
+
+</main>
+
+    <footer class="footer">
+  <p>&copy; 2022 <a href="https://caiyy17.github.io">caiyy17</a></p>
+  <p>Powered by <a href="https://gohugo.io/" rel="noopener" target="_blank">Hugo️️</a>️</p>
+  <p>
+    <a href="https://github.com/nanxiaobei/hugo-paper" rel="noopener" target="_blank">Paper 5.1</a>
+  </p>
+</footer>
+
+  </body>
+</html>
