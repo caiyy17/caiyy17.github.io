@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Apple on 每一个不曾起舞的日子，都是对生命的辜负。</title>
+    <link>https://caiyy17.github.io/tags/apple/</link>
+    <description>Recent content in Apple on 每一个不曾起舞的日子，都是对生命的辜负。</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Wed, 15 Aug 2018 00:00:00 +0000</lastBuildDate><atom:link href="https://caiyy17.github.io/tags/apple/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Mac新机设置</title>
+      <link>https://caiyy17.github.io/posts/computer/mac%E6%96%B0%E6%9C%BA%E8%AE%BE%E7%BD%AE/</link>
+      <pubDate>Wed, 15 Aug 2018 00:00:00 +0000</pubDate>
+      
+      <guid>https://caiyy17.github.io/posts/computer/mac%E6%96%B0%E6%9C%BA%E8%AE%BE%E7%BD%AE/</guid>
+      <description>前言 基础：系统偏好设置 基础：几个好用的快捷键 基础：安装日常应用（见软件篇） 进阶：安装编程相关应用并配置 进阶：其他设置 进阶：Windows 相关 服务器相关  前言 新的 mbp2018 总算到了，这也是我自己的第一台苹果电脑，自然要熟悉好一会儿，在此记录下我的折腾过程。
+基础：系统偏好设置 在设置中，我增加了这些东西
+  调度中心：使窗口按应用程序成组
+  调度中心：设置触发角（左下角桌面，右下角关闭屏幕）
+  节能：屏幕不关闭
+  安全与隐私：打开防火墙
+  通知：设定哪些程序可以通知
+  键盘：文本取消自动纠正与智能引号
+  触控板：功能全勾上
+  iCloud：功能全勾上
+  扩展：&amp;ldquo;今天&amp;quot;中显示的内容
+  命令行设置显示全路径
+defaults write com.apple.finder _FXShowPosixPathInTitle -bool TRUE; killall Finder   更改截屏保存地址
+defaults write com.apple.screencapture location &amp;#34;路径&amp;#34;; killalll SyatemUIserve   Finder 偏好设置
+边栏-&amp;gt;全勾上</description>
+    </item>
+    
+  </channel>
+</rss>
