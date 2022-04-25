@@ -9,10 +9,10 @@
     <lastBuildDate>Sun, 30 Sep 2018 00:00:00 +0000</lastBuildDate><atom:link href="https://caiyy17.github.io/tags/safety/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>VPS1:购买以及设置</title>
-      <link>https://caiyy17.github.io/posts/computers/vps1_%E8%B4%AD%E4%B9%B0%E4%BB%A5%E5%8F%8A%E8%AE%BE%E7%BD%AEvps/</link>
+      <link>https://caiyy17.github.io/posts/computer/vps1_%E8%B4%AD%E4%B9%B0%E4%BB%A5%E5%8F%8A%E8%AE%BE%E7%BD%AEvps/</link>
       <pubDate>Sun, 30 Sep 2018 00:00:00 +0000</pubDate>
       
-      <guid>https://caiyy17.github.io/posts/computers/vps1_%E8%B4%AD%E4%B9%B0%E4%BB%A5%E5%8F%8A%E8%AE%BE%E7%BD%AEvps/</guid>
+      <guid>https://caiyy17.github.io/posts/computer/vps1_%E8%B4%AD%E4%B9%B0%E4%BB%A5%E5%8F%8A%E8%AE%BE%E7%BD%AEvps/</guid>
       <description>前言 对于一个准备完计算机的喜欢折腾的学生来说，拥有一台自己的服务器是十分有必要的，在那上面，可以干许许多多事情。
 Github 学生包 相信大家对 github 都不陌生，但 github 上除了代码管理和社区之外，github 提供的学生包也是个非常不错的东西。学生包获取方法就根据提示一步一步来就行，需要学校邮箱。
 其中个人暂时用到的有：
@@ -27,10 +27,10 @@ DigitalOcean 注册 DO，需要用 paypal 或者信用卡向其中充值 5 美�
     
     <item>
       <title>VPS2:socks协议以及ss设置</title>
-      <link>https://caiyy17.github.io/posts/computers/vps2_socks%E5%8D%8F%E8%AE%AE%E4%B8%8Ess%E8%AE%BE%E7%BD%AE/</link>
+      <link>https://caiyy17.github.io/posts/computer/vps2_socks%E5%8D%8F%E8%AE%AE%E4%B8%8Ess%E8%AE%BE%E7%BD%AE/</link>
       <pubDate>Sun, 30 Sep 2018 00:00:00 +0000</pubDate>
       
-      <guid>https://caiyy17.github.io/posts/computers/vps2_socks%E5%8D%8F%E8%AE%AE%E4%B8%8Ess%E8%AE%BE%E7%BD%AE/</guid>
+      <guid>https://caiyy17.github.io/posts/computer/vps2_socks%E5%8D%8F%E8%AE%AE%E4%B8%8Ess%E8%AE%BE%E7%BD%AE/</guid>
       <description>Socks 协议 Socket Secure(SOCKS)是一个网络协议，可以通过代理服务器来路由客户端和服务器之间的数据包。一个 SOCKS 服务器可以代理 TCP 连接到任何一个 IP 地址，同时为 UDP 的数据包提供一种转发方式。 SOCKS 完成的是 OSI 模型中第五层的工作（会话层，位于表示层和传输层之间）
 历史 这个协议最初由 David Koblas 创造，David Koblas 是 MIPS 计算系统的管理员，在 1992 年 MIPS 被 Silicon Graphics 接管之后，Koblas 在那年的 Usenix 安全研讨会上发表了关于 SOCKS 的一篇文章，让 SOCKS 为公众所知。
 SOCKS5 协议最初是一个安全协议被用来更容易的管控防火墙和其他安全产品，在 1996 年被 IETF 所批准，并与 Aventail 公司合作开发。
@@ -43,10 +43,10 @@ ss 设置 说这么多，就让我们在服务器上装 ss 吧
     
     <item>
       <title>yubikey1:个人安全与yubikey</title>
-      <link>https://caiyy17.github.io/posts/computers/yubikey1_%E4%B8%AA%E4%BA%BA%E5%AE%89%E5%85%A8/</link>
+      <link>https://caiyy17.github.io/posts/computer/yubikey1_%E4%B8%AA%E4%BA%BA%E5%AE%89%E5%85%A8/</link>
       <pubDate>Sun, 30 Sep 2018 00:00:00 +0000</pubDate>
       
-      <guid>https://caiyy17.github.io/posts/computers/yubikey1_%E4%B8%AA%E4%BA%BA%E5%AE%89%E5%85%A8/</guid>
+      <guid>https://caiyy17.github.io/posts/computer/yubikey1_%E4%B8%AA%E4%BA%BA%E5%AE%89%E5%85%A8/</guid>
       <description>个人安全问题 yubikey  作为键盘设备（HID） U2F OpenPGP Smart Card   个人安全模型  个人信息安全需求 密码个数 构成及解密方式 个人安全模型  成分   安全性分析   后话 2019.1.19 更新 参考  个人安全问题 如今网络十分混乱，各种信息极其容易被窃取（比如说斯诺登事件），加密和认证就显得极其重要，而 yubikey 就是这样一个简易的设备（支持 OTP、公钥加密签名、U2F 协议）。
 yubikey 来自 wiki：YubiKey 是由 Yubico 生产的身份认证设备，支持一次性密码（OTP）、公钥加密和身份认证，以及由 FIDO 联盟（FIDO U2F）开发的通用第二因素（U2F）协议。它让用户可以透过提交一次性密码或是使用设备产生的公开/私密金钥来安全地登录自己的帐户。针对不支持一次性密码的网站，YubiKey 也可以存储静态密码。Facebook 使用 YubiKey 作为员工凭证；Google 同时为雇员和用户提供支持。还有一些密码管理器也支持 YubiKey。
 作为键盘设备（HID） 这是它主要介绍的功能，能够模拟键盘设备向电脑输入一串生成的密码，兼容性最好。其中还包含多种模式：OTP、Static、Challenge-Response、HTOP，
@@ -55,10 +55,10 @@ yubikey 来自 wiki：YubiKey 是由 Yubico 生产的身份认证设备，支持
     
     <item>
       <title>yubikey2:配置和gnupg</title>
-      <link>https://caiyy17.github.io/posts/computers/yubikey2_%E8%AE%BE%E7%BD%AE%E5%92%8Cgnupg/</link>
+      <link>https://caiyy17.github.io/posts/computer/yubikey2_%E8%AE%BE%E7%BD%AE%E5%92%8Cgnupg/</link>
       <pubDate>Sun, 30 Sep 2018 00:00:00 +0000</pubDate>
       
-      <guid>https://caiyy17.github.io/posts/computers/yubikey2_%E8%AE%BE%E7%BD%AE%E5%92%8Cgnupg/</guid>
+      <guid>https://caiyy17.github.io/posts/computer/yubikey2_%E8%AE%BE%E7%BD%AE%E5%92%8Cgnupg/</guid>
       <description>设置 yubikey  初始化 U2F PIV   GPG  安装 gnupg 生成要最终导入 yubikey 的密钥 导出密钥 设置 yubikey 的 pin 设置 yubikey 的 PGP 测试 SSH 注意   后记  设置 yubikey 讲完了安全模型，就可以开始设置 yubikey 了
 需要设置的有这些：
  次重要密码导入 slot1 Master 密码导入 slot2 yubikey 的 pin（Masterpin） 管理员 8 位 pin（特殊 pin） GPGkey（因为需要备份，我们从外部导入） PIV（Masterpin） U2F  从简单的开始
