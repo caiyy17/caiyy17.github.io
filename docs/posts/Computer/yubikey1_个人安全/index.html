@@ -189,7 +189,7 @@ yubikey 来自 wiki：YubiKey 是由 Yubico 生产的身份认证设备，支持
 <p>然而以上都是对称加密，也就是说，只要服务器端（验证服务器）的密文被泄漏，所有的信息理论上都可以进行伪造。</p>
 <h2 id="u2f">U2F</h2>
 <p>U2F 是一个开源的认证标准协议，使用非对称加密算法，在每次需要认证是设备可以对 challenge 信息使用私钥进行签名来完成认证。作为一个开源的标准协议，Google、Dropbox 等网站都支持这种协议的两步验证，然而现阶段浏览器端仅有 Chrome 支持。</p>
-<p><img src="images/u2f.png" alt="U2F"></p>
+<p><img src="/img/u2f.png" alt="U2F"></p>
 <h2 id="openpgp-smart-card">OpenPGP Smart Card</h2>
 <p>YubiKey 还可以作为标准的 OpenPGP Smart Card 使用，用来存储 PGP 私钥（设备中私钥是可写不可读的，解密／签名操作在设备上完成）。</p>
 <p>以上提到的三个功能是可以同时使用的，相互之间并不冲突。</p>
@@ -274,7 +274,7 @@ yubikey 来自 wiki：YubiKey 是由 Yubico 生产的身份认证设备，支持
 </ul>
 <h2 id="个人安全模型-1">个人安全模型</h2>
 <p>基于个人的需求，我的信息安全模型如下：</p>
-<p><img src="images/%E4%B8%AA%E4%BA%BA%E5%AE%89%E5%85%A8%E6%A8%A1%E5%9E%8B.JPG" alt="个人安全模型"></p>
+<p><img src="/img/%E4%B8%AA%E4%BA%BA%E5%AE%89%E5%85%A8%E6%A8%A1%E5%9E%8B.JPG" alt="个人安全模型"></p>
 <p><strong>除了 Master 密码外，所有的密码和用到的公私钥都用 Master 密码加密储存于一个外置存储设备上，而在本地以及云盘上，可以用 yubikey 的加密私钥非对称加密存储一份。</strong></p>
 <h3 id="成分">成分</h3>
 <p>文件方面：</p>
