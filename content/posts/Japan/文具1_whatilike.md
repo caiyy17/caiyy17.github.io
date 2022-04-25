@@ -2,7 +2,7 @@
 title: 文具1:我喜欢的日本文具
 date: 2019-07-28
 tags:
-    - 文具
+    - Stationary
 categories:
     - Japan
 ---

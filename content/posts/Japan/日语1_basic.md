@@ -2,7 +2,7 @@
 title: 日语1:基础总结
 date: 2019-07-28
 tags:
-    - 日语
+    - Japanese
 categories:
     - Japan
 ---

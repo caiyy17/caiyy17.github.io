@@ -2,7 +2,7 @@
 title: 软件2:VSC
 date: 2018-09-30
 tags:
-    - 软件
+    - Software
 categories:
     - Computer
 ---

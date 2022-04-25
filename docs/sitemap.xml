@@ -11,6 +11,9 @@
     <loc>https://caiyy17.github.io/</loc>
     <lastmod>2022-04-25T00:00:00+00:00</lastmod>
   </url><url>
+    <loc>https://caiyy17.github.io/tags/backup/</loc>
+    <lastmod>2020-08-15T00:00:00+00:00</lastmod>
+  </url><url>
     <loc>https://caiyy17.github.io/categories/</loc>
     <lastmod>2020-08-15T00:00:00+00:00</lastmod>
   </url><url>
@@ -18,9 +21,6 @@
     <lastmod>2020-08-15T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://caiyy17.github.io/tags/</loc>
-    <lastmod>2020-08-15T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://caiyy17.github.io/tags/%E5%A4%87%E4%BB%BD/</loc>
     <lastmod>2020-08-15T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://caiyy17.github.io/posts/computer/%E5%A4%87%E4%BB%BD_%E5%90%84%E7%A7%8D%E7%8E%AF%E5%A2%83%E7%9A%84%E5%A4%87%E4%BB%BD%E4%B8%8E%E9%87%8D%E8%A3%85/</loc>
@@ -62,7 +62,7 @@
     <loc>https://caiyy17.github.io/categories/japan/</loc>
     <lastmod>2019-08-01T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://caiyy17.github.io/tags/%E6%96%87%E5%85%B7/</loc>
+    <loc>https://caiyy17.github.io/tags/stationary/</loc>
     <lastmod>2019-08-01T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://caiyy17.github.io/posts/japan/%E6%96%87%E5%85%B74_%E6%89%8B%E5%B8%90/</loc>
@@ -83,37 +83,34 @@
     <loc>https://caiyy17.github.io/categories/eating/</loc>
     <lastmod>2019-07-28T00:00:00+00:00</lastmod>
   </url><url>
+    <loc>https://caiyy17.github.io/tags/japan/</loc>
+    <lastmod>2019-07-28T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://caiyy17.github.io/tags/japanese/</loc>
+    <lastmod>2019-07-28T00:00:00+00:00</lastmod>
+  </url><url>
     <loc>https://caiyy17.github.io/tags/loveani/</loc>
     <lastmod>2019-07-28T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://caiyy17.github.io/posts/japan/%E6%96%87%E5%85%B71_whatilike/</loc>
     <lastmod>2019-07-28T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://caiyy17.github.io/tags/%E6%97%A5%E6%96%99/</loc>
-    <lastmod>2019-07-28T00:00:00+00:00</lastmod>
-  </url><url>
     <loc>https://caiyy17.github.io/posts/eating/%E6%97%A5%E6%96%99/</loc>
-    <lastmod>2019-07-28T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://caiyy17.github.io/tags/%E6%97%A5%E8%AF%AD/</loc>
     <lastmod>2019-07-28T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://caiyy17.github.io/posts/japan/%E6%97%A5%E8%AF%AD1_basic/</loc>
     <lastmod>2019-07-28T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://caiyy17.github.io/tags/%E9%9B%B6%E9%A3%9F/</loc>
-    <lastmod>2019-07-28T00:00:00+00:00</lastmod>
-  </url><url>
     <loc>https://caiyy17.github.io/tags/homekit/</loc>
+    <lastmod>2019-02-19T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://caiyy17.github.io/tags/rsp/</loc>
     <lastmod>2019-02-19T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://caiyy17.github.io/posts/computer/rsp2_homeassistant/</loc>
     <lastmod>2019-02-19T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://caiyy17.github.io/posts/computer/rsp3_ha%E6%99%BA%E8%83%BD/</loc>
-    <lastmod>2019-02-19T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://caiyy17.github.io/tags/%E6%A0%91%E8%8E%93%E6%B4%BE/</loc>
     <lastmod>2019-02-19T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://caiyy17.github.io/posts/traveling/tonz/</loc>
@@ -152,6 +149,9 @@
     <loc>https://caiyy17.github.io/tags/safety/</loc>
     <lastmod>2018-09-30T00:00:00+00:00</lastmod>
   </url><url>
+    <loc>https://caiyy17.github.io/tags/software/</loc>
+    <lastmod>2018-09-30T00:00:00+00:00</lastmod>
+  </url><url>
     <loc>https://caiyy17.github.io/tags/vps/</loc>
     <lastmod>2018-09-30T00:00:00+00:00</lastmod>
   </url><url>
@@ -171,9 +171,6 @@
     <lastmod>2018-09-30T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://caiyy17.github.io/posts/computer/yubikey2_%E8%AE%BE%E7%BD%AE%E5%92%8Cgnupg/</loc>
-    <lastmod>2018-09-30T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://caiyy17.github.io/tags/%E8%BD%AF%E4%BB%B6/</loc>
     <lastmod>2018-09-30T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://caiyy17.github.io/posts/computer/%E8%BD%AF%E4%BB%B61_%E7%94%B5%E8%84%91%E5%88%86%E9%85%8D%E5%92%8C%E5%B8%B8%E7%94%A8%E7%A8%8B%E5%BA%8F/</loc>

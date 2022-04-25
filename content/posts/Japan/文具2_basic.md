@@ -2,7 +2,7 @@
 title: 文具2:基础文具
 date: 2019-07-30
 tags:
-    - 文具
+    - Stationary
 categories:
     - Japan
 ---

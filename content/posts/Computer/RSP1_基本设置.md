@@ -2,7 +2,7 @@
 title: RSP1:基本设置
 date: 2018-12-20
 tags:
-    - 树莓派
+    - RSP
 categories:
     - Computer
 ---

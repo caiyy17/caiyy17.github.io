@@ -2,7 +2,7 @@
 title: RSP2:homeassistant
 date: 2019-02-19
 tags:
-    - 树莓派
+    - RSP
     - homekit
 categories:
     - Computer
