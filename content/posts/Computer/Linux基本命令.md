@@ -7,27 +7,6 @@ categories:
     - Computer
 ---
 
-- [前言](#前言)
-- [Linux 权限](#linux-权限)
-  - [Linux 权限管理](#linux-权限管理)
-- [Linux 基本命令](#linux-基本命令)
-  - [ls](#ls)
-  - [cd](#cd)
-  - [pwd](#pwd)
-  - [touch](#touch)
-  - [mkdir](#mkdir)
-  - [rm](#rm)
-  - [rmdir](#rmdir)
-  - [man](#man)
-  - [cp 命令](#cp-命令)
-  - [mv](#mv)
-  - [cat](#cat)
-  - [more](#more)
-  - [less](#less)
-  - [find](#find)
-  - [grep](#grep)
-- [参考](#参考)
-
 # 前言
 
 感觉学一些 linux 的基本命令还是十分必要的，不仅服务器需要，Mac 也会有要求。本文介绍的一些命令，mac 里面应该都有。

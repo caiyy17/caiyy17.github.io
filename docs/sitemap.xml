@@ -2,22 +2,19 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
-    <loc>https://caiyy17.github.io/</loc>
-    <lastmod>2022-04-25T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://caiyy17.github.io/posts/my-first-post/</loc>
-    <lastmod>2022-04-25T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://caiyy17.github.io/posts/</loc>
-    <lastmod>2022-04-25T00:00:00+00:00</lastmod>
-  </url><url>
     <loc>https://caiyy17.github.io/tags/backup/</loc>
+    <lastmod>2020-08-15T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://caiyy17.github.io/</loc>
     <lastmod>2020-08-15T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://caiyy17.github.io/categories/</loc>
     <lastmod>2020-08-15T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://caiyy17.github.io/categories/computer/</loc>
+    <lastmod>2020-08-15T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://caiyy17.github.io/posts/</loc>
     <lastmod>2020-08-15T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://caiyy17.github.io/tags/</loc>

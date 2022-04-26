@@ -13,7 +13,7 @@
       <pubDate>Wed, 15 Aug 2018 00:00:00 +0000</pubDate>
       
       <guid>https://caiyy17.github.io/posts/computer/mac%E6%96%B0%E6%9C%BA%E8%AE%BE%E7%BD%AE/</guid>
-      <description>前言 基础：系统偏好设置 基础：几个好用的快捷键 基础：安装日常应用（见软件篇） 进阶：安装编程相关应用并配置 进阶：其他设置 进阶：Windows 相关 服务器相关  前言 新的 mbp2018 总算到了，这也是我自己的第一台苹果电脑，自然要熟悉好一会儿，在此记录下我的折腾过程。
+      <description>前言 新的 mbp2018 总算到了，这也是我自己的第一台苹果电脑，自然要熟悉好一会儿，在此记录下我的折腾过程。
 基础：系统偏好设置 在设置中，我增加了这些东西
   调度中心：使窗口按应用程序成组
   调度中心：设置触发角（左下角桌面，右下角关闭屏幕）
@@ -27,7 +27,13 @@
   命令行设置显示全路径
 defaults write com.apple.finder _FXShowPosixPathInTitle -bool TRUE; killall Finder   更改截屏保存地址
 defaults write com.apple.screencapture location &amp;#34;路径&amp;#34;; killalll SyatemUIserve   Finder 偏好设置
-边栏-&amp;gt;全勾上</description>
+边栏-&amp;gt;全勾上
+高级-&amp;gt;勾选&amp;quot;显示所有文件扩展名&amp;quot;和&amp;quot;按名称排序时保持文件夹在顶部&amp;rdquo;
+顶部 显示-&amp;gt;显示标签页栏，显示状态栏
+在任意文件夹空白处-&amp;gt;右键查看显示选项-&amp;gt;改设置并用作默 可以作用于之后新建的文件夹
+目前设置： 排列方式：无；排序方式：名称；显示项目简介；显示图标预览
+  文本编辑偏好设置
+新建文稿-&amp;gt;格式-&amp;gt;纯文本</description>
     </item>
     
   </channel>

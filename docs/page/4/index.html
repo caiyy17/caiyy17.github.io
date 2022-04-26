@@ -148,22 +148,6 @@
 
 <article class="post-entry"> 
   <header class="entry-header">
-    <h2>yubikey2:配置和gnupg
-    </h2>
-  </header>
-  <div class="entry-content">
-    <p>设置 yubikey  初始化 U2F PIV   GPG  安装 gnupg 生成要最终导入 yubikey 的密钥 导出密钥 设置 yubikey 的 pin 设置 yubikey 的 PGP 测试 SSH 注意   后记  设置 yubikey 讲完了安全模型，就可以开始设置 yubikey 了
-需要设置的有这些：
- 次重要密码导入 slot1 Master 密码导入 slot2 yubikey 的 pin（Masterpin） 管理员 8 位 pin（特殊 pin） GPGkey（因为需要备份，我们从外部导入） PIV（Masterpin） U2F  从简单的开始
-初始化 下载 yubikey manager，然后打开所有功能。在 OTP 里设置 slot1 和 slot2
-U2F 在支持的网站里双重验证下添加 key，然后按一下 yubikey 就行了...</p>
-  </div>
-  <footer class="entry-footer"><span title='2018-09-30 00:00:00 +0000 UTC'>September 30, 2018</span></footer>
-  <a class="entry-link" aria-label="post link to yubikey2:配置和gnupg" href="https://caiyy17.github.io/posts/computer/yubikey2_%E8%AE%BE%E7%BD%AE%E5%92%8Cgnupg/"></a>
-</article>
-
-<article class="post-entry"> 
-  <header class="entry-header">
     <h2>软件1:电脑常用软件
     </h2>
   </header>
@@ -204,7 +188,7 @@ git config --global credential.helper store 插件推荐  主题  Bracket Pair O
     </h2>
   </header>
   <div class="entry-content">
-    <p>前言 基础：系统偏好设置 基础：几个好用的快捷键 基础：安装日常应用（见软件篇） 进阶：安装编程相关应用并配置 进阶：其他设置 进阶：Windows 相关 服务器相关  前言 新的 mbp2018 总算到了，这也是我自己的第一台苹果电脑，自然要熟悉好一会儿，在此记录下我的折腾过程。
+    <p>前言 新的 mbp2018 总算到了，这也是我自己的第一台苹果电脑，自然要熟悉好一会儿，在此记录下我的折腾过程。
 基础：系统偏好设置 在设置中，我增加了这些东西
   调度中心：使窗口按应用程序成组
   调度中心：设置触发角（左下角桌面，右下角关闭屏幕）
@@ -218,7 +202,13 @@ git config --global credential.helper store 插件推荐  主题  Bracket Pair O
   命令行设置显示全路径
 defaults write com.apple.finder _FXShowPosixPathInTitle -bool TRUE; killall Finder   更改截屏保存地址
 defaults write com.apple.screencapture location &#34;路径&#34;; killalll SyatemUIserve   Finder 偏好设置
-边栏-&gt;全勾上...</p>
+边栏-&gt;全勾上
+高级-&gt;勾选&#34;显示所有文件扩展名&#34;和&#34;按名称排序时保持文件夹在顶部”
+顶部 显示-&gt;显示标签页栏，显示状态栏
+在任意文件夹空白处-&gt;右键查看显示选项-&gt;改设置并用作默 可以作用于之后新建的文件夹
+目前设置： 排列方式：无；排序方式：名称；显示项目简介；显示图标预览
+  文本编辑偏好设置
+新建文稿-&gt;格式-&gt;纯文本...</p>
   </div>
   <footer class="entry-footer"><span title='2018-08-15 00:00:00 +0000 UTC'>August 15, 2018</span></footer>
   <a class="entry-link" aria-label="post link to Mac新机设置" href="https://caiyy17.github.io/posts/computer/mac%E6%96%B0%E6%9C%BA%E8%AE%BE%E7%BD%AE/"></a>
@@ -230,7 +220,7 @@ defaults write com.apple.screencapture location &#34;路径&#34;; killalll Syate
     </h2>
   </header>
   <div class="entry-content">
-    <p>前言 Markdown 对 html 的支持 Markdown 转 html  Markdown here   After all  前言 为了可以用自己喜欢的排版风格排版 Markdown，需要将其转换成其他有丰富排版功能的格式，最重要的无非是 html 和 tex，本文主要讲 html 的转换。
+    <p>前言 为了可以用自己喜欢的排版风格排版 Markdown，需要将其转换成其他有丰富排版功能的格式，最重要的无非是 html 和 tex，本文主要讲 html 的转换。
 转至 html 后便可以配合已经编写好的.css 文件，统一排版成自己想要的格式。便可以发布在自己的网站上了。然而自己便携插件还是有些困难，好在有 hexo 或者 markdownhere 等软件和插件的帮助。前者可以帮助我们制作博客，后者可以直接在 chrome 中将 markdown 原文在公众号网站中转换为带格式的文本。
 之后就不需要麻烦的公众号编辑器，只需要每次写 Markdown 就行了。
 Markdown 对 html 的支持 这里说一下 Markdown 原生对 html 的支持。Markdown 的语法默认有对应的 html 语法，对应如下：(html 闭合部分省略，详细结构可以查 html 相应格式)
@@ -246,7 +236,7 @@ Markdown 对 html 的支持 这里说一下 Markdown 原生对 html 的支持。
     </h2>
   </header>
   <div class="entry-content">
-    <p>前言 Markdown 概述 Markdown 语法  换行 标题 引用 列表 代码块 分割线 表格 区段元素  链接 强调 图片 转义字符     进阶语法  数学公式 脚注 交叉引用 参考文献   参考  前言 本人现在大学生一枚，由于自己作为小白又总喜欢瞎折腾一些东西，所以一直想自己写一些个人博客来记录一下自己的折腾历史，以防以后就忘了怎么操作。
+    <p>前言 本人现在大学生一枚，由于自己作为小白又总喜欢瞎折腾一些东西，所以一直想自己写一些个人博客来记录一下自己的折腾历史，以防以后就忘了怎么操作。
 既然是写博客，又不想自己人工排版，第一篇就以 Markdown 的语法开始吧。
 Markdown 概述 Markdown 的宗旨便是易写易读，一份 Markdown 的文档就算是直接纯文本形式发布也不会让人看起来别扭，但又可以很方便的进行简单的排版，特别是转成 html 格式在互联网上十分方便。本人就计划用 Markdown 配合 html 与 css 将自己的文章发在微信公众号上。
 在这里吐槽一下：
@@ -254,7 +244,19 @@ Markdown 概述 Markdown 的宗旨便是易写易读，一份 Markdown 的文档
 还有 Latex 的编辑效率个人感觉并不高，公式编辑其实 Word 自带的公式编辑器（不是 mathtype）非常快捷，浮动体也很不友好，Word 嵌入式就好很多（虽然有时候占地方，但有强迫症啊…）大概就只有交叉引用会比 Word 方便了。
 吐槽完毕…
 Markdown 语法 好了，我们正式开始。
-换行 和 Latex 差不多 Markdown 使用一个空行来换行...</p>
+换行 和 Latex 差不多 Markdown 使用一个空行来换行
+例：
+这是一个段落这是一个段落 效果：
+ 这是一个段落
+这是一个段落
+ 当然，Markdown 也可以使用在行末尾加上两个或以上空格加来换行。（其实是在末尾加了&lt;br/&gt;）
+这是一个段落（末尾有两个空格）这是一个段落 效果：
+ 这是一个段落
+这是一个段落
+ 会发现这样的的强制换行间距与空行换行不一样
+标题 Markdown 支持 6 级标题，分别用不一样数量的#来标记注意一定要在#后面加空格
+例：
+# 这是H1## 这是H2###### 这是H6 效果：...</p>
   </div>
   <footer class="entry-footer"><span title='2018-06-13 00:00:00 +0000 UTC'>June 13, 2018</span></footer>
   <a class="entry-link" aria-label="post link to Markdown1:语法" href="https://caiyy17.github.io/posts/computer/md1_%E8%AF%AD%E6%B3%95/"></a>

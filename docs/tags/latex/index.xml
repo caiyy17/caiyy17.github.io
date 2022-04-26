@@ -13,12 +13,14 @@
       <pubDate>Wed, 17 Oct 2018 00:00:00 +0000</pubDate>
       
       <guid>https://caiyy17.github.io/posts/computer/md3_%E9%85%8D%E5%90%88pandoc/</guid>
-      <description>前言 安装  html 参数 PDF 参数   所以 番外：幻灯片  幻灯片结构 常用参数 我的常用命令   参考  前言 从 Md1 到 Md2，基本的 Markdown 写作以及没有问题了，然后就会想用 md 解决其他的事情了，比如写学术论文，Latex 写起来太费劲了，公式还是 word 比较方便。
+      <description>前言 从 Md1 到 Md2，基本的 Markdown 写作以及没有问题了，然后就会想用 md 解决其他的事情了，比如写学术论文，Latex 写起来太费劲了，公式还是 word 比较方便。
 Pandoc 是一个开源的万能文档转换软件，可以在 pdf，md，word，html 之间转换文档格式。而装了 vscode-pandoc 后可以直接在 vscode 中使用，但是每次只能用同样的命令行参数，否则只能在终端中使用。
 安装 直接 brew 安装即可，还要安装 pandoc-citeproc，vscode 插件也是一键安装。
 然后是配置，word 不需要配置，html 需要配置命令行参数，在设置的 string 里面填入就行。
 html 参数 --standalone --self-contained --css pandoc.css 以上转换命令中选项含义介绍如下。
- “–standalone”：为目标格式文件增加合适的“header”和“footer”。如果目标格式是“HTML”，那么通过该选项可解决“由于未设置合适的字符编码，而导致的乱码问题”。 “–self-contained” ：如果目标格式是“HTML”，那么可得到如下效果：在转换得到目标 HTML 文件的过程中，会将依赖的“脚本，CSS，图片，视频”等文件的内容内嵌到目标 HTML 文件中。 “–css pandoc.css” ：使得目标格式文件最后使用“pandoc.css”文件作为 CSS 文件，否则，使用默认的 CSS 文件。  PDF 参数 pdf 需要 latex 的支持，mac 可以装 Mactex，Win 有 texlive（不过要配置环境变量）</description>
+ “–standalone”：为目标格式文件增加合适的“header”和“footer”。如果目标格式是“HTML”，那么通过该选项可解决“由于未设置合适的字符编码，而导致的乱码问题”。 “–self-contained” ：如果目标格式是“HTML”，那么可得到如下效果：在转换得到目标 HTML 文件的过程中，会将依赖的“脚本，CSS，图片，视频”等文件的内容内嵌到目标 HTML 文件中。 “–css pandoc.css” ：使得目标格式文件最后使用“pandoc.css”文件作为 CSS 文件，否则，使用默认的 CSS 文件。  PDF 参数 pdf 需要 latex 的支持，mac 可以装 Mactex，Win 有 texlive（不过要配置环境变量）
+然而当你尝试的时候就会有各种 bug，网上也有解决方案，但都不是很漂亮，所以我就放弃了这个选项&amp;hellip;&amp;hellip;
+所以 最终我选择了把 md 转为 word 然后可以使用 word 的公式编辑器编写公式&amp;hellip;&amp;hellip;</description>
     </item>
     
   </channel>

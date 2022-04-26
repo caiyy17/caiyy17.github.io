@@ -8,12 +8,6 @@ categories:
     - Computer
 ---
 
-- [前言](#前言)
-- [Markdown 对 html 的支持](#markdown-对-html-的支持)
-- [Markdown 转 html](#markdown-转-html)
-  - [Markdown here](#markdown-here)
-- [After all](#after-all)
-
 # 前言
 
 为了可以用自己喜欢的排版风格排版 Markdown，需要将其转换成其他有丰富排版功能的格式，最重要的无非是 html 和 tex，本文主要讲 html 的转换。

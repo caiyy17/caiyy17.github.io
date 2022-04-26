@@ -7,7 +7,7 @@
 <meta name="robots" content="index, follow">
 <title>Markdown1:语法 | caiyy17</title>
 <meta name="keywords" content="Markdown">
-<meta name="description" content="前言 Markdown 概述 Markdown 语法  换行 标题 引用 列表 代码块 分割线 表格 区段元素  链接 强调 图片 转义字符     进阶语法  数学公式 脚注 交叉引用 参考文献   参考  前言 本人现在大学生一枚，由于自己作为小白又总喜欢瞎折腾一些东西，所以一直想自己写一些个人博客来记录一下自己的折腾历史，以防以后就忘了怎么操作。
+<meta name="description" content="前言 本人现在大学生一枚，由于自己作为小白又总喜欢瞎折腾一些东西，所以一直想自己写一些个人博客来记录一下自己的折腾历史，以防以后就忘了怎么操作。
 既然是写博客，又不想自己人工排版，第一篇就以 Markdown 的语法开始吧。
 Markdown 概述 Markdown 的宗旨便是易写易读，一份 Markdown 的文档就算是直接纯文本形式发布也不会让人看起来别扭，但又可以很方便的进行简单的排版，特别是转成 html 格式在互联网上十分方便。本人就计划用 Markdown 配合 html 与 css 将自己的文章发在微信公众号上。
 在这里吐槽一下：
@@ -15,7 +15,19 @@ Markdown 概述 Markdown 的宗旨便是易写易读，一份 Markdown 的文档
 还有 Latex 的编辑效率个人感觉并不高，公式编辑其实 Word 自带的公式编辑器（不是 mathtype）非常快捷，浮动体也很不友好，Word 嵌入式就好很多（虽然有时候占地方，但有强迫症啊&hellip;）大概就只有交叉引用会比 Word 方便了。
 吐槽完毕&hellip;
 Markdown 语法 好了，我们正式开始。
-换行 和 Latex 差不多 Markdown 使用一个空行来换行">
+换行 和 Latex 差不多 Markdown 使用一个空行来换行
+例：
+这是一个段落这是一个段落 效果：
+ 这是一个段落
+这是一个段落
+ 当然，Markdown 也可以使用在行末尾加上两个或以上空格加来换行。（其实是在末尾加了&lt;br/&gt;）
+这是一个段落（末尾有两个空格）这是一个段落 效果：
+ 这是一个段落
+这是一个段落
+ 会发现这样的的强制换行间距与空行换行不一样
+标题 Markdown 支持 6 级标题，分别用不一样数量的#来标记注意一定要在#后面加空格
+例：
+# 这是H1## 这是H2###### 这是H6 效果：">
 <meta name="author" content="">
 <link rel="canonical" href="https://caiyy17.github.io/posts/computer/md1_%E8%AF%AD%E6%B3%95/">
 <link crossorigin="anonymous" href="/assets/css/stylesheet.min.b4e19c453811e60acfec1f00c15ac2be1c53f6ab90187e684358ce7faaf48bab.css" integrity="sha256-tOGcRTgR5grP7B8AwVrCvhxT9quQGH5oQ1jOf6r0i6s=" rel="preload stylesheet" as="style">
@@ -65,7 +77,7 @@ Markdown 语法 好了，我们正式开始。
 
     </style>
 </noscript><meta property="og:title" content="Markdown1:语法" />
-<meta property="og:description" content="前言 Markdown 概述 Markdown 语法  换行 标题 引用 列表 代码块 分割线 表格 区段元素  链接 强调 图片 转义字符     进阶语法  数学公式 脚注 交叉引用 参考文献   参考  前言 本人现在大学生一枚，由于自己作为小白又总喜欢瞎折腾一些东西，所以一直想自己写一些个人博客来记录一下自己的折腾历史，以防以后就忘了怎么操作。
+<meta property="og:description" content="前言 本人现在大学生一枚，由于自己作为小白又总喜欢瞎折腾一些东西，所以一直想自己写一些个人博客来记录一下自己的折腾历史，以防以后就忘了怎么操作。
 既然是写博客，又不想自己人工排版，第一篇就以 Markdown 的语法开始吧。
 Markdown 概述 Markdown 的宗旨便是易写易读，一份 Markdown 的文档就算是直接纯文本形式发布也不会让人看起来别扭，但又可以很方便的进行简单的排版，特别是转成 html 格式在互联网上十分方便。本人就计划用 Markdown 配合 html 与 css 将自己的文章发在微信公众号上。
 在这里吐槽一下：
@@ -73,7 +85,19 @@ Markdown 概述 Markdown 的宗旨便是易写易读，一份 Markdown 的文档
 还有 Latex 的编辑效率个人感觉并不高，公式编辑其实 Word 自带的公式编辑器（不是 mathtype）非常快捷，浮动体也很不友好，Word 嵌入式就好很多（虽然有时候占地方，但有强迫症啊&hellip;）大概就只有交叉引用会比 Word 方便了。
 吐槽完毕&hellip;
 Markdown 语法 好了，我们正式开始。
-换行 和 Latex 差不多 Markdown 使用一个空行来换行" />
+换行 和 Latex 差不多 Markdown 使用一个空行来换行
+例：
+这是一个段落这是一个段落 效果：
+ 这是一个段落
+这是一个段落
+ 当然，Markdown 也可以使用在行末尾加上两个或以上空格加来换行。（其实是在末尾加了&lt;br/&gt;）
+这是一个段落（末尾有两个空格）这是一个段落 效果：
+ 这是一个段落
+这是一个段落
+ 会发现这样的的强制换行间距与空行换行不一样
+标题 Markdown 支持 6 级标题，分别用不一样数量的#来标记注意一定要在#后面加空格
+例：
+# 这是H1## 这是H2###### 这是H6 效果：" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://caiyy17.github.io/posts/computer/md1_%E8%AF%AD%E6%B3%95/" /><meta property="article:section" content="posts" />
 <meta property="article:published_time" content="2018-06-13T00:00:00&#43;00:00" />
@@ -81,7 +105,7 @@ Markdown 语法 好了，我们正式开始。
 
 <meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Markdown1:语法"/>
-<meta name="twitter:description" content="前言 Markdown 概述 Markdown 语法  换行 标题 引用 列表 代码块 分割线 表格 区段元素  链接 强调 图片 转义字符     进阶语法  数学公式 脚注 交叉引用 参考文献   参考  前言 本人现在大学生一枚，由于自己作为小白又总喜欢瞎折腾一些东西，所以一直想自己写一些个人博客来记录一下自己的折腾历史，以防以后就忘了怎么操作。
+<meta name="twitter:description" content="前言 本人现在大学生一枚，由于自己作为小白又总喜欢瞎折腾一些东西，所以一直想自己写一些个人博客来记录一下自己的折腾历史，以防以后就忘了怎么操作。
 既然是写博客，又不想自己人工排版，第一篇就以 Markdown 的语法开始吧。
 Markdown 概述 Markdown 的宗旨便是易写易读，一份 Markdown 的文档就算是直接纯文本形式发布也不会让人看起来别扭，但又可以很方便的进行简单的排版，特别是转成 html 格式在互联网上十分方便。本人就计划用 Markdown 配合 html 与 css 将自己的文章发在微信公众号上。
 在这里吐槽一下：
@@ -89,7 +113,19 @@ Markdown 概述 Markdown 的宗旨便是易写易读，一份 Markdown 的文档
 还有 Latex 的编辑效率个人感觉并不高，公式编辑其实 Word 自带的公式编辑器（不是 mathtype）非常快捷，浮动体也很不友好，Word 嵌入式就好很多（虽然有时候占地方，但有强迫症啊&hellip;）大概就只有交叉引用会比 Word 方便了。
 吐槽完毕&hellip;
 Markdown 语法 好了，我们正式开始。
-换行 和 Latex 差不多 Markdown 使用一个空行来换行"/>
+换行 和 Latex 差不多 Markdown 使用一个空行来换行
+例：
+这是一个段落这是一个段落 效果：
+ 这是一个段落
+这是一个段落
+ 当然，Markdown 也可以使用在行末尾加上两个或以上空格加来换行。（其实是在末尾加了&lt;br/&gt;）
+这是一个段落（末尾有两个空格）这是一个段落 效果：
+ 这是一个段落
+这是一个段落
+ 会发现这样的的强制换行间距与空行换行不一样
+标题 Markdown 支持 6 级标题，分别用不一样数量的#来标记注意一定要在#后面加空格
+例：
+# 这是H1## 这是H2###### 这是H6 效果："/>
 
 
 <script type="application/ld+json">
@@ -118,12 +154,12 @@ Markdown 语法 好了，我们正式开始。
   "@type": "BlogPosting",
   "headline": "Markdown1:语法",
   "name": "Markdown1:语法",
-  "description": "前言 Markdown 概述 Markdown 语法  换行 标题 引用 列表 代码块 分割线 表格 区段元素  链接 强调 图片 转义字符     进阶语法  数学公式 脚注 交叉引用 参考文献   参考  前言 本人现在大学生一枚，由于自己作为小白又总喜欢瞎折腾一些东西，所以一直想自己写一些个人博客来记录一下自己的折腾历史，以防以后就忘了怎么操作。\n既然是写博客，又不想自己人工排版，第一篇就以 Markdown 的语法开始吧。\nMarkdown 概述 Markdown 的宗旨便是易写易读，一份 Markdown 的文档就算是直接纯文本形式发布也不会让人看起来别扭，但又可以很方便的进行简单的排版，特别是转成 html 格式在互联网上十分方便。本人就计划用 Markdown 配合 html 与 css 将自己的文章发在微信公众号上。\n在这里吐槽一下：\n微信公众号的各种排版工具和网站实在是太麻烦了，虽然它们也许可以实现很多非常花哨的功能，但是一点点调整一点点排版十分的反人类（也许也是我不会用\u0026hellip;），又不是做一张海报，我觉得一个非常简洁的工具才是比较好的。\n还有 Latex 的编辑效率个人感觉并不高，公式编辑其实 Word 自带的公式编辑器（不是 mathtype）非常快捷，浮动体也很不友好，Word 嵌入式就好很多（虽然有时候占地方，但有强迫症啊\u0026hellip;）大概就只有交叉引用会比 Word 方便了。\n吐槽完毕\u0026hellip;\nMarkdown 语法 好了，我们正式开始。\n换行 和 Latex 差不多 Markdown 使用一个空行来换行",
+  "description": "前言 本人现在大学生一枚，由于自己作为小白又总喜欢瞎折腾一些东西，所以一直想自己写一些个人博客来记录一下自己的折腾历史，以防以后就忘了怎么操作。\n既然是写博客，又不想自己人工排版，第一篇就以 Markdown 的语法开始吧。\nMarkdown 概述 Markdown 的宗旨便是易写易读，一份 Markdown 的文档就算是直接纯文本形式发布也不会让人看起来别扭，但又可以很方便的进行简单的排版，特别是转成 html 格式在互联网上十分方便。本人就计划用 Markdown 配合 html 与 css 将自己的文章发在微信公众号上。\n在这里吐槽一下：\n微信公众号的各种排版工具和网站实在是太麻烦了，虽然它们也许可以实现很多非常花哨的功能，但是一点点调整一点点排版十分的反人类（也许也是我不会用\u0026hellip;），又不是做一张海报，我觉得一个非常简洁的工具才是比较好的。\n还有 Latex 的编辑效率个人感觉并不高，公式编辑其实 Word 自带的公式编辑器（不是 mathtype）非常快捷，浮动体也很不友好，Word 嵌入式就好很多（虽然有时候占地方，但有强迫症啊\u0026hellip;）大概就只有交叉引用会比 Word 方便了。\n吐槽完毕\u0026hellip;\nMarkdown 语法 好了，我们正式开始。\n换行 和 Latex 差不多 Markdown 使用一个空行来换行\n例：\n这是一个段落\r这是一个段落\r 效果：\n 这是一个段落\n这是一个段落\n 当然，Markdown 也可以使用在行末尾加上两个或以上空格加来换行。（其实是在末尾加了\u0026lt;br/\u0026gt;）\n这是一个段落（末尾有两个空格）\r这是一个段落\r 效果：\n 这是一个段落\n这是一个段落\n 会发现这样的的强制换行间距与空行换行不一样\n标题 Markdown 支持 6 级标题，分别用不一样数量的#来标记注意一定要在#后面加空格\n例：\n# 这是H1\r## 这是H2\r###### 这是H6\r 效果：",
   "keywords": [
     "Markdown"
   ],
-  "articleBody": " 前言 Markdown 概述 Markdown 语法  换行 标题 引用 列表 代码块 分割线 表格 区段元素  链接 强调 图片 转义字符     进阶语法  数学公式 脚注 交叉引用 参考文献   参考  前言 本人现在大学生一枚，由于自己作为小白又总喜欢瞎折腾一些东西，所以一直想自己写一些个人博客来记录一下自己的折腾历史，以防以后就忘了怎么操作。\n既然是写博客，又不想自己人工排版，第一篇就以 Markdown 的语法开始吧。\nMarkdown 概述 Markdown 的宗旨便是易写易读，一份 Markdown 的文档就算是直接纯文本形式发布也不会让人看起来别扭，但又可以很方便的进行简单的排版，特别是转成 html 格式在互联网上十分方便。本人就计划用 Markdown 配合 html 与 css 将自己的文章发在微信公众号上。\n在这里吐槽一下：\n微信公众号的各种排版工具和网站实在是太麻烦了，虽然它们也许可以实现很多非常花哨的功能，但是一点点调整一点点排版十分的反人类（也许也是我不会用…），又不是做一张海报，我觉得一个非常简洁的工具才是比较好的。\n还有 Latex 的编辑效率个人感觉并不高，公式编辑其实 Word 自带的公式编辑器（不是 mathtype）非常快捷，浮动体也很不友好，Word 嵌入式就好很多（虽然有时候占地方，但有强迫症啊…）大概就只有交叉引用会比 Word 方便了。\n吐槽完毕…\nMarkdown 语法 好了，我们正式开始。\n换行 和 Latex 差不多 Markdown 使用一个空行来换行\n例：\n这是一个段落\r这是一个段落\r 效果：\n 这是一个段落\n这是一个段落\n 当然，Markdown 也可以使用在行末尾加上两个或以上空格加来换行。（其实是在末尾加了）\n这是一个段落（末尾有两个空格）\r这是一个段落\r 效果：\n 这是一个段落\n这是一个段落\n 会发现这样的的强制换行间距与空行换行不一样\n标题 Markdown 支持 6 级标题，分别用不一样数量的#来标记注意一定要在#后面加空格\n例：\n# 这是H1\r## 这是H2\r###### 这是H6\r 效果：\n 这是 H1 这是 H2 这是 H6  引用 引用和 email 中的很像，在引用区块的每行前面加一个或多个（几个就是几级）\n例：\n一级\r二级\r三级\r 效果：（这里没有像前面一样另加一个引用层级）\n 一级\n 二级\n 三级\n   列表 使用*，+，-作无序列表（注意加空格）\n例：\n* 第一条\r* 第二条\r* 第三条\r 效果：\n  第一条 第二条 第三条   使用数字加.可以产生有序列表\n例：\n1. 第一条\r2. 第二条\r3. 第三条\r 效果：\n  第一条 第二条 第三条   多级列表\n每一级和上一级缩进四个空格，同时在下一级中所有的代码都相应缩进 4 个空格，这个时候代码块用```比较好。\n例：\n* 第一级\r* 第二级\r* 第二级\r* 第一级\r* 第一级\r 效果：\n  第一级  第二级 第二级   第一级 第一级   代码块 代码只要四个空格就可以成代码块了，或用```括起来，若是行内代码，用`括起来。\n例：\n 这是一段代码\r\\```\r这是一段代码\r\\```\r这是一段`行内代码` 效果：(注意代码块加引用的时候要 5 个空格，之后要有一个空格和四个空格分开)\n 这是一段代码\r 这是一段代码 这是一段行内代码\n 分割线 使用三个以上*或-或_独立成行\n例：\n文字\r******\r文字\r 效果：\n 文字\n 文字\n 表格 表格形式：\n|表头|表头|表头|\r|---|:--:|---:|\r|内容|内容|内容|\r|内容|内容|内容|\r 其中：\n 第二行分割表头和内容。 - 大于等于一个就行 左边加\":“表示文字居左（不加默认居左），两边加”:“表示文字居中，右边加”:“表示文字居右 最两边的”|“可以省略  效果：\n   表头 表头 表头     内容 内容 内容   内容 内容 内容    区段元素 链接 链接形式:(标题可选)\n[接受链接的文字](http://example.net/ \"标题\")\r 或（注意后面[id]一定要定义好，不然没用）\n[接受链接的文字][id]\r[id]: http://example.net/ \"标题\"\r 或\n[接受链接的文字][]\r[接受链接的文字]: http://example.net/ \"标题\"\r 或\n\r 效果：\n 接受链接的文字\n 或(最后一种)\n http://example.net/\n 强调 例：\n*文字*\r**文字**\r 效果：\n 文字\n文字\n 图片 图片形式基本同链接，就是有前置感叹号!（这里用参考形式示范）\n![图片文字][imgid]\r[imgid]: http://example.net/picture \"标题\"\r 注：参考形式的[id]可以放在任何地方，可以向参考文献一样统一放在文档末尾。\n转义字符 转义在会引起歧义的符号前加\\即可\n进阶语法 这一部分又肯需要 pandoc 等高级工具支持。\n数学公式 直接用 latex 的就好\n脚注 使用\nContent [^1]\r[^1]: This is a footnote\r 效果：\nContent 1\n交叉引用 交叉引用网上并没有找到十分方便的方法，这是 LaTeX 的语法\n\\label{img}\rSee \\ref{img}\r 参考文献 首先，有一个 ref.bib 的文件\n@book{book1,\rauthor = {author1, author2},\rtitle = {title1},\rpublisher = {publisher1},\ryear = 2018\r}\r@inproceedings{article2,\rauthor = {author3, author4},\rtitle = {title2},\rbooktitle = {booktitle2},\raddress = {here},\ryear = 2019\r}\r 然后在头部写入：\n---\rcsl: FILE\rtitle: \"Sample Document\"\rbibliography: ref.bib\r---\r 就可以正常引用了，引用格式\n[@book1] //bib里每个字条的第一个字段\r 参考 Markdown 语法说明\n  This is a footnote ↩︎\n   ",
-  "wordCount" : "320",
+  "articleBody": "前言 本人现在大学生一枚，由于自己作为小白又总喜欢瞎折腾一些东西，所以一直想自己写一些个人博客来记录一下自己的折腾历史，以防以后就忘了怎么操作。\n既然是写博客，又不想自己人工排版，第一篇就以 Markdown 的语法开始吧。\nMarkdown 概述 Markdown 的宗旨便是易写易读，一份 Markdown 的文档就算是直接纯文本形式发布也不会让人看起来别扭，但又可以很方便的进行简单的排版，特别是转成 html 格式在互联网上十分方便。本人就计划用 Markdown 配合 html 与 css 将自己的文章发在微信公众号上。\n在这里吐槽一下：\n微信公众号的各种排版工具和网站实在是太麻烦了，虽然它们也许可以实现很多非常花哨的功能，但是一点点调整一点点排版十分的反人类（也许也是我不会用…），又不是做一张海报，我觉得一个非常简洁的工具才是比较好的。\n还有 Latex 的编辑效率个人感觉并不高，公式编辑其实 Word 自带的公式编辑器（不是 mathtype）非常快捷，浮动体也很不友好，Word 嵌入式就好很多（虽然有时候占地方，但有强迫症啊…）大概就只有交叉引用会比 Word 方便了。\n吐槽完毕…\nMarkdown 语法 好了，我们正式开始。\n换行 和 Latex 差不多 Markdown 使用一个空行来换行\n例：\n这是一个段落\r这是一个段落\r 效果：\n 这是一个段落\n这是一个段落\n 当然，Markdown 也可以使用在行末尾加上两个或以上空格加来换行。（其实是在末尾加了）\n这是一个段落（末尾有两个空格）\r这是一个段落\r 效果：\n 这是一个段落\n这是一个段落\n 会发现这样的的强制换行间距与空行换行不一样\n标题 Markdown 支持 6 级标题，分别用不一样数量的#来标记注意一定要在#后面加空格\n例：\n# 这是H1\r## 这是H2\r###### 这是H6\r 效果：\n 这是 H1 这是 H2 这是 H6  引用 引用和 email 中的很像，在引用区块的每行前面加一个或多个（几个就是几级）\n例：\n一级\r二级\r三级\r 效果：（这里没有像前面一样另加一个引用层级）\n 一级\n 二级\n 三级\n   列表 使用*，+，-作无序列表（注意加空格）\n例：\n* 第一条\r* 第二条\r* 第三条\r 效果：\n  第一条 第二条 第三条   使用数字加.可以产生有序列表\n例：\n1. 第一条\r2. 第二条\r3. 第三条\r 效果：\n  第一条 第二条 第三条   多级列表\n每一级和上一级缩进四个空格，同时在下一级中所有的代码都相应缩进 4 个空格，这个时候代码块用```比较好。\n例：\n* 第一级\r* 第二级\r* 第二级\r* 第一级\r* 第一级\r 效果：\n  第一级  第二级 第二级   第一级 第一级   代码块 代码只要四个空格就可以成代码块了，或用```括起来，若是行内代码，用`括起来。\n例：\n 这是一段代码\r\\```\r这是一段代码\r\\```\r这是一段`行内代码` 效果：(注意代码块加引用的时候要 5 个空格，之后要有一个空格和四个空格分开)\n 这是一段代码\r 这是一段代码 这是一段行内代码\n 分割线 使用三个以上*或-或_独立成行\n例：\n文字\r******\r文字\r 效果：\n 文字\n 文字\n 表格 表格形式：\n|表头|表头|表头|\r|---|:--:|---:|\r|内容|内容|内容|\r|内容|内容|内容|\r 其中：\n 第二行分割表头和内容。 - 大于等于一个就行 左边加\":“表示文字居左（不加默认居左），两边加”:“表示文字居中，右边加”:“表示文字居右 最两边的”|“可以省略  效果：\n   表头 表头 表头     内容 内容 内容   内容 内容 内容    区段元素 链接 链接形式:(标题可选)\n[接受链接的文字](http://example.net/ \"标题\")\r 或（注意后面[id]一定要定义好，不然没用）\n[接受链接的文字][id]\r[id]: http://example.net/ \"标题\"\r 或\n[接受链接的文字][]\r[接受链接的文字]: http://example.net/ \"标题\"\r 或\n\r 效果：\n 接受链接的文字\n 或(最后一种)\n http://example.net/\n 强调 例：\n*文字*\r**文字**\r 效果：\n 文字\n文字\n 图片 图片形式基本同链接，就是有前置感叹号!（这里用参考形式示范）\n![图片文字][imgid]\r[imgid]: http://example.net/picture \"标题\"\r 注：参考形式的[id]可以放在任何地方，可以向参考文献一样统一放在文档末尾。\n转义字符 转义在会引起歧义的符号前加\\即可\n进阶语法 这一部分又肯需要 pandoc 等高级工具支持。\n数学公式 直接用 latex 的就好\n脚注 使用\nContent [^1]\r[^1]: This is a footnote\r 效果：\nContent 1\n交叉引用 交叉引用网上并没有找到十分方便的方法，这是 LaTeX 的语法\n\\label{img}\rSee \\ref{img}\r 参考文献 首先，有一个 ref.bib 的文件\n@book{book1,\rauthor = {author1, author2},\rtitle = {title1},\rpublisher = {publisher1},\ryear = 2018\r}\r@inproceedings{article2,\rauthor = {author3, author4},\rtitle = {title2},\rbooktitle = {booktitle2},\raddress = {here},\ryear = 2019\r}\r 然后在头部写入：\n---\rcsl: FILE\rtitle: \"Sample Document\"\rbibliography: ref.bib\r---\r 就可以正常引用了，引用格式\n[@book1] //bib里每个字条的第一个字段\r 参考 Markdown 语法说明\n  This is a footnote ↩︎\n   ",
+  "wordCount" : "297",
   "inLanguage": "en",
   "datePublished": "2018-06-13T00:00:00Z",
   "dateModified": "2018-06-13T00:00:00Z",
@@ -294,39 +330,7 @@ Markdown 语法 好了，我们正式开始。
     </details>
 </div>
 
-  <div class="post-content"><ul>
-<li><a href="#%E5%89%8D%E8%A8%80">前言</a></li>
-<li><a href="#markdown-%E6%A6%82%E8%BF%B0">Markdown 概述</a></li>
-<li><a href="#markdown-%E8%AF%AD%E6%B3%95">Markdown 语法</a>
-<ul>
-<li><a href="#%E6%8D%A2%E8%A1%8C">换行</a></li>
-<li><a href="#%E6%A0%87%E9%A2%98">标题</a></li>
-<li><a href="#%E5%BC%95%E7%94%A8">引用</a></li>
-<li><a href="#%E5%88%97%E8%A1%A8">列表</a></li>
-<li><a href="#%E4%BB%A3%E7%A0%81%E5%9D%97">代码块</a></li>
-<li><a href="#%E5%88%86%E5%89%B2%E7%BA%BF">分割线</a></li>
-<li><a href="#%E8%A1%A8%E6%A0%BC">表格</a></li>
-<li><a href="#%E5%8C%BA%E6%AE%B5%E5%85%83%E7%B4%A0">区段元素</a>
-<ul>
-<li><a href="#%E9%93%BE%E6%8E%A5">链接</a></li>
-<li><a href="#%E5%BC%BA%E8%B0%83">强调</a></li>
-<li><a href="#%E5%9B%BE%E7%89%87">图片</a></li>
-<li><a href="#%E8%BD%AC%E4%B9%89%E5%AD%97%E7%AC%A6">转义字符</a></li>
-</ul>
-</li>
-</ul>
-</li>
-<li><a href="#%E8%BF%9B%E9%98%B6%E8%AF%AD%E6%B3%95">进阶语法</a>
-<ul>
-<li><a href="#%E6%95%B0%E5%AD%A6%E5%85%AC%E5%BC%8F">数学公式</a></li>
-<li><a href="#%E8%84%9A%E6%B3%A8">脚注</a></li>
-<li><a href="#%E4%BA%A4%E5%8F%89%E5%BC%95%E7%94%A8">交叉引用</a></li>
-<li><a href="#%E5%8F%82%E8%80%83%E6%96%87%E7%8C%AE">参考文献</a></li>
-</ul>
-</li>
-<li><a href="#%E5%8F%82%E8%80%83">参考</a></li>
-</ul>
-<h1 id="前言">前言<a hidden class="anchor" aria-hidden="true" href="#前言">#</a></h1>
+  <div class="post-content"><h1 id="前言">前言<a hidden class="anchor" aria-hidden="true" href="#前言">#</a></h1>
 <p>本人现在大学生一枚，由于自己作为小白又总喜欢瞎折腾一些东西，所以一直想自己写一些个人博客来记录一下自己的折腾历史，以防以后就忘了怎么操作。</p>
 <p>既然是写博客，又不想自己人工排版，第一篇就以 Markdown 的语法开始吧。</p>
 <h1 id="markdown-概述">Markdown 概述<a hidden class="anchor" aria-hidden="true" href="#markdown-概述">#</a></h1>

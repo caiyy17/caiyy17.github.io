@@ -8,21 +8,6 @@ categories:
     - Computer
 ---
 
-- [设置 yubikey](#设置-yubikey)
-  - [初始化](#初始化)
-  - [U2F](#u2f)
-  - [PIV](#piv)
-- [GPG](#gpg)
-  - [安装 gnupg](#安装-gnupg)
-  - [生成要最终导入 yubikey 的密钥](#生成要最终导入-yubikey-的密钥)
-  - [导出密钥](#导出密钥)
-  - [设置 yubikey 的 pin](#设置-yubikey-的-pin)
-  - [设置 yubikey 的 PGP](#设置-yubikey-的-pgp)
-  - [测试](#测试)
-  - [SSH](#ssh)
-  - [注意](#注意)
-- [后记](#后记)
-
 # 设置 yubikey
 
 讲完了安全模型，就可以开始设置 yubikey 了
