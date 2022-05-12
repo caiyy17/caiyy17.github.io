@@ -1,3 +1,12 @@
+---
+title: ACG1:动漫风格化渲染
+date: 2022-02-10
+tags:
+    - ComputerGraphics
+categories:
+    - ComputerGraphics
+---
+
 # 动漫风格化渲染
 
 **【声明】本文内容全部基于个人观察，具体算法细节可能有所不同，也没必要完全相同，毕竟这只是一个 basline，供日后改进使用**
