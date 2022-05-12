@@ -2,22 +2,34 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
+    <loc>https://caiyy17.github.io/</loc>
+    <lastmod>2022-05-12T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://caiyy17.github.io/categories/</loc>
+    <lastmod>2022-05-12T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://caiyy17.github.io/tags/japanstudy/</loc>
+    <lastmod>2022-05-12T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://caiyy17.github.io/categories/japanstudy/</loc>
+    <lastmod>2022-05-12T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://caiyy17.github.io/posts/</loc>
+    <lastmod>2022-05-12T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://caiyy17.github.io/tags/</loc>
+    <lastmod>2022-05-12T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://caiyy17.github.io/posts/japanstudy/%E9%9C%93%E8%99%B9%E7%95%99%E5%AD%A6%E8%AE%B01_%E4%B8%8A%E6%B5%B7%E9%A3%9E%E4%B8%9C%E4%BA%AC/</loc>
+    <lastmod>2022-05-12T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://caiyy17.github.io/posts/japanstudy/%E9%9C%93%E8%99%B9%E7%95%99%E5%AD%A6%E8%AE%B01_%E4%B8%9C%E4%BA%AC%E5%A4%A7%E5%AD%A6%E7%94%B3%E8%AF%B7/</loc>
+    <lastmod>2022-05-12T00:00:00+00:00</lastmod>
+  </url><url>
     <loc>https://caiyy17.github.io/tags/backup/</loc>
     <lastmod>2020-08-15T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://caiyy17.github.io/</loc>
-    <lastmod>2020-08-15T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://caiyy17.github.io/categories/</loc>
-    <lastmod>2020-08-15T00:00:00+00:00</lastmod>
-  </url><url>
     <loc>https://caiyy17.github.io/categories/computer/</loc>
-    <lastmod>2020-08-15T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://caiyy17.github.io/posts/</loc>
-    <lastmod>2020-08-15T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://caiyy17.github.io/tags/</loc>
     <lastmod>2020-08-15T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://caiyy17.github.io/posts/computer/%E5%A4%87%E4%BB%BD_%E5%90%84%E7%A7%8D%E7%8E%AF%E5%A2%83%E7%9A%84%E5%A4%87%E4%BB%BD%E4%B8%8E%E9%87%8D%E8%A3%85/</loc>
@@ -187,6 +199,8 @@
   </url><url>
     <loc>https://caiyy17.github.io/posts/computer/md1_%E8%AF%AD%E6%B3%95/</loc>
     <lastmod>2018-06-13T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://caiyy17.github.io/posts/computergraphics/acg1_%E5%8A%A8%E6%BC%AB%E9%A3%8E%E6%A0%BC%E5%8C%96%E6%B8%B2%E6%9F%93/</loc>
   </url><url>
     <loc>https://caiyy17.github.io/archives/</loc>
   </url><url>
