@@ -21,28 +21,36 @@ categories:
 
 动漫风格化渲染可以从 Unlit 开始：
 
+base_sg
 ![base_sg](/img/base_sg.png)
 
+unlit
 ![unlit](/img/unlit.png)
 
 为了获得动漫的阴影硬边缘，需要依赖于 NdotL，并设定阈值：
 
+NdotL_sg
 ![NdotL_sg](/img/NdotL_sg.png)
 
+hardShadow
 ![hardShadow](/img/hardShadow.png)
 
 如果希望过渡有彩色渐变，就需要依赖于一张 ramp，使用 NdotL 的值采样 ramp（原神采样 ramp 的公式为 saturate(NdotL + 1)，大于一的部分不采样 ramp 直接返回 1，就是那条白黄交界线）：
 
+ramp_sg
 ![ramp_sg](/img/ramp_sg.png)
 
+ramp
 ![ramp](/img/ramp.png)
 
 ### 边缘
 
 边缘光和描边一样，都可以突出主体，原神人物边缘光为屏幕空间法线方向边缘光（叶子边缘光为光源方向），向法线方向偏移采样深度图，深度差大于阈值则使颜色变亮形成边缘光效果，宽度由偏移量控制，形成近似等宽的效果（这是相对于菲涅尔边缘光的优势）：
 
+rim_sg
 ![rim_sg](/img/rim_sg.png)
 
+rim
 ![rim](/img/rim.png)
 
 描边就是背向法线外扩描边，此时模型法线需要使用平均法线。
@@ -51,15 +59,19 @@ categories:
 
 为了表现出材质区别，使用 ilm 标记区域，ilm 的通道分配直到现在，基本还是沿用罪恶装备的定义。R 通道表示材质粗糙度用于计算高光（各种高光算法其实都可以）；G 通道表示接受阴影（原神中 0 表示永远为阴影，0.5 表示正常，1 表示永远为亮，原神中阴影色是单独定义的颜色，和 ramp 中最深的颜色是不同的，这样可以在阴影中创造层次）；B 通道表示高光 mask（用于 mask 在 R 通道计算的高光）；A 通道原神中表示采样 ramp 图的第几条：
 
+ilm
 ![ilm](/img/ilm.png)
 
+ilmBlend_code
 ![ilmBlend_code](/img/ilmBlend_code.png)
 
+ilmBlend
 ![ilmBlend](/img/ilmBlend.png)
 
 最终加上描边：
 
-![sphere](https://i.imgur.com/xCl4uy6.png)sphere
+sphere
+![sphere](https://i.imgur.com/xCl4uy6.png)
 
 （不要问我本村线，那种反人类的东西我是不会弄的）
 
@@ -71,16 +83,21 @@ categories:
 
 具体实现为将脸部的 Front Vector 与光源点乘得到 FdotL，这是一个全脸相同的值，然后和采样得到的 SDFshadow 比较，如果 NdotL 比 SDFshadow 值大，则认为这个点在光照下，反之在阴影中（这边使用 SG 连特别乱，还是用 shader 写比较明了）：
 
+SDFShadow_code
 ![SDFShadow_code](/img/SDFShadow_code.png)
 
+faceNdotL
 ![faceNdotL](/img/faceNdotL.png)
 
+faceSDF
 ![faceSDF](/img/faceSDF.png)
 
+SDFShadow
 ![SDFShadow](/img/SDFShadow.png)
 
 这样，一个最基础的 baseline 就完成了，具体色彩倾向需要进行 tonemapping，而我这边直接加上 ACES 和 Bloom 就输出了：
 
+baseline
 ![baseline](/img/baseline.png)
 
 ## 改进
