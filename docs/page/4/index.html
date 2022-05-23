@@ -148,6 +148,46 @@
 
 <article class="post-entry"> 
   <header class="entry-header">
+    <h2>VPS1:购买以及设置
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>前言 对于一个准备完计算机的喜欢折腾的学生来说，拥有一台自己的服务器是十分有必要的，在那上面，可以干许许多多事情。
+Github 学生包 相信大家对 github 都不陌生，但 github 上除了代码管理和社区之外，github 提供的学生包也是个非常不错的东西。学生包获取方法就根据提示一步一步来就行，需要学校邮箱。
+其中个人暂时用到的有：
+ DigitalOcean 上 50 刀的代金券 AWS 上 150 刀代金券 Namecheap 一年的免费.me 域名  这些基本都和 VPS 有关，本文主要介绍 DO 上的 VPS，这个也比较简单。
+DigitalOcean 注册 DO，需要用 paypal 或者信用卡向其中充值 5 美金，就可以注册完成了。完成后，在 DO 网站中输入学生包优惠码，会发现账户变成了 55 美金，这样就可以用基础套餐 11 个月了。
+然后添加 Droplets，我使用的是 centos，最基础的套餐（5 刀一个月），用校园网的话记得勾选 ipv6，然后 添加一个 sshkey （这一步很重要，不然申请完成后需要再设置这个 VPS 很多步）
+然后就完成了基本操作，可以使用电脑连接服务器了。
+设置防火墙 DO 提供了十分方便的防火墙设置，可以控制进出开放的端口，然后你可以只开你需要的端口，可以免去在 VPS 里面设置防火墙，甚至可以把里面的防火墙关了。
+这里一般会设置几套防火墙，每一套之间是叠加的，就是最终开放的端口是所有防火墙组的开发端口的并集。可以有前段防火墙开发基本端口，然后 ss 防火墙专门开发 socks 协议使用的端口……这个就看自己组合了。
+我这边是开了 ssh 使用的 22 端口；网站的 443 和 1080 端口；以及 ss 或者 v2ray 使用的端口（自己设置）。如果不用网站，可以将 443 或者 1080 作为翻墙端口。...</p>
+  </div>
+  <footer class="entry-footer"><span title='2018-09-30 00:00:00 +0000 UTC'>September 30, 2018</span></footer>
+  <a class="entry-link" aria-label="post link to VPS1:购买以及设置" href="https://caiyy17.github.io/posts/computer/vps1_%E8%B4%AD%E4%B9%B0%E4%BB%A5%E5%8F%8A%E8%AE%BE%E7%BD%AEvps/"></a>
+</article>
+
+<article class="post-entry"> 
+  <header class="entry-header">
+    <h2>VPS2:socks协议以及ss设置
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>Socks 协议 Socket Secure(SOCKS)是一个网络协议，可以通过代理服务器来路由客户端和服务器之间的数据包。一个 SOCKS 服务器可以代理 TCP 连接到任何一个 IP 地址，同时为 UDP 的数据包提供一种转发方式。 SOCKS 完成的是 OSI 模型中第五层的工作（会话层，位于表示层和传输层之间）
+历史 这个协议最初由 David Koblas 创造，David Koblas 是 MIPS 计算系统的管理员，在 1992 年 MIPS 被 Silicon Graphics 接管之后，Koblas 在那年的 Usenix 安全研讨会上发表了关于 SOCKS 的一篇文章，让 SOCKS 为公众所知。
+SOCKS5 协议最初是一个安全协议被用来更容易的管控防火墙和其他安全产品，在 1996 年被 IETF 所批准，并与 Aventail 公司合作开发。
+用途 SOCKS 是 Circuit-level gateway（注：Circuit-level gateway 是一种防火墙）事实上的标准
+另外一种 SOCKS 的使用方式是作为规避工具，允许流量绕过网络过滤来获得内容，否则就被政府，学校，一些具体国家的 web 服务堵塞。（就是翻墙…）
+而 shadowsocks 就是这样的一款软件。
+ss 设置 说这么多，就让我们在服务器上装 ss 吧
+配置环境 安装 pip，接着安装 ss。...</p>
+  </div>
+  <footer class="entry-footer"><span title='2018-09-30 00:00:00 +0000 UTC'>September 30, 2018</span></footer>
+  <a class="entry-link" aria-label="post link to VPS2:socks协议以及ss设置" href="https://caiyy17.github.io/posts/computer/vps2_socks%E5%8D%8F%E8%AE%AE%E4%B8%8Ess%E8%AE%BE%E7%BD%AE/"></a>
+</article>
+
+<article class="post-entry"> 
+  <header class="entry-header">
     <h2>VPS3:nginx服务与Hexo博客
     </h2>
   </header>
