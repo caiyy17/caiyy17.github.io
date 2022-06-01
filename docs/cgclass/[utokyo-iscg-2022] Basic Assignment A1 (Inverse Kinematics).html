@@ -25,6 +25,7 @@
                 { position: [0, 0], angle: 0, length: 0.7 }, // index: 3
             ];
             var is_dragging = false;
+            var is_jacobi = false;
 
             // グローバル変数 "linkages" の各要素それぞれの "angle" と "length" の値を使い、
             // Forward Kinematics (FK) の考え方でそれぞれのボーンの先端位置を計算して "position" に格納する
@@ -49,12 +50,18 @@
                 });
             }
 
+            //////////////////////////////////////////////////
+            //IK
+            //////////////////////////////////////////////////
+
             function compute_ik(target_position) {
                 // TODO: ここにCCD法を実装する
                 var end = linkages.length - 1;
                 update_position();
                 for (var i = 0; i < 20; i++) {
+                    //iterate at most 20 loops
                     for (var j = end; j >= 0; j--) {
+                        //in each loop, iterate all bones
                         if (j == 0) {
                             startPos = [0, 0];
                         } else {
@@ -74,6 +81,7 @@
                         startToEnd = [0, 0];
                         startToEnd[0] = endPos[0] - startPos[0];
                         startToEnd[1] = endPos[1] - startPos[1];
+                        //use minmax to avoid some numerical instability
                         len2 = Math.sqrt(
                             Math.max(
                                 startToEnd[0] * startToEnd[0] +
@@ -100,6 +108,86 @@
                         }
                         update_position();
                     }
+                    x = linkages[end].position[0] - target_position[0];
+                    y = linkages[end].position[1] - target_position[1];
+                    if (x * x + y * y < 0.0001) {
+                        break;
+                    }
+                }
+            }
+
+            //////////////////////////////////////////////////
+            //jacobi
+            //////////////////////////////////////////////////
+
+            function compute_ik_jacobi(target_position) {
+                // TODO: ここにjacobi法を実装する
+                var end = linkages.length - 1;
+                update_position();
+                for (var i = 0; i < 1000; i++) {
+                    endPos = linkages[end].position;
+                    endToTarget = [0, 0];
+                    endToTarget[0] = target_position[0] - endPos[0];
+                    endToTarget[1] = target_position[1] - endPos[1];
+                    l = Math.sqrt(
+                        Math.max(
+                            0,
+                            endToTarget[0] * endToTarget[0] +
+                                endToTarget[1] * endToTarget[1]
+                        )
+                    );
+                    //Y = f(X)
+                    //(y1,y2) = f(x1,x2,x3,x4), compute dY/dX (size 2*4)
+                    ////////////////////////////////////////////////////////////////////////////////////////////////////
+                    //1
+                    Dir = [0, 0];
+                    Dir = endPos;
+                    d11 = -Dir[1];
+                    d21 = Dir[0];
+                    //2
+                    Dir[0] = endPos[0] - linkages[0].position[0];
+                    Dir[1] = endPos[1] - linkages[0].position[1];
+                    d12 = -Dir[1];
+                    d22 = Dir[0];
+                    //3
+                    Dir[0] = endPos[0] - linkages[1].position[0];
+                    Dir[1] = endPos[1] - linkages[1].position[1];
+                    d13 = -Dir[1];
+                    d23 = Dir[0];
+                    //4
+                    Dir[0] = endPos[0] - linkages[2].position[0];
+                    Dir[1] = endPos[1] - linkages[2].position[1];
+                    d14 = -Dir[1];
+                    d24 = Dir[0];
+                    ////////////////////////////////////////////////////////////////////////////////////////////////////
+                    //dX = A(T) * (AA(T))(-1) * dY
+                    A11 = d11 * d11 + d12 * d12 + d13 * d13 + d14 * d14;
+                    A12 = d11 * d21 + d12 * d22 + d13 * d23 + d14 * d24;
+                    A21 = d21 * d11 + d22 * d12 + d23 * d13 + d24 * d14;
+                    A22 = d21 * d21 + d22 * d22 + d23 * d23 + d24 * d24;
+                    DET = A11 * A22 - A12 * A21 + 0.0001;
+                    B11 = A22 / DET;
+                    B12 = -A12 / DET;
+                    B21 = -A21 / DET;
+                    B22 = A11 / DET;
+                    step = Math.min(1, 0.01 / l);
+                    DD11 = d11 * B11 + d21 * B21;
+                    DD21 = d11 * B12 + d21 * B22;
+                    DD12 = d12 * B11 + d22 * B21;
+                    DD22 = d12 * B12 + d22 * B22;
+                    DD13 = d13 * B11 + d23 * B21;
+                    DD23 = d13 * B12 + d23 * B22;
+                    DD14 = d14 * B11 + d24 * B21;
+                    DD24 = d14 * B12 + d24 * B22;
+                    x1 = step * (DD11 * endToTarget[0] + DD21 * endToTarget[1]);
+                    x2 = step * (DD12 * endToTarget[0] + DD22 * endToTarget[1]);
+                    x3 = step * (DD13 * endToTarget[0] + DD23 * endToTarget[1]);
+                    x4 = step * (DD14 * endToTarget[0] + DD24 * endToTarget[1]);
+                    linkages[0].angle += x1 + 0.00001 * Math.random();
+                    linkages[1].angle += x2 + 0.00001 * Math.random();
+                    linkages[2].angle += x3 + 0.00001 * Math.random();
+                    linkages[3].angle += x4 + 0.00001 * Math.random();
+                    update_position();
                     x = linkages[end].position[0] - target_position[0];
                     y = linkages[end].position[1] - target_position[1];
                     if (x * x + y * y < 0.0001) {
@@ -202,8 +290,13 @@
                         );
                         return;
                     }
-                    if (document.getElementById("input_ikmode").checked)
+                    if (document.getElementById("input_ikmode").checked) {
                         is_dragging = true;
+                        is_jacobi = false;
+                        if (evt.shiftKey) {
+                            is_jacobi = true;
+                        }
+                    }
                 };
                 canvas.onmousemove = function (evt) {
                     var mouse_win = this.get_mousepos(evt);
@@ -240,7 +333,14 @@
                     );
 
                     // マウスの2次元座標（ワールド座標系）を入力としてIKを計算する
-                    compute_ik([target_position[0], target_position[1]]);
+                    if (is_jacobi) {
+                        compute_ik_jacobi([
+                            target_position[0],
+                            target_position[1],
+                        ]);
+                    } else {
+                        compute_ik([target_position[0], target_position[1]]);
+                    }
 
                     // IKを計算した結果を表示する
                     draw();
@@ -321,6 +421,7 @@
                         <li>Usage:</li>
                         <ul>
                             <li>Drag: Perform IK</li>
+                            <li>Shift+drag: Perform IK of Jacobi</li>
                             <li>Alt+Drag: Camera Pan</li>
                             <li>Alt+Shift+drag: Camera Zoom</li>
                         </ul>
