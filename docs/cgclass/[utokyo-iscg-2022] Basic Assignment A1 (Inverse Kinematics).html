@@ -51,6 +51,61 @@
 
             function compute_ik(target_position) {
                 // TODO: ここにCCD法を実装する
+                var end = linkages.length - 1;
+                update_position();
+                for (var i = 0; i < 20; i++) {
+                    for (var j = end; j >= 0; j--) {
+                        if (j == 0) {
+                            startPos = [0, 0];
+                        } else {
+                            startPos = linkages[j - 1].position;
+                        }
+                        endPos = linkages[end].position;
+                        startToTarget = [0, 0];
+                        startToTarget[0] = target_position[0] - startPos[0];
+                        startToTarget[1] = target_position[1] - startPos[1];
+                        len1 = Math.sqrt(
+                            Math.max(
+                                0,
+                                startToTarget[0] * startToTarget[0] +
+                                    startToTarget[1] * startToTarget[1]
+                            )
+                        );
+                        startToEnd = [0, 0];
+                        startToEnd[0] = endPos[0] - startPos[0];
+                        startToEnd[1] = endPos[1] - startPos[1];
+                        len2 = Math.sqrt(
+                            Math.max(
+                                startToEnd[0] * startToEnd[0] +
+                                    startToEnd[1] * startToEnd[1]
+                            )
+                        );
+                        cosTheta = Math.min(
+                            1,
+                            Math.max(
+                                -1,
+                                (startToTarget[0] * startToEnd[0] +
+                                    startToTarget[1] * startToEnd[1]) /
+                                    (len1 * len2)
+                            )
+                        );
+                        theta = Math.acos(cosTheta);
+                        sign =
+                            startToTarget[0] * startToEnd[1] -
+                            startToTarget[1] * startToEnd[0];
+                        if (sign > 0) {
+                            linkages[j].angle -= theta;
+                        } else {
+                            linkages[j].angle += theta;
+                        }
+                        update_position();
+                    }
+                    x = linkages[end].position[0] - target_position[0];
+                    y = linkages[end].position[1] - target_position[1];
+                    if (x * x + y * y < 0.0001) {
+                        break;
+                    }
+                }
             }
 
             function draw() {
