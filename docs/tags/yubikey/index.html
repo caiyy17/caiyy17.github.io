@@ -10,7 +10,7 @@
 <meta name="description" content="">
 <meta name="author" content="">
 <link rel="canonical" href="https://caiyy17.github.io/tags/yubikey/">
-<link crossorigin="anonymous" href="/assets/css/stylesheet.d7fb4cbf980fe688a21621b06a795933c4e6bb2d4070ec940667af1715d84af2.css" integrity="sha256-1/tMv5gP5oiiFiGwanlZM8Tmuy1AcOyUBmevFxXYSvI=" rel="preload stylesheet" as="style">
+<link crossorigin="anonymous" href="/assets/css/stylesheet.bccfefac377bc340f06c260aed1bddf49a4354816d7c570d6aac75a997986c95.css" integrity="sha256-vM/vrDd7w0DwbCYK7Rvd9JpDVIFtfFcNaqx1qZeYbJU=" rel="preload stylesheet" as="style">
 <link rel="icon" href="https://caiyy17.github.io/favicon.ico">
 <link rel="icon" type="image/png" sizes="16x16" href="https://caiyy17.github.io/favicon-16x16.png">
 <link rel="icon" type="image/png" sizes="32x32" href="https://caiyy17.github.io/favicon-32x32.png">
@@ -84,12 +84,12 @@
             <a href="https://caiyy17.github.io" accesskey="h" title="caiyy17 (Alt + H)">caiyy17</a>
             <div class="logo-switches">
                 <button id="theme-toggle" accesskey="t" title="(Alt + T)">
-                    <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                    <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
                         fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
                         stroke-linejoin="round">
                         <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
                     </svg>
-                    <svg id="sun" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                    <svg id="sun" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
                         fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
                         stroke-linejoin="round">
                         <circle cx="12" cy="12" r="5"></circle>
@@ -145,9 +145,10 @@
     <p>个人安全问题 如今网络十分混乱，各种信息极其容易被窃取（比如说斯诺登事件），加密和认证就显得极其重要，而 yubikey 就是这样一个简易的设备（支持 OTP、公钥加密签名、U2F 协议）。
 yubikey 来自 wiki：YubiKey 是由 Yubico 生产的身份认证设备，支持一次性密码（OTP）、公钥加密和身份认证，以及由 FIDO 联盟（FIDO U2F）开发的通用第二因素（U2F）协议。它让用户可以透过提交一次性密码或是使用设备产生的公开/私密金钥来安全地登录自己的帐户。针对不支持一次性密码的网站，YubiKey 也可以存储静态密码。Facebook 使用 YubiKey 作为员工凭证；Google 同时为雇员和用户提供支持。还有一些密码管理器也支持 YubiKey。
 作为键盘设备（HID） 这是它主要介绍的功能，能够模拟键盘设备向电脑输入一串生成的密码，兼容性最好。其中还包含多种模式：OTP、Static、Challenge-Response、HTOP，
- OTP: KEY_ID&#43;AES(AES_KEY, SECRET, COUNT&#43;&#43;)即生成的密码包含明文的 KEY_ID 和对称加密的 SECRET 和计数器。第一次使用前需要把 KEY_ID，AES_KEY，SECRET 提交至验证服务器（Yubico 提供或者自己搭建），之后应用程序每次通过服务器验证密码的可靠性（解码后 SECRET 对应、COUNT 增大（防止重放攻击））。 Static: 静态密码。顾名思义，每次生成固定的一串密码（并没有什么用）。 Challenge-Response: HMAC(SECRET, INPUT)即可以通过 HID 接口给定一个输入，输入 HMAC 的计算结果。输入需要本地代码实现。 HOTP: HMAC(SECRET, COUNTER&#43;&#43;)算法与 Challenge-Response 类似，然而使用累加计数器代替了输入，并且 HTOP 是一个标准协议，许多网站和设备都兼容该标准。  在 YubiKey 中包含两个 configuration slot，每一个 slot 可以单独配置以上模式中的其中一种，通过短触和长触来选择输入。
+OTP: KEY_ID&#43;AES(AES_KEY, SECRET, COUNT&#43;&#43;)即生成的密码包含明文的 KEY_ID 和对称加密的 SECRET 和计数器。第一次使用前需要把 KEY_ID，AES_KEY，SECRET 提交至验证服务器（Yubico 提供或者自己搭建），之后应用程序每次通过服务器验证密码的可靠性（解码后 SECRET 对应、COUNT 增大（防止重放攻击））。 Static: 静态密码。顾名思义，每次生成固定的一串密码（并没有什么用）。 Challenge-Response: HMAC(SECRET, INPUT)即可以通过 HID 接口给定一个输入，输入 HMAC 的计算结果。输入需要本地代码实现。 HOTP: HMAC(SECRET, COUNTER&#43;&#43;)算法与 Challenge-Response 类似，然而使用累加计数器代替了输入，并且 HTOP 是一个标准协议，许多网站和设备都兼容该标准。 在 YubiKey 中包含两个 configuration slot，每一个 slot 可以单独配置以上模式中的其中一种，通过短触和长触来选择输入。
 然而以上都是对称加密，也就是说，只要服务器端（验证服务器）的密文被泄漏，所有的信息理论上都可以进行伪造。
-U2F U2F 是一个开源的认证标准协议，使用非对称加密算法，在每次需要认证是设备可以对 challenge 信息使用私钥进行签名来完成认证。作为一个开源的标准协议，Google、Dropbox 等网站都支持这种协议的两步验证，然而现阶段浏览器端仅有 Chrome 支持。...</p>
+U2F U2F 是一个开源的认证标准协议，使用非对称加密算法，在每次需要认证是设备可以对 challenge 信息使用私钥进行签名来完成认证。作为一个开源的标准协议，Google、Dropbox 等网站都支持这种协议的两步验证，然而现阶段浏览器端仅有 Chrome 支持。
+OpenPGP Smart Card YubiKey 还可以作为标准的 OpenPGP Smart Card 使用，用来存储 PGP 私钥（设备中私钥是可写不可读的，解密／签名操作在设备上完成）。...</p>
   </div>
   <footer class="entry-footer"><span title='2018-09-30 00:00:00 +0000 UTC'>September 30, 2018</span></footer>
   <a class="entry-link" aria-label="post link to yubikey1:个人安全与yubikey" href="https://caiyy17.github.io/posts/computer/yubikey1_%E4%B8%AA%E4%BA%BA%E5%AE%89%E5%85%A8/"></a>

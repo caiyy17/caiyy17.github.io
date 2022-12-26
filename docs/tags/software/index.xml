@@ -14,10 +14,10 @@
       
       <guid>https://caiyy17.github.io/posts/computer/%E8%BD%AF%E4%BB%B61_%E7%94%B5%E8%84%91%E5%88%86%E9%85%8D%E5%92%8C%E5%B8%B8%E7%94%A8%E7%A8%8B%E5%BA%8F/</guid>
       <description>前言 本人也装过好多次电脑了，然而每次重装都要重新装软件，所以记录一下我都装了些啥软件，以免以后忘了。
-列表 adobe  Ps Id LR Acrobat DC  理工科软件  Clion（有可能 Xcode 的 bug 比较多，配置比较烦，用 Clion 好很多） Xcode（有很多软件会基于 Xcode 才能安装） Anaconda（python 的环境管理器，有了这个就不用 python 不同环境繁琐的依赖管理了） iTerm（命令行） VSCode（万能文本编辑器） LaTeX（论文排版） Git（代码管理） Pandoc（日常格式转换） GeoGebra（几何画板） Matlab（科学计算）  音视频软件  apple FCPX+LPX（音视频制作） Kontakt（软音源）  多媒体  audirvana plus（音乐播放） IINA（视频播放） Bluray player（蓝光播放） Foobar2000（Win/音乐播放） Potpalyer（Win/视频播放） Cyberlink（Win/蓝光播放）  工具   brew（macos 的包管理器）
-  VMware (Mac&amp;amp;Win/虚拟机)
-  其他小工具
-  日常  QQ 微信 百度云 steam chrome Office PPSSPP  </description>
+列表 adobe Ps Id LR Acrobat DC 理工科软件 Clion（有可能 Xcode 的 bug 比较多，配置比较烦，用 Clion 好很多） Xcode（有很多软件会基于 Xcode 才能安装） Anaconda（python 的环境管理器，有了这个就不用 python 不同环境繁琐的依赖管理了） iTerm（命令行） VSCode（万能文本编辑器） LaTeX（论文排版） Git（代码管理） Pandoc（日常格式转换） GeoGebra（几何画板） Matlab（科学计算） 音视频软件 apple FCPX+LPX（音视频制作） Kontakt（软音源） 多媒体 audirvana plus（音乐播放） IINA（视频播放） Bluray player（蓝光播放） Foobar2000（Win/音乐播放） Potpalyer（Win/视频播放） Cyberlink（Win/蓝光播放） 工具 brew（macos 的包管理器）
+VMware (Mac&amp;amp;Win/虚拟机)
+其他小工具
+日常 QQ 微信 百度云 steam chrome Office PPSSPP </description>
     </item>
     
     <item>
@@ -34,7 +34,7 @@
 git 打开文件夹后，在 VSC 的 git 那一栏下初始化 git 仓库。然后在集成的终端内输入：
 git remote add origin https://github.com/XXX.git git pull origin master 结下来发布时有可能要输入密码，照着做就行。
 不想输入密码就：
-git config --global credential.helper store 插件推荐  主题  Bracket Pair One Dark Pro Code runner   Markdown  Markdown all in one Markdown-preview-enhanced vscode-pandoc   语言（按需求装）  Latex Workshop   其他  Quick task    Markdown 部分参见我关于 Markdown 的三篇博文。</description>
+git config --global credential.helper store 插件推荐 主题 Bracket Pair One Dark Pro Code runner Markdown Markdown all in one Markdown-preview-enhanced vscode-pandoc 语言（按需求装） Latex Workshop 其他 Quick task Markdown 部分参见我关于 Markdown 的三篇博文。</description>
     </item>
     
   </channel>

@@ -2,22 +2,43 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
+    <loc>https://caiyy17.github.io/tags/blog/</loc>
+    <lastmod>2022-08-26T00:00:00+00:00</lastmod>
+  </url><url>
     <loc>https://caiyy17.github.io/</loc>
-    <lastmod>2022-05-23T00:00:00+00:00</lastmod>
+    <lastmod>2022-08-26T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://caiyy17.github.io/categories/</loc>
-    <lastmod>2022-05-23T00:00:00+00:00</lastmod>
+    <lastmod>2022-08-26T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://caiyy17.github.io/tags/computer/</loc>
+    <lastmod>2022-08-26T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://caiyy17.github.io/categories/computer/</loc>
+    <lastmod>2022-08-26T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://caiyy17.github.io/posts/</loc>
+    <lastmod>2022-08-26T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://caiyy17.github.io/tags/safety/</loc>
+    <lastmod>2022-08-26T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://caiyy17.github.io/tags/</loc>
+    <lastmod>2022-08-26T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://caiyy17.github.io/tags/vps/</loc>
+    <lastmod>2022-08-26T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://caiyy17.github.io/posts/computer/vps4_%E5%90%8E%E7%BB%AD%E8%AE%BE%E7%BD%AE/</loc>
+    <lastmod>2022-08-26T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://caiyy17.github.io/posts/computer/yubikey3_%E5%90%8E%E7%BB%AD%E8%AE%BE%E7%BD%AE/</loc>
+    <lastmod>2022-08-26T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://caiyy17.github.io/tags/japanstudy/</loc>
     <lastmod>2022-05-23T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://caiyy17.github.io/categories/japanstudy/</loc>
-    <lastmod>2022-05-23T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://caiyy17.github.io/posts/</loc>
-    <lastmod>2022-05-23T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://caiyy17.github.io/tags/</loc>
     <lastmod>2022-05-23T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://caiyy17.github.io/posts/japanstudy/%E9%9C%93%E8%99%B9%E7%95%99%E5%AD%A6%E8%AE%B03_%E5%89%8D%E6%9C%9F%E6%89%8B%E7%BB%AD/</loc>
@@ -44,19 +65,16 @@
     <loc>https://caiyy17.github.io/tags/backup/</loc>
     <lastmod>2020-08-15T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://caiyy17.github.io/categories/computer/</loc>
-    <lastmod>2020-08-15T00:00:00+00:00</lastmod>
-  </url><url>
     <loc>https://caiyy17.github.io/posts/computer/%E5%A4%87%E4%BB%BD_%E5%90%84%E7%A7%8D%E7%8E%AF%E5%A2%83%E7%9A%84%E5%A4%87%E4%BB%BD%E4%B8%8E%E9%87%8D%E8%A3%85/</loc>
     <lastmod>2020-08-15T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://caiyy17.github.io/posts/traveling/totokyo/</loc>
+    <loc>https://caiyy17.github.io/posts/traveling/2017totokyo/</loc>
     <lastmod>2020-01-20T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://caiyy17.github.io/posts/traveling/tochinesewest/</loc>
+    <loc>https://caiyy17.github.io/posts/traveling/2019tochinesewest/</loc>
     <lastmod>2020-01-20T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://caiyy17.github.io/posts/traveling/tokyoto/</loc>
+    <loc>https://caiyy17.github.io/posts/traveling/2020tokyoto/</loc>
     <lastmod>2020-01-20T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://caiyy17.github.io/tags/traveling/</loc>
@@ -65,22 +83,22 @@
     <loc>https://caiyy17.github.io/categories/traveling/</loc>
     <lastmod>2020-01-20T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://caiyy17.github.io/posts/traveling/todeuts/</loc>
+    <loc>https://caiyy17.github.io/posts/traveling/2010todeuts/</loc>
     <lastmod>2019-08-16T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://caiyy17.github.io/posts/traveling/tojapan/</loc>
+    <loc>https://caiyy17.github.io/posts/traveling/2012tojapan/</loc>
     <lastmod>2019-08-16T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://caiyy17.github.io/posts/traveling/tomaldives/</loc>
+    <loc>https://caiyy17.github.io/posts/traveling/2013tomaldives/</loc>
     <lastmod>2019-08-16T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://caiyy17.github.io/posts/traveling/tohokkaido/</loc>
+    <loc>https://caiyy17.github.io/posts/traveling/2015tohokkaido/</loc>
     <lastmod>2019-08-16T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://caiyy17.github.io/posts/traveling/toaus/</loc>
+    <loc>https://caiyy17.github.io/posts/traveling/2016toaus/</loc>
     <lastmod>2019-08-16T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://caiyy17.github.io/posts/traveling/toamerican/</loc>
+    <loc>https://caiyy17.github.io/posts/traveling/2016toamerican/</loc>
     <lastmod>2019-08-16T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://caiyy17.github.io/categories/japan/</loc>
@@ -137,7 +155,7 @@
     <loc>https://caiyy17.github.io/posts/computer/rsp3_ha%E6%99%BA%E8%83%BD/</loc>
     <lastmod>2019-02-19T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://caiyy17.github.io/posts/traveling/tonz/</loc>
+    <loc>https://caiyy17.github.io/posts/traveling/2019tonz/</loc>
     <lastmod>2019-02-14T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://caiyy17.github.io/posts/computer/rsp1_%E5%9F%BA%E6%9C%AC%E8%AE%BE%E7%BD%AE/</loc>
@@ -158,25 +176,13 @@
     <loc>https://caiyy17.github.io/posts/eating/%E5%B7%A7%E5%85%8B%E5%8A%9B/</loc>
     <lastmod>2018-10-04T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://caiyy17.github.io/tags/blog/</loc>
-    <lastmod>2018-09-30T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://caiyy17.github.io/tags/computer/</loc>
-    <lastmod>2018-09-30T00:00:00+00:00</lastmod>
-  </url><url>
     <loc>https://caiyy17.github.io/tags/linux/</loc>
     <lastmod>2018-09-30T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://caiyy17.github.io/posts/computer/linux%E5%9F%BA%E6%9C%AC%E5%91%BD%E4%BB%A4/</loc>
     <lastmod>2018-09-30T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://caiyy17.github.io/tags/safety/</loc>
-    <lastmod>2018-09-30T00:00:00+00:00</lastmod>
-  </url><url>
     <loc>https://caiyy17.github.io/tags/software/</loc>
-    <lastmod>2018-09-30T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://caiyy17.github.io/tags/vps/</loc>
     <lastmod>2018-09-30T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://caiyy17.github.io/posts/computer/vps1_%E8%B4%AD%E4%B9%B0%E4%BB%A5%E5%8F%8A%E8%AE%BE%E7%BD%AEvps/</loc>
@@ -214,6 +220,10 @@
   </url><url>
     <loc>https://caiyy17.github.io/posts/computer/md1_%E8%AF%AD%E6%B3%95/</loc>
     <lastmod>2018-06-13T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://caiyy17.github.io/posts/traveling/2004tohongkong/</loc>
+  </url><url>
+    <loc>https://caiyy17.github.io/posts/traveling/2011tosanya/</loc>
   </url><url>
     <loc>https://caiyy17.github.io/archives/</loc>
   </url><url>

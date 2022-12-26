@@ -22,7 +22,7 @@
 设置 HA 因为 HA 有自己的树莓派系统 hassbian，自带了管理工具 hassbian-config（hassbian 基于 raspbian 的最小镜像，所以操作也差不多，因为有自带工具，就换了系统）。
 hassbian 在官网下载镜像（还有基于 docker 的 hass.io，相关安装也可以在官网找到），安装时其实推荐 中文官方文档 ，有比较简单的安装流程（包括 hass.io），中文文档其实来自墨澜，她的技术站
 我选择了 hassbian，按照流程：
- 下载 烧录（和官方系统一样） 加入无线路由其配置文件-开机等待（墙内网不好，基本都要手动 ssh 安装 HA，这点 mossbian 应该好很多） 手动 SSH 登录（同一路由器下网址 hassbian.local），用 hassbian-config 安装 HA（失败多安装几次） 安装 samba hassbian.</description>
+下载 烧录（和官方系统一样） 加入无线路由其配置文件-开机等待（墙内网不好，基本都要手动 ssh 安装 HA，这点 mossbian 应该好很多） 手动 SSH 登录（同一路由器下网址 hassbian.local），用 hassbian-config 安装 HA（失败多安装几次） 安装 samba hassbian.</description>
     </item>
     
     <item>

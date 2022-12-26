@@ -6,7 +6,24 @@
     <description>Recent content in VPS on caiyy17</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sun, 30 Sep 2018 00:00:00 +0000</lastBuildDate><atom:link href="https://caiyy17.github.io/tags/vps/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Fri, 26 Aug 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://caiyy17.github.io/tags/vps/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>VPS3:githubio博客和VPN</title>
+      <link>https://caiyy17.github.io/posts/computer/vps4_%E5%90%8E%E7%BB%AD%E8%AE%BE%E7%BD%AE/</link>
+      <pubDate>Fri, 26 Aug 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://caiyy17.github.io/posts/computer/vps4_%E5%90%8E%E7%BB%AD%E8%AE%BE%E7%BD%AE/</guid>
+      <description>前言 之前使用 VPS 搭建个人博客和代理，但是这样需要时刻维护服务器，其实还是占用了不少时间和精力，为了最方便地使用，目前使用 hugo 博客搭配 githubio 使用，而代理则使用成品代理，有专人替你维护。
+HUGO 安装 HUGO 是基于 go 的博客框架，编译起来比之前基于 node 的 js 框架要快非常多。
+Install Hugo
+brew install hugo 然后选一个主题即可，我这边选择的是 PaperMod，使用 git submodule 安装：
+Install PaperMod
+部署到 Github 设置参照 theme 给的例子即可，需要注意的是部署到 github 需要将
+publishDir = &amp;#34;docs&amp;#34; 加在配置中，然后在 githubio 设置中将发布路径改为 docs，这样不用设置另外分支，非常方便。
+生成网页 博客直接在 posts 中用 md 编写即可，需要发布时先用 hugo 命令生成，然后同步 github 的 repo
+hugo -D </description>
+    </item>
+    
     <item>
       <title>VPS1:购买以及设置</title>
       <link>https://caiyy17.github.io/posts/computer/vps1_%E8%B4%AD%E4%B9%B0%E4%BB%A5%E5%8F%8A%E8%AE%BE%E7%BD%AEvps/</link>
@@ -16,7 +33,7 @@
       <description>前言 对于一个准备完计算机的喜欢折腾的学生来说，拥有一台自己的服务器是十分有必要的，在那上面，可以干许许多多事情。
 Github 学生包 相信大家对 github 都不陌生，但 github 上除了代码管理和社区之外，github 提供的学生包也是个非常不错的东西。学生包获取方法就根据提示一步一步来就行，需要学校邮箱。
 其中个人暂时用到的有：
- DigitalOcean 上 50 刀的代金券 AWS 上 150 刀代金券 Namecheap 一年的免费.me 域名  这些基本都和 VPS 有关，本文主要介绍 DO 上的 VPS，这个也比较简单。
+DigitalOcean 上 50 刀的代金券 AWS 上 150 刀代金券 Namecheap 一年的免费.me 域名 这些基本都和 VPS 有关，本文主要介绍 DO 上的 VPS，这个也比较简单。
 DigitalOcean 注册 DO，需要用 paypal 或者信用卡向其中充值 5 美金，就可以注册完成了。完成后，在 DO 网站中输入学生包优惠码，会发现账户变成了 55 美金，这样就可以用基础套餐 11 个月了。
 然后添加 Droplets，我使用的是 centos，最基础的套餐（5 刀一个月），用校园网的话记得勾选 ipv6，然后 添加一个 sshkey （这一步很重要，不然申请完成后需要再设置这个 VPS 很多步）
 然后就完成了基本操作，可以使用电脑连接服务器了。

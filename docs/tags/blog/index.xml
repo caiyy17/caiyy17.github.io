@@ -6,7 +6,24 @@
     <description>Recent content in Blog on caiyy17</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sun, 30 Sep 2018 00:00:00 +0000</lastBuildDate><atom:link href="https://caiyy17.github.io/tags/blog/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Fri, 26 Aug 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://caiyy17.github.io/tags/blog/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>VPS3:githubio博客和VPN</title>
+      <link>https://caiyy17.github.io/posts/computer/vps4_%E5%90%8E%E7%BB%AD%E8%AE%BE%E7%BD%AE/</link>
+      <pubDate>Fri, 26 Aug 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://caiyy17.github.io/posts/computer/vps4_%E5%90%8E%E7%BB%AD%E8%AE%BE%E7%BD%AE/</guid>
+      <description>前言 之前使用 VPS 搭建个人博客和代理，但是这样需要时刻维护服务器，其实还是占用了不少时间和精力，为了最方便地使用，目前使用 hugo 博客搭配 githubio 使用，而代理则使用成品代理，有专人替你维护。
+HUGO 安装 HUGO 是基于 go 的博客框架，编译起来比之前基于 node 的 js 框架要快非常多。
+Install Hugo
+brew install hugo 然后选一个主题即可，我这边选择的是 PaperMod，使用 git submodule 安装：
+Install PaperMod
+部署到 Github 设置参照 theme 给的例子即可，需要注意的是部署到 github 需要将
+publishDir = &amp;#34;docs&amp;#34; 加在配置中，然后在 githubio 设置中将发布路径改为 docs，这样不用设置另外分支，非常方便。
+生成网页 博客直接在 posts 中用 md 编写即可，需要发布时先用 hugo 命令生成，然后同步 github 的 repo
+hugo -D </description>
+    </item>
+    
     <item>
       <title>VPS3:nginx服务与Hexo博客</title>
       <link>https://caiyy17.github.io/posts/computer/vps3_%E6%9C%8D%E5%8A%A1%E5%99%A8%E8%AE%BE%E7%BD%AE%E4%B8%8E%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2/</link>
@@ -31,7 +48,7 @@ $ hexo init [folder] $ cd [folder] $ npm install 然后更据提示修改_config
 转至 html 后便可以配合已经编写好的.css 文件，统一排版成自己想要的格式。便可以发布在自己的网站上了。然而自己便携插件还是有些困难，好在有 hexo 或者 markdownhere 等软件和插件的帮助。前者可以帮助我们制作博客，后者可以直接在 chrome 中将 markdown 原文在公众号网站中转换为带格式的文本。
 之后就不需要麻烦的公众号编辑器，只需要每次写 Markdown 就行了。
 Markdown 对 html 的支持 这里说一下 Markdown 原生对 html 的支持。Markdown 的语法默认有对应的 html 语法，对应如下：(html 闭合部分省略，详细结构可以查 html 相应格式)
-   Markdown html     段落（两个换行符） &amp;lt;p&amp;gt;   x 级标题 &amp;lt;nx&amp;gt;   无序列表 &amp;lt;ul&amp;gt;   有序列表 &amp;lt;ol&amp;gt;   代码块 &amp;lt;code&amp;gt;   引用 &amp;lt;blockquote&amp;gt;   分割线 &amp;lt;hr/&amp;gt;   表格 &amp;lt;table&amp;gt;   链接 &amp;lt;a&amp;gt;   图片 &amp;lt;img&amp;gt;   *强调 &amp;lt;em&amp;gt;   **强调 &amp;lt;strong&amp;gt;    而在 Markdown 中也可以自由插入 html 的代码，转换器会在转换的时候保留 html 的代码保持不动（有可能需要设置一下）。例如&amp;lt;br/&amp;gt;</description>
+Markdown html 段落（两个换行符） &amp;lt;p&amp;gt; x 级标题 &amp;lt;nx&amp;gt; 无序列表 &amp;lt;ul&amp;gt; 有序列表 &amp;lt;ol&amp;gt; 代码块 &amp;lt;code&amp;gt; 引用 &amp;lt;blockquote&amp;gt; 分割线 &amp;lt;hr/&amp;gt; 表格 &amp;lt;table&amp;gt; 链接 &amp;lt;a&amp;gt; 图片 &amp;lt;img&amp;gt; *强调 &amp;lt;em&amp;gt; **强调 &amp;lt;strong&amp;gt; 而在 Markdown 中也可以自由插入 html 的代码，转换器会在转换的时候保留 html 的代码保持不动（有可能需要设置一下）。例如&amp;lt;br/&amp;gt;</description>
     </item>
     
   </channel>

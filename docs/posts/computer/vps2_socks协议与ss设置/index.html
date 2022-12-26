@@ -17,7 +17,7 @@ ss 设置 说这么多，就让我们在服务器上装 ss 吧
 配置环境 安装 pip，接着安装 ss。">
 <meta name="author" content="">
 <link rel="canonical" href="https://caiyy17.github.io/posts/computer/vps2_socks%E5%8D%8F%E8%AE%AE%E4%B8%8Ess%E8%AE%BE%E7%BD%AE/">
-<link crossorigin="anonymous" href="/assets/css/stylesheet.d7fb4cbf980fe688a21621b06a795933c4e6bb2d4070ec940667af1715d84af2.css" integrity="sha256-1/tMv5gP5oiiFiGwanlZM8Tmuy1AcOyUBmevFxXYSvI=" rel="preload stylesheet" as="style">
+<link crossorigin="anonymous" href="/assets/css/stylesheet.bccfefac377bc340f06c260aed1bddf49a4354816d7c570d6aac75a997986c95.css" integrity="sha256-vM/vrDd7w0DwbCYK7Rvd9JpDVIFtfFcNaqx1qZeYbJU=" rel="preload stylesheet" as="style">
 <script defer crossorigin="anonymous" src="/assets/js/highlight.f413e19d0714851f6474e7ee9632408e58ac146fbdbe62747134bea2fa3415e0.js" integrity="sha256-9BPhnQcUhR9kdOfuljJAjlisFG&#43;9vmJ0cTS&#43;ovo0FeA="
     onload="hljs.initHighlightingOnLoad();"></script>
 <link rel="icon" href="https://caiyy17.github.io/favicon.ico">
@@ -74,8 +74,8 @@ ss 设置 说这么多，就让我们在服务器上装 ss 吧
 配置环境 安装 pip，接着安装 ss。" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://caiyy17.github.io/posts/computer/vps2_socks%E5%8D%8F%E8%AE%AE%E4%B8%8Ess%E8%AE%BE%E7%BD%AE/" /><meta property="article:section" content="posts" />
-<meta property="article:published_time" content="2018-09-30T00:00:00&#43;00:00" />
-<meta property="article:modified_time" content="2018-09-30T00:00:00&#43;00:00" />
+<meta property="article:published_time" content="2018-09-30T00:00:00+00:00" />
+<meta property="article:modified_time" content="2018-09-30T00:00:00+00:00" />
 
 <meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="VPS2:socks协议以及ss设置"/>
@@ -119,7 +119,7 @@ ss 设置 说这么多，就让我们在服务器上装 ss 吧
   "keywords": [
     "VPS", "safety"
   ],
-  "articleBody": "Socks 协议 Socket Secure(SOCKS)是一个网络协议，可以通过代理服务器来路由客户端和服务器之间的数据包。一个 SOCKS 服务器可以代理 TCP 连接到任何一个 IP 地址，同时为 UDP 的数据包提供一种转发方式。 SOCKS 完成的是 OSI 模型中第五层的工作（会话层，位于表示层和传输层之间）\n历史 这个协议最初由 David Koblas 创造，David Koblas 是 MIPS 计算系统的管理员，在 1992 年 MIPS 被 Silicon Graphics 接管之后，Koblas 在那年的 Usenix 安全研讨会上发表了关于 SOCKS 的一篇文章，让 SOCKS 为公众所知。\nSOCKS5 协议最初是一个安全协议被用来更容易的管控防火墙和其他安全产品，在 1996 年被 IETF 所批准，并与 Aventail 公司合作开发。\n用途 SOCKS 是 Circuit-level gateway（注：Circuit-level gateway 是一种防火墙）事实上的标准\n另外一种 SOCKS 的使用方式是作为规避工具，允许流量绕过网络过滤来获得内容，否则就被政府，学校，一些具体国家的 web 服务堵塞。（就是翻墙…）\n而 shadowsocks 就是这样的一款软件。\nss 设置 说这么多，就让我们在服务器上装 ss 吧\n配置环境 安装 pip，接着安装 ss。\nyum install python-setuptools \u0026\u0026 easy_install pip pip install shadowsocks 修改配置 可以添加多用户。\nvim /etc/shadowsocks.json 内容如下：\n{  \"server\":\"::\",  \"local_address\":\"127.0.0.1\",  \"local_port\":1080,  \"port_password\":  {  \"[port]\":\"[密码]\",  //继续写其他端口  },  \"timeout\":300,  \"method\":\"aes-256-cfb\",  \"fast_open\": ture } 然后启动就行\nssserver -c /etc/shadowsocks.json -d start 防火墙开着的话，记得改一下防火墙。\n客户端 找个地方下载客户端就行，配置一目了然。\nv2ray 现在 ss 已经会被封了，可以切换 vmess 协议\nbash v2ray 会生成一个 uuid 和一个端口，这可以在配置中改，同样可以使用多用户配置。推荐一个网站V2Ray 配置指南\n",
+  "articleBody": "Socks 协议 Socket Secure(SOCKS)是一个网络协议，可以通过代理服务器来路由客户端和服务器之间的数据包。一个 SOCKS 服务器可以代理 TCP 连接到任何一个 IP 地址，同时为 UDP 的数据包提供一种转发方式。 SOCKS 完成的是 OSI 模型中第五层的工作（会话层，位于表示层和传输层之间）\n历史 这个协议最初由 David Koblas 创造，David Koblas 是 MIPS 计算系统的管理员，在 1992 年 MIPS 被 Silicon Graphics 接管之后，Koblas 在那年的 Usenix 安全研讨会上发表了关于 SOCKS 的一篇文章，让 SOCKS 为公众所知。\nSOCKS5 协议最初是一个安全协议被用来更容易的管控防火墙和其他安全产品，在 1996 年被 IETF 所批准，并与 Aventail 公司合作开发。\n用途 SOCKS 是 Circuit-level gateway（注：Circuit-level gateway 是一种防火墙）事实上的标准\n另外一种 SOCKS 的使用方式是作为规避工具，允许流量绕过网络过滤来获得内容，否则就被政府，学校，一些具体国家的 web 服务堵塞。（就是翻墙…）\n而 shadowsocks 就是这样的一款软件。\nss 设置 说这么多，就让我们在服务器上装 ss 吧\n配置环境 安装 pip，接着安装 ss。\nyum install python-setuptools \u0026\u0026 easy_install pip pip install shadowsocks 修改配置 可以添加多用户。\nvim /etc/shadowsocks.json 内容如下：\n{ \"server\":\"::\", \"local_address\":\"127.0.0.1\", \"local_port\":1080, \"port_password\": { \"[port]\":\"[密码]\", //继续写其他端口 }, \"timeout\":300, \"method\":\"aes-256-cfb\", \"fast_open\": ture } 然后启动就行\nssserver -c /etc/shadowsocks.json -d start 防火墙开着的话，记得改一下防火墙。\n客户端 找个地方下载客户端就行，配置一目了然。\nv2ray 现在 ss 已经会被封了，可以切换 vmess 协议\nbash \u003c(curl -L -s https://install.direct/go.sh) sudo service v2ray start v2ray 会生成一个 uuid 和一个端口，这可以在配置中改，同样可以使用多用户配置。推荐一个网站V2Ray 配置指南\n",
   "wordCount" : "128",
   "inLanguage": "en",
   "datePublished": "2018-09-30T00:00:00Z",
@@ -158,12 +158,12 @@ ss 设置 说这么多，就让我们在服务器上装 ss 吧
             <a href="https://caiyy17.github.io" accesskey="h" title="caiyy17 (Alt + H)">caiyy17</a>
             <div class="logo-switches">
                 <button id="theme-toggle" accesskey="t" title="(Alt + T)">
-                    <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                    <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
                         fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
                         stroke-linejoin="round">
                         <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
                     </svg>
-                    <svg id="sun" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                    <svg id="sun" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
                         fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
                         stroke-linejoin="round">
                         <circle cx="12" cy="12" r="5"></circle>
