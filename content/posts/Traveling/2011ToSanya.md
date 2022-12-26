@@ -5,5 +5,5 @@ tags:
     - Traveling
 categories:
     - Traveling
-draft: True
+draft: true
 ---
