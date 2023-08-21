@@ -10,7 +10,7 @@
 <meta name="description" content="">
 <meta name="author" content="">
 <link rel="canonical" href="https://caiyy17.github.io/categories/computer/">
-<link crossorigin="anonymous" href="/assets/css/stylesheet.bccfefac377bc340f06c260aed1bddf49a4354816d7c570d6aac75a997986c95.css" integrity="sha256-vM/vrDd7w0DwbCYK7Rvd9JpDVIFtfFcNaqx1qZeYbJU=" rel="preload stylesheet" as="style">
+<link crossorigin="anonymous" href="/assets/css/stylesheet.735c14aef5bd53538764fbe842da3b6b2041059e13045d88f457bc438e58e012.css" integrity="sha256-c1wUrvW9U1OHZPvoQto7ayBBBZ4TBF2I9Fe8Q45Y4BI=" rel="preload stylesheet" as="style">
 <link rel="icon" href="https://caiyy17.github.io/favicon.ico">
 <link rel="icon" type="image/png" sizes="16x16" href="https://caiyy17.github.io/favicon-16x16.png">
 <link rel="icon" type="image/png" sizes="32x32" href="https://caiyy17.github.io/favicon-32x32.png">
@@ -117,7 +117,7 @@
                 </a>
             </li>
             <li>
-                <a href="https://caiyy17.github.io/search/" title="search (Alt &#43; /)" accesskey=/>
+                <a href="https://caiyy17.github.io/search/" title="search">
                     <span>search</span>
                 </a>
             </li>
@@ -130,7 +130,7 @@
     </nav>
 </header>
 <main class="main"> 
-<header class="page-header"><div class="breadcrumbs"><a href="https://caiyy17.github.io">Home</a>&nbsp;»&nbsp;<a href="https://caiyy17.github.io/categories/">Categories</a></div>
+<header class="page-header"><div class="breadcrumbs"><a href="https://caiyy17.github.io">Home</a></div>
   <h1>
     Computer
   </h1>
@@ -138,7 +138,7 @@
 
 <article class="post-entry tag-entry"> 
   <header class="entry-header">
-    <h2>VPS3:githubio博客和VPN
+    <h2>VPS2:githubio博客和VPN
     </h2>
   </header>
   <div class="entry-content">
@@ -150,24 +150,10 @@ Install PaperMod
 部署到 Github 设置参照 theme 给的例子即可，需要注意的是部署到 github 需要将
 publishDir = &#34;docs&#34; 加在配置中，然后在 githubio 设置中将发布路径改为 docs，这样不用设置另外分支，非常方便。
 生成网页 博客直接在 posts 中用 md 编写即可，需要发布时先用 hugo 命令生成，然后同步 github 的 repo
-hugo -D </p>
+hugo -D 在 VSCode 和部署中同时看到正确的图片 由于 Hugo 生成网页的路径和 VSCode 本地路径不一致，导致只有一个地方可以看到正确的图片。解决办法是使用 Hugo 的 Page Bundles。Hugo 的 Page Bundles 允许你将内容页面和与之相关的资源（如图片）组织在同一文件夹下。例如，如果你有以下的目录结构：（注意 md 文件必须使用 index 作为文件名，这样 Hugo 才不会为这个 md 文件单独加一层文件夹）...</p>
   </div>
   <footer class="entry-footer"><span title='2022-08-26 00:00:00 +0000 UTC'>August 26, 2022</span></footer>
-  <a class="entry-link" aria-label="post link to VPS3:githubio博客和VPN" href="https://caiyy17.github.io/posts/computer/vps4_%E5%90%8E%E7%BB%AD%E8%AE%BE%E7%BD%AE/"></a>
-</article>
-
-<article class="post-entry tag-entry"> 
-  <header class="entry-header">
-    <h2>yubikey3:后续设置
-    </h2>
-  </header>
-  <div class="entry-content">
-    <p>前言 使用 yubikey 还是非常麻烦…本着简单好用的原则，我还是使用了更简单的管理方式。
-密码管理 目前个人密码使用 icloud 的 keychain 管理，并且存留一封使用 master 密码加密的压缩包离线保存于硬盘中。重要网站使用随机生成的单独密码。
-而 OTP 则使用手机上的密码管理器，比如 google authenticator</p>
-  </div>
-  <footer class="entry-footer"><span title='2022-08-26 00:00:00 +0000 UTC'>August 26, 2022</span></footer>
-  <a class="entry-link" aria-label="post link to yubikey3:后续设置" href="https://caiyy17.github.io/posts/computer/yubikey3_%E5%90%8E%E7%BB%AD%E8%AE%BE%E7%BD%AE/"></a>
+  <a class="entry-link" aria-label="post link to VPS2:githubio博客和VPN" href="https://caiyy17.github.io/posts/computer/vps2_%E5%90%8E%E7%BB%AD%E8%AE%BE%E7%BD%AE/"></a>
 </article>
 
 <article class="post-entry tag-entry"> 
@@ -207,7 +193,7 @@ code --list-extensions &gt; ext-list.txt 然后正则替换(.*)\r?\n变成--inst
 设置 HA 因为 HA 有自己的树莓派系统 hassbian，自带了管理工具 hassbian-config（hassbian 基于 raspbian 的最小镜像，所以操作也差不多，因为有自带工具，就换了系统）。
 hassbian 在官网下载镜像（还有基于 docker 的 hass.io，相关安装也可以在官网找到），安装时其实推荐 中文官方文档 ，有比较简单的安装流程（包括 hass.io），中文文档其实来自墨澜，她的技术站
 我选择了 hassbian，按照流程：
-下载 烧录（和官方系统一样） 加入无线路由其配置文件-开机等待（墙内网不好，基本都要手动 ssh 安装 HA，这点 mossbian 应该好很多） 手动 SSH 登录（同一路由器下网址 hassbian.local），用 hassbian-config 安装 HA（失败多安装几次） 安装 samba hassbian....</p>
+ 下载 烧录（和官方系统一样） 加入无线路由其配置文件-开机等待（墙内网不好，基本都要手动 ssh 安装 HA，这点 mossbian 应该好很多） 手动 SSH 登录（同一路由器下网址 hassbian.local），用 hassbian-config 安装 HA（失败多安装几次） 安装 samba hassbian....</p>
   </div>
   <footer class="entry-footer"><span title='2019-02-19 00:00:00 +0000 UTC'>February 19, 2019</span></footer>
   <a class="entry-link" aria-label="post link to RSP2:homeassistant" href="https://caiyy17.github.io/posts/computer/rsp2_homeassistant/"></a>
@@ -241,7 +227,7 @@ PS 这样就可以实现米家的大部分功能，并且智能部分是比米�
     <p>前言 又折腾买了个树莓派，正好右 32g 不用的 tf 卡，就准备来玩玩看可以做些什么。
 安装系统 网上教程乱七八糟，最后还是官方文档比较清楚，下载系统解压后使用 etcher 烧录至 tf 卡，然后插入树莓派就可以启动了。
 连接树莓派 先在根目录下加一个空白的名为 ssh 的文件让树莓派支持 ssh 连接，然后将电脑和树莓派通过网线相连。获取树莓派 ip 地址：
-ping raspberrypi.local 然后就可以 ssh 连接这个树莓派，用户名&#34;pi&#34;，密码&#34;raspberry&#34;。接下来使用
+ping raspberrypi.local 然后就可以 ssh 连接这个树莓派，用户名&#34;pi”，密码&#34;raspberry”。接下来使用
 sudo raspi-config 进行基础设置，更改密码，地区设置（加入 zh-CN UTF8 支持，但个人依然只有 en-GB UTF8 作为默认语言），允许 ssh，扩展储存（高级设置里扩展储存选项）
 然后安装 vim，zsh 等常用的软件。
 更换清华源 sudo nano /etc/apt/sources.list //注释掉原来的，加入 deb http://mirrors.tuna.tsinghua.edu.cn/raspbian/raspbian/ stretch main contrib non-free rpi deb-src http://mirrors.tuna.tsinghua.edu.cn/raspbian/raspbian/ stretch main contrib non-free rpi //保存退出，然后 sudo nano /etc/apt/sources.list.d/raspi.list //注释掉原来的，加入 deb http://mirror.tuna.tsinghua.edu.cn/raspberrypi/ stretch main ui deb-src http://mirror.tuna.tsinghua.edu.cn/raspberrypi/ stretch main ui 就可以更新了...</p>
@@ -256,17 +242,17 @@ sudo raspi-config 进行基础设置，更改密码，地区设置（加入 zh-C
     </h2>
   </header>
   <div class="entry-content">
-    <p>前言 从 Md1 到 Md2，基本的 Markdown 写作以及没有问题了，然后就会想用 md 解决其他的事情了，比如写学术论文，Latex 写起来太费劲了，公式还是 word 比较方便。
+    <p>前言 从 Md1 到 Md2，基本的 Markdown 写作已经没有问题了，然后就会想用 md 解决其他的事情了，比如写学术论文，Latex 写起来太费劲了，公式还是 word 比较方便。
 Pandoc 是一个开源的万能文档转换软件，可以在 pdf，md，word，html 之间转换文档格式。而装了 vscode-pandoc 后可以直接在 vscode 中使用，但是每次只能用同样的命令行参数，否则只能在终端中使用。
 安装 直接 brew 安装即可，还要安装 pandoc-citeproc，vscode 插件也是一键安装。
 然后是配置，word 不需要配置，html 需要配置命令行参数，在设置的 string 里面填入就行。
 html 参数 --standalone --self-contained --css pandoc.css 以上转换命令中选项含义介绍如下。
-“–standalone”：为目标格式文件增加合适的“header”和“footer”。如果目标格式是“HTML”，那么通过该选项可解决“由于未设置合适的字符编码，而导致的乱码问题”。 “–self-contained” ：如果目标格式是“HTML”，那么可得到如下效果：在转换得到目标 HTML 文件的过程中，会将依赖的“脚本，CSS，图片，视频”等文件的内容内嵌到目标 HTML 文件中。 “–css pandoc.css” ：使得目标格式文件最后使用“pandoc.css”文件作为 CSS 文件，否则，使用默认的 CSS 文件。 PDF 参数 pdf 需要 latex 的支持，mac 可以装 Mactex，Win 有 texlive（不过要配置环境变量）
+ “–standalone”：为目标格式文件增加合适的“header”和“footer”。如果目标格式是“HTML”，那么通过该选项可解决“由于未设置合适的字符编码，而导致的乱码问题”。 “–self-contained” ：如果目标格式是“HTML”，那么可得到如下效果：在转换得到目标 HTML 文件的过程中，会将依赖的“脚本，CSS，图片，视频”等文件的内容内嵌到目标 HTML 文件中。 “–css pandoc.css” ：使得目标格式文件最后使用“pandoc.css”文件作为 CSS 文件，否则，使用默认的 CSS 文件。  PDF 参数 pdf 需要 latex 的支持，mac 可以装 Mactex，Win 有 texlive（不过要配置环境变量）
 然而当你尝试的时候就会有各种 bug，网上也有解决方案，但都不是很漂亮，所以我就放弃了这个选项……
 所以 最终我选择了把 md 转为 word 然后可以使用 word 的公式编辑器编写公式……...</p>
   </div>
   <footer class="entry-footer"><span title='2018-10-17 00:00:00 +0000 UTC'>October 17, 2018</span></footer>
-  <a class="entry-link" aria-label="post link to Markdown3:配合Pandoc" href="https://caiyy17.github.io/posts/computer/md3_%E9%85%8D%E5%90%88pandoc/"></a>
+  <a class="entry-link" aria-label="post link to Markdown3:配合Pandoc" href="https://caiyy17.github.io/posts/computer/markdown3_%E9%85%8D%E5%90%88pandoc/"></a>
 </article>
 
 <article class="post-entry tag-entry"> 
@@ -281,14 +267,12 @@ Linux 权限 Linux 下有两种用户：普通用户和超级用户。
 普通用户：在 linux 下做有限的事情。
 超级用户：可以在 linux 系统下做任何事情，不受限制。
 切换用户：
-su [用户] Linux 权限管理 文件访问者的分类
+su [用户] Linux 权限管理   文件访问者的分类
 Linux 把访问者分为 3 类。
-文件和文件目录的所有者：u—User 文件和文件目录的所有者所在的组的用户：g—Group 其他用户：o—Others 文件访问权限的种类
+ 文件和文件目录的所有者：u—User 文件和文件目录的所有者所在的组的用户：g—Group 其他用户：o—Others    文件访问权限的种类
 读，写，执行（对文件而言，执行文件；对目录而言，进入目录）
-文件权限值得表示方法
-表示 权限 r–- 只读 -w- 仅可写 –-x 仅可执行 rw- 可读可写 -wx 可写可执行 r-x 可读可执行 rwx 可读可写可执行 —– 无权限 Linux 中权限数值表示在 chmod 会用到，用三个 8 进制位表示。
-Linux 基本命令 ls 格式：ls [选项] [目录或文件]
-功能：对于目录，列出该目录下的所有子目录与文件；对于文件，列出文件名以及其他信息。...</p>
+  文件权限值得表示方法
+   表示 权限     r–- 只读   -w- 仅可写   –-x 仅可执行   rw- 可读可写   -wx 可写可执行   r-x 可读可执行   rwx 可读可写可执行   —– 无权限    Linux 中权限数值表示在 chmod 会用到，用三个 8 进制位表示。...</p>
   </div>
   <footer class="entry-footer"><span title='2018-09-30 00:00:00 +0000 UTC'>September 30, 2018</span></footer>
   <a class="entry-link" aria-label="post link to Linux1:基本命令" href="https://caiyy17.github.io/posts/computer/linux%E5%9F%BA%E6%9C%AC%E5%91%BD%E4%BB%A4/"></a>
@@ -300,16 +284,18 @@ Linux 基本命令 ls 格式：ls [选项] [目录或文件]
     </h2>
   </header>
   <div class="entry-content">
-    <p>前言 对于一个准备完计算机的喜欢折腾的学生来说，拥有一台自己的服务器是十分有必要的，在那上面，可以干许许多多事情。
-Github 学生包 相信大家对 github 都不陌生，但 github 上除了代码管理和社区之外，github 提供的学生包也是个非常不错的东西。学生包获取方法就根据提示一步一步来就行，需要学校邮箱。
-其中个人暂时用到的有：
-DigitalOcean 上 50 刀的代金券 AWS 上 150 刀代金券 Namecheap 一年的免费.me 域名 这些基本都和 VPS 有关，本文主要介绍 DO 上的 VPS，这个也比较简单。
-DigitalOcean 注册 DO，需要用 paypal 或者信用卡向其中充值 5 美金，就可以注册完成了。完成后，在 DO 网站中输入学生包优惠码，会发现账户变成了 55 美金，这样就可以用基础套餐 11 个月了。
-然后添加 Droplets，我使用的是 centos，最基础的套餐（5 刀一个月），用校园网的话记得勾选 ipv6，然后 添加一个 sshkey （这一步很重要，不然申请完成后需要再设置这个 VPS 很多步）
-然后就完成了基本操作，可以使用电脑连接服务器了。
-设置防火墙 DO 提供了十分方便的防火墙设置，可以控制进出开放的端口，然后你可以只开你需要的端口，可以免去在 VPS 里面设置防火墙，甚至可以把里面的防火墙关了。
-这里一般会设置几套防火墙，每一套之间是叠加的，就是最终开放的端口是所有防火墙组的开发端口的并集。可以有前段防火墙开发基本端口，然后 ss 防火墙专门开发 socks 协议使用的端口……这个就看自己组合了。
-我这边是开了 ssh 使用的 22 端口；网站的 443 和 1080 端口；以及 ss 或者 v2ray 使用的端口（自己设置）。如果不用网站，可以将 443 或者 1080 作为翻墙端口。...</p>
+    <p>前言 拥有一台自己的服务器是十分有必要的。
+连接服务器 Windows 可以用 putty，使用 ssh 登陆，然后在 ssh 设置中添加自己的私钥，就可以连了。
+Mac 的话直接用系统自带的终端
+ssh -p [port] [user]@[ip] 用户设置 默认登陆的是 root 用户，但是这样是不安全的，我们可以建立管理员用户，然后只允许管理员用户切换到 root，再禁止 root 的 ssh 登陆，这样我们要使用 root 就只能先 ssh 登陆管理员账户，然后再使用密码切换到 root。
+  新建一个用户
+useradd [user]   将用户添加至管理员组
+usermod –g wheel [user]   修改/etc/pam.d/su 配置
+去掉这行的注释，就完成了禁止普通用户切换 root
+#auth required pam_wheel.so use_uid   修改/etc/ssh/sshd_config
+将 PermitRootLogin 选项改为
+PermitRootLogin no   这样就禁止了 root 直接登陆。
+ssh 设置 这个在用户文件夹下的.ssh/authorized_keys 中可以添加 ssh 的公钥，然后就可以使用不同的私钥链接服务器了，保险起见得保证 从修改文件到确认可以用修改后的钥匙登陆前 最好都保持有一个终端窗口连在服务器上，这样玩意出问题还可以再次改那个文件。...</p>
   </div>
   <footer class="entry-footer"><span title='2018-09-30 00:00:00 +0000 UTC'>September 30, 2018</span></footer>
   <a class="entry-link" aria-label="post link to VPS1:购买以及设置" href="https://caiyy17.github.io/posts/computer/vps1_%E8%B4%AD%E4%B9%B0%E4%BB%A5%E5%8F%8A%E8%AE%BE%E7%BD%AEvps/"></a>
@@ -317,21 +303,41 @@ DigitalOcean 注册 DO，需要用 paypal 或者信用卡向其中充值 5 美�
 
 <article class="post-entry tag-entry"> 
   <header class="entry-header">
-    <h2>VPS2:socks协议以及ss设置
+    <h2>YubiKey1:个人安全与YubiKey
     </h2>
   </header>
   <div class="entry-content">
-    <p>Socks 协议 Socket Secure(SOCKS)是一个网络协议，可以通过代理服务器来路由客户端和服务器之间的数据包。一个 SOCKS 服务器可以代理 TCP 连接到任何一个 IP 地址，同时为 UDP 的数据包提供一种转发方式。 SOCKS 完成的是 OSI 模型中第五层的工作（会话层，位于表示层和传输层之间）
-历史 这个协议最初由 David Koblas 创造，David Koblas 是 MIPS 计算系统的管理员，在 1992 年 MIPS 被 Silicon Graphics 接管之后，Koblas 在那年的 Usenix 安全研讨会上发表了关于 SOCKS 的一篇文章，让 SOCKS 为公众所知。
-SOCKS5 协议最初是一个安全协议被用来更容易的管控防火墙和其他安全产品，在 1996 年被 IETF 所批准，并与 Aventail 公司合作开发。
-用途 SOCKS 是 Circuit-level gateway（注：Circuit-level gateway 是一种防火墙）事实上的标准
-另外一种 SOCKS 的使用方式是作为规避工具，允许流量绕过网络过滤来获得内容，否则就被政府，学校，一些具体国家的 web 服务堵塞。（就是翻墙…）
-而 shadowsocks 就是这样的一款软件。
-ss 设置 说这么多，就让我们在服务器上装 ss 吧
-配置环境 安装 pip，接着安装 ss。...</p>
+    <p>个人网络安全之重要性 在这个数字化时代，网络安全变得日益重要，各种信息极其容易被窃取（比如说斯诺登事件）。因此加密和认证就显得极其重要，而 YubiKey 就是这样一个简易的设备（支持 OTP、公钥加密签名、U2F 协议）。
+关于 YubiKey 据 Wikipedia 描述：YubiKey 是由 Yubico 生产的身份认证设备，支持一次性密码（OTP）、公钥加密和身份认证，以及由 FIDO 联盟（FIDO U2F）开发的通用第二因素（U2F）协议。它让用户可以透过提交一次性密码或是使用设备产生的公开/私密金钥来安全地登录自己的帐户。针对不支持一次性密码的网站，YubiKey 也可以存储静态密码。Facebook 使用 YubiKey 作为员工凭证；Google 同时为雇员和用户提供支持。还有一些密码管理器也支持 YubiKey。
+作为键盘设备（HID） 这是它主要介绍的功能，能够模拟键盘设备向电脑输入一串生成的密码，兼容性最好。其中还包含多种模式：OTP、Static、Challenge-Response、HTOP，
+ OTP：KEY_ID &#43; AES(AES_KEY, SECRET, COUNT&#43;&#43;)即生成的密码包含明文的 KEY_ID 和对称加密的（ SECRET 和计数器）。第一次使用前需要把 KEY_ID，AES_KEY，SECRET 提交至验证服务器（Yubico 提供或者自己搭建），之后应用程序每次通过服务器验证密码的可靠性（解码后 SECRET 对应、COUNT 增大（防止重放攻击））。 Static：静态密码。顾名思义，每次生成固定的一串密码（并没有什么用）。 Challenge-Response：HMAC(SECRET, INPUT)即可以通过 HID 接口给定一个输入，输出 HMAC 的计算结果。输入需要本地代码实现。 HOTP：HMAC(SECRET, COUNTER&#43;&#43;)算法与 Challenge-Response 类似，然而使用累加计数器代替了输入，并且 HOTP 是一个标准协议，许多网站和设备都兼容该标准。  在 YubiKey 中包含两个配置插槽，每一个插槽可以单独配置以上模式中的其中一种，分别通过短触和长触来选择输入。
+不过需要注意的是：以上都是基于对称加密的算法，也就是说，只要服务器端（验证服务器）的密文被泄漏，所有的信息理论上都可以进行伪造。
+U2F U2F 是一个开源的认证标准协议，使用非对称加密算法，在每次需要认证是设备可以对 challenge 信息使用私钥进行签名来完成认证。作为一个开源的标准协议，Google、Dropbox 等网站都支持这种协议的两步验证，然而现阶段浏览器端仅有 Chrome 支持。
+OpenPGP Smart Card YubiKey 还可以作为标准的 OpenPGP Smart Card 使用，用来存储 PGP 私钥（设备中私钥是可写不可读的，解密／签名操作在设备上完成）。...</p>
   </div>
   <footer class="entry-footer"><span title='2018-09-30 00:00:00 +0000 UTC'>September 30, 2018</span></footer>
-  <a class="entry-link" aria-label="post link to VPS2:socks协议以及ss设置" href="https://caiyy17.github.io/posts/computer/vps2_socks%E5%8D%8F%E8%AE%AE%E4%B8%8Ess%E8%AE%BE%E7%BD%AE/"></a>
+  <a class="entry-link" aria-label="post link to YubiKey1:个人安全与YubiKey" href="https://caiyy17.github.io/posts/computer/yubikey1_%E4%B8%AA%E4%BA%BA%E5%AE%89%E5%85%A8/"></a>
+</article>
+
+<article class="post-entry tag-entry"> 
+  <header class="entry-header">
+    <h2>YubiKey2:配置和gnupg
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>设置 yubikey 讲完了安全模型，就可以开始设置 YubiKey 了
+需要设置的有这些：
+ 次重要密码导入 slot1 yubikey 的 pin（Masterpin） 管理员 8 位 pin（特殊 pin） GPGkey（因为需要备份，我们从外部导入） PIV（Masterpin） U2F  从简单的开始
+初始化 下载 yubikey manager，然后打开所有功能。在 OTP 里设置 slot1 和 slot2
+U2F 在支持的网站里双重验证下添加 key，然后按一下 yubikey 就行了
+PIV 下载 yubikey PIV manager，按照提示设置就行了。
+GPG 这个比较复杂，单独出来说。
+安装 gnupg 这是个专门用于 gpg 的软件，设置可以参考我 mac 设置那篇文章。
+生成要最终导入 yubikey 的密钥 虽然有些 yubikey（比如说我的 4-NEO）不支持 4096 位密码，但主密钥还是可以生成 4096 的，最后只要把子密钥导入就行了。
+gpg --full-generate-key Please select what kind of key you want: (1) RSA and RSA (default) (2) DSA and Elgamal (3) DSA (sign only) (4) RSA (sign only) Your selection?...</p>
+  </div>
+  <footer class="entry-footer"><span title='2018-09-30 00:00:00 +0000 UTC'>September 30, 2018</span></footer>
+  <a class="entry-link" aria-label="post link to YubiKey2:配置和gnupg" href="https://caiyy17.github.io/posts/computer/yubikey2_%E8%AE%BE%E7%BD%AE%E5%92%8Cgnupg/"></a>
 </article>
 <footer class="page-footer">
   <nav class="pagination">
@@ -342,7 +348,7 @@ ss 设置 说这么多，就让我们在服务器上装 ss 吧
     </main>
     
 <footer class="footer">
-    <span>&copy; 2022 <a href="https://caiyy17.github.io">caiyy17</a></span>
+    <span>&copy; 2023 <a href="https://caiyy17.github.io">caiyy17</a></span>
     <span>
         Powered by
         <a href="https://gohugo.io/" rel="noopener noreferrer" target="_blank">Hugo</a> &

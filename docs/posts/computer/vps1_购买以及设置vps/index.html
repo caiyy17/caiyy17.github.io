@@ -6,20 +6,22 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <meta name="robots" content="index, follow">
 <title>VPS1:购买以及设置 | caiyy17</title>
-<meta name="keywords" content="VPS, safety">
-<meta name="description" content="前言 对于一个准备完计算机的喜欢折腾的学生来说，拥有一台自己的服务器是十分有必要的，在那上面，可以干许许多多事情。
-Github 学生包 相信大家对 github 都不陌生，但 github 上除了代码管理和社区之外，github 提供的学生包也是个非常不错的东西。学生包获取方法就根据提示一步一步来就行，需要学校邮箱。
-其中个人暂时用到的有：
-DigitalOcean 上 50 刀的代金券 AWS 上 150 刀代金券 Namecheap 一年的免费.me 域名 这些基本都和 VPS 有关，本文主要介绍 DO 上的 VPS，这个也比较简单。
-DigitalOcean 注册 DO，需要用 paypal 或者信用卡向其中充值 5 美金，就可以注册完成了。完成后，在 DO 网站中输入学生包优惠码，会发现账户变成了 55 美金，这样就可以用基础套餐 11 个月了。
-然后添加 Droplets，我使用的是 centos，最基础的套餐（5 刀一个月），用校园网的话记得勾选 ipv6，然后 添加一个 sshkey （这一步很重要，不然申请完成后需要再设置这个 VPS 很多步）
-然后就完成了基本操作，可以使用电脑连接服务器了。
-设置防火墙 DO 提供了十分方便的防火墙设置，可以控制进出开放的端口，然后你可以只开你需要的端口，可以免去在 VPS 里面设置防火墙，甚至可以把里面的防火墙关了。
-这里一般会设置几套防火墙，每一套之间是叠加的，就是最终开放的端口是所有防火墙组的开发端口的并集。可以有前段防火墙开发基本端口，然后 ss 防火墙专门开发 socks 协议使用的端口&hellip;&hellip;这个就看自己组合了。
-我这边是开了 ssh 使用的 22 端口；网站的 443 和 1080 端口；以及 ss 或者 v2ray 使用的端口（自己设置）。如果不用网站，可以将 443 或者 1080 作为翻墙端口。">
+<meta name="keywords" content="VPS">
+<meta name="description" content="前言 拥有一台自己的服务器是十分有必要的。
+连接服务器 Windows 可以用 putty，使用 ssh 登陆，然后在 ssh 设置中添加自己的私钥，就可以连了。
+Mac 的话直接用系统自带的终端
+ssh -p [port] [user]@[ip] 用户设置 默认登陆的是 root 用户，但是这样是不安全的，我们可以建立管理员用户，然后只允许管理员用户切换到 root，再禁止 root 的 ssh 登陆，这样我们要使用 root 就只能先 ssh 登陆管理员账户，然后再使用密码切换到 root。
+  新建一个用户
+useradd [user]   将用户添加至管理员组
+usermod –g wheel [user]   修改/etc/pam.d/su 配置
+去掉这行的注释，就完成了禁止普通用户切换 root
+#auth required pam_wheel.so use_uid   修改/etc/ssh/sshd_config
+将 PermitRootLogin 选项改为
+PermitRootLogin no   这样就禁止了 root 直接登陆。
+ssh 设置 这个在用户文件夹下的.ssh/authorized_keys 中可以添加 ssh 的公钥，然后就可以使用不同的私钥链接服务器了，保险起见得保证 从修改文件到确认可以用修改后的钥匙登陆前 最好都保持有一个终端窗口连在服务器上，这样玩意出问题还可以再次改那个文件。">
 <meta name="author" content="">
 <link rel="canonical" href="https://caiyy17.github.io/posts/computer/vps1_%E8%B4%AD%E4%B9%B0%E4%BB%A5%E5%8F%8A%E8%AE%BE%E7%BD%AEvps/">
-<link crossorigin="anonymous" href="/assets/css/stylesheet.bccfefac377bc340f06c260aed1bddf49a4354816d7c570d6aac75a997986c95.css" integrity="sha256-vM/vrDd7w0DwbCYK7Rvd9JpDVIFtfFcNaqx1qZeYbJU=" rel="preload stylesheet" as="style">
+<link crossorigin="anonymous" href="/assets/css/stylesheet.735c14aef5bd53538764fbe842da3b6b2041059e13045d88f457bc438e58e012.css" integrity="sha256-c1wUrvW9U1OHZPvoQto7ayBBBZ4TBF2I9Fe8Q45Y4BI=" rel="preload stylesheet" as="style">
 <script defer crossorigin="anonymous" src="/assets/js/highlight.f413e19d0714851f6474e7ee9632408e58ac146fbdbe62747134bea2fa3415e0.js" integrity="sha256-9BPhnQcUhR9kdOfuljJAjlisFG&#43;9vmJ0cTS&#43;ovo0FeA="
     onload="hljs.initHighlightingOnLoad();"></script>
 <link rel="icon" href="https://caiyy17.github.io/favicon.ico">
@@ -66,16 +68,18 @@ DigitalOcean 注册 DO，需要用 paypal 或者信用卡向其中充值 5 美�
 
     </style>
 </noscript><meta property="og:title" content="VPS1:购买以及设置" />
-<meta property="og:description" content="前言 对于一个准备完计算机的喜欢折腾的学生来说，拥有一台自己的服务器是十分有必要的，在那上面，可以干许许多多事情。
-Github 学生包 相信大家对 github 都不陌生，但 github 上除了代码管理和社区之外，github 提供的学生包也是个非常不错的东西。学生包获取方法就根据提示一步一步来就行，需要学校邮箱。
-其中个人暂时用到的有：
-DigitalOcean 上 50 刀的代金券 AWS 上 150 刀代金券 Namecheap 一年的免费.me 域名 这些基本都和 VPS 有关，本文主要介绍 DO 上的 VPS，这个也比较简单。
-DigitalOcean 注册 DO，需要用 paypal 或者信用卡向其中充值 5 美金，就可以注册完成了。完成后，在 DO 网站中输入学生包优惠码，会发现账户变成了 55 美金，这样就可以用基础套餐 11 个月了。
-然后添加 Droplets，我使用的是 centos，最基础的套餐（5 刀一个月），用校园网的话记得勾选 ipv6，然后 添加一个 sshkey （这一步很重要，不然申请完成后需要再设置这个 VPS 很多步）
-然后就完成了基本操作，可以使用电脑连接服务器了。
-设置防火墙 DO 提供了十分方便的防火墙设置，可以控制进出开放的端口，然后你可以只开你需要的端口，可以免去在 VPS 里面设置防火墙，甚至可以把里面的防火墙关了。
-这里一般会设置几套防火墙，每一套之间是叠加的，就是最终开放的端口是所有防火墙组的开发端口的并集。可以有前段防火墙开发基本端口，然后 ss 防火墙专门开发 socks 协议使用的端口&hellip;&hellip;这个就看自己组合了。
-我这边是开了 ssh 使用的 22 端口；网站的 443 和 1080 端口；以及 ss 或者 v2ray 使用的端口（自己设置）。如果不用网站，可以将 443 或者 1080 作为翻墙端口。" />
+<meta property="og:description" content="前言 拥有一台自己的服务器是十分有必要的。
+连接服务器 Windows 可以用 putty，使用 ssh 登陆，然后在 ssh 设置中添加自己的私钥，就可以连了。
+Mac 的话直接用系统自带的终端
+ssh -p [port] [user]@[ip] 用户设置 默认登陆的是 root 用户，但是这样是不安全的，我们可以建立管理员用户，然后只允许管理员用户切换到 root，再禁止 root 的 ssh 登陆，这样我们要使用 root 就只能先 ssh 登陆管理员账户，然后再使用密码切换到 root。
+  新建一个用户
+useradd [user]   将用户添加至管理员组
+usermod –g wheel [user]   修改/etc/pam.d/su 配置
+去掉这行的注释，就完成了禁止普通用户切换 root
+#auth required pam_wheel.so use_uid   修改/etc/ssh/sshd_config
+将 PermitRootLogin 选项改为
+PermitRootLogin no   这样就禁止了 root 直接登陆。
+ssh 设置 这个在用户文件夹下的.ssh/authorized_keys 中可以添加 ssh 的公钥，然后就可以使用不同的私钥链接服务器了，保险起见得保证 从修改文件到确认可以用修改后的钥匙登陆前 最好都保持有一个终端窗口连在服务器上，这样玩意出问题还可以再次改那个文件。" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://caiyy17.github.io/posts/computer/vps1_%E8%B4%AD%E4%B9%B0%E4%BB%A5%E5%8F%8A%E8%AE%BE%E7%BD%AEvps/" /><meta property="article:section" content="posts" />
 <meta property="article:published_time" content="2018-09-30T00:00:00+00:00" />
@@ -83,16 +87,18 @@ DigitalOcean 注册 DO，需要用 paypal 或者信用卡向其中充值 5 美�
 
 <meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="VPS1:购买以及设置"/>
-<meta name="twitter:description" content="前言 对于一个准备完计算机的喜欢折腾的学生来说，拥有一台自己的服务器是十分有必要的，在那上面，可以干许许多多事情。
-Github 学生包 相信大家对 github 都不陌生，但 github 上除了代码管理和社区之外，github 提供的学生包也是个非常不错的东西。学生包获取方法就根据提示一步一步来就行，需要学校邮箱。
-其中个人暂时用到的有：
-DigitalOcean 上 50 刀的代金券 AWS 上 150 刀代金券 Namecheap 一年的免费.me 域名 这些基本都和 VPS 有关，本文主要介绍 DO 上的 VPS，这个也比较简单。
-DigitalOcean 注册 DO，需要用 paypal 或者信用卡向其中充值 5 美金，就可以注册完成了。完成后，在 DO 网站中输入学生包优惠码，会发现账户变成了 55 美金，这样就可以用基础套餐 11 个月了。
-然后添加 Droplets，我使用的是 centos，最基础的套餐（5 刀一个月），用校园网的话记得勾选 ipv6，然后 添加一个 sshkey （这一步很重要，不然申请完成后需要再设置这个 VPS 很多步）
-然后就完成了基本操作，可以使用电脑连接服务器了。
-设置防火墙 DO 提供了十分方便的防火墙设置，可以控制进出开放的端口，然后你可以只开你需要的端口，可以免去在 VPS 里面设置防火墙，甚至可以把里面的防火墙关了。
-这里一般会设置几套防火墙，每一套之间是叠加的，就是最终开放的端口是所有防火墙组的开发端口的并集。可以有前段防火墙开发基本端口，然后 ss 防火墙专门开发 socks 协议使用的端口&hellip;&hellip;这个就看自己组合了。
-我这边是开了 ssh 使用的 22 端口；网站的 443 和 1080 端口；以及 ss 或者 v2ray 使用的端口（自己设置）。如果不用网站，可以将 443 或者 1080 作为翻墙端口。"/>
+<meta name="twitter:description" content="前言 拥有一台自己的服务器是十分有必要的。
+连接服务器 Windows 可以用 putty，使用 ssh 登陆，然后在 ssh 设置中添加自己的私钥，就可以连了。
+Mac 的话直接用系统自带的终端
+ssh -p [port] [user]@[ip] 用户设置 默认登陆的是 root 用户，但是这样是不安全的，我们可以建立管理员用户，然后只允许管理员用户切换到 root，再禁止 root 的 ssh 登陆，这样我们要使用 root 就只能先 ssh 登陆管理员账户，然后再使用密码切换到 root。
+  新建一个用户
+useradd [user]   将用户添加至管理员组
+usermod –g wheel [user]   修改/etc/pam.d/su 配置
+去掉这行的注释，就完成了禁止普通用户切换 root
+#auth required pam_wheel.so use_uid   修改/etc/ssh/sshd_config
+将 PermitRootLogin 选项改为
+PermitRootLogin no   这样就禁止了 root 直接登陆。
+ssh 设置 这个在用户文件夹下的.ssh/authorized_keys 中可以添加 ssh 的公钥，然后就可以使用不同的私钥链接服务器了，保险起见得保证 从修改文件到确认可以用修改后的钥匙登陆前 最好都保持有一个终端窗口连在服务器上，这样玩意出问题还可以再次改那个文件。"/>
 
 
 <script type="application/ld+json">
@@ -100,12 +106,6 @@ DigitalOcean 注册 DO，需要用 paypal 或者信用卡向其中充值 5 美�
   "@context": "https://schema.org",
   "@type": "BreadcrumbList",
   "itemListElement": [, 
-    {
-      "@type": "ListItem",
-      "position":  2 ,
-      "name": "Posts",
-      "item": "https://caiyy17.github.io/posts/"
-    }, 
     {
       "@type": "ListItem",
       "position":  3 ,
@@ -121,12 +121,12 @@ DigitalOcean 注册 DO，需要用 paypal 或者信用卡向其中充值 5 美�
   "@type": "BlogPosting",
   "headline": "VPS1:购买以及设置",
   "name": "VPS1:购买以及设置",
-  "description": "前言 对于一个准备完计算机的喜欢折腾的学生来说，拥有一台自己的服务器是十分有必要的，在那上面，可以干许许多多事情。\nGithub 学生包 相信大家对 github 都不陌生，但 github 上除了代码管理和社区之外，github 提供的学生包也是个非常不错的东西。学生包获取方法就根据提示一步一步来就行，需要学校邮箱。\n其中个人暂时用到的有：\nDigitalOcean 上 50 刀的代金券 AWS 上 150 刀代金券 Namecheap 一年的免费.me 域名 这些基本都和 VPS 有关，本文主要介绍 DO 上的 VPS，这个也比较简单。\nDigitalOcean 注册 DO，需要用 paypal 或者信用卡向其中充值 5 美金，就可以注册完成了。完成后，在 DO 网站中输入学生包优惠码，会发现账户变成了 55 美金，这样就可以用基础套餐 11 个月了。\n然后添加 Droplets，我使用的是 centos，最基础的套餐（5 刀一个月），用校园网的话记得勾选 ipv6，然后 添加一个 sshkey （这一步很重要，不然申请完成后需要再设置这个 VPS 很多步）\n然后就完成了基本操作，可以使用电脑连接服务器了。\n设置防火墙 DO 提供了十分方便的防火墙设置，可以控制进出开放的端口，然后你可以只开你需要的端口，可以免去在 VPS 里面设置防火墙，甚至可以把里面的防火墙关了。\n这里一般会设置几套防火墙，每一套之间是叠加的，就是最终开放的端口是所有防火墙组的开发端口的并集。可以有前段防火墙开发基本端口，然后 ss 防火墙专门开发 socks 协议使用的端口\u0026hellip;\u0026hellip;这个就看自己组合了。\n我这边是开了 ssh 使用的 22 端口；网站的 443 和 1080 端口；以及 ss 或者 v2ray 使用的端口（自己设置）。如果不用网站，可以将 443 或者 1080 作为翻墙端口。",
+  "description": "前言 拥有一台自己的服务器是十分有必要的。\n连接服务器 Windows 可以用 putty，使用 ssh 登陆，然后在 ssh 设置中添加自己的私钥，就可以连了。\nMac 的话直接用系统自带的终端\nssh -p [port] [user]@[ip] 用户设置 默认登陆的是 root 用户，但是这样是不安全的，我们可以建立管理员用户，然后只允许管理员用户切换到 root，再禁止 root 的 ssh 登陆，这样我们要使用 root 就只能先 ssh 登陆管理员账户，然后再使用密码切换到 root。\n  新建一个用户\nuseradd [user]   将用户添加至管理员组\nusermod –g wheel [user]   修改/etc/pam.d/su 配置\n去掉这行的注释，就完成了禁止普通用户切换 root\n#auth required pam_wheel.so use_uid   修改/etc/ssh/sshd_config\n将 PermitRootLogin 选项改为\nPermitRootLogin no   这样就禁止了 root 直接登陆。\nssh 设置 这个在用户文件夹下的.ssh/authorized_keys 中可以添加 ssh 的公钥，然后就可以使用不同的私钥链接服务器了，保险起见得保证 从修改文件到确认可以用修改后的钥匙登陆前 最好都保持有一个终端窗口连在服务器上，这样玩意出问题还可以再次改那个文件。",
   "keywords": [
-    "VPS", "safety"
+    "VPS"
   ],
-  "articleBody": "前言 对于一个准备完计算机的喜欢折腾的学生来说，拥有一台自己的服务器是十分有必要的，在那上面，可以干许许多多事情。\nGithub 学生包 相信大家对 github 都不陌生，但 github 上除了代码管理和社区之外，github 提供的学生包也是个非常不错的东西。学生包获取方法就根据提示一步一步来就行，需要学校邮箱。\n其中个人暂时用到的有：\nDigitalOcean 上 50 刀的代金券 AWS 上 150 刀代金券 Namecheap 一年的免费.me 域名 这些基本都和 VPS 有关，本文主要介绍 DO 上的 VPS，这个也比较简单。\nDigitalOcean 注册 DO，需要用 paypal 或者信用卡向其中充值 5 美金，就可以注册完成了。完成后，在 DO 网站中输入学生包优惠码，会发现账户变成了 55 美金，这样就可以用基础套餐 11 个月了。\n然后添加 Droplets，我使用的是 centos，最基础的套餐（5 刀一个月），用校园网的话记得勾选 ipv6，然后 添加一个 sshkey （这一步很重要，不然申请完成后需要再设置这个 VPS 很多步）\n然后就完成了基本操作，可以使用电脑连接服务器了。\n设置防火墙 DO 提供了十分方便的防火墙设置，可以控制进出开放的端口，然后你可以只开你需要的端口，可以免去在 VPS 里面设置防火墙，甚至可以把里面的防火墙关了。\n这里一般会设置几套防火墙，每一套之间是叠加的，就是最终开放的端口是所有防火墙组的开发端口的并集。可以有前段防火墙开发基本端口，然后 ss 防火墙专门开发 socks 协议使用的端口……这个就看自己组合了。\n我这边是开了 ssh 使用的 22 端口；网站的 443 和 1080 端口；以及 ss 或者 v2ray 使用的端口（自己设置）。如果不用网站，可以将 443 或者 1080 作为翻墙端口。\n连接服务器 Windows 可以用 putty，使用 ssh 登陆，然后在 ssh 设置中添加自己的私钥，就可以连了。\nMac 的话直接用系统自带的终端\nssh -p [port] [user]@[ip] 用户设置 默认登陆的是 root 用户，但是这样是不安全的，我们可以建立管理员用户，然后只允许管理员用户切换到 root，再禁止 root 的 ssh 登陆，这样我们钥使用 root 就只能先 ssh 登陆管理员账户，然后再使用密码切换到 root。\n新建一个用户\nuseradd [user] 将用户添加至管理员组\nusermod –g wheel [user] 修改/etc/pam.d/su 配置\n去掉这行的注释，就完成了禁止普通用户切换 root\n#auth required pam_wheel.so use_uid 修改/etc/ssh/sshd_config\n将 PermitRootLogin 选项改为\nPermitRootLogin no 这样就禁止了 root 直接登陆。\nssh 设置 这个在用户文件夹下的.ssh/authorized_keys 中可以添加 ssh 的公钥，然后就可以使用不同的私钥链接服务器了，然是保险起见得保证 从修改文件到确认可以用修改后的钥匙登陆前 最好都保持有一个终端窗口连在服务器上，这样玩意出问题还可以再次改那个文件。\nOK 然后就可以愉快地在服务器中安装各种软件了……附上一些现成代码\nuseradd -g wheel admin passwd admin echo \"\" \u003e\u003e /etc/pam.d/su echo \"auth required pam_wheel.so use_uid\" \u003e\u003e /etc/pam.d/su echo \"\" \u003e\u003e /etc/ssh/sshd_config echo \"RSAAuthentication yes\" \u003e\u003e /etc/ssh/sshd_config echo \"PubkeyAuthentication yes\" \u003e\u003e /etc/ssh/sshd_config echo \"PermitRootLogin no\" \u003e\u003e /etc/ssh/sshd_config echo \"PasswordAuthentication no\" \u003e\u003e /etc/ssh/sshd_config service sshd restart su admin cd ~ mkdir .ssh chmod 755 .ssh cd .ssh touch authorized_keys echo [your_public_keys] \u003e authorized_keys chmod 644 authorized_keys ",
-  "wordCount" : "206",
+  "articleBody": "前言 拥有一台自己的服务器是十分有必要的。\n连接服务器 Windows 可以用 putty，使用 ssh 登陆，然后在 ssh 设置中添加自己的私钥，就可以连了。\nMac 的话直接用系统自带的终端\nssh -p [port] [user]@[ip] 用户设置 默认登陆的是 root 用户，但是这样是不安全的，我们可以建立管理员用户，然后只允许管理员用户切换到 root，再禁止 root 的 ssh 登陆，这样我们要使用 root 就只能先 ssh 登陆管理员账户，然后再使用密码切换到 root。\n  新建一个用户\nuseradd [user]   将用户添加至管理员组\nusermod –g wheel [user]   修改/etc/pam.d/su 配置\n去掉这行的注释，就完成了禁止普通用户切换 root\n#auth required pam_wheel.so use_uid   修改/etc/ssh/sshd_config\n将 PermitRootLogin 选项改为\nPermitRootLogin no   这样就禁止了 root 直接登陆。\nssh 设置 这个在用户文件夹下的.ssh/authorized_keys 中可以添加 ssh 的公钥，然后就可以使用不同的私钥链接服务器了，保险起见得保证 从修改文件到确认可以用修改后的钥匙登陆前 最好都保持有一个终端窗口连在服务器上，这样玩意出问题还可以再次改那个文件。\nOK 然后就可以愉快地在服务器中安装各种软件了……附上一些现成代码\nuseradd -g wheel admin passwd admin echo \"\"  /etc/pam.d/su echo \"auth required pam_wheel.so use_uid\"  /etc/pam.d/su echo \"\"  /etc/ssh/sshd_config echo \"RSAAuthentication yes\"  /etc/ssh/sshd_config echo \"PubkeyAuthentication yes\"  /etc/ssh/sshd_config echo \"PermitRootLogin no\"  /etc/ssh/sshd_config echo \"PasswordAuthentication no\"  /etc/ssh/sshd_config service sshd restart su admin cd ~ mkdir .ssh chmod 755 .ssh cd .ssh touch authorized_keys echo [your_public_keys]  authorized_keys chmod 644 authorized_keys ",
+  "wordCount" : "129",
   "inLanguage": "en",
   "datePublished": "2018-09-30T00:00:00Z",
   "dateModified": "2018-09-30T00:00:00Z",
@@ -197,7 +197,7 @@ DigitalOcean 注册 DO，需要用 paypal 或者信用卡向其中充值 5 美�
                 </a>
             </li>
             <li>
-                <a href="https://caiyy17.github.io/search/" title="search (Alt &#43; /)" accesskey=/>
+                <a href="https://caiyy17.github.io/search/" title="search">
                     <span>search</span>
                 </a>
             </li>
@@ -213,7 +213,7 @@ DigitalOcean 注册 DO，需要用 paypal 或者信用卡向其中充值 5 美�
 
 <article class="post-single">
   <header class="post-header">
-    <div class="breadcrumbs"><a href="https://caiyy17.github.io">Home</a>&nbsp;»&nbsp;<a href="https://caiyy17.github.io/posts/">Posts</a></div>
+    <div class="breadcrumbs"><a href="https://caiyy17.github.io">Home</a></div>
     <h1 class="post-title">
       VPS1:购买以及设置
     </h1>
@@ -228,14 +228,8 @@ DigitalOcean 注册 DO，需要用 paypal 或者信用卡向其中充值 5 美�
 
         <div class="inner"><ul>
                 <li>
-                    <a href="#%e5%89%8d%e8%a8%80" aria-label="前言">前言</a></li>
-                <li>
-                    <a href="#github-%e5%ad%a6%e7%94%9f%e5%8c%85" aria-label="Github 学生包">Github 学生包</a></li>
-                <li>
-                    <a href="#digitalocean" aria-label="DigitalOcean">DigitalOcean</a><ul>
+                    <a href="#%e5%89%8d%e8%a8%80" aria-label="前言">前言</a><ul>
                         
-                <li>
-                    <a href="#%e8%ae%be%e7%bd%ae%e9%98%b2%e7%81%ab%e5%a2%99" aria-label="设置防火墙">设置防火墙</a></li>
                 <li>
                     <a href="#%e8%bf%9e%e6%8e%a5%e6%9c%8d%e5%8a%a1%e5%99%a8" aria-label="连接服务器">连接服务器</a></li></ul>
                 </li>
@@ -252,66 +246,49 @@ DigitalOcean 注册 DO，需要用 paypal 或者信用卡向其中充值 5 美�
 </div>
 
   <div class="post-content"><h1 id="前言">前言<a hidden class="anchor" aria-hidden="true" href="#前言">#</a></h1>
-<p>对于一个准备完计算机的喜欢折腾的学生来说，拥有一台自己的服务器是十分有必要的，在那上面，可以干许许多多事情。</p>
-<h1 id="github-学生包">Github 学生包<a hidden class="anchor" aria-hidden="true" href="#github-学生包">#</a></h1>
-<p>相信大家对 github 都不陌生，但 github 上除了代码管理和社区之外，github 提供的学生包也是个非常不错的东西。学生包获取方法就根据提示一步一步来就行，需要学校邮箱。</p>
-<p>其中个人暂时用到的有：</p>
-<ul>
-<li>DigitalOcean 上 50 刀的代金券</li>
-<li>AWS 上 150 刀代金券</li>
-<li>Namecheap 一年的免费.me 域名</li>
-</ul>
-<p>这些基本都和 VPS 有关，本文主要介绍 DO 上的 VPS，这个也比较简单。</p>
-<h1 id="digitalocean">DigitalOcean<a hidden class="anchor" aria-hidden="true" href="#digitalocean">#</a></h1>
-<p>注册 DO，需要用 paypal 或者信用卡向其中充值 5 美金，就可以注册完成了。完成后，在 DO 网站中输入学生包优惠码，会发现账户变成了 55 美金，这样就可以用基础套餐 11 个月了。</p>
-<p>然后添加 Droplets，我使用的是 centos，最基础的套餐（5 刀一个月），用校园网的话记得勾选 ipv6，然后 <strong>添加一个 sshkey</strong> （这一步很重要，不然申请完成后需要再设置这个 VPS 很多步）</p>
-<p>然后就完成了基本操作，可以使用电脑连接服务器了。</p>
-<h2 id="设置防火墙">设置防火墙<a hidden class="anchor" aria-hidden="true" href="#设置防火墙">#</a></h2>
-<p>DO 提供了十分方便的防火墙设置，可以控制进出开放的端口，然后你可以只开你需要的端口，可以免去在 VPS 里面设置防火墙，甚至可以把里面的防火墙关了。</p>
-<p>这里一般会设置几套防火墙，每一套之间是叠加的，就是最终开放的端口是所有防火墙组的开发端口的并集。可以有前段防火墙开发基本端口，然后 ss 防火墙专门开发 socks 协议使用的端口&hellip;&hellip;这个就看自己组合了。</p>
-<p>我这边是开了 ssh 使用的 22 端口；网站的 443 和 1080 端口；以及 ss 或者 v2ray 使用的端口（自己设置）。如果不用网站，可以将 443 或者 1080 作为翻墙端口。</p>
+<p>拥有一台自己的服务器是十分有必要的。</p>
 <h2 id="连接服务器">连接服务器<a hidden class="anchor" aria-hidden="true" href="#连接服务器">#</a></h2>
 <p>Windows 可以用 putty，使用 ssh 登陆，然后在 ssh 设置中添加自己的私钥，就可以连了。</p>
 <p>Mac 的话直接用系统自带的终端</p>
-<pre tabindex="0"><code>ssh -p [port] [user]@[ip]
+<pre><code>ssh -p [port] [user]@[ip]
 </code></pre><h1 id="用户设置">用户设置<a hidden class="anchor" aria-hidden="true" href="#用户设置">#</a></h1>
-<p>默认登陆的是 root 用户，但是这样是不安全的，我们可以建立管理员用户，然后只允许管理员用户切换到 root，再禁止 root 的 ssh 登陆，这样我们钥使用 root 就只能先 ssh 登陆管理员账户，然后再使用密码切换到 root。</p>
+<p>默认登陆的是 root 用户，但是这样是不安全的，我们可以建立管理员用户，然后只允许管理员用户切换到 root，再禁止 root 的 ssh 登陆，这样我们要使用 root 就只能先 ssh 登陆管理员账户，然后再使用密码切换到 root。</p>
 <ol>
 <li>
 <p>新建一个用户</p>
-<pre tabindex="0"><code>useradd [user]
+<pre><code>useradd [user]
 </code></pre></li>
 <li>
 <p>将用户添加至管理员组</p>
-<pre tabindex="0"><code>usermod –g wheel [user]
+<pre><code>usermod –g wheel [user]
 </code></pre></li>
 <li>
 <p>修改/etc/pam.d/su 配置</p>
 <p>去掉这行的注释，就完成了禁止普通用户切换 root</p>
-<pre tabindex="0"><code>#auth required pam_wheel.so use_uid
+<pre><code>#auth required pam_wheel.so use_uid
 </code></pre></li>
 <li>
 <p>修改/etc/ssh/sshd_config</p>
 <p>将 PermitRootLogin 选项改为</p>
-<pre tabindex="0"><code>PermitRootLogin no
+<pre><code>PermitRootLogin no
 </code></pre></li>
 </ol>
 <p>这样就禁止了 root 直接登陆。</p>
 <h1 id="ssh-设置">ssh 设置<a hidden class="anchor" aria-hidden="true" href="#ssh-设置">#</a></h1>
-<p>这个在用户文件夹下的.ssh/authorized_keys 中可以添加 ssh 的公钥，然后就可以使用不同的私钥链接服务器了，然是保险起见得保证 <strong>从修改文件到确认可以用修改后的钥匙登陆前</strong> 最好都保持有一个终端窗口连在服务器上，这样玩意出问题还可以再次改那个文件。</p>
+<p>这个在用户文件夹下的.ssh/authorized_keys 中可以添加 ssh 的公钥，然后就可以使用不同的私钥链接服务器了，保险起见得保证 <strong>从修改文件到确认可以用修改后的钥匙登陆前</strong> 最好都保持有一个终端窗口连在服务器上，这样玩意出问题还可以再次改那个文件。</p>
 <h1 id="ok">OK<a hidden class="anchor" aria-hidden="true" href="#ok">#</a></h1>
 <p>然后就可以愉快地在服务器中安装各种软件了&hellip;&hellip;附上一些现成代码</p>
-<pre tabindex="0"><code>useradd -g wheel admin
+<pre><code>useradd -g wheel admin
 passwd admin
 
-echo &#34;&#34; &gt;&gt; /etc/pam.d/su
-echo &#34;auth required pam_wheel.so use_uid&#34; &gt;&gt; /etc/pam.d/su
+echo &quot;&quot; &gt;&gt; /etc/pam.d/su
+echo &quot;auth required pam_wheel.so use_uid&quot; &gt;&gt; /etc/pam.d/su
 
-echo &#34;&#34; &gt;&gt; /etc/ssh/sshd_config
-echo &#34;RSAAuthentication yes&#34; &gt;&gt; /etc/ssh/sshd_config
-echo &#34;PubkeyAuthentication yes&#34; &gt;&gt; /etc/ssh/sshd_config
-echo &#34;PermitRootLogin no&#34; &gt;&gt; /etc/ssh/sshd_config
-echo &#34;PasswordAuthentication no&#34; &gt;&gt; /etc/ssh/sshd_config
+echo &quot;&quot; &gt;&gt; /etc/ssh/sshd_config
+echo &quot;RSAAuthentication yes&quot; &gt;&gt; /etc/ssh/sshd_config
+echo &quot;PubkeyAuthentication yes&quot; &gt;&gt; /etc/ssh/sshd_config
+echo &quot;PermitRootLogin no&quot; &gt;&gt; /etc/ssh/sshd_config
+echo &quot;PasswordAuthentication no&quot; &gt;&gt; /etc/ssh/sshd_config
 service sshd restart
 
 su admin
@@ -329,7 +306,6 @@ chmod 644 authorized_keys
   <footer class="post-footer">
     <ul class="post-tags">
       <li><a href="https://caiyy17.github.io/tags/vps/">VPS</a></li>
-      <li><a href="https://caiyy17.github.io/tags/safety/">safety</a></li>
     </ul>
 <nav class="paginav">
   <a class="prev" href="https://caiyy17.github.io/posts/computer/linux%E5%9F%BA%E6%9C%AC%E5%91%BD%E4%BB%A4/">
@@ -337,10 +313,10 @@ chmod 644 authorized_keys
     <br>
     <span>Linux1:基本命令</span>
   </a>
-  <a class="next" href="https://caiyy17.github.io/posts/computer/vps2_socks%E5%8D%8F%E8%AE%AE%E4%B8%8Ess%E8%AE%BE%E7%BD%AE/">
+  <a class="next" href="https://caiyy17.github.io/posts/computer/yubikey1_%E4%B8%AA%E4%BA%BA%E5%AE%89%E5%85%A8/">
     <span class="title">Next »</span>
     <br>
-    <span>VPS2:socks协议以及ss设置</span>
+    <span>YubiKey1:个人安全与YubiKey</span>
   </a>
 </nav>
 
@@ -349,7 +325,7 @@ chmod 644 authorized_keys
     </main>
     
 <footer class="footer">
-    <span>&copy; 2022 <a href="https://caiyy17.github.io">caiyy17</a></span>
+    <span>&copy; 2023 <a href="https://caiyy17.github.io">caiyy17</a></span>
     <span>
         Powered by
         <a href="https://gohugo.io/" rel="noopener noreferrer" target="_blank">Hugo</a> &

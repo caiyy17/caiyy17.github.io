@@ -2,7 +2,7 @@
 <html lang="en" dir="auto">
 
 <head>
-	<meta name="generator" content="Hugo 0.104.3" /><meta charset="utf-8">
+	<meta name="generator" content="Hugo 0.68.3" /><meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <meta name="robots" content="index, follow">
@@ -11,7 +11,7 @@
 <meta name="description" content="">
 <meta name="author" content="">
 <link rel="canonical" href="https://caiyy17.github.io/">
-<link crossorigin="anonymous" href="/assets/css/stylesheet.bccfefac377bc340f06c260aed1bddf49a4354816d7c570d6aac75a997986c95.css" integrity="sha256-vM/vrDd7w0DwbCYK7Rvd9JpDVIFtfFcNaqx1qZeYbJU=" rel="preload stylesheet" as="style">
+<link crossorigin="anonymous" href="/assets/css/stylesheet.735c14aef5bd53538764fbe842da3b6b2041059e13045d88f457bc438e58e012.css" integrity="sha256-c1wUrvW9U1OHZPvoQto7ayBBBZ4TBF2I9Fe8Q45Y4BI=" rel="preload stylesheet" as="style">
 <link rel="icon" href="https://caiyy17.github.io/favicon.ico">
 <link rel="icon" type="image/png" sizes="16x16" href="https://caiyy17.github.io/favicon-16x16.png">
 <link rel="icon" type="image/png" sizes="32x32" href="https://caiyy17.github.io/favicon-32x32.png">
@@ -132,7 +132,7 @@
                 </a>
             </li>
             <li>
-                <a href="https://caiyy17.github.io/search/" title="search (Alt &#43; /)" accesskey=/>
+                <a href="https://caiyy17.github.io/search/" title="search">
                     <span>search</span>
                 </a>
             </li>
@@ -148,51 +148,34 @@
 
 <article class="post-entry"> 
   <header class="entry-header">
-    <h2>Markdown2:转换及发布
+    <h2>Markdown1:简易的文本格式
     </h2>
   </header>
   <div class="entry-content">
-    <p>前言 为了可以用自己喜欢的排版风格排版 Markdown，需要将其转换成其他有丰富排版功能的格式，最重要的无非是 html 和 tex，本文主要讲 html 的转换。
-转至 html 后便可以配合已经编写好的.css 文件，统一排版成自己想要的格式。便可以发布在自己的网站上了。然而自己便携插件还是有些困难，好在有 hexo 或者 markdownhere 等软件和插件的帮助。前者可以帮助我们制作博客，后者可以直接在 chrome 中将 markdown 原文在公众号网站中转换为带格式的文本。
-之后就不需要麻烦的公众号编辑器，只需要每次写 Markdown 就行了。
-Markdown 对 html 的支持 这里说一下 Markdown 原生对 html 的支持。Markdown 的语法默认有对应的 html 语法，对应如下：(html 闭合部分省略，详细结构可以查 html 相应格式)
-Markdown html 段落（两个换行符） &lt;p&gt; x 级标题 &lt;nx&gt; 无序列表 &lt;ul&gt; 有序列表 &lt;ol&gt; 代码块 &lt;code&gt; 引用 &lt;blockquote&gt; 分割线 &lt;hr/&gt; 表格 &lt;table&gt; 链接 &lt;a&gt; 图片 &lt;img&gt; *强调 &lt;em&gt; **强调 &lt;strong&gt; 而在 Markdown 中也可以自由插入 html 的代码，转换器会在转换的时候保留 html 的代码保持不动（有可能需要设置一下）。例如&lt;br/&gt;...</p>
-  </div>
-  <footer class="entry-footer"><span title='2018-07-12 00:00:00 +0000 UTC'>July 12, 2018</span></footer>
-  <a class="entry-link" aria-label="post link to Markdown2:转换及发布" href="https://caiyy17.github.io/posts/computer/md2_%E8%BD%AC%E6%8D%A2%E5%8F%8A%E5%8F%91%E5%B8%83/"></a>
-</article>
-
-<article class="post-entry"> 
-  <header class="entry-header">
-    <h2>Markdown1:语法
-    </h2>
-  </header>
-  <div class="entry-content">
-    <p>前言 本人现在大学生一枚，由于自己作为小白又总喜欢瞎折腾一些东西，所以一直想自己写一些个人博客来记录一下自己的折腾历史，以防以后就忘了怎么操作。
-既然是写博客，又不想自己人工排版，第一篇就以 Markdown 的语法开始吧。
-Markdown 概述 Markdown 的宗旨便是易写易读，一份 Markdown 的文档就算是直接纯文本形式发布也不会让人看起来别扭，但又可以很方便的进行简单的排版，特别是转成 html 格式在互联网上十分方便。本人就计划用 Markdown 配合 html 与 css 将自己的文章发在微信公众号上。
+    <p>前言 Markdown 是一种轻量级的标记语言，它可以被转换为 HTML 格式的内容。
+Markdown 概述 Markdown 的宗旨便是易写易读，即便一篇 Markdown 文档直接以纯文本形式发布，其内容同样易于阅读。同时，Markdown 提供了便捷的排版功能，尤其在转换为 HTML 格式后，在网页上使用非常方便。
 在这里吐槽一下：
-微信公众号的各种排版工具和网站实在是太麻烦了，虽然它们也许可以实现很多非常花哨的功能，但是一点点调整一点点排版十分的反人类（也许也是我不会用…），又不是做一张海报，我觉得一个非常简洁的工具才是比较好的。
-还有 Latex 的编辑效率个人感觉并不高，公式编辑其实 Word 自带的公式编辑器（不是 mathtype）非常快捷，浮动体也很不友好，Word 嵌入式就好很多（虽然有时候占地方，但有强迫症啊…）大概就只有交叉引用会比 Word 方便了。
+微信公众号的各种排版工具和网站实在是过于复杂，虽然它们也许可以实现很多非常花哨的功能，但是一点点调整一点点排版十分的反人类，又不是要做一张海报，我觉得一个非常简洁的工具才是比较好的。
+至于 LaTeX，我个人认为其编辑效率并不理想，在编辑公式方面，Word 自带的公式编辑器（并非 MathType）的速度和便捷性实际上相当出色。另外，LaTeX 对浮动体的处理并不是特别友好，相比之下，Word 的嵌入功能会好很多（虽然它有时候会更占地方，但对于强迫症来说，我总希望所有物体出现在它该出现的地方…）。只有在交叉引用方面，LaTeX 会比 Word 方便很多。
 吐槽完毕…
 Markdown 语法 好了，我们正式开始。
 换行 和 Latex 差不多 Markdown 使用一个空行来换行
 例：
-这是一个段落这是一个段落效果：
+这是一个段落这是一个段落 效果：
+ 这是一个段落
 这是一个段落
+ 当然，Markdown 也可以使用在行末尾加上两个或以上空格加来换行。（其实是在末尾加了&lt;br/&gt;）
+这是一个段落（末尾有两个空格）这是一个段落 效果：
+ 这是一个段落
 这是一个段落
-当然，Markdown 也可以使用在行末尾加上两个或以上空格加来换行。（其实是在末尾加了&lt;br/&gt;）
-这是一个段落（末尾有两个空格）这是一个段落效果：
-这是一个段落
-这是一个段落
-会发现这样的的强制换行间距与空行换行不一样
+ 会发现这样的的强制换行间距与空行换行不一样
 标题 Markdown 支持 6 级标题，分别用不一样数量的#来标记注意一定要在#后面加空格
 例：
-# 这是H1## 这是H2###### 这是H6效果：
-这是 H1 这是 H2 这是 H6 引用 引用和 email 中的很像，在引用区块的每行前面加一个或多个&gt;（几个就是几级）...</p>
+# 这是H1## 这是H2###### 这是H6 效果：
+ 这是 H1 这是 H2 这是 H6  引用 引用和 email 中的很像，在引用区块的每行前面加一个或多个&gt;（几个就是几级）...</p>
   </div>
   <footer class="entry-footer"><span title='2018-06-13 00:00:00 +0000 UTC'>June 13, 2018</span></footer>
-  <a class="entry-link" aria-label="post link to Markdown1:语法" href="https://caiyy17.github.io/posts/computer/md1_%E8%AF%AD%E6%B3%95/"></a>
+  <a class="entry-link" aria-label="post link to Markdown1:简易的文本格式" href="https://caiyy17.github.io/posts/computer/markdown1_%E7%AE%80%E6%98%93%E7%9A%84%E6%96%87%E6%9C%AC%E6%A0%BC%E5%BC%8F/"></a>
 </article>
 <footer class="page-footer">
   <nav class="pagination">
@@ -204,7 +187,7 @@ Markdown 语法 好了，我们正式开始。
     </main>
     
 <footer class="footer">
-    <span>&copy; 2022 <a href="https://caiyy17.github.io">caiyy17</a></span>
+    <span>&copy; 2023 <a href="https://caiyy17.github.io">caiyy17</a></span>
     <span>
         Powered by
         <a href="https://gohugo.io/" rel="noopener noreferrer" target="_blank">Hugo</a> &

@@ -8,11 +8,11 @@
     <language>en-us</language>
     <lastBuildDate>Fri, 26 Aug 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://caiyy17.github.io/tags/blog/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>VPS3:githubio博客和VPN</title>
-      <link>https://caiyy17.github.io/posts/computer/vps4_%E5%90%8E%E7%BB%AD%E8%AE%BE%E7%BD%AE/</link>
+      <title>VPS2:githubio博客和VPN</title>
+      <link>https://caiyy17.github.io/posts/computer/vps2_%E5%90%8E%E7%BB%AD%E8%AE%BE%E7%BD%AE/</link>
       <pubDate>Fri, 26 Aug 2022 00:00:00 +0000</pubDate>
       
-      <guid>https://caiyy17.github.io/posts/computer/vps4_%E5%90%8E%E7%BB%AD%E8%AE%BE%E7%BD%AE/</guid>
+      <guid>https://caiyy17.github.io/posts/computer/vps2_%E5%90%8E%E7%BB%AD%E8%AE%BE%E7%BD%AE/</guid>
       <description>前言 之前使用 VPS 搭建个人博客和代理，但是这样需要时刻维护服务器，其实还是占用了不少时间和精力，为了最方便地使用，目前使用 hugo 博客搭配 githubio 使用，而代理则使用成品代理，有专人替你维护。
 HUGO 安装 HUGO 是基于 go 的博客框架，编译起来比之前基于 node 的 js 框架要快非常多。
 Install Hugo
@@ -21,34 +21,7 @@ Install PaperMod
 部署到 Github 设置参照 theme 给的例子即可，需要注意的是部署到 github 需要将
 publishDir = &amp;#34;docs&amp;#34; 加在配置中，然后在 githubio 设置中将发布路径改为 docs，这样不用设置另外分支，非常方便。
 生成网页 博客直接在 posts 中用 md 编写即可，需要发布时先用 hugo 命令生成，然后同步 github 的 repo
-hugo -D </description>
-    </item>
-    
-    <item>
-      <title>VPS3:nginx服务与Hexo博客</title>
-      <link>https://caiyy17.github.io/posts/computer/vps3_%E6%9C%8D%E5%8A%A1%E5%99%A8%E8%AE%BE%E7%BD%AE%E4%B8%8E%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2/</link>
-      <pubDate>Sun, 30 Sep 2018 00:00:00 +0000</pubDate>
-      
-      <guid>https://caiyy17.github.io/posts/computer/vps3_%E6%9C%8D%E5%8A%A1%E5%99%A8%E8%AE%BE%E7%BD%AE%E4%B8%8E%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2/</guid>
-      <description>前言 一直想做一个个人博客，但又不想在个大博客网站上写，这样很不自由，还不如微信朋友圈（其实主要是感觉 VPS 只用来挂 ss 太亏了，想玩玩&amp;hellip;）但是自己做网站代价很大，而 hexo 便是现成的可以直接挂 blog 的软件，又有丰富的主题科插件。
-HEXO 安装 在 Mac 中需要安装 git 和 nodejs，这两个都在 brew 中安装就可以了，brew 安装相关具体可以看 Mac 设置 这篇文章，安装好之后便可以安装 hexo（根据官网来就行）
-npm install -g hexo-cli 然后在需要建站的文件夹内：（[folder]为需要建立的文件夹名字）
-$ hexo init [folder] $ cd [folder] $ npm install 然后更据提示修改_config.yml 配置文件就行。hexo 的官方文档还是相当详细的。
-可以通过 git clone 在 themes 文件夹下安装各种主题，官网有提供一些主题，也可以网上搜，配置同样在各个主题文件夹的_config.yml 中，当然你也可以改动它的 css 和 js。
-这里提一下 layout 是用于生成 html 的，比如博客底部的 powered by 相关字段，如果想修改可以进去找 ejs 文件中相关的代码。在我设置过程中我的 theme 生成的 html 对于 about 文件的引用就是不对的（它引用了 about.html 但是 hexo 生成的 about 是在 about/index.</description>
-    </item>
-    
-    <item>
-      <title>Markdown2:转换及发布</title>
-      <link>https://caiyy17.github.io/posts/computer/md2_%E8%BD%AC%E6%8D%A2%E5%8F%8A%E5%8F%91%E5%B8%83/</link>
-      <pubDate>Thu, 12 Jul 2018 00:00:00 +0000</pubDate>
-      
-      <guid>https://caiyy17.github.io/posts/computer/md2_%E8%BD%AC%E6%8D%A2%E5%8F%8A%E5%8F%91%E5%B8%83/</guid>
-      <description>前言 为了可以用自己喜欢的排版风格排版 Markdown，需要将其转换成其他有丰富排版功能的格式，最重要的无非是 html 和 tex，本文主要讲 html 的转换。
-转至 html 后便可以配合已经编写好的.css 文件，统一排版成自己想要的格式。便可以发布在自己的网站上了。然而自己便携插件还是有些困难，好在有 hexo 或者 markdownhere 等软件和插件的帮助。前者可以帮助我们制作博客，后者可以直接在 chrome 中将 markdown 原文在公众号网站中转换为带格式的文本。
-之后就不需要麻烦的公众号编辑器，只需要每次写 Markdown 就行了。
-Markdown 对 html 的支持 这里说一下 Markdown 原生对 html 的支持。Markdown 的语法默认有对应的 html 语法，对应如下：(html 闭合部分省略，详细结构可以查 html 相应格式)
-Markdown html 段落（两个换行符） &amp;lt;p&amp;gt; x 级标题 &amp;lt;nx&amp;gt; 无序列表 &amp;lt;ul&amp;gt; 有序列表 &amp;lt;ol&amp;gt; 代码块 &amp;lt;code&amp;gt; 引用 &amp;lt;blockquote&amp;gt; 分割线 &amp;lt;hr/&amp;gt; 表格 &amp;lt;table&amp;gt; 链接 &amp;lt;a&amp;gt; 图片 &amp;lt;img&amp;gt; *强调 &amp;lt;em&amp;gt; **强调 &amp;lt;strong&amp;gt; 而在 Markdown 中也可以自由插入 html 的代码，转换器会在转换的时候保留 html 的代码保持不动（有可能需要设置一下）。例如&amp;lt;br/&amp;gt;</description>
+hugo -D 在 VSCode 和部署中同时看到正确的图片 由于 Hugo 生成网页的路径和 VSCode 本地路径不一致，导致只有一个地方可以看到正确的图片。解决办法是使用 Hugo 的 Page Bundles。Hugo 的 Page Bundles 允许你将内容页面和与之相关的资源（如图片）组织在同一文件夹下。例如，如果你有以下的目录结构：（注意 md 文件必须使用 index 作为文件名，这样 Hugo 才不会为这个 md 文件单独加一层文件夹）</description>
     </item>
     
   </channel>
