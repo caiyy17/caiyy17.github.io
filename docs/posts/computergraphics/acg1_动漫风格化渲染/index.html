@@ -6,7 +6,8 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <meta name="robots" content="index, follow">
 <title>ACG1:动漫风格化渲染 | caiyy17</title>
-<meta name="keywords" content="ComputerGraphics">
+
+<meta name="keywords" content="ComputerGraphics" />
 <meta name="description" content="动漫风格化渲染 【声明】本文内容全部基于个人观察，具体算法细节可能有所不同，也没必要完全相同，毕竟这只是一个 basline，供日后改进使用
 原神风格化渲染 选取原神作为 baseline，主要因为本人是原神玩家，同时原神的动漫风格化渲染一定程度上代表了业界主流做法，包含 ramp 采样阴影，屏幕空间边缘光，背向法线外扩描边，ilmMap 控制材质
 演示界面为 unity 自带的 shader graph（然而目前 SG 不支持多 Pass，又只能写回 shader），其实用啥软件都可以，没有非常复杂的算法需要依赖于某些高级软件特性（可能获取深度图在某些软件中需要一丢丢工作量）
@@ -17,10 +18,10 @@ ramp_sg ramp 边缘 边缘光和描边一样，都可以突出主体，原神人
 rim_sg rim 描边就是背向法线外扩描边，此时模型法线需要使用平均法线。
 ilm 为了表现出材质区别，使用 ilm 标记区域，ilm 的通道分配直到现在，基本还是沿用罪恶装备的定义。R 通道表示材质粗糙度用于计算高光（各种高光算法其实都可以）；G 通道表示接受阴影（原神中 0 表示永远为阴影，0.5 表示正常，1 表示永远为亮，原神中阴影色是单独定义的颜色，和 ramp 中最深的颜色是不同的，这样可以在阴影中创造层次）；B 通道表示高光 mask（用于 mask 在 R 通道计算的高光）；A 通道原神中表示采样 ramp 图的第几条：">
 <meta name="author" content="">
-<link rel="canonical" href="https://caiyy17.github.io/posts/computergraphics/acg1_%E5%8A%A8%E6%BC%AB%E9%A3%8E%E6%A0%BC%E5%8C%96%E6%B8%B2%E6%9F%93/">
-<link crossorigin="anonymous" href="/assets/css/stylesheet.735c14aef5bd53538764fbe842da3b6b2041059e13045d88f457bc438e58e012.css" integrity="sha256-c1wUrvW9U1OHZPvoQto7ayBBBZ4TBF2I9Fe8Q45Y4BI=" rel="preload stylesheet" as="style">
-<script defer crossorigin="anonymous" src="/assets/js/highlight.f413e19d0714851f6474e7ee9632408e58ac146fbdbe62747134bea2fa3415e0.js" integrity="sha256-9BPhnQcUhR9kdOfuljJAjlisFG&#43;9vmJ0cTS&#43;ovo0FeA="
-    onload="hljs.initHighlightingOnLoad();"></script>
+<link rel="canonical" href="https://caiyy17.github.io/posts/computergraphics/acg1_%E5%8A%A8%E6%BC%AB%E9%A3%8E%E6%A0%BC%E5%8C%96%E6%B8%B2%E6%9F%93/" />
+<link href="/assets/css/stylesheet.min.2fe20f8bc0dfa5e1b6cdbdf2cd0ff90da85d80a5d39aced2f9ff00407eedffde.css" integrity="sha256-L&#43;IPi8DfpeG2zb3yzQ/5DahdgKXTms7S&#43;f8AQH7t/94=" rel="preload stylesheet"
+    as="style">
+
 <link rel="icon" href="https://caiyy17.github.io/favicon.ico">
 <link rel="icon" type="image/png" sizes="16x16" href="https://caiyy17.github.io/favicon-16x16.png">
 <link rel="icon" type="image/png" sizes="32x32" href="https://caiyy17.github.io/favicon-32x32.png">
@@ -28,43 +29,10 @@ ilm 为了表现出材质区别，使用 ilm 标记区域，ilm 的通道分配�
 <link rel="mask-icon" href="https://caiyy17.github.io/safari-pinned-tab.svg">
 <meta name="theme-color" content="#2e2e33">
 <meta name="msapplication-TileColor" content="#2e2e33">
-<noscript>
-    <style>
-        #theme-toggle,
-        .top-link {
-            display: none;
-        }
+<meta name="generator" content="Hugo 0.68.3" />
 
-    </style>
-    <style>
-        @media (prefers-color-scheme: dark) {
-            :root {
-                --theme: rgb(29, 30, 32);
-                --entry: rgb(46, 46, 51);
-                --primary: rgb(218, 218, 219);
-                --secondary: rgb(155, 156, 157);
-                --tertiary: rgb(65, 66, 68);
-                --content: rgb(196, 196, 197);
-                --hljs-bg: rgb(46, 46, 51);
-                --code-bg: rgb(55, 56, 62);
-                --border: rgb(51, 51, 51);
-            }
 
-            .list {
-                background: var(--theme);
-            }
-
-            .list:not(.dark)::-webkit-scrollbar-track {
-                background: 0 0;
-            }
-
-            .list:not(.dark)::-webkit-scrollbar-thumb {
-                border-color: var(--theme);
-            }
-        }
-
-    </style>
-</noscript><meta property="og:title" content="ACG1:动漫风格化渲染" />
+<meta property="og:title" content="ACG1:动漫风格化渲染" />
 <meta property="og:description" content="动漫风格化渲染 【声明】本文内容全部基于个人观察，具体算法细节可能有所不同，也没必要完全相同，毕竟这只是一个 basline，供日后改进使用
 原神风格化渲染 选取原神作为 baseline，主要因为本人是原神玩家，同时原神的动漫风格化渲染一定程度上代表了业界主流做法，包含 ramp 采样阴影，屏幕空间边缘光，背向法线外扩描边，ilmMap 控制材质
 演示界面为 unity 自带的 shader graph（然而目前 SG 不支持多 Pass，又只能写回 shader），其实用啥软件都可以，没有非常复杂的算法需要依赖于某些高级软件特性（可能获取深度图在某些软件中需要一丢丢工作量）
@@ -76,8 +44,8 @@ rim_sg rim 描边就是背向法线外扩描边，此时模型法线需要使用
 ilm 为了表现出材质区别，使用 ilm 标记区域，ilm 的通道分配直到现在，基本还是沿用罪恶装备的定义。R 通道表示材质粗糙度用于计算高光（各种高光算法其实都可以）；G 通道表示接受阴影（原神中 0 表示永远为阴影，0.5 表示正常，1 表示永远为亮，原神中阴影色是单独定义的颜色，和 ramp 中最深的颜色是不同的，这样可以在阴影中创造层次）；B 通道表示高光 mask（用于 mask 在 R 通道计算的高光）；A 通道原神中表示采样 ramp 图的第几条：" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://caiyy17.github.io/posts/computergraphics/acg1_%E5%8A%A8%E6%BC%AB%E9%A3%8E%E6%A0%BC%E5%8C%96%E6%B8%B2%E6%9F%93/" /><meta property="article:section" content="posts" />
-<meta property="article:published_time" content="2022-02-10T00:00:00+00:00" />
-<meta property="article:modified_time" content="2022-02-10T00:00:00+00:00" />
+<meta property="article:published_time" content="2022-02-10T00:00:00&#43;00:00" />
+<meta property="article:modified_time" content="2022-02-10T00:00:00&#43;00:00" />
 
 <meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="ACG1:动漫风格化渲染"/>
@@ -135,6 +103,11 @@ ilm 为了表现出材质区别，使用 ilm 标记区域，ilm 的通道分配�
   }
 }
 </script>
+
+
+
+
+
 </head>
 
 <body class="" id="top">
@@ -148,19 +121,55 @@ ilm 为了表现出材质区别，使用 ilm 标记区域，ilm 的通道分配�
     }
 
 </script>
+<noscript>
+    <style type="text/css">
+        #theme-toggle,
+        .top-link {
+            display: none;
+        }
 
+    </style>
+    <style>
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --theme: #1d1e20;
+                --entry: #2e2e33;
+                --primary: rgba(255, 255, 255, 0.84);
+                --secondary: rgba(255, 255, 255, 0.56);
+                --tertiary: rgba(255, 255, 255, 0.16);
+                --content: rgba(255, 255, 255, 0.74);
+                --hljs-bg: #2e2e33;
+                --code-bg: #37383e;
+                --border: #333;
+            }
+
+            .list {
+                background: var(--theme);
+            }
+
+            .list:not(.dark)::-webkit-scrollbar-track {
+                background: 0 0;
+            }
+
+            .list:not(.dark)::-webkit-scrollbar-thumb {
+                border-color: var(--theme);
+            }
+        }
+    </style>
+
+</noscript>
 <header class="header">
     <nav class="nav">
         <div class="logo">
             <a href="https://caiyy17.github.io" accesskey="h" title="caiyy17 (Alt + H)">caiyy17</a>
-            <div class="logo-switches">
+            <span class="logo-switches">
                 <button id="theme-toggle" accesskey="t" title="(Alt + T)">
-                    <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
+                    <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
                         fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
                         stroke-linejoin="round">
                         <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
                     </svg>
-                    <svg id="sun" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
+                    <svg id="sun" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
                         fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
                         stroke-linejoin="round">
                         <circle cx="12" cy="12" r="5"></circle>
@@ -174,9 +183,11 @@ ilm 为了表现出材质区别，使用 ilm 标记区域，ilm 的通道分配�
                         <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
                     </svg>
                 </button>
-            </div>
+                
+                
+            </span>
         </div>
-        <ul id="menu">
+        <ul id="menu" onscroll="menu_on_scroll()">
             <li>
                 <a href="https://caiyy17.github.io/categories/" title="categories">
                     <span>categories</span>
@@ -188,7 +199,7 @@ ilm 为了表现出材质区别，使用 ilm 标记区域，ilm 的通道分配�
                 </a>
             </li>
             <li>
-                <a href="https://caiyy17.github.io/search/" title="search">
+                <a href="https://caiyy17.github.io/search/" title="search (Alt &#43; /)" accesskey=/>
                     <span>search</span>
                 </a>
             </li>
@@ -196,54 +207,50 @@ ilm 为了表现出材质区别，使用 ilm 标记区域，ilm 的通道分配�
                 <a href="https://caiyy17.github.io/archives/" title="archives">
                     <span>archives</span>
                 </a>
-            </li>
-        </ul>
+            </li></ul>
     </nav>
 </header>
-<main class="main">
+
+    <main class="main">
 
 <article class="post-single">
   <header class="post-header">
-    <div class="breadcrumbs"><a href="https://caiyy17.github.io">Home</a></div>
+<div class="breadcrumbs">
+
+    <a href="https://caiyy17.github.io">Home</a>
+</div>
+
     <h1 class="post-title">
       ACG1:动漫风格化渲染
     </h1>
-    <div class="post-meta"><span title='2022-02-10 00:00:00 +0000 UTC'>February 10, 2022</span>
+    <div class="post-meta">February 10, 2022
+
 
 </div>
-  </header> <div class="toc">
+  </header> 
+
+  <div class="toc">
     <details >
-        <summary accesskey="c" title="(Alt + C)">
-            <span class="details">Table of Contents</span>
-        </summary>
-
-        <div class="inner"><ul>
-                <li>
-                    <a href="#%e5%8a%a8%e6%bc%ab%e9%a3%8e%e6%a0%bc%e5%8c%96%e6%b8%b2%e6%9f%93" aria-label="动漫风格化渲染">动漫风格化渲染</a><ul>
-                        
-                <li>
-                    <a href="#%e5%8e%9f%e7%a5%9e%e9%a3%8e%e6%a0%bc%e5%8c%96%e6%b8%b2%e6%9f%93" aria-label="原神风格化渲染">原神风格化渲染</a><ul>
-                        
-                <li>
-                    <a href="#%e5%9f%ba%e7%a1%80%e8%bf%87%e7%a8%8b" aria-label="基础过程">基础过程</a></li>
-                <li>
-                    <a href="#%e8%be%b9%e7%bc%98" aria-label="边缘">边缘</a></li>
-                <li>
-                    <a href="#ilm" aria-label="ilm">ilm</a></li>
-                <li>
-                    <a href="#%e8%84%b8%e9%83%a8-sdf-%e9%98%b4%e5%bd%b1" aria-label="脸部 SDF 阴影">脸部 SDF 阴影</a></li></ul>
-                </li>
-                <li>
-                    <a href="#%e6%94%b9%e8%bf%9b" aria-label="改进">改进</a>
-                </li>
-            </ul>
-            </li>
-            </ul>
-        </div>
+      <summary accesskey="c" title="(Alt + C)">
+        <div class="details">Table of Contents</div>
+      </summary>
+      <div class="inner"><ul><li>
+        <a href="#%e5%8a%a8%e6%bc%ab%e9%a3%8e%e6%a0%bc%e5%8c%96%e6%b8%b2%e6%9f%93" aria-label="动漫风格化渲染">动漫风格化渲染</a><ul>
+            <li>
+        <a href="#%e5%8e%9f%e7%a5%9e%e9%a3%8e%e6%a0%bc%e5%8c%96%e6%b8%b2%e6%9f%93" aria-label="原神风格化渲染">原神风格化渲染</a><ul>
+            <li>
+        <a href="#%e5%9f%ba%e7%a1%80%e8%bf%87%e7%a8%8b" aria-label="基础过程">基础过程</a></li><li>
+        <a href="#%e8%be%b9%e7%bc%98" aria-label="边缘">边缘</a></li><li>
+        <a href="#ilm" aria-label="ilm">ilm</a></li><li>
+        <a href="#%e8%84%b8%e9%83%a8-sdf-%e9%98%b4%e5%bd%b1" aria-label="脸部 SDF 阴影">脸部 SDF 阴影</a></li></ul>
+    </li><li>
+        <a href="#%e6%94%b9%e8%bf%9b" aria-label="改进">改进</a></li></ul>
+</li></ul>
+      </div>
     </details>
-</div>
-
-  <div class="post-content"><h1 id="动漫风格化渲染">动漫风格化渲染<a hidden class="anchor" aria-hidden="true" href="#动漫风格化渲染">#</a></h1>
+  </div>
+  <div class="post-content">
+<h1 id="动漫风格化渲染">动漫风格化渲染<a hidden class="anchor" aria-hidden="true" href="#动漫风格化渲染">#</a></h1>
 <p><strong>【声明】本文内容全部基于个人观察，具体算法细节可能有所不同，也没必要完全相同，毕竟这只是一个 basline，供日后改进使用</strong></p>
 <h2 id="原神风格化渲染">原神风格化渲染<a hidden class="anchor" aria-hidden="true" href="#原神风格化渲染">#</a></h2>
 <p>选取原神作为 baseline，主要因为本人是原神玩家，同时原神的动漫风格化渲染一定程度上代表了业界主流做法，包含 ramp 采样阴影，屏幕空间边缘光，背向法线外扩描边，ilmMap 控制材质</p>
@@ -327,51 +334,53 @@ ilm 为了表现出材质区别，使用 ilm 标记区域，ilm 的通道分配�
 </ol>
 <p>有空再慢慢做了</p>
 
-
-  </div>
-
+</div>
   <footer class="post-footer">
     <ul class="post-tags">
       <li><a href="https://caiyy17.github.io/tags/computergraphics/">ComputerGraphics</a></li>
     </ul>
-<nav class="paginav">
-  <a class="prev" href="https://caiyy17.github.io/posts/japanstudy/%E9%9C%93%E8%99%B9%E7%95%99%E5%AD%A6%E8%AE%B01_%E4%B8%9C%E4%BA%AC%E5%A4%A7%E5%AD%A6%E7%94%B3%E8%AF%B7/">
-    <span class="title">« Prev</span>
-    <br>
-    <span>霓虹留学记1:东京大学申请</span>
-  </a>
-  <a class="next" href="https://caiyy17.github.io/posts/computer/%E5%A4%87%E4%BB%BD_%E5%90%84%E7%A7%8D%E7%8E%AF%E5%A2%83%E7%9A%84%E5%A4%87%E4%BB%BD%E4%B8%8E%E9%87%8D%E8%A3%85/">
-    <span class="title">Next »</span>
-    <br>
-    <span>备份:各种环境的备份与重装</span>
-  </a>
-</nav>
-
+    <nav class="paginav">
+      <a class="prev" href="https://caiyy17.github.io/posts/japanstudy/%E9%9C%93%E8%99%B9%E7%95%99%E5%AD%A6%E8%AE%B01_%E4%B8%9C%E4%BA%AC%E5%A4%A7%E5%AD%A6%E7%94%B3%E8%AF%B7/">
+        <span class="title">« Prev Page</span>
+        <br>
+        <span>霓虹留学记1:东京大学申请</span>
+      </a>
+      <a class="next" href="https://caiyy17.github.io/posts/computer/%E5%A4%87%E4%BB%BD_%E5%90%84%E7%A7%8D%E7%8E%AF%E5%A2%83%E7%9A%84%E5%A4%87%E4%BB%BD%E4%B8%8E%E9%87%8D%E8%A3%85/">
+        <span class="title">Next Page »</span>
+        <br>
+        <span>备份:各种环境的备份与重装</span>
+      </a>
+    </nav>
   </footer>
 </article>
-    </main>
-    
-<footer class="footer">
+    </main><footer class="footer">
     <span>&copy; 2023 <a href="https://caiyy17.github.io">caiyy17</a></span>
-    <span>
-        Powered by
-        <a href="https://gohugo.io/" rel="noopener noreferrer" target="_blank">Hugo</a> &
-        <a href="https://github.com/adityatelange/hugo-PaperMod/" rel="noopener" target="_blank">PaperMod</a>
-    </span>
+    <span>&middot;</span>
+    <span>Powered by <a href="https://gohugo.io/" rel="noopener noreferrer" target="_blank">Hugo</a></span>
+    <span>&middot;</span>
+    <span>Theme <a href="https://git.io/hugopapermod" rel="noopener" target="_blank">PaperMod</a></span>
 </footer>
-<a href="#top" aria-label="go to top" title="Go to Top (Alt + G)" class="top-link" id="top-link" accesskey="g">
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 6" fill="currentColor">
-        <path d="M12 6H0l6-6z" />
-    </svg>
+<a href="#top" aria-label="go to top" title="Go to Top (Alt + G)">
+    <button class="top-link" id="top-link" type="button" accesskey="g">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 6" fill="currentColor">
+            <path d="M12 6H0l6-6z" />
+        </svg>
+    </button>
 </a>
 
+
+
+<script defer src="/assets/js/highlight.min.27cd435cc9ed6abb4b496581b151804f79f366c412620272bb94e2f5f598ebcc.js" integrity="sha256-J81DXMntartLSWWBsVGAT3nzZsQSYgJyu5Ti9fWY68w="
+    onload="hljs.initHighlightingOnLoad();"></script>
 <script>
-    let menu = document.getElementById('menu')
-    if (menu) {
-        menu.scrollLeft = localStorage.getItem("menu-scroll-position");
-        menu.onscroll = function () {
-            localStorage.setItem("menu-scroll-position", menu.scrollLeft);
+    window.onload = function () {
+        if (localStorage.getItem("menu-scroll-position")) {
+            document.getElementById('menu').scrollLeft = localStorage.getItem("menu-scroll-position");
         }
+    }
+
+    function menu_on_scroll() {
+        localStorage.setItem("menu-scroll-position", document.getElementById('menu').scrollLeft);
     }
 
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
@@ -419,6 +428,7 @@ ilm 为了表现出材质区别，使用 ilm 标记区域，ilm 的通道分配�
     })
 
 </script>
+
 </body>
 
 </html>

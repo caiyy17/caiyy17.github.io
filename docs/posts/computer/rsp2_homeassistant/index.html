@@ -6,7 +6,8 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <meta name="robots" content="index, follow">
 <title>RSP2:homeassistant | caiyy17</title>
-<meta name="keywords" content="RSP, homekit">
+
+<meta name="keywords" content="RSP, homekit" />
 <meta name="description" content="前言 小米的智能家庭套件可谓是物美价廉，然而它有着对于我这种强迫症非常不能接受的一个特点：非本地，所有的操作所有的智能都必须通过与小米远端的服务器进行数据交换才能够进行，这也就意味者在没有网络（路由器断了外网）或者小米服务器出故障的情况下，所有的小米设备会处于瘫痪状态；
 当然，这不是最主要的问题，而是这样一来，你的设备的所有动向都会被小米收集，这是严重的个人信息的泄露活着至少说是不安全因素（所以很奇怪居然有人敢买小米的摄像头作为监控，这到底是安全还是更不安全）。
 当然，这也许就是小米的目的，在后面的设置中也可以看出这一点迹象（特别是本地设备的通讯密码在高版本的米家中就不存在本地了，开玩笑呢&hellip;)。而树莓派被大量的被用于智能家庭的中枢，恰好可以作为一个本地中枢，我就想也简单地玩一下。
@@ -18,10 +19,10 @@ hassbian 在官网下载镜像（还有基于 docker 的 hass.io，相关安装�
 我选择了 hassbian，按照流程：
  下载 烧录（和官方系统一样） 加入无线路由其配置文件-开机等待（墙内网不好，基本都要手动 ssh 安装 HA，这点 mossbian 应该好很多） 手动 SSH 登录（同一路由器下网址 hassbian.local），用 hassbian-config 安装 HA（失败多安装几次） 安装 samba hassbian.">
 <meta name="author" content="">
-<link rel="canonical" href="https://caiyy17.github.io/posts/computer/rsp2_homeassistant/">
-<link crossorigin="anonymous" href="/assets/css/stylesheet.735c14aef5bd53538764fbe842da3b6b2041059e13045d88f457bc438e58e012.css" integrity="sha256-c1wUrvW9U1OHZPvoQto7ayBBBZ4TBF2I9Fe8Q45Y4BI=" rel="preload stylesheet" as="style">
-<script defer crossorigin="anonymous" src="/assets/js/highlight.f413e19d0714851f6474e7ee9632408e58ac146fbdbe62747134bea2fa3415e0.js" integrity="sha256-9BPhnQcUhR9kdOfuljJAjlisFG&#43;9vmJ0cTS&#43;ovo0FeA="
-    onload="hljs.initHighlightingOnLoad();"></script>
+<link rel="canonical" href="https://caiyy17.github.io/posts/computer/rsp2_homeassistant/" />
+<link href="/assets/css/stylesheet.min.2fe20f8bc0dfa5e1b6cdbdf2cd0ff90da85d80a5d39aced2f9ff00407eedffde.css" integrity="sha256-L&#43;IPi8DfpeG2zb3yzQ/5DahdgKXTms7S&#43;f8AQH7t/94=" rel="preload stylesheet"
+    as="style">
+
 <link rel="icon" href="https://caiyy17.github.io/favicon.ico">
 <link rel="icon" type="image/png" sizes="16x16" href="https://caiyy17.github.io/favicon-16x16.png">
 <link rel="icon" type="image/png" sizes="32x32" href="https://caiyy17.github.io/favicon-32x32.png">
@@ -29,43 +30,10 @@ hassbian 在官网下载镜像（还有基于 docker 的 hass.io，相关安装�
 <link rel="mask-icon" href="https://caiyy17.github.io/safari-pinned-tab.svg">
 <meta name="theme-color" content="#2e2e33">
 <meta name="msapplication-TileColor" content="#2e2e33">
-<noscript>
-    <style>
-        #theme-toggle,
-        .top-link {
-            display: none;
-        }
+<meta name="generator" content="Hugo 0.68.3" />
 
-    </style>
-    <style>
-        @media (prefers-color-scheme: dark) {
-            :root {
-                --theme: rgb(29, 30, 32);
-                --entry: rgb(46, 46, 51);
-                --primary: rgb(218, 218, 219);
-                --secondary: rgb(155, 156, 157);
-                --tertiary: rgb(65, 66, 68);
-                --content: rgb(196, 196, 197);
-                --hljs-bg: rgb(46, 46, 51);
-                --code-bg: rgb(55, 56, 62);
-                --border: rgb(51, 51, 51);
-            }
 
-            .list {
-                background: var(--theme);
-            }
-
-            .list:not(.dark)::-webkit-scrollbar-track {
-                background: 0 0;
-            }
-
-            .list:not(.dark)::-webkit-scrollbar-thumb {
-                border-color: var(--theme);
-            }
-        }
-
-    </style>
-</noscript><meta property="og:title" content="RSP2:homeassistant" />
+<meta property="og:title" content="RSP2:homeassistant" />
 <meta property="og:description" content="前言 小米的智能家庭套件可谓是物美价廉，然而它有着对于我这种强迫症非常不能接受的一个特点：非本地，所有的操作所有的智能都必须通过与小米远端的服务器进行数据交换才能够进行，这也就意味者在没有网络（路由器断了外网）或者小米服务器出故障的情况下，所有的小米设备会处于瘫痪状态；
 当然，这不是最主要的问题，而是这样一来，你的设备的所有动向都会被小米收集，这是严重的个人信息的泄露活着至少说是不安全因素（所以很奇怪居然有人敢买小米的摄像头作为监控，这到底是安全还是更不安全）。
 当然，这也许就是小米的目的，在后面的设置中也可以看出这一点迹象（特别是本地设备的通讯密码在高版本的米家中就不存在本地了，开玩笑呢&hellip;)。而树莓派被大量的被用于智能家庭的中枢，恰好可以作为一个本地中枢，我就想也简单地玩一下。
@@ -78,8 +46,8 @@ hassbian 在官网下载镜像（还有基于 docker 的 hass.io，相关安装�
  下载 烧录（和官方系统一样） 加入无线路由其配置文件-开机等待（墙内网不好，基本都要手动 ssh 安装 HA，这点 mossbian 应该好很多） 手动 SSH 登录（同一路由器下网址 hassbian.local），用 hassbian-config 安装 HA（失败多安装几次） 安装 samba hassbian." />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://caiyy17.github.io/posts/computer/rsp2_homeassistant/" /><meta property="article:section" content="posts" />
-<meta property="article:published_time" content="2019-02-19T00:00:00+00:00" />
-<meta property="article:modified_time" content="2019-02-19T00:00:00+00:00" />
+<meta property="article:published_time" content="2019-02-19T00:00:00&#43;00:00" />
+<meta property="article:modified_time" content="2019-02-19T00:00:00&#43;00:00" />
 
 <meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="RSP2:homeassistant"/>
@@ -138,6 +106,11 @@ hassbian 在官网下载镜像（还有基于 docker 的 hass.io，相关安装�
   }
 }
 </script>
+
+
+
+
+
 </head>
 
 <body class="" id="top">
@@ -151,19 +124,55 @@ hassbian 在官网下载镜像（还有基于 docker 的 hass.io，相关安装�
     }
 
 </script>
+<noscript>
+    <style type="text/css">
+        #theme-toggle,
+        .top-link {
+            display: none;
+        }
 
+    </style>
+    <style>
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --theme: #1d1e20;
+                --entry: #2e2e33;
+                --primary: rgba(255, 255, 255, 0.84);
+                --secondary: rgba(255, 255, 255, 0.56);
+                --tertiary: rgba(255, 255, 255, 0.16);
+                --content: rgba(255, 255, 255, 0.74);
+                --hljs-bg: #2e2e33;
+                --code-bg: #37383e;
+                --border: #333;
+            }
+
+            .list {
+                background: var(--theme);
+            }
+
+            .list:not(.dark)::-webkit-scrollbar-track {
+                background: 0 0;
+            }
+
+            .list:not(.dark)::-webkit-scrollbar-thumb {
+                border-color: var(--theme);
+            }
+        }
+    </style>
+
+</noscript>
 <header class="header">
     <nav class="nav">
         <div class="logo">
             <a href="https://caiyy17.github.io" accesskey="h" title="caiyy17 (Alt + H)">caiyy17</a>
-            <div class="logo-switches">
+            <span class="logo-switches">
                 <button id="theme-toggle" accesskey="t" title="(Alt + T)">
-                    <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
+                    <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
                         fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
                         stroke-linejoin="round">
                         <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
                     </svg>
-                    <svg id="sun" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
+                    <svg id="sun" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
                         fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
                         stroke-linejoin="round">
                         <circle cx="12" cy="12" r="5"></circle>
@@ -177,9 +186,11 @@ hassbian 在官网下载镜像（还有基于 docker 的 hass.io，相关安装�
                         <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
                     </svg>
                 </button>
-            </div>
+                
+                
+            </span>
         </div>
-        <ul id="menu">
+        <ul id="menu" onscroll="menu_on_scroll()">
             <li>
                 <a href="https://caiyy17.github.io/categories/" title="categories">
                     <span>categories</span>
@@ -191,7 +202,7 @@ hassbian 在官网下载镜像（还有基于 docker 的 hass.io，相关安装�
                 </a>
             </li>
             <li>
-                <a href="https://caiyy17.github.io/search/" title="search">
+                <a href="https://caiyy17.github.io/search/" title="search (Alt &#43; /)" accesskey=/>
                     <span>search</span>
                 </a>
             </li>
@@ -199,57 +210,52 @@ hassbian 在官网下载镜像（还有基于 docker 的 hass.io，相关安装�
                 <a href="https://caiyy17.github.io/archives/" title="archives">
                     <span>archives</span>
                 </a>
-            </li>
-        </ul>
+            </li></ul>
     </nav>
 </header>
-<main class="main">
+
+    <main class="main">
 
 <article class="post-single">
   <header class="post-header">
-    <div class="breadcrumbs"><a href="https://caiyy17.github.io">Home</a></div>
+<div class="breadcrumbs">
+
+    <a href="https://caiyy17.github.io">Home</a>
+</div>
+
     <h1 class="post-title">
       RSP2:homeassistant
     </h1>
-    <div class="post-meta"><span title='2019-02-19 00:00:00 +0000 UTC'>February 19, 2019</span>
+    <div class="post-meta">February 19, 2019
+
 
 </div>
-  </header> <div class="toc">
+  </header> 
+
+  <div class="toc">
     <details >
-        <summary accesskey="c" title="(Alt + C)">
-            <span class="details">Table of Contents</span>
-        </summary>
-
-        <div class="inner"><ul>
-                <li>
-                    <a href="#%e5%89%8d%e8%a8%80" aria-label="前言">前言</a></li>
-                <li>
-                    <a href="#%e5%9f%ba%e6%9c%ac%e6%a1%86%e6%9e%b6" aria-label="基本框架">基本框架</a></li>
-                <li>
-                    <a href="#%e8%ae%be%e7%bd%ae-ha" aria-label="设置 HA">设置 HA</a></li>
-                <li>
-                    <a href="#%e7%b1%b3%e5%ae%b6ha" aria-label="米家——HA">米家——HA</a><ul>
-                        
-                <li>
-                    <a href="#%e8%8e%b7%e5%8f%96-token" aria-label="获取 token">获取 token</a></li></ul>
-                </li>
-                <li>
-                    <a href="#hahk" aria-label="HA——HK">HA——HK</a><ul>
-                        
-                <li>
-                    <a href="#%e9%9c%80%e8%a6%81%e8%ae%be%e5%a4%87%e8%bf%94%e5%9b%9e%e7%9a%84%e4%b8%80%e4%ba%9b%e4%bc%a0%e6%84%9f%e5%99%a8%e6%95%b0%e5%80%bc" aria-label="需要设备返回的一些传感器数值">需要设备返回的一些传感器数值</a></li></ul>
-                </li>
-                <li>
-                    <a href="#ps" aria-label="PS">PS</a></li>
-                <li>
-                    <a href="#%e6%9a%82%e6%97%b6" aria-label="暂时">暂时</a>
-                </li>
-            </ul>
-        </div>
+      <summary accesskey="c" title="(Alt + C)">
+        <div class="details">Table of Contents</div>
+      </summary>
+      <div class="inner"><ul><li>
+        <a href="#%e5%89%8d%e8%a8%80" aria-label="前言">前言</a></li><li>
+        <a href="#%e5%9f%ba%e6%9c%ac%e6%a1%86%e6%9e%b6" aria-label="基本框架">基本框架</a></li><li>
+        <a href="#%e8%ae%be%e7%bd%ae-ha" aria-label="设置 HA">设置 HA</a></li><li>
+        <a href="#%e7%b1%b3%e5%ae%b6ha" aria-label="米家——HA">米家——HA</a><ul>
+            <li>
+        <a href="#%e8%8e%b7%e5%8f%96-token" aria-label="获取 token">获取 token</a></li></ul>
+    </li><li>
+        <a href="#hahk" aria-label="HA——HK">HA——HK</a><ul>
+            <li>
+        <a href="#%e9%9c%80%e8%a6%81%e8%ae%be%e5%a4%87%e8%bf%94%e5%9b%9e%e7%9a%84%e4%b8%80%e4%ba%9b%e4%bc%a0%e6%84%9f%e5%99%a8%e6%95%b0%e5%80%bc" aria-label="需要设备返回的一些传感器数值">需要设备返回的一些传感器数值</a></li></ul>
+    </li><li>
+        <a href="#ps" aria-label="PS">PS</a></li><li>
+        <a href="#%e6%9a%82%e6%97%b6" aria-label="暂时">暂时</a></li></ul>
+      </div>
     </details>
-</div>
-
-  <div class="post-content"><h1 id="前言">前言<a hidden class="anchor" aria-hidden="true" href="#前言">#</a></h1>
+  </div>
+  <div class="post-content">
+<h1 id="前言">前言<a hidden class="anchor" aria-hidden="true" href="#前言">#</a></h1>
 <p>小米的智能家庭套件可谓是物美价廉，然而它有着对于我这种强迫症非常不能接受的一个特点：非本地，所有的操作所有的智能都必须通过与小米远端的服务器进行数据交换才能够进行，这也就意味者在没有网络（路由器断了外网）或者小米服务器出故障的情况下，所有的小米设备会处于瘫痪状态；</p>
 <p>当然，这不是最主要的问题，而是这样一来，你的设备的所有动向都会被小米收集，这是严重的个人信息的泄露活着至少说是不安全因素（所以很奇怪居然有人敢买小米的摄像头作为监控，这到底是安全还是更不安全）。</p>
 <p>当然，这也许就是小米的目的，在后面的设置中也可以看出这一点迹象（特别是本地设备的通讯密码在高版本的米家中就不存在本地了，开玩笑呢&hellip;)。而树莓派被大量的被用于智能家庭的中枢，恰好可以作为一个本地中枢，我就想也简单地玩一下。</p>
@@ -291,52 +297,54 @@ hassbian 在官网下载镜像（还有基于 docker 的 hass.io，相关安装�
 <p>第一篇就先到这里，下一篇会讲一些设计 service 调用以及智能设置。</p>
 <p>PS：最后，注意 yaml 文件对与大小写，空格以及缩进都是敏感的，要格外小心。</p>
 
-
-  </div>
-
+</div>
   <footer class="post-footer">
     <ul class="post-tags">
       <li><a href="https://caiyy17.github.io/tags/homekit/">homekit</a></li>
       <li><a href="https://caiyy17.github.io/tags/rsp/">RSP</a></li>
     </ul>
-<nav class="paginav">
-  <a class="prev" href="https://caiyy17.github.io/posts/japan/%E6%97%A5%E8%AF%AD1_basic/">
-    <span class="title">« Prev</span>
-    <br>
-    <span>日语1:基础总结</span>
-  </a>
-  <a class="next" href="https://caiyy17.github.io/posts/computer/rsp3_ha%E6%99%BA%E8%83%BD/">
-    <span class="title">Next »</span>
-    <br>
-    <span>RSP3:HA智能</span>
-  </a>
-</nav>
-
+    <nav class="paginav">
+      <a class="prev" href="https://caiyy17.github.io/posts/japan/%E6%97%A5%E8%AF%AD1_basic/">
+        <span class="title">« Prev Page</span>
+        <br>
+        <span>日语1:基础总结</span>
+      </a>
+      <a class="next" href="https://caiyy17.github.io/posts/computer/rsp3_ha%E6%99%BA%E8%83%BD/">
+        <span class="title">Next Page »</span>
+        <br>
+        <span>RSP3:HA智能</span>
+      </a>
+    </nav>
   </footer>
 </article>
-    </main>
-    
-<footer class="footer">
+    </main><footer class="footer">
     <span>&copy; 2023 <a href="https://caiyy17.github.io">caiyy17</a></span>
-    <span>
-        Powered by
-        <a href="https://gohugo.io/" rel="noopener noreferrer" target="_blank">Hugo</a> &
-        <a href="https://github.com/adityatelange/hugo-PaperMod/" rel="noopener" target="_blank">PaperMod</a>
-    </span>
+    <span>&middot;</span>
+    <span>Powered by <a href="https://gohugo.io/" rel="noopener noreferrer" target="_blank">Hugo</a></span>
+    <span>&middot;</span>
+    <span>Theme <a href="https://git.io/hugopapermod" rel="noopener" target="_blank">PaperMod</a></span>
 </footer>
-<a href="#top" aria-label="go to top" title="Go to Top (Alt + G)" class="top-link" id="top-link" accesskey="g">
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 6" fill="currentColor">
-        <path d="M12 6H0l6-6z" />
-    </svg>
+<a href="#top" aria-label="go to top" title="Go to Top (Alt + G)">
+    <button class="top-link" id="top-link" type="button" accesskey="g">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 6" fill="currentColor">
+            <path d="M12 6H0l6-6z" />
+        </svg>
+    </button>
 </a>
 
+
+
+<script defer src="/assets/js/highlight.min.27cd435cc9ed6abb4b496581b151804f79f366c412620272bb94e2f5f598ebcc.js" integrity="sha256-J81DXMntartLSWWBsVGAT3nzZsQSYgJyu5Ti9fWY68w="
+    onload="hljs.initHighlightingOnLoad();"></script>
 <script>
-    let menu = document.getElementById('menu')
-    if (menu) {
-        menu.scrollLeft = localStorage.getItem("menu-scroll-position");
-        menu.onscroll = function () {
-            localStorage.setItem("menu-scroll-position", menu.scrollLeft);
+    window.onload = function () {
+        if (localStorage.getItem("menu-scroll-position")) {
+            document.getElementById('menu').scrollLeft = localStorage.getItem("menu-scroll-position");
         }
+    }
+
+    function menu_on_scroll() {
+        localStorage.setItem("menu-scroll-position", document.getElementById('menu').scrollLeft);
     }
 
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
@@ -384,6 +392,7 @@ hassbian 在官网下载镜像（还有基于 docker 的 hass.io，相关安装�
     })
 
 </script>
+
 </body>
 
 </html>

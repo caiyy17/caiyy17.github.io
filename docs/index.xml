@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>caiyy17</title>
     <link>https://caiyy17.github.io/</link>
@@ -784,14 +784,6 @@ Markdown 语法 好了，我们正式开始。
  这是 H1 这是 H2 这是 H6  引用 引用和 email 中的很像，在引用区块的每行前面加一个或多个&amp;gt;（几个就是几级）</description>
     </item>
     
-    <item>
-      <title></title>
-      <link>https://caiyy17.github.io/search/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>https://caiyy17.github.io/search/</guid>
-      <description></description>
-    </item>
     
     
   </channel>

@@ -6,7 +6,8 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <meta name="robots" content="index, follow">
 <title>YubiKey2:配置和gnupg | caiyy17</title>
-<meta name="keywords" content="YubiKey">
+
+<meta name="keywords" content="YubiKey" />
 <meta name="description" content="设置 yubikey 讲完了安全模型，就可以开始设置 YubiKey 了
 需要设置的有这些：
  次重要密码导入 slot1 yubikey 的 pin（Masterpin） 管理员 8 位 pin（特殊 pin） GPGkey（因为需要备份，我们从外部导入） PIV（Masterpin） U2F  从简单的开始
@@ -18,10 +19,10 @@ GPG 这个比较复杂，单独出来说。
 生成要最终导入 yubikey 的密钥 虽然有些 yubikey（比如说我的 4-NEO）不支持 4096 位密码，但主密钥还是可以生成 4096 的，最后只要把子密钥导入就行了。
 gpg --full-generate-key Please select what kind of key you want: (1) RSA and RSA (default) (2) DSA and Elgamal (3) DSA (sign only) (4) RSA (sign only) Your selection?">
 <meta name="author" content="">
-<link rel="canonical" href="https://caiyy17.github.io/posts/computer/yubikey2_%E8%AE%BE%E7%BD%AE%E5%92%8Cgnupg/">
-<link crossorigin="anonymous" href="/assets/css/stylesheet.735c14aef5bd53538764fbe842da3b6b2041059e13045d88f457bc438e58e012.css" integrity="sha256-c1wUrvW9U1OHZPvoQto7ayBBBZ4TBF2I9Fe8Q45Y4BI=" rel="preload stylesheet" as="style">
-<script defer crossorigin="anonymous" src="/assets/js/highlight.f413e19d0714851f6474e7ee9632408e58ac146fbdbe62747134bea2fa3415e0.js" integrity="sha256-9BPhnQcUhR9kdOfuljJAjlisFG&#43;9vmJ0cTS&#43;ovo0FeA="
-    onload="hljs.initHighlightingOnLoad();"></script>
+<link rel="canonical" href="https://caiyy17.github.io/posts/computer/yubikey2_%E8%AE%BE%E7%BD%AE%E5%92%8Cgnupg/" />
+<link href="/assets/css/stylesheet.min.2fe20f8bc0dfa5e1b6cdbdf2cd0ff90da85d80a5d39aced2f9ff00407eedffde.css" integrity="sha256-L&#43;IPi8DfpeG2zb3yzQ/5DahdgKXTms7S&#43;f8AQH7t/94=" rel="preload stylesheet"
+    as="style">
+
 <link rel="icon" href="https://caiyy17.github.io/favicon.ico">
 <link rel="icon" type="image/png" sizes="16x16" href="https://caiyy17.github.io/favicon-16x16.png">
 <link rel="icon" type="image/png" sizes="32x32" href="https://caiyy17.github.io/favicon-32x32.png">
@@ -29,43 +30,10 @@ gpg --full-generate-key Please select what kind of key you want: (1) RSA and RSA
 <link rel="mask-icon" href="https://caiyy17.github.io/safari-pinned-tab.svg">
 <meta name="theme-color" content="#2e2e33">
 <meta name="msapplication-TileColor" content="#2e2e33">
-<noscript>
-    <style>
-        #theme-toggle,
-        .top-link {
-            display: none;
-        }
+<meta name="generator" content="Hugo 0.68.3" />
 
-    </style>
-    <style>
-        @media (prefers-color-scheme: dark) {
-            :root {
-                --theme: rgb(29, 30, 32);
-                --entry: rgb(46, 46, 51);
-                --primary: rgb(218, 218, 219);
-                --secondary: rgb(155, 156, 157);
-                --tertiary: rgb(65, 66, 68);
-                --content: rgb(196, 196, 197);
-                --hljs-bg: rgb(46, 46, 51);
-                --code-bg: rgb(55, 56, 62);
-                --border: rgb(51, 51, 51);
-            }
 
-            .list {
-                background: var(--theme);
-            }
-
-            .list:not(.dark)::-webkit-scrollbar-track {
-                background: 0 0;
-            }
-
-            .list:not(.dark)::-webkit-scrollbar-thumb {
-                border-color: var(--theme);
-            }
-        }
-
-    </style>
-</noscript><meta property="og:title" content="YubiKey2:配置和gnupg" />
+<meta property="og:title" content="YubiKey2:配置和gnupg" />
 <meta property="og:description" content="设置 yubikey 讲完了安全模型，就可以开始设置 YubiKey 了
 需要设置的有这些：
  次重要密码导入 slot1 yubikey 的 pin（Masterpin） 管理员 8 位 pin（特殊 pin） GPGkey（因为需要备份，我们从外部导入） PIV（Masterpin） U2F  从简单的开始
@@ -78,8 +46,8 @@ GPG 这个比较复杂，单独出来说。
 gpg --full-generate-key Please select what kind of key you want: (1) RSA and RSA (default) (2) DSA and Elgamal (3) DSA (sign only) (4) RSA (sign only) Your selection?" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://caiyy17.github.io/posts/computer/yubikey2_%E8%AE%BE%E7%BD%AE%E5%92%8Cgnupg/" /><meta property="article:section" content="posts" />
-<meta property="article:published_time" content="2018-09-30T00:00:00+00:00" />
-<meta property="article:modified_time" content="2018-09-30T00:00:00+00:00" />
+<meta property="article:published_time" content="2018-09-30T00:00:00&#43;00:00" />
+<meta property="article:modified_time" content="2018-09-30T00:00:00&#43;00:00" />
 
 <meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="YubiKey2:配置和gnupg"/>
@@ -138,6 +106,11 @@ gpg --full-generate-key Please select what kind of key you want: (1) RSA and RSA
   }
 }
 </script>
+
+
+
+
+
 </head>
 
 <body class="" id="top">
@@ -151,19 +124,55 @@ gpg --full-generate-key Please select what kind of key you want: (1) RSA and RSA
     }
 
 </script>
+<noscript>
+    <style type="text/css">
+        #theme-toggle,
+        .top-link {
+            display: none;
+        }
 
+    </style>
+    <style>
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --theme: #1d1e20;
+                --entry: #2e2e33;
+                --primary: rgba(255, 255, 255, 0.84);
+                --secondary: rgba(255, 255, 255, 0.56);
+                --tertiary: rgba(255, 255, 255, 0.16);
+                --content: rgba(255, 255, 255, 0.74);
+                --hljs-bg: #2e2e33;
+                --code-bg: #37383e;
+                --border: #333;
+            }
+
+            .list {
+                background: var(--theme);
+            }
+
+            .list:not(.dark)::-webkit-scrollbar-track {
+                background: 0 0;
+            }
+
+            .list:not(.dark)::-webkit-scrollbar-thumb {
+                border-color: var(--theme);
+            }
+        }
+    </style>
+
+</noscript>
 <header class="header">
     <nav class="nav">
         <div class="logo">
             <a href="https://caiyy17.github.io" accesskey="h" title="caiyy17 (Alt + H)">caiyy17</a>
-            <div class="logo-switches">
+            <span class="logo-switches">
                 <button id="theme-toggle" accesskey="t" title="(Alt + T)">
-                    <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
+                    <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
                         fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
                         stroke-linejoin="round">
                         <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
                     </svg>
-                    <svg id="sun" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
+                    <svg id="sun" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
                         fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
                         stroke-linejoin="round">
                         <circle cx="12" cy="12" r="5"></circle>
@@ -177,9 +186,11 @@ gpg --full-generate-key Please select what kind of key you want: (1) RSA and RSA
                         <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
                     </svg>
                 </button>
-            </div>
+                
+                
+            </span>
         </div>
-        <ul id="menu">
+        <ul id="menu" onscroll="menu_on_scroll()">
             <li>
                 <a href="https://caiyy17.github.io/categories/" title="categories">
                     <span>categories</span>
@@ -191,7 +202,7 @@ gpg --full-generate-key Please select what kind of key you want: (1) RSA and RSA
                 </a>
             </li>
             <li>
-                <a href="https://caiyy17.github.io/search/" title="search">
+                <a href="https://caiyy17.github.io/search/" title="search (Alt &#43; /)" accesskey=/>
                     <span>search</span>
                 </a>
             </li>
@@ -199,67 +210,57 @@ gpg --full-generate-key Please select what kind of key you want: (1) RSA and RSA
                 <a href="https://caiyy17.github.io/archives/" title="archives">
                     <span>archives</span>
                 </a>
-            </li>
-        </ul>
+            </li></ul>
     </nav>
 </header>
-<main class="main">
+
+    <main class="main">
 
 <article class="post-single">
   <header class="post-header">
-    <div class="breadcrumbs"><a href="https://caiyy17.github.io">Home</a></div>
+<div class="breadcrumbs">
+
+    <a href="https://caiyy17.github.io">Home</a>
+</div>
+
     <h1 class="post-title">
       YubiKey2:配置和gnupg
     </h1>
-    <div class="post-meta"><span title='2018-09-30 00:00:00 +0000 UTC'>September 30, 2018</span>
+    <div class="post-meta">September 30, 2018
+
 
 </div>
-  </header> <div class="toc">
+  </header> 
+
+  <div class="toc">
     <details >
-        <summary accesskey="c" title="(Alt + C)">
-            <span class="details">Table of Contents</span>
-        </summary>
-
-        <div class="inner"><ul>
-                <li>
-                    <a href="#%e8%ae%be%e7%bd%ae-yubikey" aria-label="设置 yubikey">设置 yubikey</a><ul>
-                        
-                <li>
-                    <a href="#%e5%88%9d%e5%a7%8b%e5%8c%96" aria-label="初始化">初始化</a></li>
-                <li>
-                    <a href="#u2f" aria-label="U2F">U2F</a></li>
-                <li>
-                    <a href="#piv" aria-label="PIV">PIV</a></li></ul>
-                </li>
-                <li>
-                    <a href="#gpg" aria-label="GPG">GPG</a><ul>
-                        
-                <li>
-                    <a href="#%e5%ae%89%e8%a3%85-gnupg" aria-label="安装 gnupg">安装 gnupg</a></li>
-                <li>
-                    <a href="#%e7%94%9f%e6%88%90%e8%a6%81%e6%9c%80%e7%bb%88%e5%af%bc%e5%85%a5-yubikey-%e7%9a%84%e5%af%86%e9%92%a5" aria-label="生成要最终导入 yubikey 的密钥">生成要最终导入 yubikey 的密钥</a></li>
-                <li>
-                    <a href="#%e5%af%bc%e5%87%ba%e5%af%86%e9%92%a5" aria-label="导出密钥">导出密钥</a></li>
-                <li>
-                    <a href="#%e8%ae%be%e7%bd%ae-yubikey-%e7%9a%84-pin" aria-label="设置 yubikey 的 pin">设置 yubikey 的 pin</a></li>
-                <li>
-                    <a href="#%e8%ae%be%e7%bd%ae-yubikey-%e7%9a%84-pgp" aria-label="设置 yubikey 的 PGP">设置 yubikey 的 PGP</a></li>
-                <li>
-                    <a href="#%e6%b5%8b%e8%af%95" aria-label="测试">测试</a></li>
-                <li>
-                    <a href="#ssh" aria-label="SSH">SSH</a></li>
-                <li>
-                    <a href="#%e6%b3%a8%e6%84%8f" aria-label="注意">注意</a></li></ul>
-                </li>
-                <li>
-                    <a href="#%e5%90%8e%e8%ae%b0" aria-label="后记">后记</a>
-                </li>
-            </ul>
-        </div>
+      <summary accesskey="c" title="(Alt + C)">
+        <div class="details">Table of Contents</div>
+      </summary>
+      <div class="inner"><ul><li>
+        <a href="#%e8%ae%be%e7%bd%ae-yubikey" aria-label="设置 yubikey">设置 yubikey</a><ul>
+            <li>
+        <a href="#%e5%88%9d%e5%a7%8b%e5%8c%96" aria-label="初始化">初始化</a></li><li>
+        <a href="#u2f" aria-label="U2F">U2F</a></li><li>
+        <a href="#piv" aria-label="PIV">PIV</a></li></ul>
+    </li><li>
+        <a href="#gpg" aria-label="GPG">GPG</a><ul>
+            <li>
+        <a href="#%e5%ae%89%e8%a3%85-gnupg" aria-label="安装 gnupg">安装 gnupg</a></li><li>
+        <a href="#%e7%94%9f%e6%88%90%e8%a6%81%e6%9c%80%e7%bb%88%e5%af%bc%e5%85%a5-yubikey-%e7%9a%84%e5%af%86%e9%92%a5" aria-label="生成要最终导入 yubikey 的密钥">生成要最终导入 yubikey 的密钥</a></li><li>
+        <a href="#%e5%af%bc%e5%87%ba%e5%af%86%e9%92%a5" aria-label="导出密钥">导出密钥</a></li><li>
+        <a href="#%e8%ae%be%e7%bd%ae-yubikey-%e7%9a%84-pin" aria-label="设置 yubikey 的 pin">设置 yubikey 的 pin</a></li><li>
+        <a href="#%e8%ae%be%e7%bd%ae-yubikey-%e7%9a%84-pgp" aria-label="设置 yubikey 的 PGP">设置 yubikey 的 PGP</a></li><li>
+        <a href="#%e6%b5%8b%e8%af%95" aria-label="测试">测试</a></li><li>
+        <a href="#ssh" aria-label="SSH">SSH</a></li><li>
+        <a href="#%e6%b3%a8%e6%84%8f" aria-label="注意">注意</a></li></ul>
+    </li><li>
+        <a href="#%e5%90%8e%e8%ae%b0" aria-label="后记">后记</a></li></ul>
+      </div>
     </details>
-</div>
-
-  <div class="post-content"><h1 id="设置-yubikey">设置 yubikey<a hidden class="anchor" aria-hidden="true" href="#设置-yubikey">#</a></h1>
+  </div>
+  <div class="post-content">
+<h1 id="设置-yubikey">设置 yubikey<a hidden class="anchor" aria-hidden="true" href="#设置-yubikey">#</a></h1>
 <p>讲完了安全模型，就可以开始设置 YubiKey 了</p>
 <p>需要设置的有这些：</p>
 <ul>
@@ -426,51 +427,53 @@ echo &quot;restart&quot;
 <h1 id="后记">后记<a hidden class="anchor" aria-hidden="true" href="#后记">#</a></h1>
 <p>这样，yubikey 就差不多设置好了，愉快使用吧。</p>
 
-
-  </div>
-
+</div>
   <footer class="post-footer">
     <ul class="post-tags">
       <li><a href="https://caiyy17.github.io/tags/yubikey/">YubiKey</a></li>
     </ul>
-<nav class="paginav">
-  <a class="prev" href="https://caiyy17.github.io/posts/computer/yubikey1_%E4%B8%AA%E4%BA%BA%E5%AE%89%E5%85%A8/">
-    <span class="title">« Prev</span>
-    <br>
-    <span>YubiKey1:个人安全与YubiKey</span>
-  </a>
-  <a class="next" href="https://caiyy17.github.io/posts/computer/%E8%BD%AF%E4%BB%B61_%E7%94%B5%E8%84%91%E5%88%86%E9%85%8D%E5%92%8C%E5%B8%B8%E7%94%A8%E7%A8%8B%E5%BA%8F/">
-    <span class="title">Next »</span>
-    <br>
-    <span>软件1:电脑常用软件</span>
-  </a>
-</nav>
-
+    <nav class="paginav">
+      <a class="prev" href="https://caiyy17.github.io/posts/computer/yubikey1_%E4%B8%AA%E4%BA%BA%E5%AE%89%E5%85%A8/">
+        <span class="title">« Prev Page</span>
+        <br>
+        <span>YubiKey1:个人安全与YubiKey</span>
+      </a>
+      <a class="next" href="https://caiyy17.github.io/posts/computer/%E8%BD%AF%E4%BB%B61_%E7%94%B5%E8%84%91%E5%88%86%E9%85%8D%E5%92%8C%E5%B8%B8%E7%94%A8%E7%A8%8B%E5%BA%8F/">
+        <span class="title">Next Page »</span>
+        <br>
+        <span>软件1:电脑常用软件</span>
+      </a>
+    </nav>
   </footer>
 </article>
-    </main>
-    
-<footer class="footer">
+    </main><footer class="footer">
     <span>&copy; 2023 <a href="https://caiyy17.github.io">caiyy17</a></span>
-    <span>
-        Powered by
-        <a href="https://gohugo.io/" rel="noopener noreferrer" target="_blank">Hugo</a> &
-        <a href="https://github.com/adityatelange/hugo-PaperMod/" rel="noopener" target="_blank">PaperMod</a>
-    </span>
+    <span>&middot;</span>
+    <span>Powered by <a href="https://gohugo.io/" rel="noopener noreferrer" target="_blank">Hugo</a></span>
+    <span>&middot;</span>
+    <span>Theme <a href="https://git.io/hugopapermod" rel="noopener" target="_blank">PaperMod</a></span>
 </footer>
-<a href="#top" aria-label="go to top" title="Go to Top (Alt + G)" class="top-link" id="top-link" accesskey="g">
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 6" fill="currentColor">
-        <path d="M12 6H0l6-6z" />
-    </svg>
+<a href="#top" aria-label="go to top" title="Go to Top (Alt + G)">
+    <button class="top-link" id="top-link" type="button" accesskey="g">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 6" fill="currentColor">
+            <path d="M12 6H0l6-6z" />
+        </svg>
+    </button>
 </a>
 
+
+
+<script defer src="/assets/js/highlight.min.27cd435cc9ed6abb4b496581b151804f79f366c412620272bb94e2f5f598ebcc.js" integrity="sha256-J81DXMntartLSWWBsVGAT3nzZsQSYgJyu5Ti9fWY68w="
+    onload="hljs.initHighlightingOnLoad();"></script>
 <script>
-    let menu = document.getElementById('menu')
-    if (menu) {
-        menu.scrollLeft = localStorage.getItem("menu-scroll-position");
-        menu.onscroll = function () {
-            localStorage.setItem("menu-scroll-position", menu.scrollLeft);
+    window.onload = function () {
+        if (localStorage.getItem("menu-scroll-position")) {
+            document.getElementById('menu').scrollLeft = localStorage.getItem("menu-scroll-position");
         }
+    }
+
+    function menu_on_scroll() {
+        localStorage.setItem("menu-scroll-position", document.getElementById('menu').scrollLeft);
     }
 
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
@@ -518,6 +521,7 @@ echo &quot;restart&quot;
     })
 
 </script>
+
 </body>
 
 </html>
