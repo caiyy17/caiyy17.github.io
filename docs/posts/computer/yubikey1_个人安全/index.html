@@ -6,20 +6,19 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <meta name="robots" content="index, follow">
 <title>YubiKey1:个人安全与YubiKey | caiyy17</title>
-
-<meta name="keywords" content="YubiKey" />
+<meta name="keywords" content="YubiKey">
 <meta name="description" content="个人网络安全之重要性 在这个数字化时代，网络安全变得日益重要，各种信息极其容易被窃取（比如说斯诺登事件）。因此加密和认证就显得极其重要，而 YubiKey 就是这样一个简易的设备（支持 OTP、公钥加密签名、U2F 协议）。
 关于 YubiKey 据 Wikipedia 描述：YubiKey 是由 Yubico 生产的身份认证设备，支持一次性密码（OTP）、公钥加密和身份认证，以及由 FIDO 联盟（FIDO U2F）开发的通用第二因素（U2F）协议。它让用户可以透过提交一次性密码或是使用设备产生的公开/私密金钥来安全地登录自己的帐户。针对不支持一次性密码的网站，YubiKey 也可以存储静态密码。Facebook 使用 YubiKey 作为员工凭证；Google 同时为雇员和用户提供支持。还有一些密码管理器也支持 YubiKey。
 作为键盘设备（HID） 这是它主要介绍的功能，能够模拟键盘设备向电脑输入一串生成的密码，兼容性最好。其中还包含多种模式：OTP、Static、Challenge-Response、HTOP，
- OTP：KEY_ID &#43; AES(AES_KEY, SECRET, COUNT&#43;&#43;)即生成的密码包含明文的 KEY_ID 和对称加密的（ SECRET 和计数器）。第一次使用前需要把 KEY_ID，AES_KEY，SECRET 提交至验证服务器（Yubico 提供或者自己搭建），之后应用程序每次通过服务器验证密码的可靠性（解码后 SECRET 对应、COUNT 增大（防止重放攻击））。 Static：静态密码。顾名思义，每次生成固定的一串密码（并没有什么用）。 Challenge-Response：HMAC(SECRET, INPUT)即可以通过 HID 接口给定一个输入，输出 HMAC 的计算结果。输入需要本地代码实现。 HOTP：HMAC(SECRET, COUNTER&#43;&#43;)算法与 Challenge-Response 类似，然而使用累加计数器代替了输入，并且 HOTP 是一个标准协议，许多网站和设备都兼容该标准。  在 YubiKey 中包含两个配置插槽，每一个插槽可以单独配置以上模式中的其中一种，分别通过短触和长触来选择输入。
+OTP：KEY_ID &#43; AES(AES_KEY, SECRET, COUNT&#43;&#43;)即生成的密码包含明文的 KEY_ID 和对称加密的（ SECRET 和计数器）。第一次使用前需要把 KEY_ID，AES_KEY，SECRET 提交至验证服务器（Yubico 提供或者自己搭建），之后应用程序每次通过服务器验证密码的可靠性（解码后 SECRET 对应、COUNT 增大（防止重放攻击））。 Static：静态密码。顾名思义，每次生成固定的一串密码（并没有什么用）。 Challenge-Response：HMAC(SECRET, INPUT)即可以通过 HID 接口给定一个输入，输出 HMAC 的计算结果。输入需要本地代码实现。 HOTP：HMAC(SECRET, COUNTER&#43;&#43;)算法与 Challenge-Response 类似，然而使用累加计数器代替了输入，并且 HOTP 是一个标准协议，许多网站和设备都兼容该标准。 在 YubiKey 中包含两个配置插槽，每一个插槽可以单独配置以上模式中的其中一种，分别通过短触和长触来选择输入。
 不过需要注意的是：以上都是基于对称加密的算法，也就是说，只要服务器端（验证服务器）的密文被泄漏，所有的信息理论上都可以进行伪造。
 U2F U2F 是一个开源的认证标准协议，使用非对称加密算法，在每次需要认证是设备可以对 challenge 信息使用私钥进行签名来完成认证。作为一个开源的标准协议，Google、Dropbox 等网站都支持这种协议的两步验证，然而现阶段浏览器端仅有 Chrome 支持。
 OpenPGP Smart Card YubiKey 还可以作为标准的 OpenPGP Smart Card 使用，用来存储 PGP 私钥（设备中私钥是可写不可读的，解密／签名操作在设备上完成）。">
 <meta name="author" content="">
-<link rel="canonical" href="https://caiyy17.github.io/posts/computer/yubikey1_%E4%B8%AA%E4%BA%BA%E5%AE%89%E5%85%A8/" />
-<link href="/assets/css/stylesheet.min.2fe20f8bc0dfa5e1b6cdbdf2cd0ff90da85d80a5d39aced2f9ff00407eedffde.css" integrity="sha256-L&#43;IPi8DfpeG2zb3yzQ/5DahdgKXTms7S&#43;f8AQH7t/94=" rel="preload stylesheet"
-    as="style">
-
+<link rel="canonical" href="https://caiyy17.github.io/posts/computer/yubikey1_%E4%B8%AA%E4%BA%BA%E5%AE%89%E5%85%A8/">
+<link crossorigin="anonymous" href="/assets/css/stylesheet.5cfc680b1eeaeef9efbced92d46c2a9e876b72ee14fba85846afc4cff9e6e6f8.css" integrity="sha256-XPxoCx7q7vnvvO2S1Gwqnodrcu4U&#43;6hYRq/Ez/nm5vg=" rel="preload stylesheet" as="style">
+<script defer crossorigin="anonymous" src="/assets/js/highlight.f413e19d0714851f6474e7ee9632408e58ac146fbdbe62747134bea2fa3415e0.js" integrity="sha256-9BPhnQcUhR9kdOfuljJAjlisFG&#43;9vmJ0cTS&#43;ovo0FeA="
+    onload="hljs.initHighlightingOnLoad();"></script>
 <link rel="icon" href="https://caiyy17.github.io/favicon.ico">
 <link rel="icon" type="image/png" sizes="16x16" href="https://caiyy17.github.io/favicon-16x16.png">
 <link rel="icon" type="image/png" sizes="32x32" href="https://caiyy17.github.io/favicon-32x32.png">
@@ -27,28 +26,61 @@ OpenPGP Smart Card YubiKey 还可以作为标准的 OpenPGP Smart Card 使用，
 <link rel="mask-icon" href="https://caiyy17.github.io/safari-pinned-tab.svg">
 <meta name="theme-color" content="#2e2e33">
 <meta name="msapplication-TileColor" content="#2e2e33">
-<meta name="generator" content="Hugo 0.68.3" />
+<noscript>
+    <style>
+        #theme-toggle,
+        .top-link {
+            display: none;
+        }
 
+    </style>
+    <style>
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --theme: rgb(29, 30, 32);
+                --entry: rgb(46, 46, 51);
+                --primary: rgb(218, 218, 219);
+                --secondary: rgb(155, 156, 157);
+                --tertiary: rgb(65, 66, 68);
+                --content: rgb(196, 196, 197);
+                --hljs-bg: rgb(46, 46, 51);
+                --code-bg: rgb(55, 56, 62);
+                --border: rgb(51, 51, 51);
+            }
 
-<meta property="og:title" content="YubiKey1:个人安全与YubiKey" />
+            .list {
+                background: var(--theme);
+            }
+
+            .list:not(.dark)::-webkit-scrollbar-track {
+                background: 0 0;
+            }
+
+            .list:not(.dark)::-webkit-scrollbar-thumb {
+                border-color: var(--theme);
+            }
+        }
+
+    </style>
+</noscript><meta property="og:title" content="YubiKey1:个人安全与YubiKey" />
 <meta property="og:description" content="个人网络安全之重要性 在这个数字化时代，网络安全变得日益重要，各种信息极其容易被窃取（比如说斯诺登事件）。因此加密和认证就显得极其重要，而 YubiKey 就是这样一个简易的设备（支持 OTP、公钥加密签名、U2F 协议）。
 关于 YubiKey 据 Wikipedia 描述：YubiKey 是由 Yubico 生产的身份认证设备，支持一次性密码（OTP）、公钥加密和身份认证，以及由 FIDO 联盟（FIDO U2F）开发的通用第二因素（U2F）协议。它让用户可以透过提交一次性密码或是使用设备产生的公开/私密金钥来安全地登录自己的帐户。针对不支持一次性密码的网站，YubiKey 也可以存储静态密码。Facebook 使用 YubiKey 作为员工凭证；Google 同时为雇员和用户提供支持。还有一些密码管理器也支持 YubiKey。
 作为键盘设备（HID） 这是它主要介绍的功能，能够模拟键盘设备向电脑输入一串生成的密码，兼容性最好。其中还包含多种模式：OTP、Static、Challenge-Response、HTOP，
- OTP：KEY_ID &#43; AES(AES_KEY, SECRET, COUNT&#43;&#43;)即生成的密码包含明文的 KEY_ID 和对称加密的（ SECRET 和计数器）。第一次使用前需要把 KEY_ID，AES_KEY，SECRET 提交至验证服务器（Yubico 提供或者自己搭建），之后应用程序每次通过服务器验证密码的可靠性（解码后 SECRET 对应、COUNT 增大（防止重放攻击））。 Static：静态密码。顾名思义，每次生成固定的一串密码（并没有什么用）。 Challenge-Response：HMAC(SECRET, INPUT)即可以通过 HID 接口给定一个输入，输出 HMAC 的计算结果。输入需要本地代码实现。 HOTP：HMAC(SECRET, COUNTER&#43;&#43;)算法与 Challenge-Response 类似，然而使用累加计数器代替了输入，并且 HOTP 是一个标准协议，许多网站和设备都兼容该标准。  在 YubiKey 中包含两个配置插槽，每一个插槽可以单独配置以上模式中的其中一种，分别通过短触和长触来选择输入。
+OTP：KEY_ID &#43; AES(AES_KEY, SECRET, COUNT&#43;&#43;)即生成的密码包含明文的 KEY_ID 和对称加密的（ SECRET 和计数器）。第一次使用前需要把 KEY_ID，AES_KEY，SECRET 提交至验证服务器（Yubico 提供或者自己搭建），之后应用程序每次通过服务器验证密码的可靠性（解码后 SECRET 对应、COUNT 增大（防止重放攻击））。 Static：静态密码。顾名思义，每次生成固定的一串密码（并没有什么用）。 Challenge-Response：HMAC(SECRET, INPUT)即可以通过 HID 接口给定一个输入，输出 HMAC 的计算结果。输入需要本地代码实现。 HOTP：HMAC(SECRET, COUNTER&#43;&#43;)算法与 Challenge-Response 类似，然而使用累加计数器代替了输入，并且 HOTP 是一个标准协议，许多网站和设备都兼容该标准。 在 YubiKey 中包含两个配置插槽，每一个插槽可以单独配置以上模式中的其中一种，分别通过短触和长触来选择输入。
 不过需要注意的是：以上都是基于对称加密的算法，也就是说，只要服务器端（验证服务器）的密文被泄漏，所有的信息理论上都可以进行伪造。
 U2F U2F 是一个开源的认证标准协议，使用非对称加密算法，在每次需要认证是设备可以对 challenge 信息使用私钥进行签名来完成认证。作为一个开源的标准协议，Google、Dropbox 等网站都支持这种协议的两步验证，然而现阶段浏览器端仅有 Chrome 支持。
 OpenPGP Smart Card YubiKey 还可以作为标准的 OpenPGP Smart Card 使用，用来存储 PGP 私钥（设备中私钥是可写不可读的，解密／签名操作在设备上完成）。" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://caiyy17.github.io/posts/computer/yubikey1_%E4%B8%AA%E4%BA%BA%E5%AE%89%E5%85%A8/" /><meta property="article:section" content="posts" />
-<meta property="article:published_time" content="2018-09-30T00:00:00&#43;00:00" />
-<meta property="article:modified_time" content="2018-09-30T00:00:00&#43;00:00" />
+<meta property="article:published_time" content="2018-09-30T00:00:00+00:00" />
+<meta property="article:modified_time" content="2018-09-30T00:00:00+00:00" />
 
 <meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="YubiKey1:个人安全与YubiKey"/>
 <meta name="twitter:description" content="个人网络安全之重要性 在这个数字化时代，网络安全变得日益重要，各种信息极其容易被窃取（比如说斯诺登事件）。因此加密和认证就显得极其重要，而 YubiKey 就是这样一个简易的设备（支持 OTP、公钥加密签名、U2F 协议）。
 关于 YubiKey 据 Wikipedia 描述：YubiKey 是由 Yubico 生产的身份认证设备，支持一次性密码（OTP）、公钥加密和身份认证，以及由 FIDO 联盟（FIDO U2F）开发的通用第二因素（U2F）协议。它让用户可以透过提交一次性密码或是使用设备产生的公开/私密金钥来安全地登录自己的帐户。针对不支持一次性密码的网站，YubiKey 也可以存储静态密码。Facebook 使用 YubiKey 作为员工凭证；Google 同时为雇员和用户提供支持。还有一些密码管理器也支持 YubiKey。
 作为键盘设备（HID） 这是它主要介绍的功能，能够模拟键盘设备向电脑输入一串生成的密码，兼容性最好。其中还包含多种模式：OTP、Static、Challenge-Response、HTOP，
- OTP：KEY_ID &#43; AES(AES_KEY, SECRET, COUNT&#43;&#43;)即生成的密码包含明文的 KEY_ID 和对称加密的（ SECRET 和计数器）。第一次使用前需要把 KEY_ID，AES_KEY，SECRET 提交至验证服务器（Yubico 提供或者自己搭建），之后应用程序每次通过服务器验证密码的可靠性（解码后 SECRET 对应、COUNT 增大（防止重放攻击））。 Static：静态密码。顾名思义，每次生成固定的一串密码（并没有什么用）。 Challenge-Response：HMAC(SECRET, INPUT)即可以通过 HID 接口给定一个输入，输出 HMAC 的计算结果。输入需要本地代码实现。 HOTP：HMAC(SECRET, COUNTER&#43;&#43;)算法与 Challenge-Response 类似，然而使用累加计数器代替了输入，并且 HOTP 是一个标准协议，许多网站和设备都兼容该标准。  在 YubiKey 中包含两个配置插槽，每一个插槽可以单独配置以上模式中的其中一种，分别通过短触和长触来选择输入。
+OTP：KEY_ID &#43; AES(AES_KEY, SECRET, COUNT&#43;&#43;)即生成的密码包含明文的 KEY_ID 和对称加密的（ SECRET 和计数器）。第一次使用前需要把 KEY_ID，AES_KEY，SECRET 提交至验证服务器（Yubico 提供或者自己搭建），之后应用程序每次通过服务器验证密码的可靠性（解码后 SECRET 对应、COUNT 增大（防止重放攻击））。 Static：静态密码。顾名思义，每次生成固定的一串密码（并没有什么用）。 Challenge-Response：HMAC(SECRET, INPUT)即可以通过 HID 接口给定一个输入，输出 HMAC 的计算结果。输入需要本地代码实现。 HOTP：HMAC(SECRET, COUNTER&#43;&#43;)算法与 Challenge-Response 类似，然而使用累加计数器代替了输入，并且 HOTP 是一个标准协议，许多网站和设备都兼容该标准。 在 YubiKey 中包含两个配置插槽，每一个插槽可以单独配置以上模式中的其中一种，分别通过短触和长触来选择输入。
 不过需要注意的是：以上都是基于对称加密的算法，也就是说，只要服务器端（验证服务器）的密文被泄漏，所有的信息理论上都可以进行伪造。
 U2F U2F 是一个开源的认证标准协议，使用非对称加密算法，在每次需要认证是设备可以对 challenge 信息使用私钥进行签名来完成认证。作为一个开源的标准协议，Google、Dropbox 等网站都支持这种协议的两步验证，然而现阶段浏览器端仅有 Chrome 支持。
 OpenPGP Smart Card YubiKey 还可以作为标准的 OpenPGP Smart Card 使用，用来存储 PGP 私钥（设备中私钥是可写不可读的，解密／签名操作在设备上完成）。"/>
@@ -59,6 +91,12 @@ OpenPGP Smart Card YubiKey 还可以作为标准的 OpenPGP Smart Card 使用，
   "@context": "https://schema.org",
   "@type": "BreadcrumbList",
   "itemListElement": [, 
+    {
+      "@type": "ListItem",
+      "position":  2 ,
+      "name": "Posts",
+      "item": "https://caiyy17.github.io/posts/"
+    }, 
     {
       "@type": "ListItem",
       "position":  3 ,
@@ -74,12 +112,12 @@ OpenPGP Smart Card YubiKey 还可以作为标准的 OpenPGP Smart Card 使用，
   "@type": "BlogPosting",
   "headline": "YubiKey1:个人安全与YubiKey",
   "name": "YubiKey1:个人安全与YubiKey",
-  "description": "个人网络安全之重要性 在这个数字化时代，网络安全变得日益重要，各种信息极其容易被窃取（比如说斯诺登事件）。因此加密和认证就显得极其重要，而 YubiKey 就是这样一个简易的设备（支持 OTP、公钥加密签名、U2F 协议）。\n关于 YubiKey 据 Wikipedia 描述：YubiKey 是由 Yubico 生产的身份认证设备，支持一次性密码（OTP）、公钥加密和身份认证，以及由 FIDO 联盟（FIDO U2F）开发的通用第二因素（U2F）协议。它让用户可以透过提交一次性密码或是使用设备产生的公开/私密金钥来安全地登录自己的帐户。针对不支持一次性密码的网站，YubiKey 也可以存储静态密码。Facebook 使用 YubiKey 作为员工凭证；Google 同时为雇员和用户提供支持。还有一些密码管理器也支持 YubiKey。\n作为键盘设备（HID） 这是它主要介绍的功能，能够模拟键盘设备向电脑输入一串生成的密码，兼容性最好。其中还包含多种模式：OTP、Static、Challenge-Response、HTOP，\n OTP：KEY_ID + AES(AES_KEY, SECRET, COUNT++)即生成的密码包含明文的 KEY_ID 和对称加密的（ SECRET 和计数器）。第一次使用前需要把 KEY_ID，AES_KEY，SECRET 提交至验证服务器（Yubico 提供或者自己搭建），之后应用程序每次通过服务器验证密码的可靠性（解码后 SECRET 对应、COUNT 增大（防止重放攻击））。 Static：静态密码。顾名思义，每次生成固定的一串密码（并没有什么用）。 Challenge-Response：HMAC(SECRET, INPUT)即可以通过 HID 接口给定一个输入，输出 HMAC 的计算结果。输入需要本地代码实现。 HOTP：HMAC(SECRET, COUNTER++)算法与 Challenge-Response 类似，然而使用累加计数器代替了输入，并且 HOTP 是一个标准协议，许多网站和设备都兼容该标准。  在 YubiKey 中包含两个配置插槽，每一个插槽可以单独配置以上模式中的其中一种，分别通过短触和长触来选择输入。\n不过需要注意的是：以上都是基于对称加密的算法，也就是说，只要服务器端（验证服务器）的密文被泄漏，所有的信息理论上都可以进行伪造。\nU2F U2F 是一个开源的认证标准协议，使用非对称加密算法，在每次需要认证是设备可以对 challenge 信息使用私钥进行签名来完成认证。作为一个开源的标准协议，Google、Dropbox 等网站都支持这种协议的两步验证，然而现阶段浏览器端仅有 Chrome 支持。\nOpenPGP Smart Card YubiKey 还可以作为标准的 OpenPGP Smart Card 使用，用来存储 PGP 私钥（设备中私钥是可写不可读的，解密／签名操作在设备上完成）。",
+  "description": "个人网络安全之重要性 在这个数字化时代，网络安全变得日益重要，各种信息极其容易被窃取（比如说斯诺登事件）。因此加密和认证就显得极其重要，而 YubiKey 就是这样一个简易的设备（支持 OTP、公钥加密签名、U2F 协议）。\n关于 YubiKey 据 Wikipedia 描述：YubiKey 是由 Yubico 生产的身份认证设备，支持一次性密码（OTP）、公钥加密和身份认证，以及由 FIDO 联盟（FIDO U2F）开发的通用第二因素（U2F）协议。它让用户可以透过提交一次性密码或是使用设备产生的公开/私密金钥来安全地登录自己的帐户。针对不支持一次性密码的网站，YubiKey 也可以存储静态密码。Facebook 使用 YubiKey 作为员工凭证；Google 同时为雇员和用户提供支持。还有一些密码管理器也支持 YubiKey。\n作为键盘设备（HID） 这是它主要介绍的功能，能够模拟键盘设备向电脑输入一串生成的密码，兼容性最好。其中还包含多种模式：OTP、Static、Challenge-Response、HTOP，\nOTP：KEY_ID + AES(AES_KEY, SECRET, COUNT++)即生成的密码包含明文的 KEY_ID 和对称加密的（ SECRET 和计数器）。第一次使用前需要把 KEY_ID，AES_KEY，SECRET 提交至验证服务器（Yubico 提供或者自己搭建），之后应用程序每次通过服务器验证密码的可靠性（解码后 SECRET 对应、COUNT 增大（防止重放攻击））。 Static：静态密码。顾名思义，每次生成固定的一串密码（并没有什么用）。 Challenge-Response：HMAC(SECRET, INPUT)即可以通过 HID 接口给定一个输入，输出 HMAC 的计算结果。输入需要本地代码实现。 HOTP：HMAC(SECRET, COUNTER++)算法与 Challenge-Response 类似，然而使用累加计数器代替了输入，并且 HOTP 是一个标准协议，许多网站和设备都兼容该标准。 在 YubiKey 中包含两个配置插槽，每一个插槽可以单独配置以上模式中的其中一种，分别通过短触和长触来选择输入。\n不过需要注意的是：以上都是基于对称加密的算法，也就是说，只要服务器端（验证服务器）的密文被泄漏，所有的信息理论上都可以进行伪造。\nU2F U2F 是一个开源的认证标准协议，使用非对称加密算法，在每次需要认证是设备可以对 challenge 信息使用私钥进行签名来完成认证。作为一个开源的标准协议，Google、Dropbox 等网站都支持这种协议的两步验证，然而现阶段浏览器端仅有 Chrome 支持。\nOpenPGP Smart Card YubiKey 还可以作为标准的 OpenPGP Smart Card 使用，用来存储 PGP 私钥（设备中私钥是可写不可读的，解密／签名操作在设备上完成）。",
   "keywords": [
     "YubiKey"
   ],
-  "articleBody": "个人网络安全之重要性 在这个数字化时代，网络安全变得日益重要，各种信息极其容易被窃取（比如说斯诺登事件）。因此加密和认证就显得极其重要，而 YubiKey 就是这样一个简易的设备（支持 OTP、公钥加密签名、U2F 协议）。\n关于 YubiKey 据 Wikipedia 描述：YubiKey 是由 Yubico 生产的身份认证设备，支持一次性密码（OTP）、公钥加密和身份认证，以及由 FIDO 联盟（FIDO U2F）开发的通用第二因素（U2F）协议。它让用户可以透过提交一次性密码或是使用设备产生的公开/私密金钥来安全地登录自己的帐户。针对不支持一次性密码的网站，YubiKey 也可以存储静态密码。Facebook 使用 YubiKey 作为员工凭证；Google 同时为雇员和用户提供支持。还有一些密码管理器也支持 YubiKey。\n作为键盘设备（HID） 这是它主要介绍的功能，能够模拟键盘设备向电脑输入一串生成的密码，兼容性最好。其中还包含多种模式：OTP、Static、Challenge-Response、HTOP，\n OTP：KEY_ID + AES(AES_KEY, SECRET, COUNT++)即生成的密码包含明文的 KEY_ID 和对称加密的（ SECRET 和计数器）。第一次使用前需要把 KEY_ID，AES_KEY，SECRET 提交至验证服务器（Yubico 提供或者自己搭建），之后应用程序每次通过服务器验证密码的可靠性（解码后 SECRET 对应、COUNT 增大（防止重放攻击））。 Static：静态密码。顾名思义，每次生成固定的一串密码（并没有什么用）。 Challenge-Response：HMAC(SECRET, INPUT)即可以通过 HID 接口给定一个输入，输出 HMAC 的计算结果。输入需要本地代码实现。 HOTP：HMAC(SECRET, COUNTER++)算法与 Challenge-Response 类似，然而使用累加计数器代替了输入，并且 HOTP 是一个标准协议，许多网站和设备都兼容该标准。  在 YubiKey 中包含两个配置插槽，每一个插槽可以单独配置以上模式中的其中一种，分别通过短触和长触来选择输入。\n不过需要注意的是：以上都是基于对称加密的算法，也就是说，只要服务器端（验证服务器）的密文被泄漏，所有的信息理论上都可以进行伪造。\nU2F U2F 是一个开源的认证标准协议，使用非对称加密算法，在每次需要认证是设备可以对 challenge 信息使用私钥进行签名来完成认证。作为一个开源的标准协议，Google、Dropbox 等网站都支持这种协议的两步验证，然而现阶段浏览器端仅有 Chrome 支持。\nOpenPGP Smart Card YubiKey 还可以作为标准的 OpenPGP Smart Card 使用，用来存储 PGP 私钥（设备中私钥是可写不可读的，解密／签名操作在设备上完成）。\n以上提到的三个功能是可以同时使用的，相互之间并不冲突。\n个人安全模型 有了 YubiKey 就可以建立起一个稍微有效的个人安全模型，当然主要为了装逼个人信息安全需求 人们对于保密的信息有两个基本需求：防止他人获取和确保自己能轻松访问。考虑到每个人都有多种不同级别的私密信息，我们需要一个多层次的安全模型。\n密码个数  Master 密码 重要密码 一般网络密码 Masterpin 重要 pin 一般网络 pin 重要 RSA（密码为 Master 密码） 一般 RSA（无密码） YubiKey（U2F，PIV，OTP…） YubiKey PGPcard（可用于 ssh） 公开密码（公开的压缩包以及 wifi 热点） 公开 pin 其他特殊密码  YubiKey 管理员 pin（8 位）    注：\n密码主要分三套，Master，重要和一般。\nMaster 密码只用于在本地加密其他密文，以及作为 RSA 密钥的 passphrase。Masterpin 是所有重要本地设备的登录密码。\n重要密码一般用得不多，主要是用于获取设备的操作权限，服务器上的 root 密码也会用到这个。重要 pin 会在所有非本地重要场合使用，例如银行卡支付密码。\n一般密码和一般 pin 是指那些就算全被黑了也无所谓的网站之类，所以为了方便，设置一个简单的密码或 pin 统一管理，不用每次都打开 keychain 了。\nYubiKey 主要用于辅助登陆和二次验证。\n构成及解密方式 本人的日常设备以及加解密操作主要包括\n 重要 RSA  passphrase——Master 密码   yubikey  PIV——masterpin PGPcard——masterpin 管理员 pin——8 位特殊 pin   MBP（保存一般和重要隐私文件）  开机登陆输入密码——Master 密码 解锁 Mac——指纹/Master 密码/yubikey 的 PIV 进入 keychain——Master 密码 命令行 sudo 权限/Master 密码/yubikey 的 PIV 加密磁盘——Master 密码 特殊加密文件——Master 密码/yubikeyPGP   iPhone（保存有一般和重要隐私文件）  开机输入密码——Masterpin 进入 keychain——指纹/Masterpin   备份硬盘（Mac 的加密备份）  解密——Master 密码   VPS（用于实验各种操作）  ssh 连接管理员用户——重要 RSA/yubikey 的 PGPkey 管理员用户 sudo 或者切换 root 用户的密码——重要密码    个人安全模型 基于个人的需求，我的信息安全模型如下：\n除了 Master 密码外，所有的密码和用到的公私钥都用 Master 密码加密储存于一个外置存储设备上，而在本地以及云盘上，可以用 yubikey 的加密私钥非对称加密存储一份。\n成分 文件方面：\n 需要 Masterkey 进入 MBP 或 Masterpin 进入 iphone 开机锁屏状态下的电子设备加上指纹可以访问普通文件 在此基础上加上 PGPkey 才能访问重要文件  网站方面：\n 需要 Masterkey 进入 MBP 或 Masterpin 进入 iphone 开机锁屏状态下的电子设备加上指纹（Mac 要 Masterkey）可以访问 keychain 然后可以登陆普通网站 在此基础上有 yubikey 或 google 验证器才能访问重要网站  服务器方面：\n 需要重要 RSA + Masterkey 才能登陆 需要重要密码才能切换 root  安全性分析 假设一次只丢一个设备……注意 Master 密码只能用于本地设备，否则会不安全。\n并且我想保证，只丢一个设备，在只有 Masterkey 的情况下仍然可以干任何事情，但是 Masterkey 的保存是安全的\n  yubikey 被偷\n U2F 泄露  但是 keychain 密码和 PGPkey 安全（没有 Masterpin），这时候去要\n 立即删掉这个 yubikey 的 U2F 权限 更换 PGPkey（revoke 掉原来的）——注意服务器的登陆 PGP 在 mac 上删除原来的 PIV  可行性：到原来网站上全部重新用 google 验证器的 6 位 pin 将 yubikey 注销并且重新设置新 yubikey，用重要 RSA 到服务器上重新设置 ssh，用 master 登陆 mac 注销 PIV\n  iphone 被偷\n 潜在 keychain 泄露  需要立即把 iphone 远程格式化\n可行性：mac 仍可访问\n  mac 被偷\n没有 Master 密码应该没事……\n可行性：网盘和硬盘有备份，文件不会损失\n  服务器被攻击\n 最多泄露次重要密码和登陆的 RSA 公钥  更换次重要密码\n  ",
-  "wordCount" : "308",
+  "articleBody": "个人网络安全之重要性 在这个数字化时代，网络安全变得日益重要，各种信息极其容易被窃取（比如说斯诺登事件）。因此加密和认证就显得极其重要，而 YubiKey 就是这样一个简易的设备（支持 OTP、公钥加密签名、U2F 协议）。\n关于 YubiKey 据 Wikipedia 描述：YubiKey 是由 Yubico 生产的身份认证设备，支持一次性密码（OTP）、公钥加密和身份认证，以及由 FIDO 联盟（FIDO U2F）开发的通用第二因素（U2F）协议。它让用户可以透过提交一次性密码或是使用设备产生的公开/私密金钥来安全地登录自己的帐户。针对不支持一次性密码的网站，YubiKey 也可以存储静态密码。Facebook 使用 YubiKey 作为员工凭证；Google 同时为雇员和用户提供支持。还有一些密码管理器也支持 YubiKey。\n作为键盘设备（HID） 这是它主要介绍的功能，能够模拟键盘设备向电脑输入一串生成的密码，兼容性最好。其中还包含多种模式：OTP、Static、Challenge-Response、HTOP，\nOTP：KEY_ID + AES(AES_KEY, SECRET, COUNT++)即生成的密码包含明文的 KEY_ID 和对称加密的（ SECRET 和计数器）。第一次使用前需要把 KEY_ID，AES_KEY，SECRET 提交至验证服务器（Yubico 提供或者自己搭建），之后应用程序每次通过服务器验证密码的可靠性（解码后 SECRET 对应、COUNT 增大（防止重放攻击））。 Static：静态密码。顾名思义，每次生成固定的一串密码（并没有什么用）。 Challenge-Response：HMAC(SECRET, INPUT)即可以通过 HID 接口给定一个输入，输出 HMAC 的计算结果。输入需要本地代码实现。 HOTP：HMAC(SECRET, COUNTER++)算法与 Challenge-Response 类似，然而使用累加计数器代替了输入，并且 HOTP 是一个标准协议，许多网站和设备都兼容该标准。 在 YubiKey 中包含两个配置插槽，每一个插槽可以单独配置以上模式中的其中一种，分别通过短触和长触来选择输入。\n不过需要注意的是：以上都是基于对称加密的算法，也就是说，只要服务器端（验证服务器）的密文被泄漏，所有的信息理论上都可以进行伪造。\nU2F U2F 是一个开源的认证标准协议，使用非对称加密算法，在每次需要认证是设备可以对 challenge 信息使用私钥进行签名来完成认证。作为一个开源的标准协议，Google、Dropbox 等网站都支持这种协议的两步验证，然而现阶段浏览器端仅有 Chrome 支持。\nOpenPGP Smart Card YubiKey 还可以作为标准的 OpenPGP Smart Card 使用，用来存储 PGP 私钥（设备中私钥是可写不可读的，解密／签名操作在设备上完成）。\n以上提到的三个功能是可以同时使用的，相互之间并不冲突。\n个人安全模型 有了 YubiKey 就可以建立起一个稍微有效的个人安全模型，当然主要为了装逼\n个人信息安全需求 人们对于保密的信息有两个基本需求：防止他人获取和确保自己能轻松访问。考虑到每个人都有多种不同级别的私密信息，我们需要一个多层次的安全模型。\n密码个数 Master 密码 重要密码 一般网络密码 Masterpin 重要 pin 一般网络 pin 重要 RSA（密码为 Master 密码） 一般 RSA（无密码） YubiKey（U2F，PIV，OTP…） YubiKey PGPcard（可用于 ssh） 公开密码（公开的压缩包以及 wifi 热点） 公开 pin 其他特殊密码 YubiKey 管理员 pin（8 位） 注：\n密码主要分三套，Master，重要和一般。\nMaster 密码只用于在本地加密其他密文，以及作为 RSA 密钥的 passphrase。Masterpin 是所有重要本地设备的登录密码。\n重要密码一般用得不多，主要是用于获取设备的操作权限，服务器上的 root 密码也会用到这个。重要 pin 会在所有非本地重要场合使用，例如银行卡支付密码。\n一般密码和一般 pin 是指那些就算全被黑了也无所谓的网站之类，所以为了方便，设置一个简单的密码或 pin 统一管理，不用每次都打开 keychain 了。\nYubiKey 主要用于辅助登陆和二次验证。\n构成及解密方式 本人的日常设备以及加解密操作主要包括\n重要 RSA passphrase——Master 密码 yubikey PIV——masterpin PGPcard——masterpin 管理员 pin——8 位特殊 pin MBP（保存一般和重要隐私文件） 开机登陆输入密码——Master 密码 解锁 Mac——指纹/Master 密码/yubikey 的 PIV 进入 keychain——Master 密码 命令行 sudo 权限/Master 密码/yubikey 的 PIV 加密磁盘——Master 密码 特殊加密文件——Master 密码/yubikeyPGP iPhone（保存有一般和重要隐私文件） 开机输入密码——Masterpin 进入 keychain——指纹/Masterpin 备份硬盘（Mac 的加密备份） 解密——Master 密码 VPS（用于实验各种操作） ssh 连接管理员用户——重要 RSA/yubikey 的 PGPkey 管理员用户 sudo 或者切换 root 用户的密码——重要密码 个人安全模型 基于个人的需求，我的信息安全模型如下：\n除了 Master 密码外，所有的密码和用到的公私钥都用 Master 密码加密储存于一个外置存储设备上，而在本地以及云盘上，可以用 yubikey 的加密私钥非对称加密存储一份。\n成分 文件方面：\n需要 Masterkey 进入 MBP 或 Masterpin 进入 iphone 开机锁屏状态下的电子设备加上指纹可以访问普通文件 在此基础上加上 PGPkey 才能访问重要文件 网站方面：\n需要 Masterkey 进入 MBP 或 Masterpin 进入 iphone 开机锁屏状态下的电子设备加上指纹（Mac 要 Masterkey）可以访问 keychain 然后可以登陆普通网站 在此基础上有 yubikey 或 google 验证器才能访问重要网站 服务器方面：\n需要重要 RSA + Masterkey 才能登陆 需要重要密码才能切换 root 安全性分析 假设一次只丢一个设备……注意 Master 密码只能用于本地设备，否则会不安全。\n并且我想保证，只丢一个设备，在只有 Masterkey 的情况下仍然可以干任何事情，但是 Masterkey 的保存是安全的\nyubikey 被偷\nU2F 泄露 但是 keychain 密码和 PGPkey 安全（没有 Masterpin），这时候去要\n立即删掉这个 yubikey 的 U2F 权限 更换 PGPkey（revoke 掉原来的）——注意服务器的登陆 PGP 在 mac 上删除原来的 PIV 可行性：到原来网站上全部重新用 google 验证器的 6 位 pin 将 yubikey 注销并且重新设置新 yubikey，用重要 RSA 到服务器上重新设置 ssh，用 master 登陆 mac 注销 PIV\niphone 被偷\n潜在 keychain 泄露 需要立即把 iphone 远程格式化\n可行性：mac 仍可访问\nmac 被偷\n没有 Master 密码应该没事……\n可行性：网盘和硬盘有备份，文件不会损失\n服务器被攻击\n最多泄露次重要密码和登陆的 RSA 公钥 更换次重要密码\n",
+  "wordCount" : "309",
   "inLanguage": "en",
   "datePublished": "2018-09-30T00:00:00Z",
   "dateModified": "2018-09-30T00:00:00Z",
@@ -97,11 +135,6 @@ OpenPGP Smart Card YubiKey 还可以作为标准的 OpenPGP Smart Card 使用，
   }
 }
 </script>
-
-
-
-
-
 </head>
 
 <body class="" id="top">
@@ -115,55 +148,19 @@ OpenPGP Smart Card YubiKey 还可以作为标准的 OpenPGP Smart Card 使用，
     }
 
 </script>
-<noscript>
-    <style type="text/css">
-        #theme-toggle,
-        .top-link {
-            display: none;
-        }
 
-    </style>
-    <style>
-        @media (prefers-color-scheme: dark) {
-            :root {
-                --theme: #1d1e20;
-                --entry: #2e2e33;
-                --primary: rgba(255, 255, 255, 0.84);
-                --secondary: rgba(255, 255, 255, 0.56);
-                --tertiary: rgba(255, 255, 255, 0.16);
-                --content: rgba(255, 255, 255, 0.74);
-                --hljs-bg: #2e2e33;
-                --code-bg: #37383e;
-                --border: #333;
-            }
-
-            .list {
-                background: var(--theme);
-            }
-
-            .list:not(.dark)::-webkit-scrollbar-track {
-                background: 0 0;
-            }
-
-            .list:not(.dark)::-webkit-scrollbar-thumb {
-                border-color: var(--theme);
-            }
-        }
-    </style>
-
-</noscript>
 <header class="header">
     <nav class="nav">
         <div class="logo">
             <a href="https://caiyy17.github.io" accesskey="h" title="caiyy17 (Alt + H)">caiyy17</a>
-            <span class="logo-switches">
+            <div class="logo-switches">
                 <button id="theme-toggle" accesskey="t" title="(Alt + T)">
-                    <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                    <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
                         fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
                         stroke-linejoin="round">
                         <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
                     </svg>
-                    <svg id="sun" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                    <svg id="sun" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
                         fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
                         stroke-linejoin="round">
                         <circle cx="12" cy="12" r="5"></circle>
@@ -177,11 +174,9 @@ OpenPGP Smart Card YubiKey 还可以作为标准的 OpenPGP Smart Card 使用，
                         <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
                     </svg>
                 </button>
-                
-                
-            </span>
+            </div>
         </div>
-        <ul id="menu" onscroll="menu_on_scroll()">
+        <ul id="menu">
             <li>
                 <a href="https://caiyy17.github.io/categories/" title="categories">
                     <span>categories</span>
@@ -201,57 +196,66 @@ OpenPGP Smart Card YubiKey 还可以作为标准的 OpenPGP Smart Card 使用，
                 <a href="https://caiyy17.github.io/archives/" title="archives">
                     <span>archives</span>
                 </a>
-            </li></ul>
+            </li>
+        </ul>
     </nav>
 </header>
-
-    <main class="main">
+<main class="main">
 
 <article class="post-single">
   <header class="post-header">
-<div class="breadcrumbs">
-
-    <a href="https://caiyy17.github.io">Home</a>
-</div>
-
+    <div class="breadcrumbs"><a href="https://caiyy17.github.io">Home</a>&nbsp;»&nbsp;<a href="https://caiyy17.github.io/posts/">Posts</a></div>
     <h1 class="post-title">
       YubiKey1:个人安全与YubiKey
     </h1>
-    <div class="post-meta">September 30, 2018
-
+    <div class="post-meta"><span title='2018-09-30 00:00:00 +0000 UTC'>September 30, 2018</span>
 
 </div>
-  </header> 
-
-  <div class="toc">
+  </header> <div class="toc">
     <details >
-      <summary accesskey="c" title="(Alt + C)">
-        <div class="details">Table of Contents</div>
-      </summary>
-      <div class="inner"><ul><li>
-        <a href="#%e4%b8%aa%e4%ba%ba%e7%bd%91%e7%bb%9c%e5%ae%89%e5%85%a8%e4%b9%8b%e9%87%8d%e8%a6%81%e6%80%a7" aria-label="个人网络安全之重要性">个人网络安全之重要性</a></li><li>
-        <a href="#%e5%85%b3%e4%ba%8e-yubikey" aria-label="关于 YubiKey">关于 YubiKey</a><ul>
-            <li>
-        <a href="#%e4%bd%9c%e4%b8%ba%e9%94%ae%e7%9b%98%e8%ae%be%e5%a4%87hid" aria-label="作为键盘设备（HID）">作为键盘设备（HID）</a></li><li>
-        <a href="#u2f" aria-label="U2F">U2F</a></li><li>
-        <a href="#openpgp-smart-card" aria-label="OpenPGP Smart Card">OpenPGP Smart Card</a></li></ul>
-    </li><li>
-        <a href="#%e4%b8%aa%e4%ba%ba%e5%ae%89%e5%85%a8%e6%a8%a1%e5%9e%8b" aria-label="个人安全模型">个人安全模型</a><ul>
-            <li>
-        <a href="#%e4%b8%aa%e4%ba%ba%e4%bf%a1%e6%81%af%e5%ae%89%e5%85%a8%e9%9c%80%e6%b1%82" aria-label="个人信息安全需求">个人信息安全需求</a></li><li>
-        <a href="#%e5%af%86%e7%a0%81%e4%b8%aa%e6%95%b0" aria-label="密码个数">密码个数</a></li><li>
-        <a href="#%e6%9e%84%e6%88%90%e5%8f%8a%e8%a7%a3%e5%af%86%e6%96%b9%e5%bc%8f" aria-label="构成及解密方式">构成及解密方式</a></li><li>
-        <a href="#%e4%b8%aa%e4%ba%ba%e5%ae%89%e5%85%a8%e6%a8%a1%e5%9e%8b-1" aria-label="个人安全模型">个人安全模型</a><ul>
-            <li>
-        <a href="#%e6%88%90%e5%88%86" aria-label="成分">成分</a></li></ul>
-    </li><li>
-        <a href="#%e5%ae%89%e5%85%a8%e6%80%a7%e5%88%86%e6%9e%90" aria-label="安全性分析">安全性分析</a></li></ul>
-</li></ul>
-      </div>
+        <summary accesskey="c" title="(Alt + C)">
+            <span class="details">Table of Contents</span>
+        </summary>
+
+        <div class="inner"><ul>
+                <li>
+                    <a href="#%e4%b8%aa%e4%ba%ba%e7%bd%91%e7%bb%9c%e5%ae%89%e5%85%a8%e4%b9%8b%e9%87%8d%e8%a6%81%e6%80%a7" aria-label="个人网络安全之重要性">个人网络安全之重要性</a></li>
+                <li>
+                    <a href="#%e5%85%b3%e4%ba%8e-yubikey" aria-label="关于 YubiKey">关于 YubiKey</a><ul>
+                        
+                <li>
+                    <a href="#%e4%bd%9c%e4%b8%ba%e9%94%ae%e7%9b%98%e8%ae%be%e5%a4%87hid" aria-label="作为键盘设备（HID）">作为键盘设备（HID）</a></li>
+                <li>
+                    <a href="#u2f" aria-label="U2F">U2F</a></li>
+                <li>
+                    <a href="#openpgp-smart-card" aria-label="OpenPGP Smart Card">OpenPGP Smart Card</a></li></ul>
+                </li>
+                <li>
+                    <a href="#%e4%b8%aa%e4%ba%ba%e5%ae%89%e5%85%a8%e6%a8%a1%e5%9e%8b" aria-label="个人安全模型">个人安全模型</a><ul>
+                        
+                <li>
+                    <a href="#%e4%b8%aa%e4%ba%ba%e4%bf%a1%e6%81%af%e5%ae%89%e5%85%a8%e9%9c%80%e6%b1%82" aria-label="个人信息安全需求">个人信息安全需求</a></li>
+                <li>
+                    <a href="#%e5%af%86%e7%a0%81%e4%b8%aa%e6%95%b0" aria-label="密码个数">密码个数</a></li>
+                <li>
+                    <a href="#%e6%9e%84%e6%88%90%e5%8f%8a%e8%a7%a3%e5%af%86%e6%96%b9%e5%bc%8f" aria-label="构成及解密方式">构成及解密方式</a></li>
+                <li>
+                    <a href="#%e4%b8%aa%e4%ba%ba%e5%ae%89%e5%85%a8%e6%a8%a1%e5%9e%8b-1" aria-label="个人安全模型">个人安全模型</a><ul>
+                        
+                <li>
+                    <a href="#%e6%88%90%e5%88%86" aria-label="成分">成分</a></li></ul>
+                </li>
+                <li>
+                    <a href="#%e5%ae%89%e5%85%a8%e6%80%a7%e5%88%86%e6%9e%90" aria-label="安全性分析">安全性分析</a>
+                </li>
+            </ul>
+            </li>
+            </ul>
+        </div>
     </details>
-  </div>
-  <div class="post-content">
-<h1 id="个人网络安全之重要性">个人网络安全之重要性<a hidden class="anchor" aria-hidden="true" href="#个人网络安全之重要性">#</a></h1>
+</div>
+
+  <div class="post-content"><h1 id="个人网络安全之重要性">个人网络安全之重要性<a hidden class="anchor" aria-hidden="true" href="#个人网络安全之重要性">#</a></h1>
 <p>在这个数字化时代，网络安全变得日益重要，各种信息极其容易被窃取（比如说斯诺登事件）。因此加密和认证就显得极其重要，而 YubiKey 就是这样一个简易的设备（支持 OTP、公钥加密签名、U2F 协议）。</p>
 <h1 id="关于-yubikey">关于 YubiKey<a hidden class="anchor" aria-hidden="true" href="#关于-yubikey">#</a></h1>
 <p>据 Wikipedia 描述：YubiKey 是由 Yubico 生产的身份认证设备，支持一次性密码（OTP）、公钥加密和身份认证，以及由 FIDO 联盟（FIDO U2F）开发的通用第二因素（U2F）协议。它让用户可以透过提交一次性密码或是使用设备产生的公开/私密金钥来安全地登录自己的帐户。针对不支持一次性密码的网站，YubiKey 也可以存储静态密码。Facebook 使用 YubiKey 作为员工凭证；Google 同时为雇员和用户提供支持。还有一些密码管理器也支持 YubiKey。</p>
@@ -408,53 +412,51 @@ OpenPGP Smart Card YubiKey 还可以作为标准的 OpenPGP Smart Card 使用，
 </li>
 </ol>
 
-</div>
+
+  </div>
+
   <footer class="post-footer">
     <ul class="post-tags">
       <li><a href="https://caiyy17.github.io/tags/yubikey/">YubiKey</a></li>
     </ul>
-    <nav class="paginav">
-      <a class="prev" href="https://caiyy17.github.io/posts/computer/vps1_%E8%B4%AD%E4%B9%B0%E4%BB%A5%E5%8F%8A%E8%AE%BE%E7%BD%AEvps/">
-        <span class="title">« Prev Page</span>
-        <br>
-        <span>VPS1:购买以及设置</span>
-      </a>
-      <a class="next" href="https://caiyy17.github.io/posts/computer/yubikey2_%E8%AE%BE%E7%BD%AE%E5%92%8Cgnupg/">
-        <span class="title">Next Page »</span>
-        <br>
-        <span>YubiKey2:配置和gnupg</span>
-      </a>
-    </nav>
+<nav class="paginav">
+  <a class="prev" href="https://caiyy17.github.io/posts/computer/vps1_%E8%B4%AD%E4%B9%B0%E4%BB%A5%E5%8F%8A%E8%AE%BE%E7%BD%AEvps/">
+    <span class="title">« Prev</span>
+    <br>
+    <span>VPS1:购买以及设置</span>
+  </a>
+  <a class="next" href="https://caiyy17.github.io/posts/computer/yubikey2_%E8%AE%BE%E7%BD%AE%E5%92%8Cgnupg/">
+    <span class="title">Next »</span>
+    <br>
+    <span>YubiKey2:配置和gnupg</span>
+  </a>
+</nav>
+
   </footer>
 </article>
-    </main><footer class="footer">
+    </main>
+    
+<footer class="footer">
     <span>&copy; 2023 <a href="https://caiyy17.github.io">caiyy17</a></span>
-    <span>&middot;</span>
-    <span>Powered by <a href="https://gohugo.io/" rel="noopener noreferrer" target="_blank">Hugo</a></span>
-    <span>&middot;</span>
-    <span>Theme <a href="https://git.io/hugopapermod" rel="noopener" target="_blank">PaperMod</a></span>
+    <span>
+        Powered by
+        <a href="https://gohugo.io/" rel="noopener noreferrer" target="_blank">Hugo</a> &
+        <a href="https://github.com/adityatelange/hugo-PaperMod/" rel="noopener" target="_blank">PaperMod</a>
+    </span>
 </footer>
-<a href="#top" aria-label="go to top" title="Go to Top (Alt + G)">
-    <button class="top-link" id="top-link" type="button" accesskey="g">
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 6" fill="currentColor">
-            <path d="M12 6H0l6-6z" />
-        </svg>
-    </button>
+<a href="#top" aria-label="go to top" title="Go to Top (Alt + G)" class="top-link" id="top-link" accesskey="g">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 6" fill="currentColor">
+        <path d="M12 6H0l6-6z" />
+    </svg>
 </a>
 
-
-
-<script defer src="/assets/js/highlight.min.27cd435cc9ed6abb4b496581b151804f79f366c412620272bb94e2f5f598ebcc.js" integrity="sha256-J81DXMntartLSWWBsVGAT3nzZsQSYgJyu5Ti9fWY68w="
-    onload="hljs.initHighlightingOnLoad();"></script>
 <script>
-    window.onload = function () {
-        if (localStorage.getItem("menu-scroll-position")) {
-            document.getElementById('menu').scrollLeft = localStorage.getItem("menu-scroll-position");
+    let menu = document.getElementById('menu')
+    if (menu) {
+        menu.scrollLeft = localStorage.getItem("menu-scroll-position");
+        menu.onscroll = function () {
+            localStorage.setItem("menu-scroll-position", menu.scrollLeft);
         }
-    }
-
-    function menu_on_scroll() {
-        localStorage.setItem("menu-scroll-position", document.getElementById('menu').scrollLeft);
     }
 
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
@@ -502,7 +504,6 @@ OpenPGP Smart Card YubiKey 还可以作为标准的 OpenPGP Smart Card 使用，
     })
 
 </script>
-
 </body>
 
 </html>

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
     <title>Apple on caiyy17</title>
     <link>https://caiyy17.github.io/tags/apple/</link>
@@ -15,25 +15,28 @@
       <guid>https://caiyy17.github.io/posts/computer/mac%E6%96%B0%E6%9C%BA%E8%AE%BE%E7%BD%AE/</guid>
       <description>前言 新的 mbp2018 总算到了，这也是我自己的第一台苹果电脑，自然要熟悉好一会儿，在此记录下我的折腾过程。
 基础：系统偏好设置 在设置中，我增加了这些东西
-  调度中心：使窗口按应用程序成组
-  调度中心：设置触发角（左下角桌面，右下角关闭屏幕）
-  节能：屏幕不关闭
-  安全与隐私：打开防火墙
-  通知：设定哪些程序可以通知
-  键盘：文本取消自动纠正与智能引号
-  触控板：功能全勾上
-  iCloud：功能全勾上
-  扩展：&amp;ldquo;今天&amp;quot;中显示的内容
-  命令行设置显示全路径
-defaults write com.apple.finder _FXShowPosixPathInTitle -bool TRUE; killall Finder   更改截屏保存地址
-defaults write com.apple.screencapture location &amp;#34;路径&amp;#34;; killalll SyatemUIserve   Finder 偏好设置
+调度中心：使窗口按应用程序成组
+调度中心：设置触发角（左下角桌面，右下角关闭屏幕）
+节能：屏幕不关闭
+安全与隐私：打开防火墙
+通知：设定哪些程序可以通知
+键盘：文本取消自动纠正与智能引号
+触控板：功能全勾上
+iCloud：功能全勾上
+扩展：&amp;ldquo;今天&amp;quot;中显示的内容
+命令行设置显示全路径
+defaults write com.apple.finder _FXShowPosixPathInTitle -bool TRUE; killall Finder 更改截屏保存地址
+defaults write com.apple.screencapture location &amp;#34;路径&amp;#34;; killalll SyatemUIserve Finder 偏好设置
 边栏-&amp;gt;全勾上
 高级-&amp;gt;勾选&amp;quot;显示所有文件扩展名&amp;quot;和&amp;quot;按名称排序时保持文件夹在顶部&amp;rdquo;
 顶部 显示-&amp;gt;显示标签页栏，显示状态栏
 在任意文件夹空白处-&amp;gt;右键查看显示选项-&amp;gt;改设置并用作默 可以作用于之后新建的文件夹
 目前设置： 排列方式：无；排序方式：名称；显示项目简介；显示图标预览
-  文本编辑偏好设置
-新建文稿-&amp;gt;格式-&amp;gt;纯文本</description>
+文本编辑偏好设置
+新建文稿-&amp;gt;格式-&amp;gt;纯文本
+新建文稿-&amp;gt;文本取消自动纠正与智能引号
+打开和储存-&amp;gt;不自动添加.txt 扩展名
+基础：几个好用的快捷键 command+delete 删除；command+shift+delete 清空垃圾箱 command+q 退出程序；command+w 退出当前标签页 command+i 显示信息；command+o 打开文件 command+Up 上一级目录；command+Down 下一级目录 command+control+F 全屏 command+T 新建标签页；command+N 新建窗口；command+shift+N 新建文件夹 其他捷径看键盘偏好设置 Finder 快捷键看工具栏中的标注 触控板使用看触控板偏好设置 command+space：spotlight 搜索 按住绿色全屏按钮可以实现分屏 基础：安装日常应用（见软件篇） 进阶：安装编程相关应用并配置 Xcode+Clion</description>
     </item>
     
   </channel>

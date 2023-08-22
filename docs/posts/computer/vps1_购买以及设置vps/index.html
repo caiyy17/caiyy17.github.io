@@ -6,25 +6,26 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <meta name="robots" content="index, follow">
 <title>VPS1:购买以及设置 | caiyy17</title>
-
-<meta name="keywords" content="VPS" />
+<meta name="keywords" content="VPS">
 <meta name="description" content="前言 拥有一台自己的服务器是十分有必要的。
 连接服务器 Windows 可以用 putty，使用 ssh 登陆，然后在 ssh 设置中添加自己的私钥，就可以连了。
 Mac 的话直接用系统自带的终端
 ssh -p [port] [user]@[ip] 用户设置 默认登陆的是 root 用户，但是这样是不安全的，我们可以建立管理员用户，然后只允许管理员用户切换到 root，再禁止 root 的 ssh 登陆，这样我们要使用 root 就只能先 ssh 登陆管理员账户，然后再使用密码切换到 root。
-  新建一个用户
-useradd [user]   将用户添加至管理员组
-usermod –g wheel [user]   修改/etc/pam.d/su 配置
+新建一个用户
+useradd [user] 将用户添加至管理员组
+usermod –g wheel [user] 修改/etc/pam.d/su 配置
 去掉这行的注释，就完成了禁止普通用户切换 root
-#auth required pam_wheel.so use_uid   修改/etc/ssh/sshd_config
+#auth required pam_wheel.so use_uid 修改/etc/ssh/sshd_config
 将 PermitRootLogin 选项改为
-PermitRootLogin no   这样就禁止了 root 直接登陆。
-ssh 设置 这个在用户文件夹下的.ssh/authorized_keys 中可以添加 ssh 的公钥，然后就可以使用不同的私钥链接服务器了，保险起见得保证 从修改文件到确认可以用修改后的钥匙登陆前 最好都保持有一个终端窗口连在服务器上，这样玩意出问题还可以再次改那个文件。">
+PermitRootLogin no 这样就禁止了 root 直接登陆。
+ssh 设置 这个在用户文件夹下的.ssh/authorized_keys 中可以添加 ssh 的公钥，然后就可以使用不同的私钥链接服务器了，保险起见得保证 从修改文件到确认可以用修改后的钥匙登陆前 最好都保持有一个终端窗口连在服务器上，这样玩意出问题还可以再次改那个文件。
+OK 然后就可以愉快地在服务器中安装各种软件了&hellip;&hellip;附上一些现成代码
+useradd -g wheel admin passwd admin echo &#34;&#34; &gt;&gt; /etc/pam.">
 <meta name="author" content="">
-<link rel="canonical" href="https://caiyy17.github.io/posts/computer/vps1_%E8%B4%AD%E4%B9%B0%E4%BB%A5%E5%8F%8A%E8%AE%BE%E7%BD%AEvps/" />
-<link href="/assets/css/stylesheet.min.2fe20f8bc0dfa5e1b6cdbdf2cd0ff90da85d80a5d39aced2f9ff00407eedffde.css" integrity="sha256-L&#43;IPi8DfpeG2zb3yzQ/5DahdgKXTms7S&#43;f8AQH7t/94=" rel="preload stylesheet"
-    as="style">
-
+<link rel="canonical" href="https://caiyy17.github.io/posts/computer/vps1_%E8%B4%AD%E4%B9%B0%E4%BB%A5%E5%8F%8A%E8%AE%BE%E7%BD%AEvps/">
+<link crossorigin="anonymous" href="/assets/css/stylesheet.5cfc680b1eeaeef9efbced92d46c2a9e876b72ee14fba85846afc4cff9e6e6f8.css" integrity="sha256-XPxoCx7q7vnvvO2S1Gwqnodrcu4U&#43;6hYRq/Ez/nm5vg=" rel="preload stylesheet" as="style">
+<script defer crossorigin="anonymous" src="/assets/js/highlight.f413e19d0714851f6474e7ee9632408e58ac146fbdbe62747134bea2fa3415e0.js" integrity="sha256-9BPhnQcUhR9kdOfuljJAjlisFG&#43;9vmJ0cTS&#43;ovo0FeA="
+    onload="hljs.initHighlightingOnLoad();"></script>
 <link rel="icon" href="https://caiyy17.github.io/favicon.ico">
 <link rel="icon" type="image/png" sizes="16x16" href="https://caiyy17.github.io/favicon-16x16.png">
 <link rel="icon" type="image/png" sizes="32x32" href="https://caiyy17.github.io/favicon-32x32.png">
@@ -32,26 +33,61 @@ ssh 设置 这个在用户文件夹下的.ssh/authorized_keys 中可以添加 ss
 <link rel="mask-icon" href="https://caiyy17.github.io/safari-pinned-tab.svg">
 <meta name="theme-color" content="#2e2e33">
 <meta name="msapplication-TileColor" content="#2e2e33">
-<meta name="generator" content="Hugo 0.68.3" />
+<noscript>
+    <style>
+        #theme-toggle,
+        .top-link {
+            display: none;
+        }
 
+    </style>
+    <style>
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --theme: rgb(29, 30, 32);
+                --entry: rgb(46, 46, 51);
+                --primary: rgb(218, 218, 219);
+                --secondary: rgb(155, 156, 157);
+                --tertiary: rgb(65, 66, 68);
+                --content: rgb(196, 196, 197);
+                --hljs-bg: rgb(46, 46, 51);
+                --code-bg: rgb(55, 56, 62);
+                --border: rgb(51, 51, 51);
+            }
 
-<meta property="og:title" content="VPS1:购买以及设置" />
+            .list {
+                background: var(--theme);
+            }
+
+            .list:not(.dark)::-webkit-scrollbar-track {
+                background: 0 0;
+            }
+
+            .list:not(.dark)::-webkit-scrollbar-thumb {
+                border-color: var(--theme);
+            }
+        }
+
+    </style>
+</noscript><meta property="og:title" content="VPS1:购买以及设置" />
 <meta property="og:description" content="前言 拥有一台自己的服务器是十分有必要的。
 连接服务器 Windows 可以用 putty，使用 ssh 登陆，然后在 ssh 设置中添加自己的私钥，就可以连了。
 Mac 的话直接用系统自带的终端
 ssh -p [port] [user]@[ip] 用户设置 默认登陆的是 root 用户，但是这样是不安全的，我们可以建立管理员用户，然后只允许管理员用户切换到 root，再禁止 root 的 ssh 登陆，这样我们要使用 root 就只能先 ssh 登陆管理员账户，然后再使用密码切换到 root。
-  新建一个用户
-useradd [user]   将用户添加至管理员组
-usermod –g wheel [user]   修改/etc/pam.d/su 配置
+新建一个用户
+useradd [user] 将用户添加至管理员组
+usermod –g wheel [user] 修改/etc/pam.d/su 配置
 去掉这行的注释，就完成了禁止普通用户切换 root
-#auth required pam_wheel.so use_uid   修改/etc/ssh/sshd_config
+#auth required pam_wheel.so use_uid 修改/etc/ssh/sshd_config
 将 PermitRootLogin 选项改为
-PermitRootLogin no   这样就禁止了 root 直接登陆。
-ssh 设置 这个在用户文件夹下的.ssh/authorized_keys 中可以添加 ssh 的公钥，然后就可以使用不同的私钥链接服务器了，保险起见得保证 从修改文件到确认可以用修改后的钥匙登陆前 最好都保持有一个终端窗口连在服务器上，这样玩意出问题还可以再次改那个文件。" />
+PermitRootLogin no 这样就禁止了 root 直接登陆。
+ssh 设置 这个在用户文件夹下的.ssh/authorized_keys 中可以添加 ssh 的公钥，然后就可以使用不同的私钥链接服务器了，保险起见得保证 从修改文件到确认可以用修改后的钥匙登陆前 最好都保持有一个终端窗口连在服务器上，这样玩意出问题还可以再次改那个文件。
+OK 然后就可以愉快地在服务器中安装各种软件了&hellip;&hellip;附上一些现成代码
+useradd -g wheel admin passwd admin echo &#34;&#34; &gt;&gt; /etc/pam." />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://caiyy17.github.io/posts/computer/vps1_%E8%B4%AD%E4%B9%B0%E4%BB%A5%E5%8F%8A%E8%AE%BE%E7%BD%AEvps/" /><meta property="article:section" content="posts" />
-<meta property="article:published_time" content="2018-09-30T00:00:00&#43;00:00" />
-<meta property="article:modified_time" content="2018-09-30T00:00:00&#43;00:00" />
+<meta property="article:published_time" content="2018-09-30T00:00:00+00:00" />
+<meta property="article:modified_time" content="2018-09-30T00:00:00+00:00" />
 
 <meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="VPS1:购买以及设置"/>
@@ -59,14 +95,16 @@ ssh 设置 这个在用户文件夹下的.ssh/authorized_keys 中可以添加 ss
 连接服务器 Windows 可以用 putty，使用 ssh 登陆，然后在 ssh 设置中添加自己的私钥，就可以连了。
 Mac 的话直接用系统自带的终端
 ssh -p [port] [user]@[ip] 用户设置 默认登陆的是 root 用户，但是这样是不安全的，我们可以建立管理员用户，然后只允许管理员用户切换到 root，再禁止 root 的 ssh 登陆，这样我们要使用 root 就只能先 ssh 登陆管理员账户，然后再使用密码切换到 root。
-  新建一个用户
-useradd [user]   将用户添加至管理员组
-usermod –g wheel [user]   修改/etc/pam.d/su 配置
+新建一个用户
+useradd [user] 将用户添加至管理员组
+usermod –g wheel [user] 修改/etc/pam.d/su 配置
 去掉这行的注释，就完成了禁止普通用户切换 root
-#auth required pam_wheel.so use_uid   修改/etc/ssh/sshd_config
+#auth required pam_wheel.so use_uid 修改/etc/ssh/sshd_config
 将 PermitRootLogin 选项改为
-PermitRootLogin no   这样就禁止了 root 直接登陆。
-ssh 设置 这个在用户文件夹下的.ssh/authorized_keys 中可以添加 ssh 的公钥，然后就可以使用不同的私钥链接服务器了，保险起见得保证 从修改文件到确认可以用修改后的钥匙登陆前 最好都保持有一个终端窗口连在服务器上，这样玩意出问题还可以再次改那个文件。"/>
+PermitRootLogin no 这样就禁止了 root 直接登陆。
+ssh 设置 这个在用户文件夹下的.ssh/authorized_keys 中可以添加 ssh 的公钥，然后就可以使用不同的私钥链接服务器了，保险起见得保证 从修改文件到确认可以用修改后的钥匙登陆前 最好都保持有一个终端窗口连在服务器上，这样玩意出问题还可以再次改那个文件。
+OK 然后就可以愉快地在服务器中安装各种软件了&hellip;&hellip;附上一些现成代码
+useradd -g wheel admin passwd admin echo &#34;&#34; &gt;&gt; /etc/pam."/>
 
 
 <script type="application/ld+json">
@@ -74,6 +112,12 @@ ssh 设置 这个在用户文件夹下的.ssh/authorized_keys 中可以添加 ss
   "@context": "https://schema.org",
   "@type": "BreadcrumbList",
   "itemListElement": [, 
+    {
+      "@type": "ListItem",
+      "position":  2 ,
+      "name": "Posts",
+      "item": "https://caiyy17.github.io/posts/"
+    }, 
     {
       "@type": "ListItem",
       "position":  3 ,
@@ -89,11 +133,11 @@ ssh 设置 这个在用户文件夹下的.ssh/authorized_keys 中可以添加 ss
   "@type": "BlogPosting",
   "headline": "VPS1:购买以及设置",
   "name": "VPS1:购买以及设置",
-  "description": "前言 拥有一台自己的服务器是十分有必要的。\n连接服务器 Windows 可以用 putty，使用 ssh 登陆，然后在 ssh 设置中添加自己的私钥，就可以连了。\nMac 的话直接用系统自带的终端\nssh -p [port] [user]@[ip] 用户设置 默认登陆的是 root 用户，但是这样是不安全的，我们可以建立管理员用户，然后只允许管理员用户切换到 root，再禁止 root 的 ssh 登陆，这样我们要使用 root 就只能先 ssh 登陆管理员账户，然后再使用密码切换到 root。\n  新建一个用户\nuseradd [user]   将用户添加至管理员组\nusermod –g wheel [user]   修改/etc/pam.d/su 配置\n去掉这行的注释，就完成了禁止普通用户切换 root\n#auth required pam_wheel.so use_uid   修改/etc/ssh/sshd_config\n将 PermitRootLogin 选项改为\nPermitRootLogin no   这样就禁止了 root 直接登陆。\nssh 设置 这个在用户文件夹下的.ssh/authorized_keys 中可以添加 ssh 的公钥，然后就可以使用不同的私钥链接服务器了，保险起见得保证 从修改文件到确认可以用修改后的钥匙登陆前 最好都保持有一个终端窗口连在服务器上，这样玩意出问题还可以再次改那个文件。",
+  "description": "前言 拥有一台自己的服务器是十分有必要的。\n连接服务器 Windows 可以用 putty，使用 ssh 登陆，然后在 ssh 设置中添加自己的私钥，就可以连了。\nMac 的话直接用系统自带的终端\nssh -p [port] [user]@[ip] 用户设置 默认登陆的是 root 用户，但是这样是不安全的，我们可以建立管理员用户，然后只允许管理员用户切换到 root，再禁止 root 的 ssh 登陆，这样我们要使用 root 就只能先 ssh 登陆管理员账户，然后再使用密码切换到 root。\n新建一个用户\nuseradd [user] 将用户添加至管理员组\nusermod –g wheel [user] 修改/etc/pam.d/su 配置\n去掉这行的注释，就完成了禁止普通用户切换 root\n#auth required pam_wheel.so use_uid 修改/etc/ssh/sshd_config\n将 PermitRootLogin 选项改为\nPermitRootLogin no 这样就禁止了 root 直接登陆。\nssh 设置 这个在用户文件夹下的.ssh/authorized_keys 中可以添加 ssh 的公钥，然后就可以使用不同的私钥链接服务器了，保险起见得保证 从修改文件到确认可以用修改后的钥匙登陆前 最好都保持有一个终端窗口连在服务器上，这样玩意出问题还可以再次改那个文件。\nOK 然后就可以愉快地在服务器中安装各种软件了\u0026hellip;\u0026hellip;附上一些现成代码\nuseradd -g wheel admin passwd admin echo \u0026#34;\u0026#34; \u0026gt;\u0026gt; /etc/pam.",
   "keywords": [
     "VPS"
   ],
-  "articleBody": "前言 拥有一台自己的服务器是十分有必要的。\n连接服务器 Windows 可以用 putty，使用 ssh 登陆，然后在 ssh 设置中添加自己的私钥，就可以连了。\nMac 的话直接用系统自带的终端\nssh -p [port] [user]@[ip] 用户设置 默认登陆的是 root 用户，但是这样是不安全的，我们可以建立管理员用户，然后只允许管理员用户切换到 root，再禁止 root 的 ssh 登陆，这样我们要使用 root 就只能先 ssh 登陆管理员账户，然后再使用密码切换到 root。\n  新建一个用户\nuseradd [user]   将用户添加至管理员组\nusermod –g wheel [user]   修改/etc/pam.d/su 配置\n去掉这行的注释，就完成了禁止普通用户切换 root\n#auth required pam_wheel.so use_uid   修改/etc/ssh/sshd_config\n将 PermitRootLogin 选项改为\nPermitRootLogin no   这样就禁止了 root 直接登陆。\nssh 设置 这个在用户文件夹下的.ssh/authorized_keys 中可以添加 ssh 的公钥，然后就可以使用不同的私钥链接服务器了，保险起见得保证 从修改文件到确认可以用修改后的钥匙登陆前 最好都保持有一个终端窗口连在服务器上，这样玩意出问题还可以再次改那个文件。\nOK 然后就可以愉快地在服务器中安装各种软件了……附上一些现成代码\nuseradd -g wheel admin passwd admin echo \"\"  /etc/pam.d/su echo \"auth required pam_wheel.so use_uid\"  /etc/pam.d/su echo \"\"  /etc/ssh/sshd_config echo \"RSAAuthentication yes\"  /etc/ssh/sshd_config echo \"PubkeyAuthentication yes\"  /etc/ssh/sshd_config echo \"PermitRootLogin no\"  /etc/ssh/sshd_config echo \"PasswordAuthentication no\"  /etc/ssh/sshd_config service sshd restart su admin cd ~ mkdir .ssh chmod 755 .ssh cd .ssh touch authorized_keys echo [your_public_keys]  authorized_keys chmod 644 authorized_keys ",
+  "articleBody": "前言 拥有一台自己的服务器是十分有必要的。\n连接服务器 Windows 可以用 putty，使用 ssh 登陆，然后在 ssh 设置中添加自己的私钥，就可以连了。\nMac 的话直接用系统自带的终端\nssh -p [port] [user]@[ip] 用户设置 默认登陆的是 root 用户，但是这样是不安全的，我们可以建立管理员用户，然后只允许管理员用户切换到 root，再禁止 root 的 ssh 登陆，这样我们要使用 root 就只能先 ssh 登陆管理员账户，然后再使用密码切换到 root。\n新建一个用户\nuseradd [user] 将用户添加至管理员组\nusermod –g wheel [user] 修改/etc/pam.d/su 配置\n去掉这行的注释，就完成了禁止普通用户切换 root\n#auth required pam_wheel.so use_uid 修改/etc/ssh/sshd_config\n将 PermitRootLogin 选项改为\nPermitRootLogin no 这样就禁止了 root 直接登陆。\nssh 设置 这个在用户文件夹下的.ssh/authorized_keys 中可以添加 ssh 的公钥，然后就可以使用不同的私钥链接服务器了，保险起见得保证 从修改文件到确认可以用修改后的钥匙登陆前 最好都保持有一个终端窗口连在服务器上，这样玩意出问题还可以再次改那个文件。\nOK 然后就可以愉快地在服务器中安装各种软件了……附上一些现成代码\nuseradd -g wheel admin passwd admin echo \"\" \u003e\u003e /etc/pam.d/su echo \"auth required pam_wheel.so use_uid\" \u003e\u003e /etc/pam.d/su echo \"\" \u003e\u003e /etc/ssh/sshd_config echo \"RSAAuthentication yes\" \u003e\u003e /etc/ssh/sshd_config echo \"PubkeyAuthentication yes\" \u003e\u003e /etc/ssh/sshd_config echo \"PermitRootLogin no\" \u003e\u003e /etc/ssh/sshd_config echo \"PasswordAuthentication no\" \u003e\u003e /etc/ssh/sshd_config service sshd restart su admin cd ~ mkdir .ssh chmod 755 .ssh cd .ssh touch authorized_keys echo [your_public_keys] \u003e authorized_keys chmod 644 authorized_keys ",
   "wordCount" : "129",
   "inLanguage": "en",
   "datePublished": "2018-09-30T00:00:00Z",
@@ -112,11 +156,6 @@ ssh 设置 这个在用户文件夹下的.ssh/authorized_keys 中可以添加 ss
   }
 }
 </script>
-
-
-
-
-
 </head>
 
 <body class="" id="top">
@@ -130,55 +169,19 @@ ssh 设置 这个在用户文件夹下的.ssh/authorized_keys 中可以添加 ss
     }
 
 </script>
-<noscript>
-    <style type="text/css">
-        #theme-toggle,
-        .top-link {
-            display: none;
-        }
 
-    </style>
-    <style>
-        @media (prefers-color-scheme: dark) {
-            :root {
-                --theme: #1d1e20;
-                --entry: #2e2e33;
-                --primary: rgba(255, 255, 255, 0.84);
-                --secondary: rgba(255, 255, 255, 0.56);
-                --tertiary: rgba(255, 255, 255, 0.16);
-                --content: rgba(255, 255, 255, 0.74);
-                --hljs-bg: #2e2e33;
-                --code-bg: #37383e;
-                --border: #333;
-            }
-
-            .list {
-                background: var(--theme);
-            }
-
-            .list:not(.dark)::-webkit-scrollbar-track {
-                background: 0 0;
-            }
-
-            .list:not(.dark)::-webkit-scrollbar-thumb {
-                border-color: var(--theme);
-            }
-        }
-    </style>
-
-</noscript>
 <header class="header">
     <nav class="nav">
         <div class="logo">
             <a href="https://caiyy17.github.io" accesskey="h" title="caiyy17 (Alt + H)">caiyy17</a>
-            <span class="logo-switches">
+            <div class="logo-switches">
                 <button id="theme-toggle" accesskey="t" title="(Alt + T)">
-                    <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                    <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
                         fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
                         stroke-linejoin="round">
                         <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
                     </svg>
-                    <svg id="sun" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                    <svg id="sun" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
                         fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
                         stroke-linejoin="round">
                         <circle cx="12" cy="12" r="5"></circle>
@@ -192,11 +195,9 @@ ssh 设置 这个在用户文件夹下的.ssh/authorized_keys 中可以添加 ss
                         <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
                     </svg>
                 </button>
-                
-                
-            </span>
+            </div>
         </div>
-        <ul id="menu" onscroll="menu_on_scroll()">
+        <ul id="menu">
             <li>
                 <a href="https://caiyy17.github.io/categories/" title="categories">
                     <span>categories</span>
@@ -216,71 +217,72 @@ ssh 设置 这个在用户文件夹下的.ssh/authorized_keys 中可以添加 ss
                 <a href="https://caiyy17.github.io/archives/" title="archives">
                     <span>archives</span>
                 </a>
-            </li></ul>
+            </li>
+        </ul>
     </nav>
 </header>
-
-    <main class="main">
+<main class="main">
 
 <article class="post-single">
   <header class="post-header">
-<div class="breadcrumbs">
-
-    <a href="https://caiyy17.github.io">Home</a>
-</div>
-
+    <div class="breadcrumbs"><a href="https://caiyy17.github.io">Home</a>&nbsp;»&nbsp;<a href="https://caiyy17.github.io/posts/">Posts</a></div>
     <h1 class="post-title">
       VPS1:购买以及设置
     </h1>
-    <div class="post-meta">September 30, 2018
-
+    <div class="post-meta"><span title='2018-09-30 00:00:00 +0000 UTC'>September 30, 2018</span>
 
 </div>
-  </header> 
-
-  <div class="toc">
+  </header> <div class="toc">
     <details >
-      <summary accesskey="c" title="(Alt + C)">
-        <div class="details">Table of Contents</div>
-      </summary>
-      <div class="inner"><ul><li>
-        <a href="#%e5%89%8d%e8%a8%80" aria-label="前言">前言</a><ul>
-            <li>
-        <a href="#%e8%bf%9e%e6%8e%a5%e6%9c%8d%e5%8a%a1%e5%99%a8" aria-label="连接服务器">连接服务器</a></li></ul>
-    </li><li>
-        <a href="#%e7%94%a8%e6%88%b7%e8%ae%be%e7%bd%ae" aria-label="用户设置">用户设置</a></li><li>
-        <a href="#ssh-%e8%ae%be%e7%bd%ae" aria-label="ssh 设置">ssh 设置</a></li><li>
-        <a href="#ok" aria-label="OK">OK</a></li></ul>
-      </div>
+        <summary accesskey="c" title="(Alt + C)">
+            <span class="details">Table of Contents</span>
+        </summary>
+
+        <div class="inner"><ul>
+                <li>
+                    <a href="#%e5%89%8d%e8%a8%80" aria-label="前言">前言</a><ul>
+                        
+                <li>
+                    <a href="#%e8%bf%9e%e6%8e%a5%e6%9c%8d%e5%8a%a1%e5%99%a8" aria-label="连接服务器">连接服务器</a></li></ul>
+                </li>
+                <li>
+                    <a href="#%e7%94%a8%e6%88%b7%e8%ae%be%e7%bd%ae" aria-label="用户设置">用户设置</a></li>
+                <li>
+                    <a href="#ssh-%e8%ae%be%e7%bd%ae" aria-label="ssh 设置">ssh 设置</a></li>
+                <li>
+                    <a href="#ok" aria-label="OK">OK</a>
+                </li>
+            </ul>
+        </div>
     </details>
-  </div>
-  <div class="post-content">
-<h1 id="前言">前言<a hidden class="anchor" aria-hidden="true" href="#前言">#</a></h1>
+</div>
+
+  <div class="post-content"><h1 id="前言">前言<a hidden class="anchor" aria-hidden="true" href="#前言">#</a></h1>
 <p>拥有一台自己的服务器是十分有必要的。</p>
 <h2 id="连接服务器">连接服务器<a hidden class="anchor" aria-hidden="true" href="#连接服务器">#</a></h2>
 <p>Windows 可以用 putty，使用 ssh 登陆，然后在 ssh 设置中添加自己的私钥，就可以连了。</p>
 <p>Mac 的话直接用系统自带的终端</p>
-<pre><code>ssh -p [port] [user]@[ip]
+<pre tabindex="0"><code>ssh -p [port] [user]@[ip]
 </code></pre><h1 id="用户设置">用户设置<a hidden class="anchor" aria-hidden="true" href="#用户设置">#</a></h1>
 <p>默认登陆的是 root 用户，但是这样是不安全的，我们可以建立管理员用户，然后只允许管理员用户切换到 root，再禁止 root 的 ssh 登陆，这样我们要使用 root 就只能先 ssh 登陆管理员账户，然后再使用密码切换到 root。</p>
 <ol>
 <li>
 <p>新建一个用户</p>
-<pre><code>useradd [user]
+<pre tabindex="0"><code>useradd [user]
 </code></pre></li>
 <li>
 <p>将用户添加至管理员组</p>
-<pre><code>usermod –g wheel [user]
+<pre tabindex="0"><code>usermod –g wheel [user]
 </code></pre></li>
 <li>
 <p>修改/etc/pam.d/su 配置</p>
 <p>去掉这行的注释，就完成了禁止普通用户切换 root</p>
-<pre><code>#auth required pam_wheel.so use_uid
+<pre tabindex="0"><code>#auth required pam_wheel.so use_uid
 </code></pre></li>
 <li>
 <p>修改/etc/ssh/sshd_config</p>
 <p>将 PermitRootLogin 选项改为</p>
-<pre><code>PermitRootLogin no
+<pre tabindex="0"><code>PermitRootLogin no
 </code></pre></li>
 </ol>
 <p>这样就禁止了 root 直接登陆。</p>
@@ -288,17 +290,17 @@ ssh 设置 这个在用户文件夹下的.ssh/authorized_keys 中可以添加 ss
 <p>这个在用户文件夹下的.ssh/authorized_keys 中可以添加 ssh 的公钥，然后就可以使用不同的私钥链接服务器了，保险起见得保证 <strong>从修改文件到确认可以用修改后的钥匙登陆前</strong> 最好都保持有一个终端窗口连在服务器上，这样玩意出问题还可以再次改那个文件。</p>
 <h1 id="ok">OK<a hidden class="anchor" aria-hidden="true" href="#ok">#</a></h1>
 <p>然后就可以愉快地在服务器中安装各种软件了&hellip;&hellip;附上一些现成代码</p>
-<pre><code>useradd -g wheel admin
+<pre tabindex="0"><code>useradd -g wheel admin
 passwd admin
 
-echo &quot;&quot; &gt;&gt; /etc/pam.d/su
-echo &quot;auth required pam_wheel.so use_uid&quot; &gt;&gt; /etc/pam.d/su
+echo &#34;&#34; &gt;&gt; /etc/pam.d/su
+echo &#34;auth required pam_wheel.so use_uid&#34; &gt;&gt; /etc/pam.d/su
 
-echo &quot;&quot; &gt;&gt; /etc/ssh/sshd_config
-echo &quot;RSAAuthentication yes&quot; &gt;&gt; /etc/ssh/sshd_config
-echo &quot;PubkeyAuthentication yes&quot; &gt;&gt; /etc/ssh/sshd_config
-echo &quot;PermitRootLogin no&quot; &gt;&gt; /etc/ssh/sshd_config
-echo &quot;PasswordAuthentication no&quot; &gt;&gt; /etc/ssh/sshd_config
+echo &#34;&#34; &gt;&gt; /etc/ssh/sshd_config
+echo &#34;RSAAuthentication yes&#34; &gt;&gt; /etc/ssh/sshd_config
+echo &#34;PubkeyAuthentication yes&#34; &gt;&gt; /etc/ssh/sshd_config
+echo &#34;PermitRootLogin no&#34; &gt;&gt; /etc/ssh/sshd_config
+echo &#34;PasswordAuthentication no&#34; &gt;&gt; /etc/ssh/sshd_config
 service sshd restart
 
 su admin
@@ -310,53 +312,51 @@ touch authorized_keys
 echo [your_public_keys] &gt; authorized_keys
 chmod 644 authorized_keys
 </code></pre>
-</div>
+
+  </div>
+
   <footer class="post-footer">
     <ul class="post-tags">
       <li><a href="https://caiyy17.github.io/tags/vps/">VPS</a></li>
     </ul>
-    <nav class="paginav">
-      <a class="prev" href="https://caiyy17.github.io/posts/computer/linux%E5%9F%BA%E6%9C%AC%E5%91%BD%E4%BB%A4/">
-        <span class="title">« Prev Page</span>
-        <br>
-        <span>Linux1:基本命令</span>
-      </a>
-      <a class="next" href="https://caiyy17.github.io/posts/computer/yubikey1_%E4%B8%AA%E4%BA%BA%E5%AE%89%E5%85%A8/">
-        <span class="title">Next Page »</span>
-        <br>
-        <span>YubiKey1:个人安全与YubiKey</span>
-      </a>
-    </nav>
+<nav class="paginav">
+  <a class="prev" href="https://caiyy17.github.io/posts/computer/linux%E5%9F%BA%E6%9C%AC%E5%91%BD%E4%BB%A4/">
+    <span class="title">« Prev</span>
+    <br>
+    <span>Linux1:基本命令</span>
+  </a>
+  <a class="next" href="https://caiyy17.github.io/posts/computer/yubikey1_%E4%B8%AA%E4%BA%BA%E5%AE%89%E5%85%A8/">
+    <span class="title">Next »</span>
+    <br>
+    <span>YubiKey1:个人安全与YubiKey</span>
+  </a>
+</nav>
+
   </footer>
 </article>
-    </main><footer class="footer">
+    </main>
+    
+<footer class="footer">
     <span>&copy; 2023 <a href="https://caiyy17.github.io">caiyy17</a></span>
-    <span>&middot;</span>
-    <span>Powered by <a href="https://gohugo.io/" rel="noopener noreferrer" target="_blank">Hugo</a></span>
-    <span>&middot;</span>
-    <span>Theme <a href="https://git.io/hugopapermod" rel="noopener" target="_blank">PaperMod</a></span>
+    <span>
+        Powered by
+        <a href="https://gohugo.io/" rel="noopener noreferrer" target="_blank">Hugo</a> &
+        <a href="https://github.com/adityatelange/hugo-PaperMod/" rel="noopener" target="_blank">PaperMod</a>
+    </span>
 </footer>
-<a href="#top" aria-label="go to top" title="Go to Top (Alt + G)">
-    <button class="top-link" id="top-link" type="button" accesskey="g">
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 6" fill="currentColor">
-            <path d="M12 6H0l6-6z" />
-        </svg>
-    </button>
+<a href="#top" aria-label="go to top" title="Go to Top (Alt + G)" class="top-link" id="top-link" accesskey="g">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 6" fill="currentColor">
+        <path d="M12 6H0l6-6z" />
+    </svg>
 </a>
 
-
-
-<script defer src="/assets/js/highlight.min.27cd435cc9ed6abb4b496581b151804f79f366c412620272bb94e2f5f598ebcc.js" integrity="sha256-J81DXMntartLSWWBsVGAT3nzZsQSYgJyu5Ti9fWY68w="
-    onload="hljs.initHighlightingOnLoad();"></script>
 <script>
-    window.onload = function () {
-        if (localStorage.getItem("menu-scroll-position")) {
-            document.getElementById('menu').scrollLeft = localStorage.getItem("menu-scroll-position");
+    let menu = document.getElementById('menu')
+    if (menu) {
+        menu.scrollLeft = localStorage.getItem("menu-scroll-position");
+        menu.onscroll = function () {
+            localStorage.setItem("menu-scroll-position", menu.scrollLeft);
         }
-    }
-
-    function menu_on_scroll() {
-        localStorage.setItem("menu-scroll-position", document.getElementById('menu').scrollLeft);
     }
 
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
@@ -404,7 +404,6 @@ chmod 644 authorized_keys
     })
 
 </script>
-
 </body>
 
 </html>

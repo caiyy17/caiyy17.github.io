@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
     <title>Markdown on caiyy17</title>
     <link>https://caiyy17.github.io/tags/markdown/</link>
@@ -18,7 +18,7 @@ Pandoc 是一个开源的万能文档转换软件，可以在 pdf，md，word，
 安装 直接 brew 安装即可，还要安装 pandoc-citeproc，vscode 插件也是一键安装。
 然后是配置，word 不需要配置，html 需要配置命令行参数，在设置的 string 里面填入就行。
 html 参数 --standalone --self-contained --css pandoc.css 以上转换命令中选项含义介绍如下。
- “–standalone”：为目标格式文件增加合适的“header”和“footer”。如果目标格式是“HTML”，那么通过该选项可解决“由于未设置合适的字符编码，而导致的乱码问题”。 “–self-contained” ：如果目标格式是“HTML”，那么可得到如下效果：在转换得到目标 HTML 文件的过程中，会将依赖的“脚本，CSS，图片，视频”等文件的内容内嵌到目标 HTML 文件中。 “–css pandoc.css” ：使得目标格式文件最后使用“pandoc.css”文件作为 CSS 文件，否则，使用默认的 CSS 文件。  PDF 参数 pdf 需要 latex 的支持，mac 可以装 Mactex，Win 有 texlive（不过要配置环境变量）
+“–standalone”：为目标格式文件增加合适的“header”和“footer”。如果目标格式是“HTML”，那么通过该选项可解决“由于未设置合适的字符编码，而导致的乱码问题”。 “–self-contained” ：如果目标格式是“HTML”，那么可得到如下效果：在转换得到目标 HTML 文件的过程中，会将依赖的“脚本，CSS，图片，视频”等文件的内容内嵌到目标 HTML 文件中。 “–css pandoc.css” ：使得目标格式文件最后使用“pandoc.css”文件作为 CSS 文件，否则，使用默认的 CSS 文件。 PDF 参数 pdf 需要 latex 的支持，mac 可以装 Mactex，Win 有 texlive（不过要配置环境变量）
 然而当你尝试的时候就会有各种 bug，网上也有解决方案，但都不是很漂亮，所以我就放弃了这个选项&amp;hellip;&amp;hellip;
 所以 最终我选择了把 md 转为 word 然后可以使用 word 的公式编辑器编写公式&amp;hellip;&amp;hellip;</description>
     </item>
@@ -33,7 +33,7 @@ html 参数 --standalone --self-contained --css pandoc.css 以上转换命令中
 转至 html 后便可以配合已经编写好的.css 文件，统一排版成自己想要的格式。便可以发布在自己的网站上了。然而自己便携插件还是有些困难，好在有 hexo 或者 markdownhere 等软件和插件的帮助。前者可以帮助我们制作博客，后者可以直接在 chrome 中将 markdown 原文在公众号网站中转换为带格式的文本。
 之后就不需要麻烦的公众号编辑器，只需要每次写 Markdown 就行了。
 Markdown 对 html 的支持 这里说一下 Markdown 原生对 html 的支持。Markdown 的语法默认有对应的 html 语法，对应如下：(html 闭合部分省略，详细结构可以查 html 相应格式)
-   Markdown html     段落（两个换行符） &amp;lt;p&amp;gt;   x 级标题 &amp;lt;nx&amp;gt;   无序列表 &amp;lt;ul&amp;gt;   有序列表 &amp;lt;ol&amp;gt;   代码块 &amp;lt;code&amp;gt;   引用 &amp;lt;blockquote&amp;gt;   分割线 &amp;lt;hr/&amp;gt;   表格 &amp;lt;table&amp;gt;   链接 &amp;lt;a&amp;gt;   图片 &amp;lt;img&amp;gt;   *强调 &amp;lt;em&amp;gt;   **强调 &amp;lt;strong&amp;gt;    而在 Markdown 中也可以自由插入 html 的代码，转换器会在转换的时候保留 html 的代码保持不动（有可能需要设置一下）。例如&amp;lt;br/&amp;gt;</description>
+Markdown html 段落（两个换行符） &amp;lt;p&amp;gt; x 级标题 &amp;lt;nx&amp;gt; 无序列表 &amp;lt;ul&amp;gt; 有序列表 &amp;lt;ol&amp;gt; 代码块 &amp;lt;code&amp;gt; 引用 &amp;lt;blockquote&amp;gt; 分割线 &amp;lt;hr/&amp;gt; 表格 &amp;lt;table&amp;gt; 链接 &amp;lt;a&amp;gt; 图片 &amp;lt;img&amp;gt; *强调 &amp;lt;em&amp;gt; **强调 &amp;lt;strong&amp;gt; 而在 Markdown 中也可以自由插入 html 的代码，转换器会在转换的时候保留 html 的代码保持不动（有可能需要设置一下）。例如&amp;lt;br/&amp;gt;</description>
     </item>
     
     <item>
@@ -51,18 +51,18 @@ Markdown 概述 Markdown 的宗旨便是易写易读，即便一篇 Markdown 文
 Markdown 语法 好了，我们正式开始。
 换行 和 Latex 差不多 Markdown 使用一个空行来换行
 例：
-这是一个段落这是一个段落 效果：
- 这是一个段落
+这是一个段落这是一个段落效果：
 这是一个段落
- 当然，Markdown 也可以使用在行末尾加上两个或以上空格加来换行。（其实是在末尾加了&amp;lt;br/&amp;gt;）
-这是一个段落（末尾有两个空格）这是一个段落 效果：
- 这是一个段落
 这是一个段落
- 会发现这样的的强制换行间距与空行换行不一样
+当然，Markdown 也可以使用在行末尾加上两个或以上空格加来换行。（其实是在末尾加了&amp;lt;br/&amp;gt;）
+这是一个段落（末尾有两个空格）这是一个段落效果：
+这是一个段落
+这是一个段落
+会发现这样的的强制换行间距与空行换行不一样
 标题 Markdown 支持 6 级标题，分别用不一样数量的#来标记注意一定要在#后面加空格
 例：
-# 这是H1## 这是H2###### 这是H6 效果：
- 这是 H1 这是 H2 这是 H6  引用 引用和 email 中的很像，在引用区块的每行前面加一个或多个&amp;gt;（几个就是几级）</description>
+# 这是H1## 这是H2###### 这是H6效果：
+这是 H1 这是 H2 这是 H6 引用 引用和 email 中的很像，在引用区块的每行前面加一个或多个&amp;gt;（几个就是几级）</description>
     </item>
     
   </channel>
